@@ -8,22 +8,32 @@
 * iPhone Video Toys
 ** Moment Cases
 'cause mine is somewhat broken now
-- https://www.shopmoment.com/shop/iphone-case/iphone-11-pro-max-black
-- https://www.shopmoment.com/products/iphone-thin-case/iphone-11-pro-max-indigo-blue
+
+- [[https://www.shopmoment.com/shop/iphone-case/iphone-11-pro-max-black][iPhone 11 Pro Max Moment Cases]]
+- [[https://www.shopmoment.com/products/iphone-thin-case/iphone-11-pro-max-indigo-blue][Moment Thin Case]]
+#+DOWNLOADED: screenshot @ 2021-02-14 14:11:39
+[[file:iPhone_Video_Toys/2021-02-14_14-11-39_screenshot.png]]
+
 
 ** Moment Lenses & filters
 it makes for other pretties
-- https://www.shopmoment.com/shop/anamorphic-lens
-- https://www.shopmoment.com/shop/macro-lens#slide-1
+- [[https://www.shopmoment.com/shop/anamorphic-lens][Moment - Anamorphic Lens]]
+- [[https://www.shopmoment.com/shop/macro-lens][Moment - Macro Lens]]
+
+#+DOWNLOADED: screenshot @ 2021-02-14 14:13:37
+[[file:iPhone_Video_Toys/2021-02-14_14-13-37_screenshot.png]]
 
 yeah I've already got one of these kinda but this one has HOLES for the microphone
-- https://www.shopmoment.com/products/67mm-cinebloom-phone-filter-set
+- [[https://www.shopmoment.com/products/67mm-cinebloom-phone-filter-set][Moment - VND Filter Set]]
 
 ** Lil' clips
 just clip em onto things
-- https://www.shopmoment.com/products/anchor-links/anchor-links
+- [[https://www.shopmoment.com/products/anchor-links/anchor-links][Moment - Anchor Links]]
 
 
-* More Earphones
+* Earphones
 because you can never get enough, and my decade-old headphones don't communicate so well anymore even if they're still good
-- https://www.logitechg.com/en-us/products/gaming-audio/g935-wireless-7-1-surround-sound-lightsync-gaming-headset.981-000742.html
+- [[https://www.logitechg.com/en-us/products/gaming-audio/g935-wireless-7-1-surround-sound-lightsync-gaming-headset.981-000742.html][Logitech G935 Wireless Headset]]
+
+#+DOWNLOADED: screenshot @ 2021-02-14 14:14:58
+[[file:More_Earphones/2021-02-14_14-14-58_screenshot.png]]
