@@ -1,0 +1,29 @@
+#+TITLE: Gift ideas
+# Disable table of contents
+#+OPTIONS: num:nil
+
+#+INFOJS_OPT: view:showall toc:nil ltoc:nil mouse:underline buttons:0 path:../js/org-info.js
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../css/solarized-light.css" />
+
+* iPhone Video Toys
+** Moment Cases
+'cause mine is somewhat broken now
+- https://www.shopmoment.com/shop/iphone-case/iphone-11-pro-max-black
+- https://www.shopmoment.com/products/iphone-thin-case/iphone-11-pro-max-indigo-blue
+
+** Moment Lenses & filters
+it makes for other pretties
+- https://www.shopmoment.com/shop/anamorphic-lens
+- https://www.shopmoment.com/shop/macro-lens#slide-1
+
+yeah I've already got one of these kinda but this one has HOLES for the microphone
+- https://www.shopmoment.com/products/67mm-cinebloom-phone-filter-set
+
+** Lil' clips
+just clip em onto things
+- https://www.shopmoment.com/products/anchor-links/anchor-links
+
+
+* More Earphones
+because you can never get enough, and my decade-old headphones don't communicate so well anymore even if they're still good
+- https://www.logitechg.com/en-us/products/gaming-audio/g935-wireless-7-1-surround-sound-lightsync-gaming-headset.981-000742.html
