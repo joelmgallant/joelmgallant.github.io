@@ -37,5 +37,13 @@ because you can never get enough, and my decade-old headphones don't communicate
 #+DOWNLOADED: screenshot @ 2021-02-14 14:14:58
 [[file:More_Earphones/2021-02-14_14-14-58_screenshot.png]]
 
+* Toys
+** [[https://store.dji.com/ca/product/mini-2][dji mini 2]] :a:
+that drone life - small enough to not break laws
+
+#+DOWNLOADED: screenshot @ 2021-02-17 17:46:51
+[[file:Toys/2021-02-17_17-46-51_screenshot.png]]
+
+
 * Others
 - some new kind of resistance bands would be good
