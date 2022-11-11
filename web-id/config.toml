@@ -1,0 +1,27 @@
+baseURL = 'http://joelmgallant.com/'
+languageCode = 'en-us'
+title = 'joelmgallant'
+theme = 'awesome-identity'
+
+
+## Profile Configurations
+[params.profile]
+  portrait = "/images/headshot.jpg"
+  firstname = "Joel"
+  lastname = "Gallant"
+  title = "Technologist"
+  bio = """ just a whole bunch of garbage lol"""
+
+## Contacts Configurations
+[params.contacts]
+  email = "joelmgallant@gmail.com"
+  github = "joelmgallant"
+  facebook = "joelmgallant"
+  linkedin = "joelmgallant"
+  instagram = "joelmgallant"
+
+
+## Footer Configurations
+[params.footer]
+  copyright = "© Joel Gallant, 2022"
+  poweredBy = true
