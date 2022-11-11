@@ -1,0 +1,11 @@
+$red_mix: 0;
+$green_mix: 200;
+$blue_mix: 250;
+
+$main_color: rgb($red_mix, $green_mix, $blue_mix);
+@import "global";
+@import "footer";
+
+@import "profile";
+@import "contacts";
+@import "actions";
