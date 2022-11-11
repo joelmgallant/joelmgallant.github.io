@@ -9,15 +9,23 @@ theme = 'awesome-identity'
   portrait = "/images/headshot.jpg"
   firstname = "Joel"
   lastname = "Gallant"
-  title = "Technologist"
-  bio = """ just a whole bunch of garbage lol"""
+  title = "Generalist Technologist"
+  bio = """
+    DevOps, Distributed Apps,\n
+    Media, Management [and more]
+    """
+
+## More things to click on
+[params.actions]
+   resume.name = "CV (PDF)"
+   resume.url = "/resume.pdf"
 
 ## Contacts Configurations
 [params.contacts]
+  linkedin = "joelmgallant"
   email = "joelmgallant@gmail.com"
   github = "joelmgallant"
   facebook = "joelmgallant"
-  linkedin = "joelmgallant"
   instagram = "joelmgallant"
 
 
