@@ -1,4 +1,4 @@
-baseURL = 'http://joelmgallant.com/'
+baseURL = 'http://joelmgallant.com/web-id/public/'
 languageCode = 'en-us'
 title = 'joelmgallant'
 theme = 'awesome-identity'

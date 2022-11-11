@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>joelmgallant</title>
-    <link>http://joelmgallant.com/</link>
+    <link>http://joelmgallant.com/web-id/public/</link>
     <description>Recent content on joelmgallant</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://joelmgallant.com/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="http://joelmgallant.com/web-id/public/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

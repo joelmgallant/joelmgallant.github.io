@@ -2,10 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://joelmgallant.com/categories/</loc>
+    <loc>http://joelmgallant.com/web-id/public/categories/</loc>
   </url><url>
-    <loc>http://joelmgallant.com/</loc>
+    <loc>http://joelmgallant.com/web-id/public/</loc>
   </url><url>
-    <loc>http://joelmgallant.com/tags/</loc>
+    <loc>http://joelmgallant.com/web-id/public/tags/</loc>
   </url>
 </urlset>
