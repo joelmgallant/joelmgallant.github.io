@@ -9,9 +9,9 @@ theme = 'awesome-identity'
   portrait = "/images/headshot.jpg"
   firstname = "Joel"
   lastname = "Gallant"
-  title = "Generalist Technologist"
+  title = "Technical Leadership\nGeneralist Technologist"
   bio = """
-    DevOps, Distributed Apps,\n
+    DevOps, AI, Distributed Apps,\n
     Media, Management [and more]
     """
 
