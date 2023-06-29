@@ -6,7 +6,7 @@ theme = 'awesome-identity'
 
 ## Profile Configurations
 [params.profile]
-  portrait = "/images/headshot-comp-process.jpg"
+  portrait = "/images/headshot.jpg"
   firstname = "Joel"
   lastname = "Gallant"
   title = """
