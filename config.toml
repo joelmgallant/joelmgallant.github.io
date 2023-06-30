@@ -14,22 +14,22 @@ theme = 'awesome-identity'
     Generalist Technologist
   """
   bio = """
-    DevOps, AI, Distributed Apps,\n
+    DevOps, Distributed Apps, AI,\n
     Media, Management [and more]
     """
 
 ## More things to click on
 [params.actions]
-   resume.name = "CV (PDF)"
-   resume.url = "/resume-joelmgallant.pdf"
+   ## resume.name = "CV (PDF)"
+   ## resume.url = "/resume-joelmgallant.pdf"
 
 ## Contacts Configurations
 [params.contacts]
-  linkedin = "joelmgallant"
   email = "joelmgallant@gmail.com"
   github = "joelmgallant"
   facebook = "joelmgallant"
   instagram = "joelmgallant"
+  linkedin = "joelmgallant"
 
 
 ## Footer Configurations
