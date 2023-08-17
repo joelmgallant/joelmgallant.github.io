@@ -20,8 +20,8 @@ theme = 'awesome-identity'
 
 ## More things to click on
 [params.actions]
-   ## resume.name = "CV (PDF)"
-   ## resume.url = "/resume-joelmgallant.pdf"
+  resume.name = "CV (PDF)"
+  resume.url = "/resume-joelmgallant.pdf"
 
 ## Contacts Configurations
 [params.contacts]
