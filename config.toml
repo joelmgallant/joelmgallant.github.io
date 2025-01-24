@@ -34,5 +34,5 @@ theme = 'awesome-identity'
 
 ## Footer Configurations
 [params.footer]
-  copyright = "© Joel Gallant, 2023"
+  copyright = "© Joel Gallant, 2025"
   poweredBy = true
