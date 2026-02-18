@@ -24,7 +24,12 @@ draft: true
 
 ```
 
-4. Tell the user the file was created and remind them:
+4. Open the file in VS Code Insiders:
+   ```
+   code-insiders content/posts/<slug>.md
+   ```
+
+5. Tell the user the file was created and remind them:
    - `draft: true` means it won't show in production builds
    - Use `hugo server -D` to preview drafts locally
    - Set `draft: false` when ready to publish
