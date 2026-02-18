@@ -94,7 +94,7 @@
         <h1>The <b>Blog</b></h1>
       </div>
 
-      {{ $posts := where .Pages "Draft" false }}
+      {{ $posts := .Pages }}
       {{ if $posts }}
       <ul class="post-list">
         {{ range $posts.ByDate.Reverse }}

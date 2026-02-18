@@ -24,9 +24,9 @@ draft: true
 
 ```
 
-4. Open the file in VS Code Insiders:
+4. Open the project workspace and the new file in VS Code Insiders:
    ```
-   code-insiders content/posts/<slug>.md
+   code-insiders . content/posts/<slug>.md
    ```
 
 5. Tell the user the file was created and remind them:
