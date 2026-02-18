@@ -1,0 +1,4072 @@
+[
+  {
+    "id": "C044V30T81K",
+    "name": "mpdm-kieran--joel--brody-1",
+    "topic": "",
+    "purpose": "Group messaging with: @kieran @joel @brody",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C046DECQL73",
+    "name": "mpdm-rodrigo--jr--joel-1",
+    "topic": "",
+    "purpose": "Group messaging with: @rodrigo @jr @joel",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C03TYSE8AGL",
+    "name": "mpdm-joel--brody--kate-1",
+    "topic": "",
+    "purpose": "Group messaging with: @joel @brody @kate",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C07HCHC6Z8W",
+    "name": "mpdm-joel--gatta--nany625-1",
+    "topic": "",
+    "purpose": "Group messaging with: @joel @gatta @nany625",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C033ZF27XK8",
+    "name": "mpdm-joel--martin--colin-1",
+    "topic": "",
+    "purpose": "Group messaging with: @joel @martin @colin",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C033LKWBDR8",
+    "name": "mpdm-kate--jorge--joel--vinicius--rodrigo-1",
+    "topic": "",
+    "purpose": "Group messaging with: @kate @jorge @joel @vinicius @rodrigo",
+    "memberCount": 5,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C03BUF07BF0",
+    "name": "mpdm-alexandre--joel--alexzani-1",
+    "topic": "",
+    "purpose": "Group messaging with: @alexandre @joel @alexzani",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C05HF5Y8P8E",
+    "name": "mpdm-gatta--joel--lara-1",
+    "topic": "",
+    "purpose": "Group messaging with: @gatta @joel @lara",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C03EVJ5LU6P",
+    "name": "mpdm-alexandre--colin--joel--alexzani-1",
+    "topic": "",
+    "purpose": "Group messaging with: @alexandre @colin @joel @alexzani",
+    "memberCount": 4,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C04AFMH4T4G",
+    "name": "mpdm-rodrigo--vinicius--joel--edon-1",
+    "topic": "",
+    "purpose": "Group messaging with: @rodrigo @vinicius @joel @edon",
+    "memberCount": 4,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C074C4WSZ6D",
+    "name": "mpdm-aseef--jorge--joel--gatta--vinicius-1",
+    "topic": "",
+    "purpose": "Group messaging with: @aseef @jorge @joel @gatta @vinicius",
+    "memberCount": 5,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C030S1A3Q4T",
+    "name": "mpdm-vinicius--aseef--tim--joel-1",
+    "topic": "",
+    "purpose": "Group messaging with: @vinicius @aseef @tim @joel",
+    "memberCount": 4,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C06KJ4N0QGK",
+    "name": "mpdm-joel--patrick--julio.mendes-1",
+    "topic": "",
+    "purpose": "Group messaging with: @joel @patrick @julio.mendes",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C03RTF6S32B",
+    "name": "mpdm-aseef--brody--kate--joel--sorin--kieran-1",
+    "topic": "",
+    "purpose": "Group messaging with: @aseef @brody @kate @joel @sorin @kieran",
+    "memberCount": 6,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C02UW49HZL1",
+    "name": "mpdm-joel--colin--sakshi-1",
+    "topic": "",
+    "purpose": "Group messaging with: @joel @colin @sakshi",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C033E0S8VB8",
+    "name": "mpdm-kate--jorge--joel-1",
+    "topic": "",
+    "purpose": "Group messaging with: @kate @jorge @joel",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C053JR0PZT5",
+    "name": "mpdm-joel--aseef--vinicius--alexandre-1",
+    "topic": "",
+    "purpose": "Group messaging with: @joel @aseef @vinicius @alexandre",
+    "memberCount": 4,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C067R59ML2Y",
+    "name": "mpdm-sorin--joel--alexzani--aseef-1",
+    "topic": "",
+    "purpose": "Group messaging with: @sorin @joel @alexzani @aseef",
+    "memberCount": 4,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C02Q7AK7RU4",
+    "name": "mpdm-jeremy--renato--colin--joel-1",
+    "topic": "",
+    "purpose": "Group messaging with: @jeremy @renato @colin @joel",
+    "memberCount": 4,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C073VS08WP2",
+    "name": "mpdm-joel--aseef--gatta--jorge-1",
+    "topic": "",
+    "purpose": "Group messaging with: @joel @aseef @gatta @jorge",
+    "memberCount": 4,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C034V57RDH6",
+    "name": "mpdm-kate--joel--alex-1",
+    "topic": "",
+    "purpose": "Group messaging with: @kate @joel @alex",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C04CG2G904C",
+    "name": "mpdm-rodrigo--caiolasagno--joel-1",
+    "topic": "",
+    "purpose": "Group messaging with: @rodrigo @caiolasagno @joel",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C05AP2LQUBB",
+    "name": "mpdm-joel--samuel--kate-1",
+    "topic": "",
+    "purpose": "Group messaging with: @joel @samuel @kate",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C03HSHEJFRN",
+    "name": "mpdm-alexandre--aseef--joel--alexzani--vinicius-1",
+    "topic": "",
+    "purpose": "Group messaging with: @alexandre @aseef @joel @alexzani @vinicius",
+    "memberCount": 5,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C033LLJNVR9",
+    "name": "mpdm-kate--rodrigo--vinicius--joel--jorge--kieran--colin-1",
+    "topic": "",
+    "purpose": "Group messaging with: @kate @rodrigo @vinicius @joel @jorge @kieran @colin",
+    "memberCount": 7,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C06FNFALDAT",
+    "name": "mpdm-kate--joel--julio.mendes-1",
+    "topic": "",
+    "purpose": "Group messaging with: @kate @joel @julio.mendes",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C04FBM764SG",
+    "name": "mpdm-joel--sorin--aseef-1",
+    "topic": "",
+    "purpose": "Group messaging with: @joel @sorin @aseef",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C036H5W2S74",
+    "name": "mpdm-kate--joel--carole--colin-1",
+    "topic": "",
+    "purpose": "Group messaging with: @kate @joel @carole @colin",
+    "memberCount": 4,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C0511NRF2N9",
+    "name": "mpdm-alexzani--joel--gatta-1",
+    "topic": "",
+    "purpose": "Group messaging with: @alexzani @joel @gatta",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C08KFMK1RLN",
+    "name": "mpdm-vinicius--jorge--joel-1",
+    "topic": "",
+    "purpose": "Group messaging with: @vinicius @jorge @joel",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C066A0656F3",
+    "name": "mpdm-joel--kate--sorin--aseef-1",
+    "topic": "sync?",
+    "purpose": "Group messaging with: @joel @kate @sorin @aseef",
+    "memberCount": 4,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C058VHQ2VQF",
+    "name": "mpdm-joel--carole--kate-1",
+    "topic": "",
+    "purpose": "Group messaging with: @joel @carole @kate",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C033LL33DS6",
+    "name": "mpdm-kate--gatta--rodrigo--vinicius--joel-1",
+    "topic": "",
+    "purpose": "Group messaging with: @kate @gatta @rodrigo @vinicius @joel",
+    "memberCount": 5,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C02KB4ZVAKZ",
+    "name": "mpdm-joel--jorge--martha-1",
+    "topic": "",
+    "purpose": "Group messaging with: @joel @jorge @martha",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C02QN12T5A8",
+    "name": "mpdm-colin--alec--joel-1",
+    "topic": "",
+    "purpose": "Group messaging with: @colin @alec @joel",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C03362HM77H",
+    "name": "mpdm-kate--gatta--rodrigo--vinicius--joel--jorge-1",
+    "topic": "",
+    "purpose": "Group messaging with: @kate @gatta @rodrigo @vinicius @joel @jorge",
+    "memberCount": 6,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C03DDPJN2EN",
+    "name": "mpdm-joel--kate--colin-1",
+    "topic": "",
+    "purpose": "Group messaging with: @joel @kate @colin",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C02PQD6FGB1",
+    "name": "mpdm-joel--colin--jeremy-1",
+    "topic": "",
+    "purpose": "Group messaging with: @joel @colin @jeremy",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C046S1YL75M",
+    "name": "mpdm-samuel--joel--brody-1",
+    "topic": "",
+    "purpose": "Group messaging with: @samuel @joel @brody",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C037YLHSE2D",
+    "name": "mpdm-joel--brody--alex--kate--colin-1",
+    "topic": "",
+    "purpose": "Group messaging with: @joel @brody @alex @kate @colin",
+    "memberCount": 5,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C04TM9XF196",
+    "name": "mpdm-alexandre--joel--aseef-1",
+    "topic": "",
+    "purpose": "Group messaging with: @alexandre @joel @aseef",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C03PY8XL7EW",
+    "name": "mpdm-alexandre--kate--joel--vinicius--vasco-1",
+    "topic": "",
+    "purpose": "Group messaging with: @alexandre @kate @joel @vinicius @vasco",
+    "memberCount": 5,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C08SNHGT8RJ",
+    "name": "mpdm-dodi--joel--vladimir-1",
+    "topic": "",
+    "purpose": "Group messaging with: @dodi @joel @vladimir",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C03PVA7BVB7",
+    "name": "mpdm-alexandre--joel--kate--firas--mirlind--edon--vinicius--vasco-1",
+    "topic": "",
+    "purpose": "Group messaging with: @alexandre @joel @kate @firas @mirlind @edon @vinicius @vasco",
+    "memberCount": 8,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C06MHHAGWRW",
+    "name": "mpdm-joel--alexzani--hugo-1",
+    "topic": "",
+    "purpose": "Group messaging with: @joel @alexzani @hugo",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C04MGC92QA1",
+    "name": "mpdm-tim--joel--aseef--sorin-1",
+    "topic": "",
+    "purpose": "Group messaging with: @tim @joel @aseef @sorin",
+    "memberCount": 4,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C081B69LT6E",
+    "name": "mpdm-joel--jr--martha-1",
+    "topic": "",
+    "purpose": "Group messaging with: @joel @jr @martha",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C08S4S0MUQP",
+    "name": "mpdm-dodi--joel--vladimir--vijai-1",
+    "topic": "",
+    "purpose": "Group messaging with: @dodi @joel @vladimir @vijai",
+    "memberCount": 4,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C03PY77KASX",
+    "name": "mpdm-alexandre--kate--joel--vinicius--vasco--edon--mirlind-1",
+    "topic": "",
+    "purpose": "Group messaging with: @alexandre @kate @joel @vinicius @vasco @edon @mirlind",
+    "memberCount": 7,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "D03EREJT1LM",
+    "name": "@translate",
+    "topic": "",
+    "purpose": "DM with Translate",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D0394QEDC67",
+    "name": "@firas",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D037YTZUS6A",
+    "name": "@victor",
+    "topic": "",
+    "purpose": "DM with Victor Lima",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D027JF6B3S9",
+    "name": "@joel",
+    "topic": "",
+    "purpose": "DM with Joel Gallant",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D0397DVNCEB",
+    "name": "@UJ8AHLUN4",
+    "topic": "",
+    "purpose": "DM with UJ8AHLUN4",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02A1PYGCDQ",
+    "name": "@hasitha.gnanissara",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D092MCUBKMF",
+    "name": "@rangel877",
+    "topic": "",
+    "purpose": "DM with Carlos Rangel",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D08LYUQAQTB",
+    "name": "@benderbot",
+    "topic": "",
+    "purpose": "DM with BenderBot",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D07H8JUF1LK",
+    "name": "@stavitsky252",
+    "topic": "",
+    "purpose": "DM with stavitsky",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D042CMH5JD6",
+    "name": "@alexsabucido",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D03DHGMK1DZ",
+    "name": "@U027DV8MHBK",
+    "topic": "",
+    "purpose": "DM with U027DV8MHBK",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02DYHTQFBR",
+    "name": "@edon",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D03NL6HGSSK",
+    "name": "@nany",
+    "topic": "",
+    "purpose": "DM with NanyR;",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D03CLTCEVM4",
+    "name": "@freeman",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02D8F038R2",
+    "name": "@alex",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D05D4HSBSE5",
+    "name": "@mahmoudsmiai",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D05448ADLCQ",
+    "name": "@brisa",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02TXNVJ6KT",
+    "name": "@carole",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D05SPV2053K",
+    "name": "@U05LLK9P5GU",
+    "topic": "",
+    "purpose": "DM with U05LLK9P5GU",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D027YST4JUW",
+    "name": "@jorge",
+    "topic": "",
+    "purpose": "DM with Jorge Marmolejo",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02HQBD10SK",
+    "name": "@jeremy",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D0282HTSBBP",
+    "name": "@vinicius",
+    "topic": "",
+    "purpose": "DM with Vinicius Esteves",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D0305CNTFB2",
+    "name": "@earl",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02DRTAERH6",
+    "name": "@kate",
+    "topic": "",
+    "purpose": "DM with Kate MacPhail",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02807AC2RX",
+    "name": "@jirabot",
+    "topic": "",
+    "purpose": "DM with Jira",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D027TMU8F0U",
+    "name": "@slackbot",
+    "topic": "",
+    "purpose": "DM with Slackbot",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D06DCHS7DB6",
+    "name": "@victor645",
+    "topic": "",
+    "purpose": "DM with Victor Lima",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D03B120Q6QY",
+    "name": "@mirlind",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D03HHFF2TAN",
+    "name": "@mouaffak",
+    "topic": "",
+    "purpose": "DM with mouaffak",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D081BJ72EF5",
+    "name": "@giovanni",
+    "topic": "",
+    "purpose": "DM with Giovanni Simões Cotrim",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D07EVUQ2AN4",
+    "name": "@seamus729",
+    "topic": "",
+    "purpose": "DM with Seamus",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D079VCDRAUR",
+    "name": "@gabriel",
+    "topic": "",
+    "purpose": "DM with José Gabriel M. Bezerra",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02TQ7KQHGT",
+    "name": "@vijai",
+    "topic": "",
+    "purpose": "DM with Vijai Karthigesu",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02898BMVFE",
+    "name": "@colin",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D032XNH8GJV",
+    "name": "@john",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D06NYDS7PAS",
+    "name": "@courtney",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D0800LGACKW",
+    "name": "@assad",
+    "topic": "",
+    "purpose": "DM with yahyawi assad",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D03EWDPACDA",
+    "name": "@caiolasagno",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02KGBHK9MX",
+    "name": "@simplepoll",
+    "topic": "",
+    "purpose": "DM with Simple Poll",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02EXTRKD3Q",
+    "name": "@googledrive",
+    "topic": "",
+    "purpose": "DM with Google Drive",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D08DZMVHNMB",
+    "name": "@dodi",
+    "topic": "",
+    "purpose": "DM with dodi",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02PJRSCJPP",
+    "name": "@vasco",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02D2U5S9TM",
+    "name": "@confluence",
+    "topic": "",
+    "purpose": "DM with Confluence",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02AN7CU18T",
+    "name": "@renato",
+    "topic": "",
+    "purpose": "DM with Renato Dattilo",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D027TS7BNUC",
+    "name": "@aseef",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D052JLPHEA0",
+    "name": "@gianna",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D042XLYTW4E",
+    "name": "@wb_bot_a02ty1w69fz",
+    "topic": "",
+    "purpose": "DM with Time Logging Reminder",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D03GVRBS128",
+    "name": "@opsgenie",
+    "topic": "",
+    "purpose": "DM with Opsgenie",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D0276UD7QFR",
+    "name": "@sorin",
+    "topic": "",
+    "purpose": "DM with Sorin Stoian",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D03NWNUFW65",
+    "name": "@tempo",
+    "topic": "",
+    "purpose": "DM with Tempo",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D051XG2BF9C",
+    "name": "@jamille",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D057072NNCV",
+    "name": "@boukhamsin",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02RKA9S57V",
+    "name": "@U02Q7F0R4F3",
+    "topic": "",
+    "purpose": "DM with U02Q7F0R4F3",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D027W7X744W",
+    "name": "@juliana",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D03G9GU5TV2",
+    "name": "@kylepottie",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D0276SDCR7Z",
+    "name": "@joelmgallant",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D028FKT38PK",
+    "name": "@olivier",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D04C7D6E64W",
+    "name": "@mark",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D038C0204JZ",
+    "name": "@george",
+    "topic": "",
+    "purpose": "DM with George Plytas",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D04SFJFUUHX",
+    "name": "@jmeter_notifications",
+    "topic": "",
+    "purpose": "DM with Jmeter Notifications",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D03EKVCTV8V",
+    "name": "@vladimir",
+    "topic": "",
+    "purpose": "DM with vladimir",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D0670GF0AET",
+    "name": "@julio.mendes",
+    "topic": "",
+    "purpose": "DM with Júlio Mendes",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02D8EWNU12",
+    "name": "@sakshi",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02SBEZ6L79",
+    "name": "@alexandre",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D06J4N0N4D6",
+    "name": "@patrick",
+    "topic": "",
+    "purpose": "DM with Patrick Botelho",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D03EVQAQU4B",
+    "name": "@alaaesam",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D036P33DSP2",
+    "name": "@tim",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D028BRATQ2F",
+    "name": "@tesh",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02DRTFSA1W",
+    "name": "@samuel",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D05JN2SV77C",
+    "name": "@miro",
+    "topic": "",
+    "purpose": "DM with Miro",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D03H68A7MH6",
+    "name": "@brad",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D04JU8AQ1EG",
+    "name": "@U02566YLS2K",
+    "topic": "",
+    "purpose": "DM with U02566YLS2K",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D067UKYGR6X",
+    "name": "@danswerbot",
+    "topic": "",
+    "purpose": "DM with DanswerBot",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D04S25S0199",
+    "name": "@abdul",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D03GU165H33",
+    "name": "@alexzani",
+    "topic": "",
+    "purpose": "DM with Alex Zani",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02CZU8GGCD",
+    "name": "@google_calendar",
+    "topic": "",
+    "purpose": "DM with Google Calendar",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D028UUH3NUR",
+    "name": "@dropbox",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D08KCNYPTCL",
+    "name": "@nany625",
+    "topic": "",
+    "purpose": "DM with nany rabello",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D028BQFDSCU",
+    "name": "@jonathan",
+    "topic": "",
+    "purpose": "DM with Jonathan Visva",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D065344SHPA",
+    "name": "@U05UKR0J3SR",
+    "topic": "",
+    "purpose": "DM with U05UKR0J3SR",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D037CSU1RCH",
+    "name": "@kieran",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D06SM0XC8J2",
+    "name": "@U05SPQQH402",
+    "topic": "",
+    "purpose": "DM with U05SPQQH402",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D063FB2C6V8",
+    "name": "@U04FSD764HZ",
+    "topic": "",
+    "purpose": "DM with U04FSD764HZ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D03AYK01GM7",
+    "name": "@noof",
+    "topic": "",
+    "purpose": "DM with Noof Abdulla",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D03B98U0SV6",
+    "name": "@laboni",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D065ZACTEAG",
+    "name": "@dilantha",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02D28MKMT4",
+    "name": "@martin",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D04FDCPK7NE",
+    "name": "@ted",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D037CMFQVHS",
+    "name": "@UJ7PH3QNQ",
+    "topic": "",
+    "purpose": "DM with UJ7PH3QNQ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02U9HUUCKX",
+    "name": "@github",
+    "topic": "",
+    "purpose": "DM with GitHub",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D029DE9KEH4",
+    "name": "@jr",
+    "topic": "",
+    "purpose": "DM with J.R. MacArthur",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D03GGDU51T5",
+    "name": "@mohamed",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D027JKKJ1J9",
+    "name": "@martha",
+    "topic": "",
+    "purpose": "DM with Martha Philippou",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D0667JF22M7",
+    "name": "@reclaim",
+    "topic": "",
+    "purpose": "DM with Reclaim",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D05ASLZV8PN",
+    "name": "@caio",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02D28K7HSP",
+    "name": "@brody",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D028BQFFTDJ",
+    "name": "@antonio",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D03J7EL8RFZ",
+    "name": "@gatta",
+    "topic": "",
+    "purpose": "DM with gatta",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02CZC8QJLV",
+    "name": "@alec",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02TMCMCMEF",
+    "name": "@rodrigo",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D08LG1J7THC",
+    "name": "@kamil",
+    "topic": "",
+    "purpose": "DM with kamil",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D03SE28PBPY",
+    "name": "@hugo",
+    "topic": "",
+    "purpose": "DM with Hugo Quirino",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C06SASUAKHN",
+    "name": "#telcel-mexico",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 4,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D03NWNUFW65",
+    "name": "@tempo",
+    "topic": "",
+    "purpose": "DM with Tempo",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C03EAPUT0LR",
+    "name": "#deployment-notification",
+    "topic": "",
+    "purpose": "Automated deployment notifications from GoLive",
+    "memberCount": 2,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C04JB9745GQ",
+    "name": "#data-intelligence-and-growth",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 2,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C06TD5H8S93",
+    "name": "#kibana-reports",
+    "topic": "Aggregation of service reporting for store support",
+    "purpose": "",
+    "memberCount": 3,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C05T4746W91",
+    "name": "#globe-crm",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 10,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C02TQ502458",
+    "name": "#esports-ops",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 4,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D051XG2BF9C",
+    "name": "@jamille",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D057072NNCV",
+    "name": "@boukhamsin",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02RKA9S57V",
+    "name": "@U02Q7F0R4F3",
+    "topic": "",
+    "purpose": "DM with U02Q7F0R4F3",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D027W7X744W",
+    "name": "@juliana",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C08LV4DF6HJ",
+    "name": "#claro-content",
+    "topic": "",
+    "purpose": "CMS / Blog content strategy and integration for \u003c#C07J6MGNRDL|\u003e",
+    "memberCount": 3,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C048T1EPYF3",
+    "name": "#reactive-mongo-connections",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 4,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C04UNM0R64V",
+    "name": "#xsolla",
+    "topic": "",
+    "purpose": "Platform review/notes",
+    "memberCount": 1,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D03G9GU5TV2",
+    "name": "@kylepottie",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C03ACMFF1NE",
+    "name": "#ae-etisalat",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 32,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C03DRQEUNP5",
+    "name": "#support-processes",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 7,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C04DQ5FHGAH",
+    "name": "#user-session-monitoring",
+    "topic": "",
+    "purpose": "tooling related to user session tracking \u0026amp; diagnostics",
+    "memberCount": 2,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D0276SDCR7Z",
+    "name": "@joelmgallant",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C03H4LSHM2P",
+    "name": "#argo-cicd",
+    "topic": "",
+    "purpose": "Discussions on Argo CI/CD and version control",
+    "memberCount": 8,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C04PE3MB4TU",
+    "name": "#media-service",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 2,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D028FKT38PK",
+    "name": "@olivier",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C04RG61H95M",
+    "name": "#voucher-service",
+    "topic": "",
+    "purpose": "\u003chttps://swarmio-media.atlassian.net/wiki/spaces/EMBER/pages/1185972226/Feature+Dynamic+Vouchers\u003e",
+    "memberCount": 4,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C061XJYHS6Q",
+    "name": "#publisher-and-partnerships",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 16,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C062S2S7J56",
+    "name": "#asiacell-iraq",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 4,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D04C7D6E64W",
+    "name": "@mark",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D038C0204JZ",
+    "name": "@george",
+    "topic": "",
+    "purpose": "DM with George Plytas",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D04SFJFUUHX",
+    "name": "@jmeter_notifications",
+    "topic": "",
+    "purpose": "DM with Jmeter Notifications",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D03EKVCTV8V",
+    "name": "@vladimir",
+    "topic": "",
+    "purpose": "DM with vladimir",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C03B75GLAAX",
+    "name": "#dev-onboarding",
+    "topic": "what does swarmio even do?",
+    "purpose": "Questions? Documentation? Anything!",
+    "memberCount": 9,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C03TQ3F5DL6",
+    "name": "#no-code",
+    "topic": "",
+    "purpose": "delivering without developing",
+    "memberCount": 1,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C06QU0XG421",
+    "name": "#genie",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 1,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D0670GF0AET",
+    "name": "@julio.mendes",
+    "topic": "",
+    "purpose": "DM with Júlio Mendes",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02D8EWNU12",
+    "name": "@sakshi",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02SBEZ6L79",
+    "name": "@alexandre",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C04UGGGQY73",
+    "name": "#referral-program",
+    "topic": "",
+    "purpose": "This channel is a collaboration of Data - Dev and Marketing teams  to start working on the referral program for the hub platform.",
+    "memberCount": 3,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D06J4N0N4D6",
+    "name": "@patrick",
+    "topic": "",
+    "purpose": "DM with Patrick Botelho",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D03EVQAQU4B",
+    "name": "@alaaesam",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D036P33DSP2",
+    "name": "@tim",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D028BRATQ2F",
+    "name": "@tesh",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C03B3UKL1NY",
+    "name": "#ooredoo",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 26,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C04RW03VA4E",
+    "name": "#battle-hive",
+    "topic": "",
+    "purpose": "asynchronous competition format discussion",
+    "memberCount": 2,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D02DRTFSA1W",
+    "name": "@samuel",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C027TMU99N0",
+    "name": "#random",
+    "topic": "",
+    "purpose": "This channel is for... well, everything else. It’s a place for team jokes, spur-of-the-moment ideas, and funny GIFs. Go wild!",
+    "memberCount": 57,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C04U0UNHXH7",
+    "name": "#store-creative",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 2,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C07DQJ4SDA6",
+    "name": "#storedust",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 12,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D05JN2SV77C",
+    "name": "@miro",
+    "topic": "",
+    "purpose": "DM with Miro",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D03H68A7MH6",
+    "name": "@brad",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C0564N8JGJZ",
+    "name": "#viber",
+    "topic": "",
+    "purpose": "Viber channel",
+    "memberCount": 2,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C084FMLNX1V",
+    "name": "#horizon",
+    "topic": "production site testing",
+    "purpose": "",
+    "memberCount": 31,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D04JU8AQ1EG",
+    "name": "@U02566YLS2K",
+    "topic": "",
+    "purpose": "DM with U02566YLS2K",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D067UKYGR6X",
+    "name": "@danswerbot",
+    "topic": "",
+    "purpose": "DM with DanswerBot",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D04S25S0199",
+    "name": "@abdul",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D03GU165H33",
+    "name": "@alexzani",
+    "topic": "",
+    "purpose": "DM with Alex Zani",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C068HL86WPJ",
+    "name": "#ask-danswer",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 5,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D02CZU8GGCD",
+    "name": "@google_calendar",
+    "topic": "",
+    "purpose": "DM with Google Calendar",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D028UUH3NUR",
+    "name": "@dropbox",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C02GXAV5V1T",
+    "name": "#infrastructure",
+    "topic": "",
+    "purpose": "Infrastructure related discussions",
+    "memberCount": 30,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C02QJF93VT2",
+    "name": "#ember-api",
+    "topic": "",
+    "purpose": "GraphQL API guidance for consumers",
+    "memberCount": 3,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C06RBRG955Z",
+    "name": "#dev-orange-omea",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 1,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C07J6MGNRDL",
+    "name": "#claro-mexico",
+    "topic": "",
+    "purpose": "\u003chttps://swarmio-media.atlassian.net/browse/SH-4250\u003e",
+    "memberCount": 23,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D08KCNYPTCL",
+    "name": "@nany625",
+    "topic": "",
+    "purpose": "DM with nany rabello",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C03N63WKA0G",
+    "name": "#jira-notifications",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 2,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C042Q17LSKS",
+    "name": "#keycloak-sms-auth",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 2,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C0276S6R70X",
+    "name": "#swarmio-pay",
+    "topic": "",
+    "purpose": "swarmio pay processing \u0026amp; integration\nemails: \u003cmailto:swarmio-pay-aaaaecvn5qheobh2cmy7yb7cc4@swarmiomedia.slack.com|swarmio-pay-aaaaecvn5qheobh2cmy7yb7cc4@swarmiomedia.slack.com\u003e",
+    "memberCount": 19,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C078XPRSMBP",
+    "name": "#mayil-swarmio",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 5,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D028BQFDSCU",
+    "name": "@jonathan",
+    "topic": "",
+    "purpose": "DM with Jonathan Visva",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C03TEDCNY7R",
+    "name": "#telepresence",
+    "topic": "",
+    "purpose": ":female_mage:",
+    "memberCount": 3,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C03AFF7HN9J",
+    "name": "#globe",
+    "topic": "",
+    "purpose": "Globe (Phillipines) client \u0026amp; environment",
+    "memberCount": 33,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D065344SHPA",
+    "name": "@U05UKR0J3SR",
+    "topic": "",
+    "purpose": "DM with U05UKR0J3SR",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D037CSU1RCH",
+    "name": "@kieran",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C04CXMVF0JW",
+    "name": "#event-participant-subs",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 2,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C07UKB41UKY",
+    "name": "#store-tech-design",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 3,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C042ALK616C",
+    "name": "#pubg-user-capture-notifications",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 3,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C04B3TAL16U",
+    "name": "#wordpress",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 3,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C05BDV41W1H",
+    "name": "#jira-pip-project-permissions",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 3,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C08AKA925MK",
+    "name": "#artificial-intelligence",
+    "topic": "",
+    "purpose": "[Tom Cardy] \u003chttps://www.youtube.com/watch?v=uTl8ZYImjBQ\u003e",
+    "memberCount": 8,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C096N435G30",
+    "name": "#matrix-arena",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 10,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D06SM0XC8J2",
+    "name": "@U05SPQQH402",
+    "topic": "",
+    "purpose": "DM with U05SPQQH402",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D063FB2C6V8",
+    "name": "@U04FSD764HZ",
+    "topic": "",
+    "purpose": "DM with U04FSD764HZ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D03AYK01GM7",
+    "name": "@noof",
+    "topic": "",
+    "purpose": "DM with Noof Abdulla",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D03B98U0SV6",
+    "name": "@laboni",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D065ZACTEAG",
+    "name": "@dilantha",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02D28MKMT4",
+    "name": "@martin",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C03K4513FR6",
+    "name": "#dev-support",
+    "topic": "",
+    "purpose": "support requests / queries / escalations",
+    "memberCount": 2,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C056Q6GNL0K",
+    "name": "#philippines_marketing",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 2,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D04FDCPK7NE",
+    "name": "@ted",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D037CMFQVHS",
+    "name": "@UJ7PH3QNQ",
+    "topic": "",
+    "purpose": "DM with UJ7PH3QNQ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C069T5T8TKQ",
+    "name": "#mobile-attribution",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 3,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D02U9HUUCKX",
+    "name": "@github",
+    "topic": "",
+    "purpose": "DM with GitHub",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D029DE9KEH4",
+    "name": "@jr",
+    "topic": "",
+    "purpose": "DM with J.R. MacArthur",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C07DSNLG7FH",
+    "name": "#inc-10",
+    "topic": "",
+    "purpose": "store database locks",
+    "memberCount": 5,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D03GGDU51T5",
+    "name": "@mohamed",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D027JKKJ1J9",
+    "name": "@martha",
+    "topic": "",
+    "purpose": "DM with Martha Philippou",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C03N8QDHEMB",
+    "name": "#zephyr",
+    "topic": "",
+    "purpose": "Zephyr is an internal team / project that is focused on driving end-user value. Tasks driven by this team should be focused exclusively on increasing gamers enjoyment of and engagement with the platform.",
+    "memberCount": 2,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C05449TQ1DX",
+    "name": "#calyx-riot-tournaments",
+    "topic": "",
+    "purpose": "Implementation discussion for Riot x Calyx x Swarmio tournament initiative",
+    "memberCount": 2,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C054YFDN4AZ",
+    "name": "#multi-stage-qa",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 2,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D0667JF22M7",
+    "name": "@reclaim",
+    "topic": "",
+    "purpose": "DM with Reclaim",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C08LFEPL3CN",
+    "name": "#ask-benderbot",
+    "topic": "",
+    "purpose": "The channel to get sassier answers.",
+    "memberCount": 4,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D05ASLZV8PN",
+    "name": "@caio",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02D28K7HSP",
+    "name": "@brody",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D028BQFFTDJ",
+    "name": "@antonio",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D03J7EL8RFZ",
+    "name": "@gatta",
+    "topic": "",
+    "purpose": "DM with gatta",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02CZC8QJLV",
+    "name": "@alec",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C04889Q9P8U",
+    "name": "#subscriptions-bonus-initial",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 3,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D02TMCMCMEF",
+    "name": "@rodrigo",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C035HPJTEKC",
+    "name": "#data",
+    "topic": "",
+    "purpose": "analytics \u0026amp; data warehousing",
+    "memberCount": 13,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C04L93MRFTR",
+    "name": "#riot-sign-on",
+    "topic": "",
+    "purpose": "RSO for Battle Hive / Valorant feature",
+    "memberCount": 4,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C05BXLHAJBA",
+    "name": "#changes-in-order-template-email-aes",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 2,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C084B2B5D9N",
+    "name": "#segment",
+    "topic": "event testing",
+    "purpose": "",
+    "memberCount": 3,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D08LG1J7THC",
+    "name": "@kamil",
+    "topic": "",
+    "purpose": "DM with kamil",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C05T19HCN11",
+    "name": "#localization",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 2,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C094PDMRNAW",
+    "name": "#rfp-maxit-gaming-universe",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 2,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D03SE28PBPY",
+    "name": "@hugo",
+    "topic": "",
+    "purpose": "DM with Hugo Quirino",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D03EREJT1LM",
+    "name": "@translate",
+    "topic": "",
+    "purpose": "DM with Translate",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D0394QEDC67",
+    "name": "@firas",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C0403UPLA31",
+    "name": "#automated-regression-testing",
+    "topic": "",
+    "purpose": "All things performance",
+    "memberCount": 5,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C07S1H9CQH4",
+    "name": "#matrix-ete-testing",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 4,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C03MEGHR87N",
+    "name": "#dev-estimation",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 2,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D037YTZUS6A",
+    "name": "@victor",
+    "topic": "",
+    "purpose": "DM with Victor Lima",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D027JF6B3S9",
+    "name": "@joel",
+    "topic": "",
+    "purpose": "DM with Joel Gallant",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C030NLPQRU1",
+    "name": "#dust",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 6,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C03GQ4U94NT",
+    "name": "#inc-5",
+    "topic": "",
+    "purpose": "swarmio pay / pmovil processing failure responses",
+    "memberCount": 6,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C04NGTXUP6F",
+    "name": "#riot",
+    "topic": "",
+    "purpose": "Let’s use this space to share all discussions we are having with Riot through the different channels",
+    "memberCount": 5,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C04QM2AGCMA",
+    "name": "#digital-marketing",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 8,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C0567MBFBHC",
+    "name": "#orange-tunisia",
+    "topic": "maxit app / encrypted msisdn testing",
+    "purpose": "",
+    "memberCount": 18,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C03DB409GAH",
+    "name": "#document-hive",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 2,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D0397DVNCEB",
+    "name": "@UJ8AHLUN4",
+    "topic": "",
+    "purpose": "DM with UJ8AHLUN4",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02A1PYGCDQ",
+    "name": "@hasitha.gnanissara",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C08SMAFFU8Y",
+    "name": "#store-marketing",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 8,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D092MCUBKMF",
+    "name": "@rangel877",
+    "topic": "",
+    "purpose": "DM with Carlos Rangel",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D08LYUQAQTB",
+    "name": "@benderbot",
+    "topic": "",
+    "purpose": "DM with BenderBot",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D07H8JUF1LK",
+    "name": "@stavitsky252",
+    "topic": "",
+    "purpose": "DM with stavitsky",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D042CMH5JD6",
+    "name": "@alexsabucido",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D03DHGMK1DZ",
+    "name": "@U027DV8MHBK",
+    "topic": "",
+    "purpose": "DM with U027DV8MHBK",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02DYHTQFBR",
+    "name": "@edon",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C03H1MHC80M",
+    "name": "#testing-qa",
+    "topic": "",
+    "purpose": "All things testing",
+    "memberCount": 6,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C03UXBZP3B6",
+    "name": "#pubg-user-capture",
+    "topic": "",
+    "purpose": "PUBG campaign to acquire users with minimal / no-code automation to award points for users being registered through this form",
+    "memberCount": 3,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D03NL6HGSSK",
+    "name": "@nany",
+    "topic": "",
+    "purpose": "DM with NanyR;",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D03CLTCEVM4",
+    "name": "@freeman",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02D8F038R2",
+    "name": "@alex",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C02B0R3L9RB",
+    "name": "#pay-and-pmovil",
+    "topic": "",
+    "purpose": "Swarmio Pay and Pmovil channel to implement carrier billing",
+    "memberCount": 1,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C0423H7B8NR",
+    "name": "#etae-cc-api",
+    "topic": "",
+    "purpose": "Customer Care API development for Etisalat",
+    "memberCount": 1,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C049Q7ZKQUR",
+    "name": "#store-schema-disappearing-act",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 3,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C07GQ96JTV4",
+    "name": "#etisalat-unipin",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 5,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D05D4HSBSE5",
+    "name": "@mahmoudsmiai",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C06SWUE64HE",
+    "name": "#orange-omea",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 21,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D05448ADLCQ",
+    "name": "@brisa",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02TXNVJ6KT",
+    "name": "@carole",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C05GWDP2UV8",
+    "name": "#shape-up",
+    "topic": "",
+    "purpose": "Stop Running in Circles and Ship Work that Matters",
+    "memberCount": 4,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D05SPV2053K",
+    "name": "@U05LLK9P5GU",
+    "topic": "",
+    "purpose": "DM with U05LLK9P5GU",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D027YST4JUW",
+    "name": "@jorge",
+    "topic": "",
+    "purpose": "DM with Jorge Marmolejo",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C03BE0WBTA5",
+    "name": "#load-testing",
+    "topic": "",
+    "purpose": "Load testing \u0026amp; jmeter\nJMeter test plans \u0026amp; runs",
+    "memberCount": 5,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D02HQBD10SK",
+    "name": "@jeremy",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C03LQJMUUFJ",
+    "name": "#jmeter-notifications",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 5,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C040L309E7P",
+    "name": "#subscriptions-support",
+    "topic": "daily support for user subscription issues",
+    "purpose": "",
+    "memberCount": 4,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C08D3227D51",
+    "name": "#horizon-support",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 7,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C0958EQDBNF",
+    "name": "#mtn-nigeria",
+    "topic": "",
+    "purpose": "\u003chttps://swarmio-media.atlassian.net/browse/SH-4221\u003e",
+    "memberCount": 24,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D0282HTSBBP",
+    "name": "@vinicius",
+    "topic": "",
+    "purpose": "DM with Vinicius Esteves",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C08FYQ5GJSY",
+    "name": "#sonatel",
+    "topic": "",
+    "purpose": "\u003chttps://swarmio-media.atlassian.net/browse/SH-4249\u003e",
+    "memberCount": 11,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D0305CNTFB2",
+    "name": "@earl",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02DRTAERH6",
+    "name": "@kate",
+    "topic": "",
+    "purpose": "DM with Kate MacPhail",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02807AC2RX",
+    "name": "@jirabot",
+    "topic": "",
+    "purpose": "DM with Jira",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D027TMU8F0U",
+    "name": "@slackbot",
+    "topic": "",
+    "purpose": "DM with Slackbot",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C031A7HR681",
+    "name": "#slt",
+    "topic": "",
+    "purpose": "1.9.x certification, UAT, production launch",
+    "memberCount": 9,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C04LCDPGR46",
+    "name": "#irap-2023",
+    "topic": "",
+    "purpose": "IRAP 2023 proposal -- Swarmio ID",
+    "memberCount": 3,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C05KSCS71J8",
+    "name": "#ooredoo-qatar",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 8,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C05SNJKRNLB",
+    "name": "#swarmio-store-logs",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 18,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D06DCHS7DB6",
+    "name": "@victor645",
+    "topic": "",
+    "purpose": "DM with Victor Lima",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D03B120Q6QY",
+    "name": "@mirlind",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C04CLA9QW9F",
+    "name": "#inc-8",
+    "topic": "",
+    "purpose": "500 errors seen on globe-prod",
+    "memberCount": 2,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D03HHFF2TAN",
+    "name": "@mouaffak",
+    "topic": "",
+    "purpose": "DM with mouaffak",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D081BJ72EF5",
+    "name": "@giovanni",
+    "topic": "",
+    "purpose": "DM with Giovanni Simões Cotrim",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D07EVUQ2AN4",
+    "name": "@seamus729",
+    "topic": "",
+    "purpose": "DM with Seamus",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C02F68D2CBE",
+    "name": "#swarmio-store",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 33,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D079VCDRAUR",
+    "name": "@gabriel",
+    "topic": "",
+    "purpose": "DM with José Gabriel M. Bezerra",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02TQ7KQHGT",
+    "name": "@vijai",
+    "topic": "",
+    "purpose": "DM with Vijai Karthigesu",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02898BMVFE",
+    "name": "@colin",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C0276Q02Y3H",
+    "name": "#general",
+    "topic": "",
+    "purpose": "This is the one channel that will always include everyone. It’s a great spot for announcements and team-wide conversations.",
+    "memberCount": 60,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D032XNH8GJV",
+    "name": "@john",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C04TKM2280M",
+    "name": "#store-customer-service",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 5,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D06NYDS7PAS",
+    "name": "@courtney",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C04C8HXTD5X",
+    "name": "#devops-releases",
+    "topic": "",
+    "purpose": "Let's talk about branches / setup for release management",
+    "memberCount": 1,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C052M2XN2QY",
+    "name": "#philippines",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 3,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C063719ATGW",
+    "name": "#rootswarm",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 9,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D0800LGACKW",
+    "name": "@assad",
+    "topic": "",
+    "purpose": "DM with yahyawi assad",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D03EWDPACDA",
+    "name": "@caiolasagno",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02KGBHK9MX",
+    "name": "@simplepoll",
+    "topic": "",
+    "purpose": "DM with Simple Poll",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02EXTRKD3Q",
+    "name": "@googledrive",
+    "topic": "",
+    "purpose": "DM with Google Drive",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C038RT2UE49",
+    "name": "#caching",
+    "topic": "MANY FRESH USERS HIT BACKEND ALL NOW",
+    "purpose": "ember caching middleware, etc",
+    "memberCount": 3,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D08DZMVHNMB",
+    "name": "@dodi",
+    "topic": "",
+    "purpose": "DM with dodi",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02PJRSCJPP",
+    "name": "@vasco",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D02D2U5S9TM",
+    "name": "@confluence",
+    "topic": "",
+    "purpose": "DM with Confluence",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C027MJ0B1L2",
+    "name": "#swarmio-dev",
+    "topic": "",
+    "purpose": "public development chat",
+    "memberCount": 20,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C04B7UFUB2S",
+    "name": "#unipin-pay-environments",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 2,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D02AN7CU18T",
+    "name": "@renato",
+    "topic": "",
+    "purpose": "DM with Renato Dattilo",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D027TS7BNUC",
+    "name": "@aseef",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C07Q2A84TJN",
+    "name": "#product-design",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 9,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "D052JLPHEA0",
+    "name": "@gianna",
+    "topic": "",
+    "purpose": "DM with ",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D042XLYTW4E",
+    "name": "@wb_bot_a02ty1w69fz",
+    "topic": "",
+    "purpose": "DM with Time Logging Reminder",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D03GVRBS128",
+    "name": "@opsgenie",
+    "topic": "",
+    "purpose": "DM with Opsgenie",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "D0276UD7QFR",
+    "name": "@sorin",
+    "topic": "",
+    "purpose": "DM with Sorin Stoian",
+    "memberCount": 2,
+    "mpim": false,
+    "im": true,
+    "private": false
+  },
+  {
+    "id": "C057N2Q2480",
+    "name": "#pay-store-ppc-campaign",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 3,
+    "mpim": false,
+    "im": false,
+    "private": false
+  },
+  {
+    "id": "C04MGC92QA1",
+    "name": "mpdm-tim--joel--aseef--sorin-1",
+    "topic": "",
+    "purpose": "Group messaging with: @tim @joel @aseef @sorin",
+    "memberCount": 4,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C081B69LT6E",
+    "name": "mpdm-joel--jr--martha-1",
+    "topic": "",
+    "purpose": "Group messaging with: @joel @jr @martha",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C08S4S0MUQP",
+    "name": "mpdm-dodi--joel--vladimir--vijai-1",
+    "topic": "",
+    "purpose": "Group messaging with: @dodi @joel @vladimir @vijai",
+    "memberCount": 4,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C03PY77KASX",
+    "name": "mpdm-alexandre--kate--joel--vinicius--vasco--edon--mirlind-1",
+    "topic": "",
+    "purpose": "Group messaging with: @alexandre @kate @joel @vinicius @vasco @edon @mirlind",
+    "memberCount": 7,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C044V30T81K",
+    "name": "mpdm-kieran--joel--brody-1",
+    "topic": "",
+    "purpose": "Group messaging with: @kieran @joel @brody",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C046DECQL73",
+    "name": "mpdm-rodrigo--jr--joel-1",
+    "topic": "",
+    "purpose": "Group messaging with: @rodrigo @jr @joel",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C03TYSE8AGL",
+    "name": "mpdm-joel--brody--kate-1",
+    "topic": "",
+    "purpose": "Group messaging with: @joel @brody @kate",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C07HCHC6Z8W",
+    "name": "mpdm-joel--gatta--nany625-1",
+    "topic": "",
+    "purpose": "Group messaging with: @joel @gatta @nany625",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C033ZF27XK8",
+    "name": "mpdm-joel--martin--colin-1",
+    "topic": "",
+    "purpose": "Group messaging with: @joel @martin @colin",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C033LKWBDR8",
+    "name": "mpdm-kate--jorge--joel--vinicius--rodrigo-1",
+    "topic": "",
+    "purpose": "Group messaging with: @kate @jorge @joel @vinicius @rodrigo",
+    "memberCount": 5,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C03BUF07BF0",
+    "name": "mpdm-alexandre--joel--alexzani-1",
+    "topic": "",
+    "purpose": "Group messaging with: @alexandre @joel @alexzani",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C05HF5Y8P8E",
+    "name": "mpdm-gatta--joel--lara-1",
+    "topic": "",
+    "purpose": "Group messaging with: @gatta @joel @lara",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C03EVJ5LU6P",
+    "name": "mpdm-alexandre--colin--joel--alexzani-1",
+    "topic": "",
+    "purpose": "Group messaging with: @alexandre @colin @joel @alexzani",
+    "memberCount": 4,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C04AFMH4T4G",
+    "name": "mpdm-rodrigo--vinicius--joel--edon-1",
+    "topic": "",
+    "purpose": "Group messaging with: @rodrigo @vinicius @joel @edon",
+    "memberCount": 4,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C074C4WSZ6D",
+    "name": "mpdm-aseef--jorge--joel--gatta--vinicius-1",
+    "topic": "",
+    "purpose": "Group messaging with: @aseef @jorge @joel @gatta @vinicius",
+    "memberCount": 5,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C030S1A3Q4T",
+    "name": "mpdm-vinicius--aseef--tim--joel-1",
+    "topic": "",
+    "purpose": "Group messaging with: @vinicius @aseef @tim @joel",
+    "memberCount": 4,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C06KJ4N0QGK",
+    "name": "mpdm-joel--patrick--julio.mendes-1",
+    "topic": "",
+    "purpose": "Group messaging with: @joel @patrick @julio.mendes",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C03RTF6S32B",
+    "name": "mpdm-aseef--brody--kate--joel--sorin--kieran-1",
+    "topic": "",
+    "purpose": "Group messaging with: @aseef @brody @kate @joel @sorin @kieran",
+    "memberCount": 6,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C02UW49HZL1",
+    "name": "mpdm-joel--colin--sakshi-1",
+    "topic": "",
+    "purpose": "Group messaging with: @joel @colin @sakshi",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C033E0S8VB8",
+    "name": "mpdm-kate--jorge--joel-1",
+    "topic": "",
+    "purpose": "Group messaging with: @kate @jorge @joel",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C053JR0PZT5",
+    "name": "mpdm-joel--aseef--vinicius--alexandre-1",
+    "topic": "",
+    "purpose": "Group messaging with: @joel @aseef @vinicius @alexandre",
+    "memberCount": 4,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C067R59ML2Y",
+    "name": "mpdm-sorin--joel--alexzani--aseef-1",
+    "topic": "",
+    "purpose": "Group messaging with: @sorin @joel @alexzani @aseef",
+    "memberCount": 4,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C02Q7AK7RU4",
+    "name": "mpdm-jeremy--renato--colin--joel-1",
+    "topic": "",
+    "purpose": "Group messaging with: @jeremy @renato @colin @joel",
+    "memberCount": 4,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C073VS08WP2",
+    "name": "mpdm-joel--aseef--gatta--jorge-1",
+    "topic": "",
+    "purpose": "Group messaging with: @joel @aseef @gatta @jorge",
+    "memberCount": 4,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C034V57RDH6",
+    "name": "mpdm-kate--joel--alex-1",
+    "topic": "",
+    "purpose": "Group messaging with: @kate @joel @alex",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C04CG2G904C",
+    "name": "mpdm-rodrigo--caiolasagno--joel-1",
+    "topic": "",
+    "purpose": "Group messaging with: @rodrigo @caiolasagno @joel",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C05AP2LQUBB",
+    "name": "mpdm-joel--samuel--kate-1",
+    "topic": "",
+    "purpose": "Group messaging with: @joel @samuel @kate",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C03HSHEJFRN",
+    "name": "mpdm-alexandre--aseef--joel--alexzani--vinicius-1",
+    "topic": "",
+    "purpose": "Group messaging with: @alexandre @aseef @joel @alexzani @vinicius",
+    "memberCount": 5,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C033LLJNVR9",
+    "name": "mpdm-kate--rodrigo--vinicius--joel--jorge--kieran--colin-1",
+    "topic": "",
+    "purpose": "Group messaging with: @kate @rodrigo @vinicius @joel @jorge @kieran @colin",
+    "memberCount": 7,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C06FNFALDAT",
+    "name": "mpdm-kate--joel--julio.mendes-1",
+    "topic": "",
+    "purpose": "Group messaging with: @kate @joel @julio.mendes",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C085LSV6QLC",
+    "name": "#swarmio-store-admin-secrets",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 8,
+    "mpim": false,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C04FBM764SG",
+    "name": "mpdm-joel--sorin--aseef-1",
+    "topic": "",
+    "purpose": "Group messaging with: @joel @sorin @aseef",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C036H5W2S74",
+    "name": "mpdm-kate--joel--carole--colin-1",
+    "topic": "",
+    "purpose": "Group messaging with: @kate @joel @carole @colin",
+    "memberCount": 4,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C0511NRF2N9",
+    "name": "mpdm-alexzani--joel--gatta-1",
+    "topic": "",
+    "purpose": "Group messaging with: @alexzani @joel @gatta",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C08KFMK1RLN",
+    "name": "mpdm-vinicius--jorge--joel-1",
+    "topic": "",
+    "purpose": "Group messaging with: @vinicius @jorge @joel",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C066A0656F3",
+    "name": "mpdm-joel--kate--sorin--aseef-1",
+    "topic": "sync?",
+    "purpose": "Group messaging with: @joel @kate @sorin @aseef",
+    "memberCount": 4,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C058VHQ2VQF",
+    "name": "mpdm-joel--carole--kate-1",
+    "topic": "",
+    "purpose": "Group messaging with: @joel @carole @kate",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C033LL33DS6",
+    "name": "mpdm-kate--gatta--rodrigo--vinicius--joel-1",
+    "topic": "",
+    "purpose": "Group messaging with: @kate @gatta @rodrigo @vinicius @joel",
+    "memberCount": 5,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C02KB4ZVAKZ",
+    "name": "mpdm-joel--jorge--martha-1",
+    "topic": "",
+    "purpose": "Group messaging with: @joel @jorge @martha",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C02QN12T5A8",
+    "name": "mpdm-colin--alec--joel-1",
+    "topic": "",
+    "purpose": "Group messaging with: @colin @alec @joel",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C03362HM77H",
+    "name": "mpdm-kate--gatta--rodrigo--vinicius--joel--jorge-1",
+    "topic": "",
+    "purpose": "Group messaging with: @kate @gatta @rodrigo @vinicius @joel @jorge",
+    "memberCount": 6,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C03DDPJN2EN",
+    "name": "mpdm-joel--kate--colin-1",
+    "topic": "",
+    "purpose": "Group messaging with: @joel @kate @colin",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C02PQD6FGB1",
+    "name": "mpdm-joel--colin--jeremy-1",
+    "topic": "",
+    "purpose": "Group messaging with: @joel @colin @jeremy",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C02H8QS36SD",
+    "name": "#matrix",
+    "topic": "",
+    "purpose": "Infrastructure team only Discussions",
+    "memberCount": 14,
+    "mpim": false,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C046S1YL75M",
+    "name": "mpdm-samuel--joel--brody-1",
+    "topic": "",
+    "purpose": "Group messaging with: @samuel @joel @brody",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C037YLHSE2D",
+    "name": "mpdm-joel--brody--alex--kate--colin-1",
+    "topic": "",
+    "purpose": "Group messaging with: @joel @brody @alex @kate @colin",
+    "memberCount": 5,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C06G2SXJD35",
+    "name": "#ultrasecret",
+    "topic": "supping daily",
+    "purpose": "",
+    "memberCount": 7,
+    "mpim": false,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C04TM9XF196",
+    "name": "mpdm-alexandre--joel--aseef-1",
+    "topic": "",
+    "purpose": "Group messaging with: @alexandre @joel @aseef",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C095BPWDC3Y",
+    "name": "#orange-rfp",
+    "topic": "",
+    "purpose": "",
+    "memberCount": 6,
+    "mpim": false,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C03PY8XL7EW",
+    "name": "mpdm-alexandre--kate--joel--vinicius--vasco-1",
+    "topic": "",
+    "purpose": "Group messaging with: @alexandre @kate @joel @vinicius @vasco",
+    "memberCount": 5,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C08SNHGT8RJ",
+    "name": "mpdm-dodi--joel--vladimir-1",
+    "topic": "",
+    "purpose": "Group messaging with: @dodi @joel @vladimir",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C03PVA7BVB7",
+    "name": "mpdm-alexandre--joel--kate--firas--mirlind--edon--vinicius--vasco-1",
+    "topic": "",
+    "purpose": "Group messaging with: @alexandre @joel @kate @firas @mirlind @edon @vinicius @vasco",
+    "memberCount": 8,
+    "mpim": true,
+    "im": false,
+    "private": true
+  },
+  {
+    "id": "C06MHHAGWRW",
+    "name": "mpdm-joel--alexzani--hugo-1",
+    "topic": "",
+    "purpose": "Group messaging with: @joel @alexzani @hugo",
+    "memberCount": 3,
+    "mpim": true,
+    "im": false,
+    "private": true
+  }
+]

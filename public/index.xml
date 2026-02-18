@@ -1,19 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>[joelmgallant]</title>
-    <link>https://joelmgallant.com/</link>
-    <description>Recent content on [joelmgallant]</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 02 Dec 2023 15:28:46 -0400</lastBuildDate>
-    <atom:link href="https://joelmgallant.com/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>SPECIAL: Robyn&#39;s Christmas 2023</title>
-      <link>https://joelmgallant.com/special/robyn-xmas-2023/</link>
-      <pubDate>Sat, 02 Dec 2023 15:28:46 -0400</pubDate>
-      <guid>https://joelmgallant.com/special/robyn-xmas-2023/</guid>
-      <description>&lt;h1 id=&#34;this-content-currently-blank&#34;&gt;this content currently blank&lt;/h1&gt;&#xA;&lt;p&gt;wait for christmas jeez&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>[joelmgallant]</title><link>https://joelmgallant.com/</link><description>Recent content on [joelmgallant]</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 02 Dec 2023 15:28:46 -0400</lastBuildDate><atom:link href="https://joelmgallant.com/index.xml" rel="self" type="application/rss+xml"/><item><title>SPECIAL: Robyn's Christmas 2023</title><link>https://joelmgallant.com/special/robyn-xmas-2023/</link><pubDate>Sat, 02 Dec 2023 15:28:46 -0400</pubDate><guid>https://joelmgallant.com/special/robyn-xmas-2023/</guid><description>&lt;h1 id="this-content-currently-blank"&gt;this content currently blank&lt;/h1&gt;
+&lt;p&gt;wait for christmas jeez&lt;/p&gt;</description></item></channel></rss>
