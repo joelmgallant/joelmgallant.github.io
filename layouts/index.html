@@ -1,58 +1,5 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-{{ partial "opengraph.html" . }}
-{{ with .Site.Params.meta.description }}
-    <meta name="description" content="{{ . }}" />
-{{ end }}
-{{ with .Site.Params.meta.keywords }}
-    <meta name="keywords" content="{{ . }}" />
-{{ end }}
-    <base href="{{ .Site.BaseURL }}">
-    <title>{{ .Site.Title }}</title>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,700">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jura:400,700">
-
-{{ $options := (dict "targetPath" "css/style.css" "outputStyle" "compressed") }}
-{{ $style := resources.Get "sass/main.scss" | toCSS $options | fingerprint }}
-    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
-
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/manifest.json">
-
+{{ define "head" }}
     <style>
-      /* Static gradient background */
-      body {
-        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-        background-attachment: fixed;
-        background-size: cover;
-        background-repeat: no-repeat;
-        min-height: 100vh;
-      }
-
-      /* Glassmorphism effect for content */
-      .wrap {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border-radius: 20px;
-        padding: 3em 2em;
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        margin: 0.75em;
-        width: calc(100% - 1.5em);
-        box-sizing: border-box;
-      }
-
       /* Typewriter effect */
       .typewriter {
         overflow: hidden;
@@ -190,27 +137,23 @@
 
       /* Mobile optimizations */
       @media (max-width: 768px) {
-        .wrap {
-          padding: 2em 1.5em;
-        }
-        
         .stats-container {
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: 1em;
         }
-        
+
         .stat-item {
           margin-bottom: 0;
         }
       }
     </style>
-  </head>
-  <body>
-    <div class="wrap">
+{{ end }}
+
+{{ define "main" }}
 {{ partial "profile.html" . }}
 
-      <!-- New Stats Section -->
+      <!-- Stats Section -->
       <div class="stats-section">
         <div class="stats-container">
           <div class="stat-item">
@@ -240,18 +183,16 @@
 
 {{ partial "contacts.html" . }}
 {{ partial "actions.html" . }}
-    </div>
-{{ partial "footer.html" . }}
+{{ end }}
 
+{{ define "scripts" }}
     <script>
-      // Add typewriter effect to title
       document.addEventListener('DOMContentLoaded', function() {
         const titleElement = document.querySelector('.profile__title');
         if (titleElement) {
           titleElement.classList.add('typewriter');
         }
 
-        // Rotating tech highlights from experience
         const quotes = [
           'Scaled platform from hundreds to millions of users',
           'Led teams across 60+ global team members',
@@ -285,7 +226,6 @@
           'Continuous & lifelong learning on all things'
         ];
 
-        // Fisher-Yates shuffle
         function shuffleArray(array) {
           const arr = [...array];
           for (let i = arr.length - 1; i > 0; i--) {
@@ -294,18 +234,14 @@
           }
           return arr;
         }
-        
-        // Create a shuffled copy of quotes - START SHUFFLED!
+
         let availableQuotes = shuffleArray(quotes);
         let currentQuote = '';
         const quoteElement = document.getElementById('rotating-quote');
-        
-        // Get next quote without repeats until exhausted
+
         function getNextQuote() {
-          // If we've shown all quotes, reshuffle
           if (availableQuotes.length === 0) {
             availableQuotes = shuffleArray(quotes);
-            // Ensure we don't repeat the last quote shown
             if (availableQuotes[0] === currentQuote && availableQuotes.length > 1) {
               availableQuotes.push(availableQuotes.shift());
             }
@@ -313,32 +249,24 @@
           currentQuote = availableQuotes.shift();
           return currentQuote;
         }
-        
-        // Initialize with first quote from shuffled array
+
         quoteElement.textContent = getNextQuote();
         quoteElement.classList.add('visible');
-        
+
         function rotateQuote() {
-          // Fade out
           quoteElement.classList.remove('visible');
           quoteElement.classList.add('hidden');
-          
-          // Wait for fade out, then change text and fade in
+
           setTimeout(() => {
             quoteElement.textContent = getNextQuote();
-            
-            // Force reflow to ensure transition works
             void quoteElement.offsetWidth;
-            
             quoteElement.classList.remove('hidden');
             quoteElement.classList.add('visible');
           }, 600);
         }
 
-        // Start rotation cycle
         setInterval(rotateQuote, 5000);
 
-        // Animate numbers counting up
         const animateValue = (element, start, end, duration) => {
           let startTimestamp = null;
           const originalText = element.textContent;
@@ -361,7 +289,6 @@
           window.requestAnimationFrame(step);
         };
 
-        // Trigger count animation when visible
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -369,15 +296,12 @@
               statNumbers.forEach((stat, index) => {
                 const text = stat.textContent;
                 if (text.includes('M+')) {
-                  // Handle millions
                   animateValue(stat, 0, 1, 2000);
                   setTimeout(() => { stat.textContent = '1M+'; }, 2000);
                 } else if (text.includes('+')) {
-                  // Handle numbers with +
                   const value = parseInt(text);
                   animateValue(stat, 0, value, 2000);
                 } else if (text !== '∞') {
-                  // Handle plain numbers
                   const value = parseInt(text);
                   stat.textContent = '0';
                   animateValue(stat, 0, value, 2000);
@@ -394,5 +318,4 @@
         }
       });
     </script>
-  </body>
-</html>
+{{ end }}
