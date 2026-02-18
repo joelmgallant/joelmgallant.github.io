@@ -1,0 +1,117 @@
+{{ define "head" }}
+    <style>
+      .blog-header {
+        text-align: center;
+        margin-bottom: 2em;
+      }
+
+      .blog-header h1 {
+        font-family: Roboto, sans-serif;
+        font-weight: 100;
+        font-size: 2rem;
+        margin-bottom: 0.3em;
+      }
+
+      .blog-header h1 b {
+        font-weight: 700;
+      }
+
+      .back-link {
+        display: inline-block;
+        margin-bottom: 2em;
+        color: #666;
+        font-size: 0.9em;
+        transition: color 0.3s ease;
+      }
+
+      .back-link:hover {
+        color: #e73c7e;
+      }
+
+      .post-list {
+        list-style: none;
+      }
+
+      .post-item {
+        padding: 1.5em 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+      .post-item:last-child {
+        border-bottom: none;
+      }
+
+      .post-item a {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        transition: transform 0.2s ease;
+      }
+
+      .post-item a:hover {
+        transform: translateX(5px);
+      }
+
+      .post-title {
+        font-family: Roboto, sans-serif;
+        font-size: 1.3em;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 0.3em;
+      }
+
+      .post-item a:hover .post-title {
+        color: #e73c7e;
+      }
+
+      .post-date {
+        font-size: 0.85em;
+        color: #999;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .post-description {
+        font-size: 0.95em;
+        color: #555;
+        margin-top: 0.5em;
+        line-height: 1.6;
+      }
+
+      .empty-state {
+        text-align: center;
+        color: #999;
+        padding: 3em 0;
+        font-size: 1.1em;
+      }
+    </style>
+{{ end }}
+
+{{ define "main" }}
+      <a href="/" class="back-link"><i class="fas fa-arrow-left"></i> Back to home</a>
+
+      <div class="blog-header">
+        <h1>The <b>Blog</b></h1>
+      </div>
+
+      {{ $posts := where .Pages "Draft" false }}
+      {{ if $posts }}
+      <ul class="post-list">
+        {{ range $posts.ByDate.Reverse }}
+        <li class="post-item">
+          <a href="{{ .Permalink }}">
+            <div class="post-title">{{ .Title }}</div>
+            <div class="post-date">{{ .Date.Format "January 2, 2006" }}</div>
+            {{ with .Description }}
+            <div class="post-description">{{ . }}</div>
+            {{ end }}
+          </a>
+        </li>
+        {{ end }}
+      </ul>
+      {{ else }}
+      <div class="empty-state">
+        <p>No posts yet. Check back soon!</p>
+      </div>
+      {{ end }}
+{{ end }}
