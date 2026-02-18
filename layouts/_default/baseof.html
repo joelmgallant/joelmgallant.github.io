@@ -1,19 +1,104 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ .Site.LanguageCode | default "en" }}">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-{{ partial "opengraph.html" . }}
+
+    <title>{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
+    <base href="{{ .Site.BaseURL }}">
+    <link rel="canonical" href="{{ .Permalink }}" />
+
+    {{/* Standard meta tags */}}
 {{ with .Site.Params.meta.description }}
     <meta name="description" content="{{ . }}" />
 {{ end }}
 {{ with .Site.Params.meta.keywords }}
     <meta name="keywords" content="{{ . }}" />
 {{ end }}
-    <base href="{{ .Site.BaseURL }}">
-    <title>{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
+{{ with .Site.Params.meta.author }}
+    <meta name="author" content="{{ . }}" />
+{{ end }}
+    <meta name="robots" content="index, follow" />
+
+    {{/* Open Graph */}}
+    <meta property="og:site_name" content="{{ .Site.Title }}" />
+    <meta property="og:locale" content="{{ .Site.LanguageCode | default "en_US" }}" />
+    <meta property="og:title" content="{{ .Title }}" />
+{{ with .Site.Params.meta.description }}
+    <meta property="og:description" content="{{ . }}" />
+{{ end }}
+    <meta property="og:url" content="{{ .Permalink }}" />
+{{ if .IsPage }}
+    <meta property="og:type" content="article" />
+    <meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" />
+{{ with .Site.Params.meta.author }}
+    <meta property="article:author" content="{{ . }}" />
+{{ end }}
+{{ else }}
+    <meta property="og:type" content="website" />
+{{ end }}
+{{ with .Site.Params.meta.images }}
+  {{ range first 1 . }}
+    <meta property="og:image" content="{{ . | absURL }}" />
+  {{ end }}
+{{ end }}
+
+    {{/* Twitter Card */}}
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="{{ .Title }}" />
+{{ with .Site.Params.meta.description }}
+    <meta name="twitter:description" content="{{ . }}" />
+{{ end }}
+{{ with .Site.Params.meta.images }}
+  {{ range first 1 . }}
+    <meta name="twitter:image" content="{{ . | absURL }}" />
+  {{ end }}
+{{ end }}
+
+    {{/* Schema.org JSON-LD */}}
+{{ if .IsHome }}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "{{ .Site.Params.profile.firstname }} {{ .Site.Params.profile.lastname }}",
+      "url": "{{ .Site.BaseURL }}",
+      "image": "{{ (index .Site.Params.meta.images 0) | absURL }}",
+      "jobTitle": "Technical Leader & Generalist Technologist",
+      "description": "{{ .Site.Params.meta.description }}",
+      "email": "{{ .Site.Params.contacts.email }}",
+      "sameAs": [
+        "https://github.com/{{ .Site.Params.contacts.github }}",
+        "https://www.linkedin.com/in/{{ .Site.Params.contacts.linkedin }}",
+        "https://www.instagram.com/{{ .Site.Params.contacts.instagram }}"
+      ]
+    }
+    </script>
+{{ else if .IsPage }}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "{{ .Title }}",
+      "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+      {{ with .Lastmod }}"dateModified": "{{ .Format "2006-01-02T15:04:05Z07:00" }}",{{ end }}
+      "author": {
+        "@type": "Person",
+        "name": "{{ .Site.Params.profile.firstname }} {{ .Site.Params.profile.lastname }}",
+        "url": "{{ .Site.BaseURL }}"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "{{ .Site.Params.profile.firstname }} {{ .Site.Params.profile.lastname }}"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ .Permalink }}"
+      }
+    }
+    </script>
+{{ end }}
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">

@@ -33,6 +33,13 @@ theme = 'awesome-identity'
   linkedin = "joelmgallant"
 
 
+## Meta / SEO Configurations
+[params.meta]
+  description = "Joel Gallant — Technical leader and generalist technologist. DevOps, distributed applications, AI, media, and management."
+  keywords = "Joel Gallant, software engineer, technical leader, DevOps, distributed systems, AI, full-stack developer, generalist technologist"
+  images = ["/images/IMG_4853.jpg"]
+  author = "Joel Gallant"
+
 ## Footer Configurations
 [params.footer]
   copyright = "© Joel Gallant, 2026"
