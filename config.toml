@@ -22,6 +22,8 @@ theme = 'awesome-identity'
 [params.actions]
   resume.name = "CV (PDF)"
   resume.url = "/resume-joelmgallant.pdf"
+  blog.name = "Blog"
+  blog.url = "/posts/"
 
 ## Contacts Configurations
 [params.contacts]
