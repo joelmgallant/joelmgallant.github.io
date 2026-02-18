@@ -99,7 +99,7 @@
       <ul class="post-list">
         {{ range $posts.ByDate.Reverse }}
         <li class="post-item">
-          <a href="{{ .Permalink }}">
+          <a href="{{ .RelPermalink }}">
             <div class="post-title">{{ .Title }}</div>
             <div class="post-date">{{ .Date.Format "January 2, 2006" }}</div>
             {{ with .Description }}
