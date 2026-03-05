@@ -344,9 +344,12 @@
         const ctx = canvas.getContext('2d');
         const wrap = document.querySelector('.wrap');
 
+        const defaultSpeed = 1.2;
+        const initAngle = Math.random() * Math.PI * 2;
         const ball = {
           x: 0, y: 0,
-          vx: 1, vy: 0.75,
+          vx: Math.cos(initAngle) * defaultSpeed,
+          vy: Math.sin(initAngle) * defaultSpeed,
           radius: 14,
           color: '#e73c7e'
         };
@@ -413,6 +416,18 @@
           // Clear canvas (transparent so content shows through)
           ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+          // Decay speed back toward default after nudge
+          const speed = Math.sqrt(ball.vx * ball.vx + ball.vy * ball.vy);
+          if (speed > defaultSpeed) {
+            const decay = 0.995;
+            ball.vx *= decay;
+            ball.vy *= decay;
+          } else if (speed < defaultSpeed && speed > 0) {
+            const scale = defaultSpeed / speed;
+            ball.vx *= 1 + (scale - 1) * 0.01;
+            ball.vy *= 1 + (scale - 1) * 0.01;
+          }
+
           // Move ball
           ball.x += ball.vx;
           ball.y += ball.vy;
@@ -472,7 +487,11 @@
         }
 
         animate();
-        window.addEventListener('resize', resizeCanvas);
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+          clearTimeout(resizeTimeout);
+          resizeTimeout = setTimeout(resizeCanvas, 150);
+        });
 
         // Click/tap to nudge
         function nudgeBall(clientX, clientY) {
