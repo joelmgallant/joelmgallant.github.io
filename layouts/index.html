@@ -346,7 +346,7 @@
 
         const ball = {
           x: 0, y: 0,
-          vx: 2, vy: 1.5,
+          vx: 1, vy: 0.75,
           radius: 14,
           color: '#e73c7e'
         };
@@ -410,9 +410,8 @@
         ball.y = canvas.height / 2;
 
         function animate() {
-          // Semi-transparent clear for subtle trail effect
-          ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
-          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          // Clear canvas (transparent so content shows through)
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
 
           // Move ball
           ball.x += ball.vx;
@@ -458,6 +457,15 @@
               }
             }
           }
+
+          // DEBUG: draw obstacle bounding boxes
+          ctx.strokeStyle = 'rgba(231, 60, 126, 0.4)';
+          ctx.lineWidth = 1;
+          ctx.setLineDash([4, 4]);
+          for (const rect of obstacleRects) {
+            ctx.strokeRect(rect.left, rect.top, rect.right - rect.left, rect.bottom - rect.top);
+          }
+          ctx.setLineDash([]);
 
           drawBall();
           requestAnimationFrame(animate);
