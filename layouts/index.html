@@ -360,26 +360,39 @@
           const wrapRect = wrap.getBoundingClientRect();
           obstacleRects = [];
 
-          function getTightRect(el) {
-            // For elements with text content, use Range API for tight bounds
+          function addRect(r) {
+            const w = r.right - r.left;
+            const h = r.bottom - r.top;
+            if (w > 5 && h > 5) {
+              obstacleRects.push({
+                left: r.left - wrapRect.left,
+                top: r.top - wrapRect.top,
+                right: r.right - wrapRect.left,
+                bottom: r.bottom - wrapRect.top
+              });
+            }
+          }
+
+          function getTextRects(el) {
+            // Use Range API to get tight bounds around actual text content
             const range = document.createRange();
             range.selectNodeContents(el);
-            const rects = range.getClientRects();
+            const rangeRect = range.getBoundingClientRect();
 
-            if (rects.length > 0) {
-              // Use individual client rects (each line of text gets its own rect)
-              for (const r of rects) {
-                const w = r.right - r.left;
-                const h = r.bottom - r.top;
-                if (w > 2 && h > 2) {
-                  obstacleRects.push({
-                    left: r.left - wrapRect.left,
-                    top: r.top - wrapRect.top,
-                    right: r.right - wrapRect.left,
-                    bottom: r.bottom - wrapRect.top
-                  });
-                }
-              }
+            // If Range rect is valid and narrower than element, use it
+            // (tighter horizontal fit around text)
+            const elRect = el.getBoundingClientRect();
+            if (rangeRect.width > 5 && rangeRect.height > 5) {
+              // Use Range width but element vertical position
+              // (Range can misplace y for display:block spans)
+              addRect({
+                left: rangeRect.left,
+                top: elRect.top,
+                right: rangeRect.right,
+                bottom: elRect.bottom
+              });
+            } else {
+              addRect(elRect);
             }
           }
 
@@ -390,28 +403,20 @@
             if (style.display === 'none' || style.visibility === 'hidden') return;
 
             const r = el.getBoundingClientRect();
-            const w = r.right - r.left;
-            const h = r.bottom - r.top;
-            if (w === 0 || h === 0) return;
+            if ((r.right - r.left) === 0 || (r.bottom - r.top) === 0) return;
 
-            // Elements with background images or replaced content (img, svg, canvas)
-            // use their element rect directly
+            // Elements with background images or replaced content
             const tag = el.tagName.toLowerCase();
             const hasBgImage = style.backgroundImage !== 'none';
             if (tag === 'img' || tag === 'svg' || tag === 'i' || hasBgImage) {
-              obstacleRects.push({
-                left: r.left - wrapRect.left,
-                top: r.top - wrapRect.top,
-                right: r.right - wrapRect.left,
-                bottom: r.bottom - wrapRect.top
-              });
+              addRect(r);
               return;
             }
 
             // Leaf elements (no child elements) — use tight text rects
             if (el.children.length === 0) {
               if (el.textContent.trim()) {
-                getTightRect(el);
+                getTextRects(el);
               }
               return;
             }
