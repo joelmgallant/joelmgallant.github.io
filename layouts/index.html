@@ -502,12 +502,13 @@
           const dy = y - ball.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
-          if (dist < ball.radius * 3) {
-            // Random impulse direction
-            const angle = Math.random() * Math.PI * 2;
-            const speed = 3 + Math.random() * 3;
-            ball.vx = Math.cos(angle) * speed;
-            ball.vy = Math.sin(angle) * speed;
+          if (dist < ball.radius * 5 && dist > 0) {
+            // Repel: launch away from click point, stronger when closer
+            const repelX = (ball.x - x) / dist;
+            const repelY = (ball.y - y) / dist;
+            const force = 3 + (1 - Math.min(dist / (ball.radius * 5), 1)) * 4;
+            ball.vx = repelX * force;
+            ball.vy = repelY * force;
           }
         }
 
