@@ -360,38 +360,71 @@
           const wrapRect = wrap.getBoundingClientRect();
           obstacleRects = [];
 
-          function addLeafRects(el) {
-            const children = el.children;
-            // Skip the canvas itself
+          function getTightRect(el) {
+            // For elements with text content, use Range API for tight bounds
+            const range = document.createRange();
+            range.selectNodeContents(el);
+            const rects = range.getClientRects();
+
+            if (rects.length > 0) {
+              // Use individual client rects (each line of text gets its own rect)
+              for (const r of rects) {
+                const w = r.right - r.left;
+                const h = r.bottom - r.top;
+                if (w > 2 && h > 2) {
+                  obstacleRects.push({
+                    left: r.left - wrapRect.left,
+                    top: r.top - wrapRect.top,
+                    right: r.right - wrapRect.left,
+                    bottom: r.bottom - wrapRect.top
+                  });
+                }
+              }
+            }
+          }
+
+          function addRects(el) {
             if (el.id === 'physics-canvas') return;
+
+            const style = getComputedStyle(el);
+            if (style.display === 'none' || style.visibility === 'hidden') return;
 
             const r = el.getBoundingClientRect();
             const w = r.right - r.left;
             const h = r.bottom - r.top;
-
-            // Skip invisible or zero-size elements
             if (w === 0 || h === 0) return;
 
-            // If element has child elements, recurse into them
-            // unless it's small enough to be a "leaf" (< 150px in both dimensions)
-            if (children.length > 0 && (w > 150 || h > 150)) {
-              for (const child of children) {
-                addLeafRects(child);
-              }
-            } else {
+            // Elements with background images or replaced content (img, svg, canvas)
+            // use their element rect directly
+            const tag = el.tagName.toLowerCase();
+            const hasBgImage = style.backgroundImage !== 'none';
+            if (tag === 'img' || tag === 'svg' || tag === 'i' || hasBgImage) {
               obstacleRects.push({
                 left: r.left - wrapRect.left,
                 top: r.top - wrapRect.top,
                 right: r.right - wrapRect.left,
                 bottom: r.bottom - wrapRect.top
               });
+              return;
+            }
+
+            // Leaf elements (no child elements) — use tight text rects
+            if (el.children.length === 0) {
+              if (el.textContent.trim()) {
+                getTightRect(el);
+              }
+              return;
+            }
+
+            // Container elements — recurse into children
+            for (const child of el.children) {
+              addRects(child);
             }
           }
 
-          // Start from wrap's direct children (profile, stats, tagline, contacts, actions)
           for (const child of wrap.children) {
             if (child.id !== 'physics-canvas') {
-              addLeafRects(child);
+              addRects(child);
             }
           }
         }
