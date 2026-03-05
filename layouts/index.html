@@ -355,10 +355,12 @@
         };
 
         let obstacleRects = [];
+        let obstacleCircles = [];
 
         function cacheObstacleRects() {
           const wrapRect = wrap.getBoundingClientRect();
           obstacleRects = [];
+          obstacleCircles = [];
 
           function addRect(r) {
             const w = r.right - r.left;
@@ -471,6 +473,17 @@
             // Detect pseudo-element decorations (e.g. ::after underlines)
             addPseudoElementRects(el, r);
 
+            // Circular elements (portrait spinner) — use circle collision
+            if (el.classList.contains('spinner') || el.classList.contains('portrait')) {
+              const cx = (r.left + r.right) / 2 - wrapRect.left;
+              const cy = (r.top + r.bottom) / 2 - wrapRect.top;
+              const radius = Math.max(r.right - r.left, r.bottom - r.top) / 2;
+              if (radius > 5) {
+                obstacleCircles.push({ cx, cy, radius });
+              }
+              return;
+            }
+
             // Elements with background images or replaced content
             const tag = el.tagName.toLowerCase();
             const hasBgImage = style.backgroundImage !== 'none';
@@ -571,6 +584,27 @@
             ball.vy = -Math.abs(ball.vy);
           }
 
+          // Circle obstacle collision (portrait)
+          for (const circle of obstacleCircles) {
+            const dx = ball.x - circle.cx;
+            const dy = ball.y - circle.cy;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            const minDist = ball.radius + circle.radius;
+
+            if (dist < minDist && dist > 0) {
+              // Push ball out along the collision normal
+              const nx = dx / dist;
+              const ny = dy / dist;
+              ball.x = circle.cx + nx * minDist;
+              ball.y = circle.cy + ny * minDist;
+
+              // Reflect velocity along the normal
+              const dot = ball.vx * nx + ball.vy * ny;
+              ball.vx -= 2 * dot * nx;
+              ball.vy -= 2 * dot * ny;
+            }
+          }
+
           // Obstacle collision (AABB)
           for (const rect of obstacleRects) {
             // Find closest point on rect to ball center
@@ -595,12 +629,17 @@
             }
           }
 
-          // DEBUG: draw obstacle bounding boxes
+          // DEBUG: draw obstacle bounding boxes and circles
           ctx.strokeStyle = 'rgba(231, 60, 126, 0.4)';
           ctx.lineWidth = 1;
           ctx.setLineDash([4, 4]);
           for (const rect of obstacleRects) {
             ctx.strokeRect(rect.left, rect.top, rect.right - rect.left, rect.bottom - rect.top);
+          }
+          for (const circle of obstacleCircles) {
+            ctx.beginPath();
+            ctx.arc(circle.cx, circle.cy, circle.radius, 0, Math.PI * 2);
+            ctx.stroke();
           }
           ctx.setLineDash([]);
 
