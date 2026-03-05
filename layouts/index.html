@@ -473,14 +473,19 @@
             // Detect pseudo-element decorations (e.g. ::after underlines)
             addPseudoElementRects(el, r);
 
-            // Circular elements (portrait spinner) — use circle collision
-            if (el.classList.contains('spinner') || el.classList.contains('portrait')) {
+            // Circular element (portrait spinner) — use circle collision
+            if (el.classList.contains('spinner')) {
               const cx = (r.left + r.right) / 2 - wrapRect.left;
               const cy = (r.top + r.bottom) / 2 - wrapRect.top;
-              const radius = Math.max(r.right - r.left, r.bottom - r.top) / 2;
+              const radius = Math.min(r.right - r.left, r.bottom - r.top) / 2;
               if (radius > 5) {
                 obstacleCircles.push({ cx, cy, radius });
               }
+              // Don't recurse into portrait children — spinner covers it
+              return;
+            }
+            // Skip .img inside portrait (covered by spinner circle)
+            if (el.classList.contains('img') && el.parentElement && el.parentElement.closest('.portrait')) {
               return;
             }
 
