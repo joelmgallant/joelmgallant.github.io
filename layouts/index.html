@@ -152,10 +152,27 @@
           margin-bottom: 0;
         }
       }
+
+      /* Physics ball canvas */
+      .wrap {
+        position: relative;
+      }
+
+      #physics-canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 10;
+        border-radius: 20px;
+      }
     </style>
 {{ end }}
 
 {{ define "main" }}
+      <canvas id="physics-canvas"></canvas>
 {{ partial "profile.html" . }}
 
       <!-- Stats Section -->
