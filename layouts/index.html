@@ -153,6 +153,12 @@
         }
       }
 
+      /* Social link spacing */
+      .contacts .contact {
+        margin-left: 0.4em;
+        margin-right: 0.4em;
+      }
+
       /* Physics ball canvas */
       .wrap {
         position: relative;
@@ -540,6 +546,52 @@
 
         const phaseColor = '#FFD700';
 
+        // Particle system
+        const particles = [];
+
+        function spawnParticles(x, y, color, count) {
+          for (let i = 0; i < count; i++) {
+            const angle = Math.random() * Math.PI * 2;
+            const speed = 0.5 + Math.random() * 2;
+            particles.push({
+              x: x,
+              y: y,
+              vx: Math.cos(angle) * speed,
+              vy: Math.sin(angle) * speed,
+              life: 1.0,
+              decay: 0.015 + Math.random() * 0.02,
+              radius: 1.5 + Math.random() * 2.5,
+              color: color
+            });
+          }
+        }
+
+        function updateAndDrawParticles() {
+          for (let i = particles.length - 1; i >= 0; i--) {
+            const p = particles[i];
+            p.x += p.vx;
+            p.y += p.vy;
+            p.vx *= 0.98;
+            p.vy *= 0.98;
+            p.life -= p.decay;
+
+            if (p.life <= 0) {
+              particles.splice(i, 1);
+              continue;
+            }
+
+            ctx.globalAlpha = p.life * 0.6;
+            ctx.shadowColor = p.color;
+            ctx.shadowBlur = 8;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius * p.life, 0, Math.PI * 2);
+            ctx.fillStyle = p.color;
+            ctx.fill();
+          }
+          ctx.globalAlpha = 1;
+          ctx.shadowBlur = 0;
+        }
+
         function drawBall() {
           // Interpolate color based on speed toward phase threshold
           const currentSpeed = Math.sqrt(ball.vx * ball.vx + ball.vy * ball.vy);
@@ -553,18 +605,35 @@
           ctx.shadowColor = activeColor;
           ctx.shadowBlur = 25;
 
-          // Radial gradient for energy orb look
+          // Solid ball base
           const gradient = ctx.createRadialGradient(
             ball.x, ball.y, 0,
             ball.x, ball.y, ball.drawRadius
           );
-          gradient.addColorStop(0, 'rgba(255, 255, 255, 0.9)');
-          gradient.addColorStop(0.3, activeColor);
+          gradient.addColorStop(0, activeColor);
+          gradient.addColorStop(0.75, activeColor);
           gradient.addColorStop(1, fadeColor);
 
           ctx.beginPath();
           ctx.arc(ball.x, ball.y, ball.drawRadius, 0, Math.PI * 2);
           ctx.fillStyle = gradient;
+          ctx.fill();
+
+          // Specular highlight (offset toward upper-left for 3D sheen)
+          const hlX = ball.x - ball.drawRadius * 0.3;
+          const hlY = ball.y - ball.drawRadius * 0.3;
+          const hlRadius = ball.drawRadius * 0.55;
+          const hlGradient = ctx.createRadialGradient(
+            hlX, hlY, 0,
+            hlX, hlY, hlRadius
+          );
+          hlGradient.addColorStop(0, 'rgba(255, 255, 255, 0.5)');
+          hlGradient.addColorStop(0.5, 'rgba(255, 255, 255, 0.15)');
+          hlGradient.addColorStop(1, 'rgba(255, 255, 255, 0.0)');
+
+          ctx.beginPath();
+          ctx.arc(ball.x, ball.y, ball.drawRadius, 0, Math.PI * 2);
+          ctx.fillStyle = hlGradient;
           ctx.fill();
 
           // Reset shadow for next frame
@@ -704,6 +773,7 @@
             ctx.setLineDash([]);
           }
 
+          updateAndDrawParticles();
           drawBall();
           requestAnimationFrame(animate);
         }
@@ -741,6 +811,16 @@
             const force = 3 + (1 - Math.min(dist / (ball.radius * 5), 1)) * 4;
             ball.vx = repelX * force;
             ball.vy = repelY * force;
+
+            // Spawn mixed particles: half ball color, half magenta
+            const count = 8 + Math.floor(force);
+            const halfCount = Math.ceil(count / 2);
+            const currentSpd = Math.sqrt(ball.vx * ball.vx + ball.vy * ball.vy);
+            const phaseT = Math.min(Math.max((currentSpd - defaultSpeed) / (defaultSpeed * 3.125 - defaultSpeed), 0), 1);
+            const t = phaseT * phaseT * (3 - 2 * phaseT);
+            const ballColor = lerpColor(ball.color, phaseColor, t);
+            spawnParticles(ball.x, ball.y, ballColor, halfCount);
+            spawnParticles(ball.x, ball.y, '#FF00FF', count - halfCount);
           }
         }
 
