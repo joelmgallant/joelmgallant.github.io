@@ -429,6 +429,31 @@
             }
           }
 
+          function addPseudoElementRects(el, r) {
+            // Detect ::after and ::before pseudo-elements with visible content
+            for (const pseudo of ['::before', '::after']) {
+              const ps = getComputedStyle(el, pseudo);
+              if (ps.content && ps.content !== 'none' && ps.content !== '""') {
+                const thickness = 3;
+                const pw = parseFloat(ps.width) || 0;
+                const ph = parseFloat(ps.height) || 0;
+                if (pw > 0 || ph > 0) {
+                  // Position based on pseudo-element's CSS properties
+                  const bottom = parseFloat(ps.bottom) || 0;
+                  const left = parseFloat(ps.left) || 0;
+                  // Approximate position relative to parent
+                  const pLeft = r.left + (r.right - r.left - pw) / 2;
+                  addRect({
+                    left: pLeft,
+                    top: r.bottom - bottom + Math.max(ph, thickness),
+                    right: pLeft + pw,
+                    bottom: r.bottom - bottom
+                  });
+                }
+              }
+            }
+          }
+
           function addRects(el) {
             if (el.id === 'physics-canvas') return;
 
@@ -440,6 +465,9 @@
 
             // Detect visible borders and add collision rects for them
             addBorderRects(el, style, r);
+
+            // Detect pseudo-element decorations (e.g. ::after underlines)
+            addPseudoElementRects(el, r);
 
             // Elements with background images or replaced content
             const tag = el.tagName.toLowerCase();
