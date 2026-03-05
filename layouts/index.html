@@ -592,11 +592,35 @@
           }
 
           // Skip element collisions at high velocity (ball phases through)
+          // Stay in phase mode until ball is clear of all obstacles
           const currentSpeed = Math.sqrt(ball.vx * ball.vx + ball.vy * ball.vy);
           const phaseThreshold = defaultSpeed * 3.125;
 
+          if (currentSpeed >= phaseThreshold) {
+            ball.phasing = true;
+          } else if (ball.phasing) {
+            // Check if ball is clear of all obstacles before re-enabling collisions
+            let intersecting = false;
+            for (const circle of obstacleCircles) {
+              const dx = ball.x - circle.cx;
+              const dy = ball.y - circle.cy;
+              const dist = Math.sqrt(dx * dx + dy * dy);
+              if (dist < ball.radius + circle.radius) { intersecting = true; break; }
+            }
+            if (!intersecting) {
+              for (const rect of obstacleRects) {
+                const closestX = Math.max(rect.left, Math.min(ball.x, rect.right));
+                const closestY = Math.max(rect.top, Math.min(ball.y, rect.bottom));
+                const dx = ball.x - closestX;
+                const dy = ball.y - closestY;
+                if (Math.sqrt(dx * dx + dy * dy) < ball.radius) { intersecting = true; break; }
+              }
+            }
+            if (!intersecting) ball.phasing = false;
+          }
+
           // Circle obstacle collision (portrait)
-          if (currentSpeed < phaseThreshold)
+          if (!ball.phasing)
           for (const circle of obstacleCircles) {
             const dx = ball.x - circle.cx;
             const dy = ball.y - circle.cy;
@@ -618,7 +642,7 @@
           }
 
           // Obstacle collision (AABB)
-          if (currentSpeed < phaseThreshold)
+          if (!ball.phasing)
           for (const rect of obstacleRects) {
             // Find closest point on rect to ball center
             const closestX = Math.max(rect.left, Math.min(ball.x, rect.right));
