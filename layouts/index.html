@@ -430,27 +430,29 @@
           }
 
           function addPseudoElementRects(el, r) {
-            // Detect ::after and ::before pseudo-elements with visible content
+            // Detect ::after and ::before pseudo-elements (including content: "")
             for (const pseudo of ['::before', '::after']) {
               const ps = getComputedStyle(el, pseudo);
-              if (ps.content && ps.content !== 'none' && ps.content !== '""') {
-                const thickness = 3;
-                const pw = parseFloat(ps.width) || 0;
-                const ph = parseFloat(ps.height) || 0;
-                if (pw > 0 || ph > 0) {
-                  // Position based on pseudo-element's CSS properties
-                  const bottom = parseFloat(ps.bottom) || 0;
-                  const left = parseFloat(ps.left) || 0;
-                  // Approximate position relative to parent
-                  const pLeft = r.left + (r.right - r.left - pw) / 2;
-                  addRect({
-                    left: pLeft,
-                    top: r.bottom - bottom + Math.max(ph, thickness),
-                    right: pLeft + pw,
-                    bottom: r.bottom - bottom
-                  });
-                }
-              }
+              // content must exist and not be 'none' — empty string "" is valid
+              if (!ps.content || ps.content === 'none') continue;
+
+              const pw = parseFloat(ps.width) || 0;
+              const ph = parseFloat(ps.height) || 0;
+              if (pw < 1 && ph < 1) continue;
+
+              const thickness = 3;
+              // Compute position from the pseudo-element's offset properties
+              const bottomOffset = parseFloat(ps.bottom) || 0;
+              // Centered via translateX(-50%) + left: 50% is a common pattern
+              const pLeft = r.left + (r.right - r.left - pw) / 2;
+              const pTop = r.bottom + Math.abs(bottomOffset);
+
+              addRect({
+                left: pLeft,
+                top: pTop,
+                right: pLeft + pw,
+                bottom: pTop + Math.max(ph, thickness)
+              });
             }
           }
 
