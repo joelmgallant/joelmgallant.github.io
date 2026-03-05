@@ -358,16 +358,27 @@
 
         function cacheObstacleRects() {
           const wrapRect = wrap.getBoundingClientRect();
-          const selectors = [
-            '.portrait', 'h1.name', 'h2.title', 'span.bio',
-            '.stats-section', '.contacts', '.actions',
-            '.tagline'
-          ];
           obstacleRects = [];
-          selectors.forEach(sel => {
-            const el = wrap.querySelector(sel);
-            if (el) {
-              const r = el.getBoundingClientRect();
+
+          function addLeafRects(el) {
+            const children = el.children;
+            // Skip the canvas itself
+            if (el.id === 'physics-canvas') return;
+
+            const r = el.getBoundingClientRect();
+            const w = r.right - r.left;
+            const h = r.bottom - r.top;
+
+            // Skip invisible or zero-size elements
+            if (w === 0 || h === 0) return;
+
+            // If element has child elements, recurse into them
+            // unless it's small enough to be a "leaf" (< 150px in both dimensions)
+            if (children.length > 0 && (w > 150 || h > 150)) {
+              for (const child of children) {
+                addLeafRects(child);
+              }
+            } else {
               obstacleRects.push({
                 left: r.left - wrapRect.left,
                 top: r.top - wrapRect.top,
@@ -375,7 +386,14 @@
                 bottom: r.bottom - wrapRect.top
               });
             }
-          });
+          }
+
+          // Start from wrap's direct children (profile, stats, tagline, contacts, actions)
+          for (const child of wrap.children) {
+            if (child.id !== 'physics-canvas') {
+              addLeafRects(child);
+            }
+          }
         }
 
         function resizeCanvas() {
