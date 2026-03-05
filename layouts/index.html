@@ -593,7 +593,7 @@
 
           // Skip element collisions at high velocity (ball phases through)
           const currentSpeed = Math.sqrt(ball.vx * ball.vx + ball.vy * ball.vy);
-          const phaseThreshold = defaultSpeed * 2.5;
+          const phaseThreshold = defaultSpeed * 3.125;
 
           // Circle obstacle collision (portrait)
           if (currentSpeed < phaseThreshold)
