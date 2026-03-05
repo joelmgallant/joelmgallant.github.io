@@ -352,6 +352,7 @@
           vy: Math.sin(initAngle) * defaultSpeed,
           radius: 8,       // collision radius
           drawRadius: 14,  // visual radius
+          debug: false,
           color: '#e73c7e'
         };
 
@@ -668,18 +669,20 @@
           }
 
           // DEBUG: draw obstacle bounding boxes and circles
-          ctx.strokeStyle = 'rgba(231, 60, 126, 0.4)';
-          ctx.lineWidth = 1;
-          ctx.setLineDash([4, 4]);
-          for (const rect of obstacleRects) {
-            ctx.strokeRect(rect.left, rect.top, rect.right - rect.left, rect.bottom - rect.top);
+          if (ball.debug) {
+            ctx.strokeStyle = 'rgba(231, 60, 126, 0.4)';
+            ctx.lineWidth = 1;
+            ctx.setLineDash([4, 4]);
+            for (const rect of obstacleRects) {
+              ctx.strokeRect(rect.left, rect.top, rect.right - rect.left, rect.bottom - rect.top);
+            }
+            for (const circle of obstacleCircles) {
+              ctx.beginPath();
+              ctx.arc(circle.cx, circle.cy, circle.radius, 0, Math.PI * 2);
+              ctx.stroke();
+            }
+            ctx.setLineDash([]);
           }
-          for (const circle of obstacleCircles) {
-            ctx.beginPath();
-            ctx.arc(circle.cx, circle.cy, circle.radius, 0, Math.PI * 2);
-            ctx.stroke();
-          }
-          ctx.setLineDash([]);
 
           drawBall();
           requestAnimationFrame(animate);
@@ -729,6 +732,13 @@
           const touch = e.touches[0];
           nudgeBall(touch.clientX, touch.clientY);
         }, { passive: true });
+
+        // Toggle debug bounding boxes with 'd' key
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'd' && !e.ctrlKey && !e.metaKey && !e.altKey) {
+            ball.debug = !ball.debug;
+          }
+        });
       });
     </script>
 {{ end }}
