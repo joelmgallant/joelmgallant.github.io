@@ -396,6 +396,39 @@
             }
           }
 
+          function addBorderRects(el, style, r) {
+            const borderTop = parseFloat(style.borderTopWidth) || 0;
+            const borderBottom = parseFloat(style.borderBottomWidth) || 0;
+            const borderLeft = parseFloat(style.borderLeftWidth) || 0;
+            const borderRight = parseFloat(style.borderRightWidth) || 0;
+            const thickness = 3; // min collision thickness so ball can't phase through
+
+            if (borderTop > 0) {
+              addRect({
+                left: r.left, top: r.top,
+                right: r.right, bottom: r.top + Math.max(borderTop, thickness)
+              });
+            }
+            if (borderBottom > 0) {
+              addRect({
+                left: r.left, top: r.bottom - Math.max(borderBottom, thickness),
+                right: r.right, bottom: r.bottom
+              });
+            }
+            if (borderLeft > 0) {
+              addRect({
+                left: r.left, top: r.top,
+                right: r.left + Math.max(borderLeft, thickness), bottom: r.bottom
+              });
+            }
+            if (borderRight > 0) {
+              addRect({
+                left: r.right - Math.max(borderRight, thickness), top: r.top,
+                right: r.right, bottom: r.bottom
+              });
+            }
+          }
+
           function addRects(el) {
             if (el.id === 'physics-canvas') return;
 
@@ -404,6 +437,9 @@
 
             const r = el.getBoundingClientRect();
             if ((r.right - r.left) === 0 || (r.bottom - r.top) === 0) return;
+
+            // Detect visible borders and add collision rects for them
+            addBorderRects(el, style, r);
 
             // Elements with background images or replaced content
             const tag = el.tagName.toLowerCase();
