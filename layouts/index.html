@@ -591,7 +591,12 @@
             ball.vy = -Math.abs(ball.vy);
           }
 
+          // Skip element collisions at high velocity (ball phases through)
+          const currentSpeed = Math.sqrt(ball.vx * ball.vx + ball.vy * ball.vy);
+          const phaseThreshold = defaultSpeed * 2.5;
+
           // Circle obstacle collision (portrait)
+          if (currentSpeed < phaseThreshold)
           for (const circle of obstacleCircles) {
             const dx = ball.x - circle.cx;
             const dy = ball.y - circle.cy;
@@ -613,6 +618,7 @@
           }
 
           // Obstacle collision (AABB)
+          if (currentSpeed < phaseThreshold)
           for (const rect of obstacleRects) {
             // Find closest point on rect to ball center
             const closestX = Math.max(rect.left, Math.min(ball.x, rect.right));
