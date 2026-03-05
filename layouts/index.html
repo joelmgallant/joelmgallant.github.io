@@ -351,9 +351,34 @@
           color: '#e73c7e'
         };
 
+        let obstacleRects = [];
+
+        function cacheObstacleRects() {
+          const wrapRect = wrap.getBoundingClientRect();
+          const selectors = [
+            '.portrait', 'h1.name', 'h2.title', 'span.bio',
+            '.stats-section', '.contacts', '.actions',
+            '.tagline'
+          ];
+          obstacleRects = [];
+          selectors.forEach(sel => {
+            const el = wrap.querySelector(sel);
+            if (el) {
+              const r = el.getBoundingClientRect();
+              obstacleRects.push({
+                left: r.left - wrapRect.left,
+                top: r.top - wrapRect.top,
+                right: r.right - wrapRect.left,
+                bottom: r.bottom - wrapRect.top
+              });
+            }
+          });
+        }
+
         function resizeCanvas() {
           canvas.width = wrap.offsetWidth;
           canvas.height = wrap.offsetHeight;
+          cacheObstacleRects();
         }
 
         function drawBall() {
@@ -408,6 +433,30 @@
           } else if (ball.y + ball.radius >= canvas.height) {
             ball.y = canvas.height - ball.radius;
             ball.vy = -Math.abs(ball.vy);
+          }
+
+          // Obstacle collision (AABB)
+          for (const rect of obstacleRects) {
+            // Find closest point on rect to ball center
+            const closestX = Math.max(rect.left, Math.min(ball.x, rect.right));
+            const closestY = Math.max(rect.top, Math.min(ball.y, rect.bottom));
+            const dx = ball.x - closestX;
+            const dy = ball.y - closestY;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < ball.radius && dist > 0) {
+              // Determine which axis to reflect
+              const overlapX = ball.radius - Math.abs(dx);
+              const overlapY = ball.radius - Math.abs(dy);
+
+              if (overlapX < overlapY) {
+                ball.vx = dx > 0 ? Math.abs(ball.vx) : -Math.abs(ball.vx);
+                ball.x += dx > 0 ? overlapX : -overlapX;
+              } else {
+                ball.vy = dy > 0 ? Math.abs(ball.vy) : -Math.abs(ball.vy);
+                ball.y += dy > 0 ? overlapY : -overlapY;
+              }
+            }
           }
 
           drawBall();
