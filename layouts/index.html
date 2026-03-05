@@ -350,7 +350,8 @@
           x: 0, y: 0,
           vx: Math.cos(initAngle) * defaultSpeed,
           vy: Math.sin(initAngle) * defaultSpeed,
-          radius: 8,
+          radius: 8,       // collision radius
+          drawRadius: 14,  // visual radius
           color: '#e73c7e'
         };
 
@@ -534,14 +535,14 @@
           // Radial gradient for energy orb look
           const gradient = ctx.createRadialGradient(
             ball.x, ball.y, 0,
-            ball.x, ball.y, ball.radius
+            ball.x, ball.y, ball.drawRadius
           );
           gradient.addColorStop(0, 'rgba(255, 255, 255, 0.9)');
           gradient.addColorStop(0.3, ball.color);
           gradient.addColorStop(1, 'rgba(231, 60, 126, 0.0)');
 
           ctx.beginPath();
-          ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+          ctx.arc(ball.x, ball.y, ball.drawRadius, 0, Math.PI * 2);
           ctx.fillStyle = gradient;
           ctx.fill();
 
