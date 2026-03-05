@@ -467,11 +467,7 @@
             const r = el.getBoundingClientRect();
             if ((r.right - r.left) === 0 || (r.bottom - r.top) === 0) return;
 
-            // Detect visible borders and add collision rects for them
-            addBorderRects(el, style, r);
-
-            // Detect pseudo-element decorations (e.g. ::after underlines)
-            addPseudoElementRects(el, r);
+            const isInsidePortrait = el.closest('.portrait');
 
             // Circular element (portrait spinner) — use circle collision
             if (el.classList.contains('spinner')) {
@@ -489,11 +485,17 @@
               return;
             }
 
+            // Skip borders/pseudos for elements inside portrait (circle handles it)
+            if (!isInsidePortrait) {
+              addBorderRects(el, style, r);
+              addPseudoElementRects(el, r);
+            }
+
             // Elements with background images or replaced content
             const tag = el.tagName.toLowerCase();
             const hasBgImage = style.backgroundImage !== 'none';
             if (tag === 'img' || tag === 'svg' || tag === 'i' || hasBgImage) {
-              addRect(r);
+              if (!isInsidePortrait) addRect(r);
               return;
             }
 
