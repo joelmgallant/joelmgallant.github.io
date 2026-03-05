@@ -385,11 +385,30 @@
         ball.y = canvas.height / 2;
 
         function animate() {
-          // Semi-transparent clear for motion trail
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-          ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
+          // Semi-transparent clear for subtle trail effect
+          ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
           ctx.fillRect(0, 0, canvas.width, canvas.height);
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+          // Move ball
+          ball.x += ball.vx;
+          ball.y += ball.vy;
+
+          // Wall collision (card boundaries)
+          if (ball.x - ball.radius <= 0) {
+            ball.x = ball.radius;
+            ball.vx = Math.abs(ball.vx);
+          } else if (ball.x + ball.radius >= canvas.width) {
+            ball.x = canvas.width - ball.radius;
+            ball.vx = -Math.abs(ball.vx);
+          }
+
+          if (ball.y - ball.radius <= 0) {
+            ball.y = ball.radius;
+            ball.vy = Math.abs(ball.vy);
+          } else if (ball.y + ball.radius >= canvas.height) {
+            ball.y = canvas.height - ball.radius;
+            ball.vy = -Math.abs(ball.vy);
+          }
 
           drawBall();
           requestAnimationFrame(animate);
