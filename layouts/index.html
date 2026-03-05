@@ -716,6 +716,10 @@
           ball.squash *= 0.85;
           if (ball.squash < 0.01) ball.squash = 0;
 
+          // Compute velocity-based squash intensity
+          const spd = Math.sqrt(ball.vx * ball.vx + ball.vy * ball.vy);
+          const squashIntensity = Math.min(spd / (defaultSpeed * 4), 1);
+
           // Decay speed back toward default after nudge
           const speed = Math.sqrt(ball.vx * ball.vx + ball.vy * ball.vy);
           if (speed > defaultSpeed) {
@@ -736,24 +740,24 @@
           if (ball.x - ball.radius <= 0) {
             ball.x = ball.radius;
             ball.vx = Math.abs(ball.vx);
-            ball.squash = 1; ball.squashAngle = 0;
+            ball.squash = squashIntensity; ball.squashAngle = 0;
             spawnImpactParticles(ball.radius, ball.y, 0, 4);
           } else if (ball.x + ball.radius >= canvas.width) {
             ball.x = canvas.width - ball.radius;
             ball.vx = -Math.abs(ball.vx);
-            ball.squash = 1; ball.squashAngle = 0;
+            ball.squash = squashIntensity; ball.squashAngle = 0;
             spawnImpactParticles(canvas.width - ball.radius, ball.y, Math.PI, 4);
           }
 
           if (ball.y - ball.radius <= 0) {
             ball.y = ball.radius;
             ball.vy = Math.abs(ball.vy);
-            ball.squash = 1; ball.squashAngle = Math.PI / 2;
+            ball.squash = squashIntensity; ball.squashAngle = Math.PI / 2;
             spawnImpactParticles(ball.x, ball.radius, Math.PI / 2, 4);
           } else if (ball.y + ball.radius >= canvas.height) {
             ball.y = canvas.height - ball.radius;
             ball.vy = -Math.abs(ball.vy);
-            ball.squash = 1; ball.squashAngle = Math.PI / 2;
+            ball.squash = squashIntensity; ball.squashAngle = Math.PI / 2;
             spawnImpactParticles(ball.x, canvas.height - ball.radius, -Math.PI / 2, 4);
           }
 
@@ -874,7 +878,7 @@
               const dot = ball.vx * nx + ball.vy * ny;
               ball.vx -= 2 * dot * nx;
               ball.vy -= 2 * dot * ny;
-              ball.squash = 1;
+              ball.squash = squashIntensity;
               ball.squashAngle = Math.atan2(ny, nx);
               spawnImpactParticles(contactX, contactY, Math.atan2(ny, nx), 5);
             }
@@ -898,13 +902,13 @@
               if (overlapX < overlapY) {
                 ball.vx = dx > 0 ? Math.abs(ball.vx) : -Math.abs(ball.vx);
                 ball.x += dx > 0 ? overlapX : -overlapX;
-                ball.squash = 1;
+                ball.squash = squashIntensity;
                 ball.squashAngle = 0;
                 spawnImpactParticles(closestX, closestY, 0, 3);
               } else {
                 ball.vy = dy > 0 ? Math.abs(ball.vy) : -Math.abs(ball.vy);
                 ball.y += dy > 0 ? overlapY : -overlapY;
-                ball.squash = 1;
+                ball.squash = squashIntensity;
                 ball.squashAngle = Math.PI / 2;
                 spawnImpactParticles(closestX, closestY, Math.PI / 2, 3);
               }
