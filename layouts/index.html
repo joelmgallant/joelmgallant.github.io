@@ -351,15 +351,16 @@
         const wrap = document.querySelector('.wrap');
 
         const defaultSpeed = 1.2;
-        const initAngle = Math.random() * Math.PI * 2;
+        let activated = false;
         const ball = {
           x: 0, y: 0,
-          vx: Math.cos(initAngle) * defaultSpeed,
-          vy: Math.sin(initAngle) * defaultSpeed,
+          vx: 0, vy: 0,
           radius: 8,       // collision radius
           drawRadius: 14,  // visual radius
           debug: false,
-          color: '#e73c7e'
+          color: '#e73c7e',
+          squash: 0,       // squash amount (0 = none, 1 = max)
+          squashAngle: 0   // angle of collision normal
         };
 
         let obstacleRects = [];
@@ -580,7 +581,7 @@
               continue;
             }
 
-            ctx.globalAlpha = p.life * 0.6;
+            ctx.globalAlpha = Math.min(p.life * 1.2, 1);
             ctx.shadowColor = p.color;
             ctx.shadowBlur = 8;
             ctx.beginPath();
@@ -592,6 +593,26 @@
           ctx.shadowBlur = 0;
         }
 
+        function spawnImpactParticles(x, y, normalAngle, count) {
+          // Emit along the tangent (perpendicular to normal) with slight spread
+          const tangent = normalAngle + Math.PI / 2;
+          for (let i = 0; i < count; i++) {
+            const angle = tangent + (Math.random() - 0.5) * 1.2;
+            const dir = Math.random() < 0.5 ? 1 : -1;
+            const speed = 0.3 + Math.random() * 1.2;
+            particles.push({
+              x: x,
+              y: y,
+              vx: Math.cos(angle) * speed * dir,
+              vy: Math.sin(angle) * speed * dir,
+              life: 1.0,
+              decay: 0.03 + Math.random() * 0.03,
+              radius: 1 + Math.random() * 1.5,
+              color: ball.color
+            });
+          }
+        }
+
         function drawBall() {
           // Interpolate color based on speed toward phase threshold
           const currentSpeed = Math.sqrt(ball.vx * ball.vx + ball.vy * ball.vy);
@@ -601,53 +622,99 @@
           const activeColor = lerpColor(ball.color, phaseColor, t);
           const fadeColor = lerpColor(ball.color, phaseColor, t).replace('rgb', 'rgba').replace(')', ',0.0)');
 
+          // Elastic squash/stretch transform (aligned to collision, no visual rotation)
+          const sq = ball.squash * 0.3; // max 30% deformation
+          const sN = 1 - sq;  // squash along collision normal
+          const sT = 1 + sq;  // stretch perpendicular
+          const a = ball.squashAngle;
+          const cos = Math.cos(a);
+          const sin = Math.sin(a);
+          // Matrix: R(-a) * Scale * R(a) — deforms along angle without rotating content
+          const sx = sN * cos * cos + sT * sin * sin;
+          const sy = sN * sin * sin + sT * cos * cos;
+          const sk = (sN - sT) * sin * cos;
+
+          ctx.save();
+          ctx.translate(ball.x, ball.y);
+          ctx.transform(sx, sk, sk, sy, 0, 0);
+
           // Glow effect
           ctx.shadowColor = activeColor;
-          ctx.shadowBlur = 25;
+          ctx.shadowBlur = 10;
 
           // Solid ball base
-          const gradient = ctx.createRadialGradient(
-            ball.x, ball.y, 0,
-            ball.x, ball.y, ball.drawRadius
-          );
+          const gradient = ctx.createRadialGradient(0, 0, 0, 0, 0, ball.drawRadius);
           gradient.addColorStop(0, activeColor);
-          gradient.addColorStop(0.75, activeColor);
+          gradient.addColorStop(0.95, activeColor);
           gradient.addColorStop(1, fadeColor);
 
           ctx.beginPath();
-          ctx.arc(ball.x, ball.y, ball.drawRadius, 0, Math.PI * 2);
+          ctx.arc(0, 0, ball.drawRadius, 0, Math.PI * 2);
           ctx.fillStyle = gradient;
           ctx.fill();
 
           // Specular highlight (offset toward upper-left for 3D sheen)
-          const hlX = ball.x - ball.drawRadius * 0.3;
-          const hlY = ball.y - ball.drawRadius * 0.3;
+          const hlX = -ball.drawRadius * 0.3;
+          const hlY = -ball.drawRadius * 0.3;
           const hlRadius = ball.drawRadius * 0.55;
-          const hlGradient = ctx.createRadialGradient(
-            hlX, hlY, 0,
-            hlX, hlY, hlRadius
-          );
+          const hlGradient = ctx.createRadialGradient(hlX, hlY, 0, hlX, hlY, hlRadius);
           hlGradient.addColorStop(0, 'rgba(255, 255, 255, 0.5)');
           hlGradient.addColorStop(0.5, 'rgba(255, 255, 255, 0.15)');
           hlGradient.addColorStop(1, 'rgba(255, 255, 255, 0.0)');
 
           ctx.beginPath();
-          ctx.arc(ball.x, ball.y, ball.drawRadius, 0, Math.PI * 2);
+          ctx.arc(0, 0, ball.drawRadius, 0, Math.PI * 2);
           ctx.fillStyle = hlGradient;
           ctx.fill();
 
-          // Reset shadow for next frame
+          // Reset shadow and transform
           ctx.shadowBlur = 0;
+          ctx.restore();
         }
 
-        // Initialize
+        function drawSocket() {
+          // Subtle ring socket where the ball docks
+          ctx.beginPath();
+          ctx.arc(restX, restY, ball.drawRadius + 3, 0, Math.PI * 2);
+          ctx.strokeStyle = 'rgba(231, 60, 126, 0.15)';
+          ctx.lineWidth = 1.5;
+          ctx.stroke();
+
+          // Inner dimple
+          const dimple = ctx.createRadialGradient(
+            restX, restY, ball.drawRadius * 0.5,
+            restX, restY, ball.drawRadius + 2
+          );
+          dimple.addColorStop(0, 'rgba(231, 60, 126, 0.03)');
+          dimple.addColorStop(1, 'rgba(231, 60, 126, 0.0)');
+          ctx.beginPath();
+          ctx.arc(restX, restY, ball.drawRadius + 2, 0, Math.PI * 2);
+          ctx.fillStyle = dimple;
+          ctx.fill();
+        }
+
+        // Initialize — ball starts in upper right, stationary
         resizeCanvas();
-        ball.x = canvas.width / 2;
-        ball.y = canvas.height / 2;
+        let restX = wrap.offsetWidth - ball.drawRadius - 20;
+        let restY = ball.drawRadius + 20;
+        ball.x = restX;
+        ball.y = restY;
+        let homing = false;
+        let docked = false;
+        let nudgeTime = 0;
+
+        // Draw socket and ball once before activation
+        drawSocket();
+        drawBall();
 
         function animate() {
           // Clear canvas (transparent so content shows through)
           ctx.clearRect(0, 0, canvas.width, canvas.height);
+          drawSocket();
+
+          // Decay squash effect
+          ball.squash *= 0.85;
+          if (ball.squash < 0.01) ball.squash = 0;
 
           // Decay speed back toward default after nudge
           const speed = Math.sqrt(ball.vx * ball.vx + ball.vy * ball.vy);
@@ -669,17 +736,90 @@
           if (ball.x - ball.radius <= 0) {
             ball.x = ball.radius;
             ball.vx = Math.abs(ball.vx);
+            ball.squash = 1; ball.squashAngle = 0;
+            spawnImpactParticles(ball.radius, ball.y, 0, 4);
           } else if (ball.x + ball.radius >= canvas.width) {
             ball.x = canvas.width - ball.radius;
             ball.vx = -Math.abs(ball.vx);
+            ball.squash = 1; ball.squashAngle = 0;
+            spawnImpactParticles(canvas.width - ball.radius, ball.y, Math.PI, 4);
           }
 
           if (ball.y - ball.radius <= 0) {
             ball.y = ball.radius;
             ball.vy = Math.abs(ball.vy);
+            ball.squash = 1; ball.squashAngle = Math.PI / 2;
+            spawnImpactParticles(ball.x, ball.radius, Math.PI / 2, 4);
           } else if (ball.y + ball.radius >= canvas.height) {
             ball.y = canvas.height - ball.radius;
             ball.vy = -Math.abs(ball.vy);
+            ball.squash = 1; ball.squashAngle = Math.PI / 2;
+            spawnImpactParticles(ball.x, canvas.height - ball.radius, -Math.PI / 2, 4);
+          }
+
+          // Upper-right corner zone detection — start homing (grace period after nudge)
+          const cornerZone = 90;
+          const nudgeGrace = Date.now() - nudgeTime < 500;
+          if (!homing && !nudgeGrace && ball.x > canvas.width - cornerZone && ball.y < cornerZone) {
+            homing = true;
+          }
+
+          // Wind-down: ball is docked, just rendering celebration particles
+          if (docked) {
+            updateAndDrawParticles();
+            drawBall();
+            if (particles.length === 0) {
+              activated = false;
+              docked = false;
+              return;
+            }
+            requestAnimationFrame(animate);
+            return;
+          }
+
+          // Smooth lerp back to rest position when homing
+          if (homing) {
+            const distToRest0 = Math.sqrt((ball.x - restX) ** 2 + (ball.y - restY) ** 2);
+            // Blend: at distance, mostly velocity-driven with gentle steering
+            // Up close, lerp takes over and snaps in
+            const blend = 1 - Math.min(distToRest0 / 200, 1); // 0 far, 1 close
+
+            // Steer velocity toward socket
+            const toRestX = restX - ball.x;
+            const toRestY = restY - ball.y;
+            const toRestDist = distToRest0 || 1;
+            ball.vx += (toRestX / toRestDist) * 0.15;
+            ball.vy += (toRestY / toRestDist) * 0.15;
+            ball.vx *= 0.96;
+            ball.vy *= 0.96;
+
+            // Apply velocity
+            ball.x += ball.vx;
+            ball.y += ball.vy;
+
+            // Layer on lerp that strengthens as ball gets close
+            const lerpT = blend * 0.2;
+            ball.x += (restX - ball.x) * lerpT;
+            ball.y += (restY - ball.y) * lerpT;
+
+            const distToRest = Math.sqrt((ball.x - restX) ** 2 + (ball.y - restY) ** 2);
+            if (distToRest < 2) {
+              ball.x = restX;
+              ball.y = restY;
+              ball.vx = 0;
+              ball.vy = 0;
+              homing = false;
+              docked = true;
+
+              // Celebration burst
+              spawnParticles(restX, restY, ball.color, 24);
+              spawnParticles(restX, restY, '#FF00FF', 24);
+            }
+
+            updateAndDrawParticles();
+            drawBall();
+            requestAnimationFrame(animate);
+            return;
           }
 
           // Skip element collisions at high velocity (ball phases through)
@@ -722,6 +862,11 @@
               // Push ball out along the collision normal
               const nx = dx / dist;
               const ny = dy / dist;
+
+              // Contact point on circle surface (before push)
+              const contactX = circle.cx + nx * circle.radius;
+              const contactY = circle.cy + ny * circle.radius;
+
               ball.x = circle.cx + nx * minDist;
               ball.y = circle.cy + ny * minDist;
 
@@ -729,6 +874,9 @@
               const dot = ball.vx * nx + ball.vy * ny;
               ball.vx -= 2 * dot * nx;
               ball.vy -= 2 * dot * ny;
+              ball.squash = 1;
+              ball.squashAngle = Math.atan2(ny, nx);
+              spawnImpactParticles(contactX, contactY, Math.atan2(ny, nx), 5);
             }
           }
 
@@ -750,9 +898,15 @@
               if (overlapX < overlapY) {
                 ball.vx = dx > 0 ? Math.abs(ball.vx) : -Math.abs(ball.vx);
                 ball.x += dx > 0 ? overlapX : -overlapX;
+                ball.squash = 1;
+                ball.squashAngle = 0;
+                spawnImpactParticles(closestX, closestY, 0, 3);
               } else {
                 ball.vy = dy > 0 ? Math.abs(ball.vy) : -Math.abs(ball.vy);
                 ball.y += dy > 0 ? overlapY : -overlapY;
+                ball.squash = 1;
+                ball.squashAngle = Math.PI / 2;
+                spawnImpactParticles(closestX, closestY, Math.PI / 2, 3);
               }
             }
           }
@@ -778,21 +932,37 @@
           requestAnimationFrame(animate);
         }
 
-        animate();
+        function activate() {
+          if (activated) return;
+          activated = true;
+          cacheObstacleRects();
+          animate();
 
-        // Periodically recache rects to handle animations and dynamic content
-        // (count-up animation: 2s, fadeInUp: 1s, rotating quotes: every 5s)
-        let recacheInterval = setInterval(cacheObstacleRects, 500);
-        setTimeout(() => {
-          clearInterval(recacheInterval);
-          // After animations settle, recache less frequently (for rotating quotes)
-          setInterval(cacheObstacleRects, 5000);
-        }, 3000);
+          // Periodically recache rects to handle animations and dynamic content
+          // (count-up animation: 2s, fadeInUp: 1s, rotating quotes: every 5s)
+          let recacheInterval = setInterval(cacheObstacleRects, 500);
+          setTimeout(() => {
+            clearInterval(recacheInterval);
+            // After animations settle, recache less frequently (for rotating quotes)
+            setInterval(cacheObstacleRects, 5000);
+          }, 3000);
+        }
 
         let resizeTimeout;
         window.addEventListener('resize', function() {
           clearTimeout(resizeTimeout);
-          resizeTimeout = setTimeout(resizeCanvas, 150);
+          resizeTimeout = setTimeout(function() {
+            resizeCanvas();
+            restX = wrap.offsetWidth - ball.drawRadius - 20;
+            restY = ball.drawRadius + 20;
+            if (!activated) {
+              ball.x = restX;
+              ball.y = restY;
+              ctx.clearRect(0, 0, canvas.width, canvas.height);
+              drawSocket();
+              drawBall();
+            }
+          }, 150);
         });
 
         // Click/tap to nudge
@@ -811,6 +981,10 @@
             const force = 3 + (1 - Math.min(dist / (ball.radius * 5), 1)) * 4;
             ball.vx = repelX * force;
             ball.vy = repelY * force;
+            nudgeTime = Date.now();
+            homing = false;
+            docked = false;
+            activate();
 
             // Spawn mixed particles: half ball color, half magenta
             const count = 8 + Math.floor(force);
@@ -837,6 +1011,9 @@
         document.addEventListener('keydown', function(e) {
           if (e.key === 'd' && !e.ctrlKey && !e.metaKey && !e.altKey) {
             ball.debug = !ball.debug;
+          }
+          if (e.key === 'h' && !e.ctrlKey && !e.metaKey && !e.altKey && activated && !homing) {
+            homing = true;
           }
         });
       });
