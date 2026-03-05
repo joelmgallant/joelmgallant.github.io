@@ -543,6 +543,16 @@
         }
 
         animate();
+
+        // Periodically recache rects to handle animations and dynamic content
+        // (count-up animation: 2s, fadeInUp: 1s, rotating quotes: every 5s)
+        let recacheInterval = setInterval(cacheObstacleRects, 500);
+        setTimeout(() => {
+          clearInterval(recacheInterval);
+          // After animations settle, recache less frequently (for rotating quotes)
+          setInterval(cacheObstacleRects, 5000);
+        }, 3000);
+
         let resizeTimeout;
         window.addEventListener('resize', function() {
           clearTimeout(resizeTimeout);
