@@ -544,7 +544,8 @@
           // Interpolate color based on speed toward phase threshold
           const currentSpeed = Math.sqrt(ball.vx * ball.vx + ball.vy * ball.vy);
           const phaseThreshold = defaultSpeed * 3.125;
-          const t = Math.min(Math.max((currentSpeed - defaultSpeed) / (phaseThreshold - defaultSpeed), 0), 1);
+          const tLinear = Math.min(Math.max((currentSpeed - defaultSpeed) / (phaseThreshold - defaultSpeed), 0), 1);
+          const t = tLinear * tLinear * (3 - 2 * tLinear); // smoothstep S-curve
           const activeColor = lerpColor(ball.color, phaseColor, t);
           const fadeColor = lerpColor(ball.color, phaseColor, t).replace('rgb', 'rgba').replace(')', ',0.0)');
 
