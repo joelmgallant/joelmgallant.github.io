@@ -338,6 +338,65 @@
         if (statsSection) {
           observer.observe(statsSection);
         }
+
+        // === Physics Ball ===
+        const canvas = document.getElementById('physics-canvas');
+        const ctx = canvas.getContext('2d');
+        const wrap = document.querySelector('.wrap');
+
+        const ball = {
+          x: 0, y: 0,
+          vx: 2, vy: 1.5,
+          radius: 14,
+          color: '#e73c7e'
+        };
+
+        function resizeCanvas() {
+          canvas.width = wrap.offsetWidth;
+          canvas.height = wrap.offsetHeight;
+        }
+
+        function drawBall() {
+          // Glow effect
+          ctx.shadowColor = ball.color;
+          ctx.shadowBlur = 25;
+
+          // Radial gradient for energy orb look
+          const gradient = ctx.createRadialGradient(
+            ball.x, ball.y, 0,
+            ball.x, ball.y, ball.radius
+          );
+          gradient.addColorStop(0, 'rgba(255, 255, 255, 0.9)');
+          gradient.addColorStop(0.3, ball.color);
+          gradient.addColorStop(1, 'rgba(231, 60, 126, 0.0)');
+
+          ctx.beginPath();
+          ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+          ctx.fillStyle = gradient;
+          ctx.fill();
+
+          // Reset shadow for next frame
+          ctx.shadowBlur = 0;
+        }
+
+        // Initialize
+        resizeCanvas();
+        ball.x = canvas.width / 2;
+        ball.y = canvas.height / 2;
+
+        function animate() {
+          // Semi-transparent clear for motion trail
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+          drawBall();
+          requestAnimationFrame(animate);
+        }
+
+        animate();
+        window.addEventListener('resize', resizeCanvas);
       });
     </script>
 {{ end }}
