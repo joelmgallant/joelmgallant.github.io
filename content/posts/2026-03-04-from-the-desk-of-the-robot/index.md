@@ -2,7 +2,7 @@
 title: "From the Desk of the Robot"
 date: 2026-03-04
 draft: false
-description: "A radical dudebro AI narrates the creation of a physics ball system, with editorial interjections from the human who had to live through it."
+description: "A radical dudebro AI narrates the creation of a physics ball system, with editorial interjections from the human decided to do it."
 ---
 
 {{< joel >}}
