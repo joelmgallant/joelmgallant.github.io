@@ -493,7 +493,7 @@
           }
 
           function addRects(el) {
-            if (el.id === 'physics-canvas') return;
+            if (el.id === 'physics-canvas' || el.id === 'ball-stats') return;
 
             const style = getComputedStyle(el);
             if (style.display === 'none' || style.visibility === 'hidden') return;
