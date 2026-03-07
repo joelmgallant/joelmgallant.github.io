@@ -174,11 +174,36 @@
         z-index: 10;
         border-radius: 20px;
       }
+
+      /* Ball stats counter */
+      #ball-stats {
+        position: absolute;
+        top: 52px;
+        right: 20px;
+        z-index: 11;
+        text-align: right;
+        font-size: 0.7em;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #999;
+        opacity: 0;
+        transition: opacity 0.6s ease-in-out;
+        pointer-events: none;
+        line-height: 1.6;
+      }
+
+      #ball-stats.visible {
+        opacity: 1;
+      }
     </style>
 {{ end }}
 
 {{ define "main" }}
       <canvas id="physics-canvas"></canvas>
+      <div id="ball-stats">
+        <div>nudged <span id="ball-nudge-count">0</span> times</div>
+        <div>made it home <span id="ball-return-count">0</span> times</div>
+      </div>
 {{ partial "profile.html" . }}
 
       <!-- Stats Section -->
@@ -703,6 +728,61 @@
         let docked = false;
         let nudgeTime = 0;
 
+        // Ball stats counter state
+        let serverNudges = 0;
+        let serverReturns = 0;
+        let localNudges = 0;
+        let localReturns = 0;
+        let statsFetched = false;
+        let statsVisible = false;
+        const statsEl = document.getElementById('ball-stats');
+        const nudgeCountEl = document.getElementById('ball-nudge-count');
+        const returnCountEl = document.getElementById('ball-return-count');
+
+        function updateStatsDisplay() {
+          nudgeCountEl.textContent = (serverNudges + localNudges).toLocaleString();
+          returnCountEl.textContent = (serverReturns + localReturns).toLocaleString();
+        }
+
+        function animateCountUp(target, el, duration) {
+          const start = performance.now();
+          const step = (now) => {
+            const progress = Math.min((now - start) / duration, 1);
+            el.textContent = Math.floor(progress * target).toLocaleString();
+            if (progress < 1) requestAnimationFrame(step);
+            else el.textContent = target.toLocaleString();
+          };
+          requestAnimationFrame(step);
+        }
+
+        function showStats() {
+          if (statsVisible) return;
+          statsVisible = true;
+          statsEl.classList.add('visible');
+        }
+
+        function fetchBallStats() {
+          if (statsFetched) return;
+          statsFetched = true;
+          fetch('https://api.joelmgallant.com/ball-stats')
+            .then(r => r.ok ? r.json() : Promise.reject('fetch failed'))
+            .then(data => {
+              if (data.nudges != null && data.returns != null) {
+                serverNudges = data.nudges;
+                serverReturns = data.returns;
+                animateCountUp(serverNudges + localNudges, nudgeCountEl, 1200);
+                animateCountUp(serverReturns + localReturns, returnCountEl, 1200);
+                showStats();
+              }
+            })
+            .catch(() => {
+              if (localNudges > 0) {
+                updateStatsDisplay();
+                showStats();
+              }
+            });
+        }
+
         // Draw socket and ball once before activation
         drawSocket();
         drawBall();
@@ -817,6 +897,10 @@
 
               // PostHog tracking
               posthog.capture('ball_returned_to_socket');
+
+              // Local counter increment
+              localReturns++;
+              if (statsVisible) updateStatsDisplay();
 
               // Celebration burst
               spawnParticles(restX, restY, ball.color, 24);
@@ -999,6 +1083,11 @@
             if (wasDocked) {
               posthog.capture('ball_left_socket');
             }
+
+            // Local counter increment
+            localNudges++;
+            if (statsVisible) updateStatsDisplay();
+            fetchBallStats();
 
             // Spawn mixed particles: half ball color, half magenta
             const count = 8 + Math.floor(force);
