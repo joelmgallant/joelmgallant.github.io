@@ -815,6 +815,9 @@
               homing = false;
               docked = true;
 
+              // PostHog tracking
+              posthog.capture('ball_returned_to_socket');
+
               // Celebration burst
               spawnParticles(restX, restY, ball.color, 24);
               spawnParticles(restX, restY, '#FF00FF', 24);
@@ -985,10 +988,17 @@
             const force = 3 + (1 - Math.min(dist / (ball.radius * 5), 1)) * 4;
             ball.vx = repelX * force;
             ball.vy = repelY * force;
+            const wasDocked = !activated;
             nudgeTime = Date.now();
             homing = false;
             docked = false;
             activate();
+
+            // PostHog tracking
+            posthog.capture('ball_nudged', { force: parseFloat(force.toFixed(2)), distance: parseFloat(dist.toFixed(1)) });
+            if (wasDocked) {
+              posthog.capture('ball_left_socket');
+            }
 
             // Spawn mixed particles: half ball color, half magenta
             const count = 8 + Math.floor(force);
