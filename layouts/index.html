@@ -731,13 +731,23 @@
         // Ball stats counter state
         let serverNudges = 0;
         let serverReturns = 0;
-        let localNudges = 0;
-        let localReturns = 0;
+        let localNudges = parseInt(localStorage.getItem('ballNudges') || '0', 10);
+        let localReturns = parseInt(localStorage.getItem('ballReturns') || '0', 10);
         let statsFetched = false;
         let statsVisible = false;
         const statsEl = document.getElementById('ball-stats');
         const nudgeCountEl = document.getElementById('ball-nudge-count');
         const returnCountEl = document.getElementById('ball-return-count');
+
+        function saveLocalStats() {
+          localStorage.setItem('ballNudges', localNudges);
+          localStorage.setItem('ballReturns', localReturns);
+        }
+
+        // If user has interacted before, show counter and fetch on page load
+        if (localNudges > 0) {
+          fetchBallStats();
+        }
 
         function updateStatsDisplay() {
           nudgeCountEl.textContent = (serverNudges + localNudges).toLocaleString();
@@ -900,6 +910,7 @@
 
               // Local counter increment
               localReturns++;
+              saveLocalStats();
               if (statsVisible) updateStatsDisplay();
 
               // Celebration burst
@@ -1086,6 +1097,7 @@
 
             // Local counter increment
             localNudges++;
+            saveLocalStats();
             if (statsVisible) updateStatsDisplay();
             fetchBallStats();
 
