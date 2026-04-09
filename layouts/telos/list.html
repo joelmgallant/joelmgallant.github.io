@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Telos Archive</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <script src="https://cdn.jsdelivr.net/npm/utif@3.1.0/UTIF.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700&family=Jura:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: linear-gradient(-45deg, #1a0a2e, #16213e, #0f3460, #1a1a2e);
+        background-attachment: fixed;
+        background-size: 400% 400%;
+        animation: gradientShift 15s ease infinite;
+        min-height: 100vh;
+        font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+        color: #e0e0e0;
+        line-height: 1.6;
+      }
+
+      @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
+      /* Password Gate */
+      #auth-gate {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(-45deg, #1a0a2e, #16213e, #0f3460, #1a1a2e);
+        background-size: 400% 400%;
+        animation: gradientShift 15s ease infinite;
+      }
+
+      .auth-card {
+        background: rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 3em 2.5em;
+        width: 90%;
+        max-width: 380px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        text-align: center;
+      }
+
+      .auth-card h1 {
+        font-family: 'Jura', sans-serif;
+        font-weight: 700;
+        font-size: 1.8em;
+        color: #fff;
+        margin-bottom: 0.3em;
+        letter-spacing: 2px;
+      }
+
+      .auth-card p {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.85em;
+        margin-bottom: 2em;
+        letter-spacing: 0.5px;
+      }
+
+      .auth-input-wrap {
+        position: relative;
+        margin-bottom: 1.5em;
+      }
+
+      .auth-input-wrap input {
+        width: 100%;
+        padding: 0.9em 1.2em;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 12px;
+        color: #fff;
+        font-size: 1em;
+        font-family: 'JetBrains Mono', monospace;
+        outline: none;
+        transition: border-color 0.3s, box-shadow 0.3s;
+        letter-spacing: 2px;
+      }
+
+      .auth-input-wrap input:focus {
+        border-color: rgba(231, 60, 126, 0.6);
+        box-shadow: 0 0 0 3px rgba(231, 60, 126, 0.15);
+      }
+
+      .auth-input-wrap input::placeholder {
+        color: rgba(255, 255, 255, 0.3);
+        letter-spacing: 1px;
+      }
+
+      .auth-btn {
+        width: 100%;
+        padding: 0.9em;
+        background: linear-gradient(135deg, #e73c7e, #23a6d5);
+        border: none;
+        border-radius: 12px;
+        color: #fff;
+        font-size: 0.95em;
+        font-weight: 500;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+        letter-spacing: 1px;
+      }
+
+      .auth-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(231, 60, 126, 0.3);
+      }
+
+      .auth-btn:active {
+        transform: translateY(0);
+      }
+
+      .auth-error {
+        color: #ff6b6b;
+        font-size: 0.85em;
+        margin-top: 1em;
+        min-height: 1.2em;
+        transition: opacity 0.3s;
+      }
+
+      /* Main Archive Content */
+      #archive-content {
+        display: none;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 2em 1em;
+      }
+
+      #archive-content.visible {
+        display: block;
+        animation: fadeIn 0.5s ease;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      /* Header */
+      .archive-header {
+        text-align: center;
+        margin-bottom: 2em;
+      }
+
+      .archive-header h1 {
+        font-family: 'Jura', sans-serif;
+        font-weight: 700;
+        font-size: 2.2em;
+        color: #fff;
+        letter-spacing: 3px;
+        margin-bottom: 0.3em;
+      }
+
+      .archive-header .subtitle {
+        color: rgba(255, 255, 255, 0.45);
+        font-size: 0.9em;
+        letter-spacing: 0.5px;
+      }
+
+      /* Stats bar */
+      .stats-bar {
+        display: flex;
+        justify-content: center;
+        gap: 2em;
+        margin: 1.5em 0 2em;
+        flex-wrap: wrap;
+      }
+
+      .stat {
+        text-align: center;
+      }
+
+      .stat-value {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 1.6em;
+        font-weight: 500;
+        color: #e73c7e;
+        display: block;
+      }
+
+      .stat-label {
+        font-size: 0.75em;
+        color: rgba(255, 255, 255, 0.4);
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+      }
+
+      /* Search */
+      .search-wrap {
+        position: relative;
+        max-width: 500px;
+        margin: 0 auto 2em;
+      }
+
+      .search-wrap input {
+        width: 100%;
+        padding: 0.8em 1.2em 0.8em 2.8em;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        color: #fff;
+        font-size: 0.95em;
+        outline: none;
+        transition: border-color 0.3s, box-shadow 0.3s;
+      }
+
+      .search-wrap input:focus {
+        border-color: rgba(35, 166, 213, 0.5);
+        box-shadow: 0 0 0 3px rgba(35, 166, 213, 0.1);
+      }
+
+      .search-wrap input::placeholder {
+        color: rgba(255, 255, 255, 0.3);
+      }
+
+      .search-icon {
+        position: absolute;
+        left: 1em;
+        top: 50%;
+        transform: translateY(-50%);
+        color: rgba(255, 255, 255, 0.3);
+        font-size: 0.95em;
+        pointer-events: none;
+      }
+
+      .search-count {
+        text-align: center;
+        font-size: 0.8em;
+        color: rgba(255, 255, 255, 0.35);
+        margin-top: 0.5em;
+        font-family: 'JetBrains Mono', monospace;
+      }
+
+      /* Project Groups */
+      .project-group {
+        margin-bottom: 1.5em;
+      }
+
+      .project-header {
+        background: rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 14px 14px 0 0;
+        padding: 0.9em 1.3em;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        transition: background 0.2s;
+        user-select: none;
+      }
+
+      .project-header:hover {
+        background: rgba(255, 255, 255, 0.09);
+      }
+
+      .project-header h2 {
+        font-family: 'Jura', sans-serif;
+        font-size: 1.1em;
+        font-weight: 700;
+        color: #fff;
+        letter-spacing: 1px;
+        display: flex;
+        align-items: center;
+        gap: 0.6em;
+      }
+
+      .project-header .chevron {
+        transition: transform 0.3s;
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 0.8em;
+      }
+
+      .project-header .chevron.open {
+        transform: rotate(90deg);
+      }
+
+      .project-meta {
+        font-size: 0.8em;
+        color: rgba(255, 255, 255, 0.35);
+        font-family: 'JetBrains Mono', monospace;
+        display: flex;
+        gap: 1.2em;
+      }
+
+      .project-files {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-top: none;
+        border-radius: 0 0 14px 14px;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.4s ease;
+      }
+
+      .project-files.open {
+        max-height: none;
+      }
+
+      .file-row {
+        display: flex;
+        align-items: center;
+        padding: 0.55em 1.3em;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        transition: background 0.15s;
+        gap: 0.8em;
+      }
+
+      .file-row:last-child {
+        border-bottom: none;
+      }
+
+      .file-row:hover {
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .file-icon {
+        flex-shrink: 0;
+        width: 1.5em;
+        text-align: center;
+        font-size: 0.85em;
+        opacity: 0.5;
+      }
+
+      .file-thumb {
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 6px;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        cursor: pointer;
+        transition: transform 0.2s, border-color 0.2s;
+      }
+
+      .file-thumb:hover {
+        transform: scale(1.15);
+        border-color: rgba(213, 168, 35, 0.5);
+      }
+
+      .file-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .file-thumb img.loaded {
+        opacity: 1;
+      }
+
+      .file-thumb .thumb-placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.7em;
+        opacity: 0.3;
+      }
+
+      .file-name {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .file-name a {
+        color: #a8d8ea;
+        text-decoration: none;
+        font-size: 0.88em;
+        transition: color 0.2s;
+        word-break: break-all;
+      }
+
+      .file-name a:hover {
+        color: #e73c7e;
+      }
+
+      .file-subpath {
+        color: rgba(255, 255, 255, 0.25);
+        font-size: 0.78em;
+      }
+
+      .file-size {
+        flex-shrink: 0;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.75em;
+        color: rgba(255, 255, 255, 0.3);
+        text-align: right;
+        min-width: 5em;
+      }
+
+      .file-type {
+        flex-shrink: 0;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.7em;
+        color: rgba(231, 60, 126, 0.6);
+        text-transform: uppercase;
+        min-width: 3.5em;
+        text-align: right;
+      }
+
+      /* Back link */
+      .back-link {
+        display: inline-block;
+        margin-bottom: 1.5em;
+        color: rgba(255, 255, 255, 0.4);
+        text-decoration: none;
+        font-size: 0.85em;
+        transition: color 0.2s;
+      }
+
+      .back-link:hover {
+        color: #e73c7e;
+      }
+
+      /* Empty state */
+      .no-results {
+        text-align: center;
+        padding: 3em;
+        color: rgba(255, 255, 255, 0.3);
+        font-size: 0.95em;
+      }
+
+      /* Video Player Modal */
+      #video-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 2000;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+
+      #video-modal.active {
+        display: flex;
+      }
+
+      .video-modal-inner {
+        position: relative;
+        width: 90%;
+        max-width: 960px;
+        max-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .video-modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0.8em 0;
+      }
+
+      .video-modal-title {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.85em;
+        color: rgba(255, 255, 255, 0.6);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        flex: 1;
+        margin-right: 1em;
+      }
+
+      .video-modal-actions {
+        display: flex;
+        gap: 0.6em;
+        flex-shrink: 0;
+      }
+
+      .video-modal-btn {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 8px;
+        color: #fff;
+        font-size: 0.8em;
+        padding: 0.5em 1em;
+        cursor: pointer;
+        transition: background 0.2s, border-color 0.2s;
+        font-family: 'Roboto', sans-serif;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4em;
+      }
+
+      .video-modal-btn:hover {
+        background: rgba(255, 255, 255, 0.18);
+        border-color: rgba(255, 255, 255, 0.25);
+      }
+
+      .video-modal-close {
+        background: rgba(231, 60, 126, 0.2);
+        border-color: rgba(231, 60, 126, 0.3);
+      }
+
+      .video-modal-close:hover {
+        background: rgba(231, 60, 126, 0.4);
+      }
+
+      .video-wrap {
+        width: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 14px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .video-wrap video {
+        width: 100%;
+        max-height: 75vh;
+        display: block;
+        outline: none;
+      }
+
+      .video-error {
+        padding: 3em;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 0.9em;
+        display: none;
+      }
+
+      .video-error.visible {
+        display: block;
+      }
+
+      .video-error a {
+        color: #23a6d5;
+        text-decoration: none;
+      }
+
+      .video-error a:hover {
+        color: #e73c7e;
+      }
+
+      /* Playable file indicator */
+      .file-row.playable .file-name a {
+        color: #23d5ab;
+      }
+
+      .file-row.playable .file-name a::after {
+        content: ' \u25B6';
+        font-size: 0.7em;
+        opacity: 0.5;
+      }
+
+      .file-row.playable:hover .file-name a::after {
+        opacity: 1;
+      }
+
+      /* Image viewer indicator */
+      .file-row.viewable .file-name a {
+        color: #d5a823;
+      }
+
+      .file-row.viewable .file-name a::after {
+        content: ' \uD83D\uDD0D';
+        font-size: 0.65em;
+        opacity: 0.5;
+      }
+
+      .file-row.viewable:hover .file-name a::after {
+        opacity: 1;
+      }
+
+      /* Image Viewer Modal */
+      #image-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 2000;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        flex-direction: column;
+      }
+
+      #image-modal.active {
+        display: flex;
+      }
+
+      .image-modal-inner {
+        position: relative;
+        width: 90%;
+        max-width: 1200px;
+        max-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .image-modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0.8em 0;
+      }
+
+      .image-modal-title {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.85em;
+        color: rgba(255, 255, 255, 0.6);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        flex: 1;
+        margin-right: 1em;
+      }
+
+      .image-modal-nav {
+        display: flex;
+        gap: 0.4em;
+        margin-right: 0.6em;
+        flex-shrink: 0;
+      }
+
+      .image-modal-nav button {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 8px;
+        color: #fff;
+        font-size: 1em;
+        width: 2.2em;
+        height: 2.2em;
+        cursor: pointer;
+        transition: background 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .image-modal-nav button:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .image-modal-nav button:disabled {
+        opacity: 0.3;
+        cursor: default;
+      }
+
+      .image-modal-counter {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.75em;
+        color: rgba(255, 255, 255, 0.35);
+        margin-right: 0.8em;
+        flex-shrink: 0;
+      }
+
+      .image-wrap {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 14px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        min-height: 200px;
+        max-height: 75vh;
+      }
+
+      .image-wrap img {
+        max-width: 100%;
+        max-height: 75vh;
+        object-fit: contain;
+        display: block;
+      }
+
+      .image-wrap .image-loading {
+        color: rgba(255, 255, 255, 0.3);
+        font-size: 0.9em;
+        padding: 3em;
+      }
+
+      .image-error {
+        padding: 3em;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 0.9em;
+        display: none;
+      }
+
+      .image-error.visible {
+        display: block;
+      }
+
+      .image-error a {
+        color: #23a6d5;
+        text-decoration: none;
+      }
+
+      .image-error a:hover {
+        color: #e73c7e;
+      }
+
+      /* Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 3px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.25);
+      }
+
+      /* Responsive */
+      @media (max-width: 640px) {
+        #archive-content {
+          padding: 1em 0.6em;
+        }
+
+        .archive-header h1 {
+          font-size: 1.6em;
+        }
+
+        .stats-bar {
+          gap: 1em;
+        }
+
+        .stat-value {
+          font-size: 1.3em;
+        }
+
+        .project-header {
+          padding: 0.75em 1em;
+          flex-wrap: wrap;
+          gap: 0.3em;
+        }
+
+        .project-header h2 {
+          font-size: 0.95em;
+        }
+
+        .project-meta {
+          font-size: 0.7em;
+          width: 100%;
+          justify-content: flex-end;
+        }
+
+        .file-row {
+          padding: 0.5em 0.8em;
+          flex-wrap: wrap;
+        }
+
+        .file-type {
+          display: none;
+        }
+
+        .file-size {
+          min-width: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- Password Gate -->
+    <div id="auth-gate">
+      <div class="auth-card">
+        <h1>TELOS</h1>
+        <p>Private archive access</p>
+        <form id="auth-form" autocomplete="off">
+          <div class="auth-input-wrap">
+            <input
+              type="password"
+              id="auth-password"
+              placeholder="password"
+              autocomplete="off"
+              autofocus
+            />
+          </div>
+          <button type="submit" class="auth-btn">Enter</button>
+          <div class="auth-error" id="auth-error"></div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Image Viewer Modal -->
+    <div id="image-modal">
+      <div class="image-modal-inner">
+        <div class="image-modal-header">
+          <span class="image-modal-title" id="image-title"></span>
+          <span class="image-modal-counter" id="image-counter"></span>
+          <div class="image-modal-nav">
+            <button id="image-prev" title="Previous (←)">&#8592;</button>
+            <button id="image-next" title="Next (→)">&#8594;</button>
+          </div>
+          <div class="video-modal-actions">
+            <a class="video-modal-btn" id="image-download" href="#" target="_blank" rel="noopener">&#11015; Download</a>
+            <button class="video-modal-btn video-modal-close" id="image-close">&#10005; Close</button>
+          </div>
+        </div>
+        <div class="image-wrap" id="image-wrap">
+          <span class="image-loading">Loading...</span>
+        </div>
+        <div class="image-error" id="image-error">
+          <p>This image format can't be displayed in the browser.</p>
+          <p style="margin-top: 0.8em;"><a id="image-error-download" href="#">Download the file instead</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video Player Modal -->
+    <div id="video-modal">
+      <div class="video-modal-inner">
+        <div class="video-modal-header">
+          <span class="video-modal-title" id="video-title"></span>
+          <div class="video-modal-actions">
+            <a class="video-modal-btn" id="video-download" href="#" target="_blank" rel="noopener">&#11015; Download</a>
+            <button class="video-modal-btn video-modal-close" id="video-close">&#10005; Close</button>
+          </div>
+        </div>
+        <div class="video-wrap">
+          <video id="video-player" controls preload="metadata">
+            Your browser does not support video playback.
+          </video>
+          <div class="video-error" id="video-error">
+            <p>This format can't be played in the browser.</p>
+            <p style="margin-top: 0.8em;"><a id="video-error-download" href="#">Download the file instead</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Archive Content -->
+    <div id="archive-content">
+      <a href="/" class="back-link">&larr; joelmgallant.com</a>
+      <div class="archive-header">
+        <h1>TELOS ARCHIVE</h1>
+        <p class="subtitle">Telos Interactive project files and media</p>
+      </div>
+
+      <div class="stats-bar">
+        <div class="stat">
+          <span class="stat-value" id="total-files">--</span>
+          <span class="stat-label">Files</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" id="total-size">--</span>
+          <span class="stat-label">Total Size</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" id="total-projects">--</span>
+          <span class="stat-label">Projects</span>
+        </div>
+      </div>
+
+      <div class="search-wrap">
+        <span class="search-icon">&#128269;</span>
+        <input type="text" id="search-input" placeholder="Filter files..." />
+        <div class="search-count" id="search-count"></div>
+      </div>
+
+      <div id="file-index"></div>
+    </div>
+
+    <script>
+      // Manifest: array of [path, sizeInBytes]
+      const MANIFEST = {{ hugo.Data.telos_manifest | jsonify | safeJS }};
+      const S3_BASE = 'https://telos-memories-archive.s3.us-east-1.amazonaws.com/';
+      const PASSWORD = 'telos2019';
+      const SESSION_KEY = 'telos_auth';
+
+      // -- Media type detection (must be before auth check triggers render) --
+      var PLAYABLE_EXTS = ['mp4', 'mov', 'webm', 'ogv', 'm4v', 'mpg', 'mpeg'];
+      var VIEWABLE_EXTS = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg', 'bmp', 'ico', 'tiff', 'tif'];
+
+      function isPlayable(ext) {
+        return PLAYABLE_EXTS.indexOf(ext.toLowerCase()) !== -1;
+      }
+
+      function isViewable(ext) {
+        return VIEWABLE_EXTS.indexOf(ext.toLowerCase()) !== -1;
+      }
+
+      // -- Auth --
+      function checkAuth() {
+        return sessionStorage.getItem(SESSION_KEY) === 'true';
+      }
+
+      function showArchive() {
+        document.getElementById('auth-gate').style.display = 'none';
+        var content = document.getElementById('archive-content');
+        content.style.display = 'block';
+        content.classList.add('visible');
+        renderIndex(MANIFEST);
+      }
+
+      if (checkAuth()) {
+        showArchive();
+      }
+
+      document.getElementById('auth-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var pw = document.getElementById('auth-password').value;
+        if (pw === PASSWORD) {
+          sessionStorage.setItem(SESSION_KEY, 'true');
+          showArchive();
+        } else {
+          var err = document.getElementById('auth-error');
+          err.textContent = 'Incorrect password';
+          document.getElementById('auth-password').value = '';
+          document.getElementById('auth-password').focus();
+          setTimeout(function() { err.textContent = ''; }, 3000);
+        }
+      });
+
+      // -- Utilities --
+      function formatSize(bytes) {
+        if (bytes === 0) return '0 B';
+        var units = ['B', 'KB', 'MB', 'GB'];
+        var i = Math.floor(Math.log(bytes) / Math.log(1024));
+        if (i >= units.length) i = units.length - 1;
+        var val = bytes / Math.pow(1024, i);
+        return (i === 0 ? val : val.toFixed(1)) + ' ' + units[i];
+      }
+
+      function getExtension(path) {
+        var dot = path.lastIndexOf('.');
+        if (dot === -1) return '';
+        return path.substring(dot + 1).toLowerCase();
+      }
+
+      function getFileName(path) {
+        var slash = path.lastIndexOf('/');
+        return slash === -1 ? path : path.substring(slash + 1);
+      }
+
+      function getFileIcon(ext) {
+        var icons = {
+          // Images
+          jpg: '\uD83D\uDDBC', jpeg: '\uD83D\uDDBC', png: '\uD83D\uDDBC',
+          gif: '\uD83D\uDDBC', tiff: '\uD83D\uDDBC', tif: '\uD83D\uDDBC',
+          bmp: '\uD83D\uDDBC', svg: '\uD83D\uDDBC', psd: '\uD83D\uDDBC',
+          webp: '\uD83D\uDDBC', ico: '\uD83D\uDDBC',
+          // Video
+          mp4: '\uD83C\uDFAC', mov: '\uD83C\uDFAC', avi: '\uD83C\uDFAC',
+          mkv: '\uD83C\uDFAC', wmv: '\uD83C\uDFAC', flv: '\uD83C\uDFAC',
+          vob: '\uD83C\uDFAC', mpg: '\uD83C\uDFAC', mpeg: '\uD83C\uDFAC',
+          m4v: '\uD83C\uDFAC', ifo: '\uD83C\uDFAC', bup: '\uD83C\uDFAC',
+          // Audio
+          mp3: '\uD83C\uDFB5', wav: '\uD83C\uDFB5', ogg: '\uD83C\uDFB5',
+          flac: '\uD83C\uDFB5', aac: '\uD83C\uDFB5', m4a: '\uD83C\uDFB5',
+          // Code
+          cs: '\uD83D\uDCBB', js: '\uD83D\uDCBB', py: '\uD83D\uDCBB',
+          html: '\uD83D\uDCBB', css: '\uD83D\uDCBB', xml: '\uD83D\uDCBB',
+          json: '\uD83D\uDCBB', shader: '\uD83D\uDCBB', cginc: '\uD83D\uDCBB',
+          // Documents
+          pdf: '\uD83D\uDCC4', doc: '\uD83D\uDCC4', docx: '\uD83D\uDCC4',
+          txt: '\uD83D\uDCC4', rtf: '\uD83D\uDCC4', md: '\uD83D\uDCC4',
+          // Archives
+          zip: '\uD83D\uDCE6', rar: '\uD83D\uDCE6', '7z': '\uD83D\uDCE6',
+          tar: '\uD83D\uDCE6', gz: '\uD83D\uDCE6',
+          // Unity / 3D
+          unity: '\uD83C\uDFAE', prefab: '\uD83C\uDFAE', meta: '\u2699',
+          mat: '\uD83C\uDFA8', asset: '\u2699', fbx: '\uD83C\uDFAE',
+          controller: '\u2699', anim: '\uD83C\uDFAE',
+          // Executables
+          exe: '\u25B6', app: '\u25B6', dll: '\u2699', dylib: '\u2699',
+          // Data
+          prefs: '\u2699', dat: '\u2699', db: '\u2699',
+        };
+        return icons[ext] || '\uD83D\uDCC1';
+      }
+
+      // -- Grouping --
+      function groupFiles(files) {
+        var groups = {};
+        var rootFiles = [];
+        for (var i = 0; i < files.length; i++) {
+          var path = files[i][0];
+          var size = files[i][1];
+          var slashIdx = path.indexOf('/');
+          if (slashIdx === -1) {
+            rootFiles.push(files[i]);
+          } else {
+            var folder = path.substring(0, slashIdx);
+            if (!groups[folder]) groups[folder] = [];
+            groups[folder].push(files[i]);
+          }
+        }
+
+        // Sort groups by a specific order
+        var order = [
+          'CPKN Shots', 'early-proto', 'elements', 'frienemies', 'gunbros',
+          'lottery-challenge', 'membrain', 'neutrino', 'Orphlings SS',
+          'PolarBearRun', 'recurrence', 'Telos Video DVD', 'videos',
+          'zynga-screenshots'
+        ];
+        var sorted = [];
+        for (var o = 0; o < order.length; o++) {
+          if (groups[order[o]]) {
+            sorted.push({ name: order[o], files: groups[order[o]] });
+          }
+        }
+        // Add any groups not in order
+        var keys = Object.keys(groups).sort();
+        for (var k = 0; k < keys.length; k++) {
+          if (order.indexOf(keys[k]) === -1) {
+            sorted.push({ name: keys[k], files: groups[keys[k]] });
+          }
+        }
+        // Root files last
+        if (rootFiles.length > 0) {
+          sorted.push({ name: '(root files)', files: rootFiles });
+        }
+        return sorted;
+      }
+
+      // -- Rendering --
+      function renderIndex(files) {
+        var totalSize = 0;
+        for (var i = 0; i < files.length; i++) totalSize += files[i][1];
+
+        document.getElementById('total-files').textContent = files.length.toLocaleString();
+        document.getElementById('total-size').textContent = formatSize(totalSize);
+
+        var groups = groupFiles(files);
+        document.getElementById('total-projects').textContent = groups.length - (groups[groups.length - 1] && groups[groups.length - 1].name === '(root files)' ? 1 : 0);
+
+        renderGroups(groups, '');
+        setupSearch(files, groups);
+        buildImageList();
+        observeThumbnails();
+      }
+
+      function renderGroups(groups, filter) {
+        var container = document.getElementById('file-index');
+        container.innerHTML = '';
+        var totalVisible = 0;
+
+        for (var g = 0; g < groups.length; g++) {
+          var group = groups[g];
+          var filteredFiles = group.files;
+
+          if (filter) {
+            var lowerFilter = filter.toLowerCase();
+            filteredFiles = group.files.filter(function(f) {
+              return f[0].toLowerCase().indexOf(lowerFilter) !== -1;
+            });
+            if (filteredFiles.length === 0) continue;
+          }
+          totalVisible += filteredFiles.length;
+
+          var groupEl = document.createElement('div');
+          groupEl.className = 'project-group';
+
+          var groupSize = 0;
+          for (var s = 0; s < filteredFiles.length; s++) groupSize += filteredFiles[s][1];
+
+          // Header
+          var header = document.createElement('div');
+          header.className = 'project-header';
+          header.innerHTML =
+            '<h2><span class="chevron">\u25B6</span> ' + escapeHtml(group.name) + '</h2>' +
+            '<div class="project-meta">' +
+              '<span>' + filteredFiles.length + ' files</span>' +
+              '<span>' + formatSize(groupSize) + '</span>' +
+            '</div>';
+
+          var filesEl = document.createElement('div');
+          filesEl.className = 'project-files';
+
+          // File rows
+          for (var f = 0; f < filteredFiles.length; f++) {
+            var file = filteredFiles[f];
+            var path = file[0];
+            var size = file[1];
+            var ext = getExtension(path);
+            var fileName = getFileName(path);
+            var s3Url = S3_BASE + encodeURIPath(path);
+
+            // Show subpath within project
+            var slashIdx = path.indexOf('/');
+            var subpath = '';
+            if (slashIdx !== -1) {
+              var afterFolder = path.substring(slashIdx + 1);
+              var lastSlash = afterFolder.lastIndexOf('/');
+              if (lastSlash !== -1) {
+                subpath = afterFolder.substring(0, lastSlash + 1);
+              }
+            }
+
+            var playable = isPlayable(ext);
+            var viewable = isViewable(ext);
+            var rowClass = 'file-row';
+            if (playable) rowClass += ' playable';
+            if (viewable) rowClass += ' viewable';
+
+            var row = document.createElement('div');
+            row.className = rowClass;
+
+            var iconHtml;
+            if (viewable) {
+              iconHtml =
+                '<div class="file-thumb" data-thumb-src="' + s3Url + '">' +
+                  '<span class="thumb-placeholder">\uD83D\uDDBC</span>' +
+                '</div>';
+            } else {
+              iconHtml = '<span class="file-icon">' + getFileIcon(ext) + '</span>';
+            }
+
+            row.innerHTML =
+              iconHtml +
+              '<div class="file-name">' +
+                (subpath ? '<span class="file-subpath">' + escapeHtml(subpath) + '</span>' : '') +
+                '<a href="' + s3Url + '" target="_blank" rel="noopener">' + escapeHtml(fileName) + '</a>' +
+              '</div>' +
+              '<span class="file-type">' + (ext || '--') + '</span>' +
+              '<span class="file-size">' + formatSize(size) + '</span>';
+
+            // Wire up media clicks
+            if (playable || viewable) {
+              var link = row.querySelector('a');
+              (function(linkEl, mediaUrl, mediaName, isVideo) {
+                linkEl.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  if (isVideo) {
+                    openVideo(mediaUrl, mediaName);
+                  } else {
+                    openImage(mediaUrl, mediaName);
+                  }
+                });
+              })(link, s3Url, fileName, playable);
+
+              // Thumbnail click also opens viewer
+              if (viewable) {
+                var thumb = row.querySelector('.file-thumb');
+                if (thumb) {
+                  (function(thumbEl, mediaUrl, mediaName) {
+                    thumbEl.addEventListener('click', function() {
+                      openImage(mediaUrl, mediaName);
+                    });
+                  })(thumb, s3Url, fileName);
+                }
+              }
+            }
+
+            filesEl.appendChild(row);
+          }
+
+          // Toggle collapse
+          (function(headerEl, filesElem, chevronClass) {
+            headerEl.addEventListener('click', function() {
+              var isOpen = filesElem.classList.contains('open');
+              if (isOpen) {
+                filesElem.classList.remove('open');
+                headerEl.querySelector('.chevron').classList.remove('open');
+              } else {
+                filesElem.classList.add('open');
+                headerEl.querySelector('.chevron').classList.add('open');
+              }
+            });
+          })(header, filesEl);
+
+          groupEl.appendChild(header);
+          groupEl.appendChild(filesEl);
+          container.appendChild(groupEl);
+        }
+
+        if (totalVisible === 0 && filter) {
+          container.innerHTML = '<div class="no-results">No files matching "' + escapeHtml(filter) + '"</div>';
+        }
+
+        // Update search count
+        var countEl = document.getElementById('search-count');
+        if (filter) {
+          countEl.textContent = totalVisible + ' of ' + MANIFEST.length + ' files';
+        } else {
+          countEl.textContent = '';
+        }
+      }
+
+      function setupSearch(files, groups) {
+        var input = document.getElementById('search-input');
+        var debounceTimer;
+        input.addEventListener('input', function() {
+          clearTimeout(debounceTimer);
+          var val = input.value.trim();
+          debounceTimer = setTimeout(function() {
+            renderGroups(groups, val);
+            // Auto-expand all groups when filtering
+            if (val) {
+              var allFiles = document.querySelectorAll('.project-files');
+              var allChevrons = document.querySelectorAll('.chevron');
+              for (var i = 0; i < allFiles.length; i++) {
+                allFiles[i].classList.add('open');
+              }
+              for (var j = 0; j < allChevrons.length; j++) {
+                allChevrons[j].classList.add('open');
+              }
+            }
+            observeThumbnails();
+          }, 150);
+        });
+      }
+
+      function encodeURIPath(path) {
+        return path.split('/').map(function(segment) {
+          return encodeURIComponent(segment);
+        }).join('/');
+      }
+
+      function escapeHtml(str) {
+        var div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+      }
+
+      // -- Video Player --
+      var videoModal = document.getElementById('video-modal');
+      var videoPlayer = document.getElementById('video-player');
+      var videoTitle = document.getElementById('video-title');
+      var videoDownload = document.getElementById('video-download');
+      var videoErrorEl = document.getElementById('video-error');
+      var videoErrorDownload = document.getElementById('video-error-download');
+      var videoCloseBtn = document.getElementById('video-close');
+
+      function openVideo(url, name) {
+        videoTitle.textContent = name;
+        videoDownload.href = url;
+        videoErrorDownload.href = url;
+        videoErrorEl.classList.remove('visible');
+        videoPlayer.style.display = 'block';
+        videoPlayer.src = url;
+        videoModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+
+        videoPlayer.onerror = function() {
+          videoPlayer.style.display = 'none';
+          videoErrorEl.classList.add('visible');
+        };
+
+        videoPlayer.play().catch(function() {
+          // autoplay blocked is fine, user can click play
+        });
+      }
+
+      function closeVideo() {
+        videoPlayer.pause();
+        videoPlayer.removeAttribute('src');
+        videoPlayer.load();
+        videoModal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      videoCloseBtn.addEventListener('click', closeVideo);
+
+      videoModal.addEventListener('click', function(e) {
+        if (e.target === videoModal) closeVideo();
+      });
+
+      // -- TIFF decoder helper --
+      var TIFF_EXTS = ['tiff', 'tif'];
+
+      function isTiff(url) {
+        var ext = getExtension(url);
+        return TIFF_EXTS.indexOf(ext) !== -1;
+      }
+
+      function decodeTiff(url, maxWidth, callback) {
+        fetch(url)
+          .then(function(r) { return r.arrayBuffer(); })
+          .then(function(buf) {
+            var ifds = UTIF.decode(buf);
+            UTIF.decodeImage(buf, ifds[0]);
+            var rgba = UTIF.toRGBA8(ifds[0]);
+            var w = ifds[0].width;
+            var h = ifds[0].height;
+
+            var canvas = document.createElement('canvas');
+            // Scale down if maxWidth is set
+            if (maxWidth && w > maxWidth) {
+              var scale = maxWidth / w;
+              canvas.width = Math.round(w * scale);
+              canvas.height = Math.round(h * scale);
+            } else {
+              canvas.width = w;
+              canvas.height = h;
+            }
+
+            // Draw full-size first
+            var tmpCanvas = document.createElement('canvas');
+            tmpCanvas.width = w;
+            tmpCanvas.height = h;
+            var tmpCtx = tmpCanvas.getContext('2d');
+            var imgData = tmpCtx.createImageData(w, h);
+            imgData.data.set(rgba);
+            tmpCtx.putImageData(imgData, 0, 0);
+
+            // Scale to target canvas
+            var ctx = canvas.getContext('2d');
+            ctx.drawImage(tmpCanvas, 0, 0, canvas.width, canvas.height);
+
+            callback(null, canvas.toDataURL('image/png'));
+          })
+          .catch(function(err) {
+            callback(err, null);
+          });
+      }
+
+      // -- Thumbnail lazy loader --
+      var thumbObserver = null;
+
+      function observeThumbnails() {
+        if (thumbObserver) thumbObserver.disconnect();
+
+        thumbObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              var thumb = entry.target;
+              var src = thumb.getAttribute('data-thumb-src');
+              if (src && !thumb.querySelector('img')) {
+                var placeholder = thumb.querySelector('.thumb-placeholder');
+
+                if (isTiff(src)) {
+                  // Decode TIFF to PNG data URL, scale to 80px for thumbnail
+                  (function(thumbEl, placeholderEl) {
+                    decodeTiff(src, 80, function(err, dataUrl) {
+                      if (err || !dataUrl) return;
+                      var img = new Image();
+                      img.onload = function() { img.classList.add('loaded'); };
+                      img.src = dataUrl;
+                      img.alt = '';
+                      if (placeholderEl) placeholderEl.style.display = 'none';
+                      thumbEl.appendChild(img);
+                    });
+                  })(thumb, placeholder);
+                } else {
+                  var img = new Image();
+                  img.onload = function() {
+                    img.classList.add('loaded');
+                  };
+                  img.src = src;
+                  img.alt = '';
+                  img.loading = 'lazy';
+                  if (placeholder) placeholder.style.display = 'none';
+                  thumb.appendChild(img);
+                }
+              }
+              thumbObserver.unobserve(thumb);
+            }
+          });
+        }, { rootMargin: '200px' });
+
+        var thumbs = document.querySelectorAll('.file-thumb[data-thumb-src]');
+        for (var i = 0; i < thumbs.length; i++) {
+          thumbObserver.observe(thumbs[i]);
+        }
+      }
+
+      // Re-observe thumbs when groups are toggled open (since they become visible)
+      document.addEventListener('click', function(e) {
+        var header = e.target.closest('.project-header');
+        if (header) {
+          // Small delay to let the DOM update after toggle
+          setTimeout(observeThumbnails, 50);
+        }
+      });
+
+      // -- Image Viewer --
+      var imageModal = document.getElementById('image-modal');
+      var imageWrap = document.getElementById('image-wrap');
+      var imageTitle = document.getElementById('image-title');
+      var imageDownload = document.getElementById('image-download');
+      var imageErrorEl = document.getElementById('image-error');
+      var imageErrorDownload = document.getElementById('image-error-download');
+      var imageCloseBtn = document.getElementById('image-close');
+      var imagePrevBtn = document.getElementById('image-prev');
+      var imageNextBtn = document.getElementById('image-next');
+      var imageCounter = document.getElementById('image-counter');
+
+      // Track all viewable images for prev/next navigation
+      var imageList = [];
+      var currentImageIndex = -1;
+
+      function buildImageList() {
+        imageList = [];
+        for (var i = 0; i < MANIFEST.length; i++) {
+          var ext = getExtension(MANIFEST[i][0]);
+          if (isViewable(ext)) {
+            imageList.push({
+              url: S3_BASE + encodeURIPath(MANIFEST[i][0]),
+              name: getFileName(MANIFEST[i][0]),
+              path: MANIFEST[i][0]
+            });
+          }
+        }
+      }
+
+      function openImage(url, name) {
+        // Find index in imageList
+        for (var i = 0; i < imageList.length; i++) {
+          if (imageList[i].url === url) {
+            currentImageIndex = i;
+            break;
+          }
+        }
+        showImage(url, name);
+      }
+
+      function showImage(url, name) {
+        imageTitle.textContent = name;
+        imageDownload.href = url;
+        imageErrorDownload.href = url;
+        imageErrorEl.classList.remove('visible');
+        imageModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        updateImageNav();
+
+        imageWrap.innerHTML = '<span class="image-loading">Loading...</span>';
+
+        if (isTiff(url)) {
+          decodeTiff(url, null, function(err, dataUrl) {
+            if (err || !dataUrl) {
+              imageWrap.innerHTML = '';
+              imageErrorEl.classList.add('visible');
+              return;
+            }
+            var img = new Image();
+            img.onload = function() {
+              imageWrap.innerHTML = '';
+              imageWrap.appendChild(img);
+            };
+            img.src = dataUrl;
+            img.alt = name;
+          });
+        } else {
+          var img = new Image();
+          img.onload = function() {
+            imageWrap.innerHTML = '';
+            imageWrap.appendChild(img);
+          };
+          img.onerror = function() {
+            imageWrap.innerHTML = '';
+            imageErrorEl.classList.add('visible');
+          };
+          img.src = url;
+          img.alt = name;
+        }
+      }
+
+      function updateImageNav() {
+        imagePrevBtn.disabled = currentImageIndex <= 0;
+        imageNextBtn.disabled = currentImageIndex >= imageList.length - 1;
+        if (imageList.length > 0 && currentImageIndex >= 0) {
+          imageCounter.textContent = (currentImageIndex + 1) + ' / ' + imageList.length;
+        } else {
+          imageCounter.textContent = '';
+        }
+      }
+
+      function closeImage() {
+        imageWrap.innerHTML = '';
+        imageModal.classList.remove('active');
+        document.body.style.overflow = '';
+        currentImageIndex = -1;
+      }
+
+      function prevImage() {
+        if (currentImageIndex > 0) {
+          currentImageIndex--;
+          var img = imageList[currentImageIndex];
+          showImage(img.url, img.name);
+        }
+      }
+
+      function nextImage() {
+        if (currentImageIndex < imageList.length - 1) {
+          currentImageIndex++;
+          var img = imageList[currentImageIndex];
+          showImage(img.url, img.name);
+        }
+      }
+
+      imageCloseBtn.addEventListener('click', closeImage);
+      imagePrevBtn.addEventListener('click', prevImage);
+      imageNextBtn.addEventListener('click', nextImage);
+
+      imageModal.addEventListener('click', function(e) {
+        if (e.target === imageModal) closeImage();
+      });
+
+      // -- Keyboard shortcuts for both modals --
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          if (videoModal.classList.contains('active')) closeVideo();
+          if (imageModal.classList.contains('active')) closeImage();
+        }
+        if (imageModal.classList.contains('active')) {
+          if (e.key === 'ArrowLeft') prevImage();
+          if (e.key === 'ArrowRight') nextImage();
+        }
+      });
+    </script>
+  </body>
+</html>
