@@ -896,7 +896,7 @@
 
     <script>
       // Manifest: array of [path, sizeInBytes]
-      const MANIFEST = {{ hugo.Data.telos_manifest | jsonify | safeJS }};
+      const MANIFEST = {{ site.Data.telos_manifest | jsonify | safeJS }};
       const S3_BASE = 'https://telos-memories-archive.s3.us-east-1.amazonaws.com/';
       const PASSWORD = 'telos2019';
       const SESSION_KEY = 'telos_auth';
