@@ -10,12 +10,13 @@ theme = 'awesome-identity'
   firstname = "Joel"
   lastname = "Gallant"
   title = """
-    Technical Leadership | 
-    Generalist Technologist
+    CTO, Swarmio Media | 
+    Sovereign AI Delivery Platforms
   """
   bio = """
-    DevOps, Distributed Apps, AI,\n
-    Media, Management [and more]
+    Multi-tenant AI gateways, in-country\n
+    inference, and the accounting
+    that makes them sellable
     """
 
 ## More things to click on
@@ -35,8 +36,8 @@ theme = 'awesome-identity'
 
 ## Meta / SEO Configurations
 [params.meta]
-  description = "Joel Gallant — Technical leader and generalist technologist. DevOps, distributed applications, AI, media, and management."
-  keywords = "Joel Gallant, software engineer, technical leader, DevOps, distributed systems, AI, full-stack developer, generalist technologist"
+  description = "Joel Gallant — CTO at Swarmio Media. Sovereign AI delivery platforms for telecom operators: multi-tenant AI gateways, in-country inference, per-tenant metering and chargeback."
+  keywords = "Joel Gallant, CTO, sovereign AI, AI platform, LLM gateway, multi-tenant, data residency, in-country inference, telecom, GPUaaS, platform architecture, technical leadership"
   images = ["/images/IMG_4853.jpg"]
   author = "Joel Gallant"
 
