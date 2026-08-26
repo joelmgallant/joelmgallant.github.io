@@ -10,13 +10,12 @@ theme = 'awesome-identity'
   firstname = "Joel"
   lastname = "Gallant"
   title = """
-    CTO, Swarmio Media | 
-    Sovereign AI Delivery Platforms
+    Technical Leadership | 
+    Generalist Technologist
   """
   bio = """
-    Multi-tenant AI gateways, in-country\n
-    inference, and the accounting
-    that makes them sellable
+    DevOps, Distributed Apps, AI,\n
+    Media, Management [and more]
     """
 
 ## More things to click on
