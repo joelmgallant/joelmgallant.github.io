@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>~*~ DOC DOOM / RDJ SITUATION -- THE TRUTH ~*~</title>
+<style>
+  @keyframes blink   { 0%,49%{opacity:1} 50%,100%{opacity:0} }
+  @keyframes rainbow { 0%{background-position:0 0} 100%{background-position:200px 0} }
+  @keyframes spin    { 0%{transform:rotate(0)} 100%{transform:rotate(360deg)} }
+  @keyframes bob     { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+  @keyframes flash   { 0%,100%{color:#ff0} 50%{color:#f0f} }
+  @keyframes crawl   { 0%{transform:translateX(100%)} 100%{transform:translateX(-100%)} }
+  @keyframes zap     { 0%,100%{opacity:.25} 50%{opacity:1} }
+
+  html { -webkit-text-size-adjust:100%; }
+  body{
+    margin:0; padding:14px 8px 40px;
+    background-color:#000030;
+    background-image:
+      radial-gradient(1px 1px at 12px 18px, #fff, transparent),
+      radial-gradient(1px 1px at 55px 62px, #9cf, transparent),
+      radial-gradient(2px 2px at 90px 30px, #fff, transparent),
+      radial-gradient(1px 1px at 30px 95px, #ff9, transparent),
+      radial-gradient(1px 1px at 110px 110px, #fff, transparent);
+    background-size:128px 128px;
+    color:#00ff00;
+    font-family:"Comic Sans MS","Chalkboard SE",cursive,sans-serif;
+    font-size:15px; line-height:1.5;
+  }
+  a{ color:#00ffff; }
+  a:visited{ color:#ff00ff; }
+  a:hover{ color:#ffff00; background:#400040; }
+  :focus-visible{ outline:3px dashed #ffff00; outline-offset:2px; }
+
+  .page{ max-width:760px; margin:0 auto; }
+
+  /* ---- WIN95 CHROME BOX ---- */
+  .win{
+    background:#c0c0c0; color:#000;
+    border:3px outset #dfdfdf;
+    margin:0 0 18px; padding:0;
+  }
+  .win > .titlebar{
+    background:linear-gradient(90deg,#000080,#1084d0);
+    color:#fff; font-family:"Trebuchet MS",Verdana,sans-serif;
+    font-size:13px; font-weight:bold; padding:3px 6px;
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .titlebar .btns{ letter-spacing:2px; }
+  .win > .inner{ padding:12px 14px; background:#e8e8e8; }
+  .win h2{
+    margin:0 0 8px; font-family:Impact,"Haettenschweiler",sans-serif;
+    font-size:24px; letter-spacing:1px; color:#000080; text-transform:uppercase;
+  }
+  .win p{ margin:0 0 10px; }
+
+  /* ---- BANNER ---- */
+  .banner{
+    text-align:center; border:4px ridge #ff00ff; background:#000;
+    padding:14px 8px 10px; margin-bottom:14px;
+  }
+  .banner h1{
+    margin:0; font-family:Impact,"Haettenschweiler",sans-serif;
+    font-size:clamp(26px,7.5vw,52px); line-height:1.05; letter-spacing:2px;
+    color:#ffff00; text-shadow:3px 3px 0 #ff0000, 6px 6px 0 #008000;
+  }
+  .banner .sub{ font-size:13px; color:#00ff00; margin-top:8px; }
+  .banner .sub b{ animation:flash .8s infinite; }
+
+  .marquee{
+    overflow:hidden; white-space:nowrap; background:#000; border:2px inset #808080;
+    color:#ffff00; font-family:"Courier New",monospace; font-size:14px;
+    padding:4px 0; margin-bottom:14px;
+  }
+  .marquee span{ display:inline-block; animation:crawl 18s linear infinite; }
+
+  .rule{
+    height:10px; margin:16px 0; border:0;
+    background:repeating-linear-gradient(90deg,#f00 0 25px,#f90 25px 50px,#ff0 50px 75px,#0f0 75px 100px,#0ff 100px 125px,#00f 125px 150px,#f0f 150px 175px,#f00 175px 200px);
+    animation:rainbow 3s linear infinite;
+  }
+
+  .blink{ animation:blink 1s steps(1) infinite; }
+
+  /* ---- NAV ---- */
+  nav{ text-align:center; margin-bottom:14px; }
+  nav a{
+    display:inline-block; margin:3px; padding:4px 10px;
+    background:#c0c0c0; color:#000080 !important; text-decoration:none;
+    border:2px outset #fff; font-size:13px; font-weight:bold;
+  }
+  nav a:active{ border-style:inset; }
+  nav a:hover{ background:#ffff99; }
+
+  /* ---- FACT BLOCKS ---- */
+  .stamp{
+    display:inline-block; transform:rotate(-6deg); border:3px double #cc0000;
+    color:#cc0000; font-family:Impact,sans-serif; font-size:15px;
+    padding:2px 8px; letter-spacing:1px; background:#fff;
+  }
+  .stamp.ok{ border-color:#006600; color:#006600; }
+  .stamp.no{ border-color:#990000; color:#990000; }
+
+  table.facts{ border-collapse:collapse; width:100%; font-size:14px; }
+  table.facts th{ background:#000080; color:#ffff00; padding:6px; text-align:left; }
+  table.facts td{ border:1px solid #808080; padding:7px; vertical-align:top; background:#fff; }
+  table.facts tr:nth-child(even) td{ background:#f0f0ff; }
+
+  /* ---- PICTURES ---- */
+  .pic{ text-align:center; margin:14px 0; }
+  .pic svg{ max-width:100%; height:auto; border:3px inset #808080; background:#000; }
+  .caption{
+    font-family:"Courier New",monospace; font-size:12px; color:#000;
+    background:#ffff99; display:inline-block; padding:2px 8px; border:1px solid #000;
+    margin-top:6px;
+  }
+  .construction{ display:block; margin:0 auto; animation:bob 1.6s ease-in-out infinite; }
+
+  /* ---- COUNTER ---- */
+  .counterbox{ text-align:center; margin:18px 0; }
+  .counter{
+    display:inline-block; background:#000; border:3px inset #666; padding:6px 10px;
+    font-family:"Courier New",monospace; font-size:26px; color:#00ff00; letter-spacing:6px;
+  }
+  .counter b{ background:#001000; padding:0 3px; }
+
+  .footer{
+    text-align:center; font-size:12px; color:#00ffff; margin-top:24px;
+    font-family:"Courier New",monospace; line-height:1.9;
+  }
+  .badge{
+    display:inline-block; border:2px outset #999; background:#c0c0c0; color:#000;
+    font-family:"Courier New",monospace; font-size:10px; padding:3px 6px; margin:3px;
+  }
+  .verdict{
+    background:#000; color:#00ff00; border:4px double #00ff00; padding:14px;
+    font-family:"Courier New",monospace; font-size:15px;
+  }
+  .verdict h2{ color:#00ff00; font-family:Impact,sans-serif; margin:0 0 10px; }
+  .zap{ animation:zap 1.2s infinite; }
+
+  ul.chunky{ margin:0 0 10px; padding-left:22px; }
+  ul.chunky li{ margin-bottom:6px; }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation:none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">
+    <h1>THE R.D.J. / DOCTOR DOOM<br>SITUATION EXPLAINED</h1>
+    <div class="sub">A FAN RESEARCH PAGE &nbsp;&#9670;&nbsp; <b>*** NO SPOILERS (NONE EXIST YET) ***</b><br>
+    Last updated: 08/26/26 &nbsp;&#9670;&nbsp; Maintained by a guy who was also confused</div>
+  </div>
+
+  <div class="marquee"><span>&#9733;&#9733;&#9733; WELCOME 2 MY HOMEPAGE &#9733;&#9733;&#9733; NO, IRON MAN IS NOT BACK FROM THE DEAD &#9733;&#9733;&#9733; PLEASE SIGN MY GUESTBOOK &#9733;&#9733;&#9733; THIS PAGE IS BEST VIEWED WITH YOUR BRAIN TURNED ON &#9733;&#9733;&#9733;</span></div>
+
+  <nav>
+    <a href="#question">THE QUESTION</a>
+    <a href="#facts">THE FACTS</a>
+    <a href="#diagram">THE DIAGRAM</a>
+    <a href="#rumor">RUMOR ALERT</a>
+    <a href="#verdict">MY VERDICT</a>
+    <a href="#links">LINKS</a>
+  </nav>
+
+  <!-- ===== THE QUESTION ===== -->
+  <div class="win" id="question">
+    <div class="titlebar"><span>question.txt - Notepad</span><span class="btns">_ &#9633; X</span></div>
+    <div class="inner">
+      <h2>The Question</h2>
+      <p>A friend who does not watch these movies asked, roughly: is the movie going to say out loud
+      that Doctor Doom has Iron Man's exact face? Is it a "he's back but evil" thing? Or did they just
+      hire the guy again and nobody in the story is going to mention it?</p>
+      <p>Every article about this is vague. Here is why: <span class="blink">&#9654;</span>
+      <b>the movie is not out.</b> Avengers: Doomsday opens December 18, 2026. Everything currently
+      published is interviews, trailers, and leaks. Nobody outside the production knows the answer.</p>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- ===== THE FACTS ===== -->
+  <div class="win" id="facts">
+    <div class="titlebar"><span>WHAT IS ACTUALLY CONFIRMED</span><span class="btns">_ &#9633; X</span></div>
+    <div class="inner">
+      <h2>The Facts, Sorted</h2>
+      <table class="facts">
+        <tr><th style="width:34%">CLAIM</th><th>STATUS</th></tr>
+        <tr>
+          <td>He is playing a Tony Stark variant who went bad</td>
+          <td><span class="stamp no">DENIED</span><br>
+          This was the immediate fan assumption after the 2024 Comic-Con reveal. Downey has publicly
+          pushed back on it. His framing is that the two men are parallels, not the same person:
+          both brilliant scientists, but Tony's trauma pointed him toward heroism and Doom's pointed
+          him the other way.</td>
+        </tr>
+        <tr>
+          <td>He is playing the actual Victor von Doom from the comics</td>
+          <td><span class="stamp ok">OFFICIAL LINE</span><br>
+          This is Marvel's stated position and has been for a while.</td>
+        </tr>
+        <tr>
+          <td>There is a built-in excuse for the identical face</td>
+          <td><span class="stamp ok">YES</span><br>
+          Comic-Con footage confirmed this Doom comes from Earth-828 &mdash; the universe of
+          The Fantastic Four: First Steps, not the main MCU reality. Two separate universes producing
+          two people with the same face is not a plot hole in a multiverse story. It is just how the
+          machinery works. See diagram below.</td>
+        </tr>
+        <tr>
+          <td>The marketing is pretending nobody would notice</td>
+          <td><span class="stamp no">ABSOLUTELY NOT</span><br>
+          One behind-the-scenes teaser showed two people standing back to back, one holding an
+          Iron Man helmet and the other holding Doom's mask. That is a studio deliberately poking
+          the audience, not one hoping the audience forgets.</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ===== DIAGRAM ===== -->
+  <div class="win" id="diagram">
+    <div class="titlebar"><span>diagram1.gif</span><span class="btns">_ &#9633; X</span></div>
+    <div class="inner">
+      <h2>Fig. 1 &mdash; The Loophole</h2>
+      <div class="pic">
+        <svg viewBox="0 0 640 250" role="img" aria-label="Diagram: two separate universes, Earth-616 and Earth-828, each producing a person with the same face, connected by a multiverse rift">
+          <rect width="640" height="250" fill="#000010"/>
+          <!-- left universe -->
+          <circle cx="140" cy="120" r="86" fill="none" stroke="#00ffff" stroke-width="3"/>
+          <circle cx="140" cy="120" r="72" fill="none" stroke="#004466" stroke-width="1" stroke-dasharray="4 4"/>
+          <text x="140" y="34" fill="#00ffff" font-family="Courier New,monospace" font-size="16" text-anchor="middle">EARTH-616</text>
+          <text x="140" y="228" fill="#66ccff" font-family="Courier New,monospace" font-size="12" text-anchor="middle">(the movies you know)</text>
+          <!-- head silhouette left -->
+          <g transform="translate(140,125)">
+            <circle cx="0" cy="-14" r="26" fill="#00ffff" opacity="0.85"/>
+            <path d="M-34 44 C-34 8 34 8 34 44 Z" fill="#00ffff" opacity="0.85"/>
+          </g>
+          <!-- right universe -->
+          <circle cx="500" cy="120" r="86" fill="none" stroke="#00ff66" stroke-width="3"/>
+          <circle cx="500" cy="120" r="72" fill="none" stroke="#005522" stroke-width="1" stroke-dasharray="4 4"/>
+          <text x="500" y="34" fill="#00ff66" font-family="Courier New,monospace" font-size="16" text-anchor="middle">EARTH-828</text>
+          <text x="500" y="228" fill="#66ffaa" font-family="Courier New,monospace" font-size="12" text-anchor="middle">(Fantastic Four's world)</text>
+          <g transform="translate(500,125)">
+            <circle cx="0" cy="-14" r="26" fill="#00ff66" opacity="0.85"/>
+            <path d="M-34 44 C-34 8 34 8 34 44 Z" fill="#00ff66" opacity="0.85"/>
+          </g>
+          <!-- rift -->
+          <path d="M232 120 L268 96 L268 144 L306 100 L306 140 L344 108 L344 132 L408 120"
+                fill="none" stroke="#ff00ff" stroke-width="4"/>
+          <text x="320" y="70" fill="#ff00ff" font-family="Courier New,monospace" font-size="13" text-anchor="middle">SAME FACE</text>
+          <text x="320" y="176" fill="#ffff00" font-family="Courier New,monospace" font-size="13" text-anchor="middle">DIFFERENT PERSON</text>
+        </svg>
+        <div class="caption">fig1.gif &mdash; 640x250 &mdash; 14.2 KB &mdash; please do not hotlink</div>
+      </div>
+      <p style="margin-top:12px"><b>Translation:</b> nothing has to be resurrected, body-swapped, or
+      cloned. Two universes, two guys, one face. The story does not owe anyone an explanation beyond that
+      &mdash; but that does not mean the characters won't react.</p>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- ===== RUMOR ===== -->
+  <div class="win" id="rumor">
+    <div class="titlebar"><span>&#9888; UNVERIFIED &#9888;</span><span class="btns">_ &#9633; X</span></div>
+    <div class="inner">
+      <div class="pic">
+        <svg class="construction" width="300" height="96" viewBox="0 0 300 96" role="img" aria-label="Under construction barricade">
+          <rect x="0" y="26" width="300" height="26" fill="#ffcc00"/>
+          <path d="M0 26 L26 26 L0 52 Z M26 26 L52 26 L0 78 L0 52 Z" fill="#000" opacity="0"/>
+          <g>
+            <rect x="0" y="26" width="300" height="26" fill="#ffcc00"/>
+            <g fill="#000">
+              <polygon points="0,52 22,26 44,26 0,70"/>
+              <polygon points="44,52 66,26 88,26 44,78"/>
+              <polygon points="88,52 110,26 132,26 88,78"/>
+              <polygon points="132,52 154,26 176,26 132,78"/>
+              <polygon points="176,52 198,26 220,26 176,78"/>
+              <polygon points="220,52 242,26 264,26 220,78"/>
+              <polygon points="264,52 286,26 300,26 300,40 264,78"/>
+            </g>
+            <rect x="0" y="52" width="300" height="44" fill="#000010"/>
+            <rect x="0" y="26" width="300" height="26" fill="none" stroke="#000" stroke-width="2"/>
+          </g>
+          <text x="150" y="18" fill="#ffcc00" font-family="Impact,sans-serif" font-size="16" text-anchor="middle">UNDER CONSTRUCTION</text>
+          <text x="150" y="76" fill="#ff6666" font-family="Courier New,monospace" font-size="12" text-anchor="middle">RUMOR ZONE &mdash; ENTER AT OWN RISK</text>
+        </svg>
+      </div>
+      <h2 class="zap">Rumor Alert</h2>
+      <p>In late August 2026, images circulated online that appear to show Doom unmasked with heavy
+      facial scarring. If real, that is very faithful to the comics &mdash; Doom's disfigurement is
+      central to the character &mdash; and it would split the difference neatly: same actor, but a
+      face nobody would mistake for Tony Stark's.</p>
+      <p><span class="stamp">TREAT AS UNCONFIRMED</span> &nbsp; Marvel leak images are notoriously
+      hard to separate from very convincing fakes. Do not build your whole theory on this.</p>
+    </div>
+  </div>
+
+  <!-- ===== VERDICT ===== -->
+  <div class="win" id="verdict">
+    <div class="titlebar"><span>C:\&gt; VERDICT.EXE</span><span class="btns">_ &#9633; X</span></div>
+    <div class="inner">
+      <div class="verdict">
+        <h2>&gt; THE ANSWER IS OPTION C</h2>
+        <ul class="chunky">
+          <li><b>NOT</b> "Tony's back and he's evil now."</li>
+          <li><b>NOT</b> "we recast him and everyone politely ignores it."</li>
+          <li><b>YES:</b> a genuinely different character, from a different universe, where the
+          resemblance is a deliberate tease aimed at the audience &mdash; almost certainly held back
+          as a reveal rather than ignored.</li>
+        </ul>
+        <p style="margin:12px 0 0">The open question, the one no article can answer yet, is whether an
+        actual character says the quiet part out loud on screen. The mask is the tool that lets them
+        hold that card as long as they want. <span class="blink">_</span></p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- ===== LINKS ===== -->
+  <div class="win" id="links">
+    <div class="titlebar"><span>MY KOOL LINKS</span><span class="btns">_ &#9633; X</span></div>
+    <div class="inner">
+      <h2>Where This Came From</h2>
+      <ul class="chunky">
+        <li><a href="https://www.marvel.com/movies/avengers-doomsday">Marvel &mdash; official Doomsday page</a></li>
+        <li><a href="https://www.denofgeek.com/movies/avengers-doomsday-doctor-doom-tony-stark-connection-past-revealed/">Den of Geek &mdash; the Stark/Doom connection &amp; Earth-828</a></li>
+        <li><a href="https://theweek.com/culture-life/film/how-iron-man-became-dr-doom">The Week &mdash; roundup of the competing theories</a></li>
+        <li><a href="https://www.techradar.com/streaming/entertainment/avengers-doomsday-video-teases-more-ties-between-robert-downey-jrs-doctor-doom-and-tony-stark-and-a-new-clue-about-the-marvel-films-plot">TechRadar &mdash; the two-masks teaser</a></li>
+        <li><a href="https://editorial.rottentomatoes.com/article/everything-we-know-about-avengers-doomsday/">Rotten Tomatoes &mdash; everything known so far</a></li>
+      </ul>
+      <p style="font-size:13px"><b>Sequel watch:</b> Avengers: Secret Wars follows in December 2027,
+      so any reveal held back here has somewhere to land.</p>
+    </div>
+  </div>
+
+  <div class="counterbox">
+    <div style="color:#ffff00;font-size:13px;margin-bottom:6px">YOU ARE VISITOR NUMBER</div>
+    <div class="counter" id="counter"><b>0</b><b>0</b><b>0</b><b>0</b><b>0</b><b>1</b></div>
+    <div style="margin-top:10px">
+      <span class="badge">BEST VIEWED IN NETSCAPE 4.0</span>
+      <span class="badge">800x600 OR BUST</span>
+      <span class="badge">MIDI: OFF (SORRY)</span>
+      <span class="badge">&#9733; COOL SITE OF THE DAY &#9733;</span>
+    </div>
+  </div>
+
+  <div class="footer">
+    [ PREV &nbsp;|&nbsp; <span class="blink">MULTIVERSE WEBRING</span> &nbsp;|&nbsp; NEXT ]<br>
+    &#9993; sign my guestbook &nbsp;&#9670;&nbsp; e-mail me &nbsp;&#9670;&nbsp; view my awards<br>
+    This page is not affiliated with anybody. All theories are theories.<br>
+    &copy; 2026 &mdash; made on a computer
+  </div>
+
+</div>
+
+<script>
+  // Hit counter that counts up on load, because of course it does.
+  (function(){
+    var el = document.getElementById('counter');
+    if(!el) return;
+    var target = 8461 + Math.floor(Math.random()*400);
+    var current = 0;
+    var step = Math.ceil(target/45);
+    var timer = setInterval(function(){
+      current += step;
+      if(current >= target){ current = target; clearInterval(timer); }
+      var s = String(current).padStart(6,'0');
+      el.innerHTML = s.split('').map(function(d){ return '<b>'+d+'</b>'; }).join('');
+    }, 40);
+  })();
+</script>
+</body>
+</html>
