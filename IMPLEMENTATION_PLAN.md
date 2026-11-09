@@ -20,7 +20,7 @@ The keepsake "Today's Reading" pill is held back until Joel approves the content
 **Goal:** 34 airbrush WebP images in `static/fire-and-mountain/today/img/` from fal `nano-banana/edit` with `art/reference.jpg` as style reference.
 **Success Criteria:** every file present per spec section 7; each image viewed; none black (safety checker); no people/faces; style consistent.
 **Tests:** `check-links.mjs` image existence check; manual read of every image.
-**Status:** Not Started
+**Status:** Complete (moon scenes except full are moonless; today page overlays the accurate SVG moon)
 
 ## Stage 4: Content
 **Goal:** `style-guide.md`, `agent-prompt.md`, 13 month files by subagents (waves of 7 + 6), `build.mjs` merge + checks into `static/fire-and-mountain/today/data/`.

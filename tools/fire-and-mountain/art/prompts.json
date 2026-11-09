@@ -1,0 +1,141 @@
+{
+ "style": "Paint a brand-new scene in exactly the same art style as the reference image: a 1970s cosmic airbrush poster with smooth glowing gradients, a sunset-orange to deep-violet palette, sparkle stars, soft chrome highlights and bold retro van-art energy. Do not copy the reference's composition or objects. No people, no faces, no hands, no text, no letters, no border, no frame; the painting fills the whole canvas.",
+ "images": {
+  "moon-new": {
+   "aspect": "4:3",
+   "scene": "a rocky forested Atlantic shoreline on a very dark night, stars blazing, calm black water reflecting starlight. IMPORTANT: there is NO moon anywhere in the sky. Leave the upper middle of the sky open and uncluttered (soft clouds and stars only), because a moon will be added there later."
+  },
+  "moon-waxing-crescent": {
+   "aspect": "4:3",
+   "scene": "a spruce-lined rocky coast at dusk, violet sky with sparkle stars, gentle waves on a pebble beach. IMPORTANT: there is NO moon anywhere in the sky. Leave the upper middle of the sky open and uncluttered (soft clouds and stars only), because a moon will be added there later."
+  },
+  "moon-first-quarter": {
+   "aspect": "4:3",
+   "scene": "a cove with a small wooden cabin, smoke curling from its chimney, warm window light, evening sky. IMPORTANT: there is NO moon anywhere in the sky. Leave the upper middle of the sky open and uncluttered (soft clouds and stars only), because a moon will be added there later."
+  },
+  "moon-waxing-gibbous": {
+   "aspect": "4:3",
+   "scene": "pine forest and granite cliffs under a glowing evening sky, clouds streaking low near the horizon. IMPORTANT: there is NO moon anywhere in the sky. Leave the upper middle of the sky open and uncluttered (soft clouds and stars only), because a moon will be added there later."
+  },
+  "moon-full": {
+   "aspect": "4:3",
+   "scene": "a huge radiant full moon over the ocean, a shimmering moonlight path across the water to a rocky beach, a ruby ring and a black bead bracelet glinting on a flat rock in the foreground"
+  },
+  "moon-waning-gibbous": {
+   "aspect": "4:3",
+   "scene": "misty hills and a winding coastal road at night, soft purple fog in the valleys. IMPORTANT: there is NO moon anywhere in the sky. Leave the upper middle of the sky open and uncluttered (soft clouds and stars only), because a moon will be added there later."
+  },
+  "moon-last-quarter": {
+   "aspect": "4:3",
+   "scene": "a quiet harbour with small boats bobbing, a lighthouse on the point, late-night sky. IMPORTANT: there is NO moon anywhere in the sky. Leave the upper middle of the sky open and uncluttered (soft clouds and stars only), because a moon will be added there later."
+  },
+  "moon-waning-crescent": {
+   "aspect": "4:3",
+   "scene": "the sea just before dawn, the horizon glowing peach and gold, a rocky headland on one side. IMPORTANT: there is NO moon anywhere in the sky. Leave the upper middle of the sky open and uncluttered (soft clouds and stars only), because a moon will be added there later."
+  },
+  "stone-ruby": {
+   "aspect": "1:1",
+   "scene": "a single glowing purplish-pink ruby cabochon set in an ornate silver ring, floating among sparkle stars, rays of warm light behind it"
+  },
+  "stone-onyx": {
+   "aspect": "1:1",
+   "scene": "a bracelet of polished black onyx beads glowing with a cool chrome sheen, resting on a smooth stone under a violet cosmic sky with sparkle stars; the painting fills the entire square edge to edge"
+  },
+  "stone-pearl": {
+   "aspect": "1:1",
+   "scene": "a ring with an iridescent mother of pearl stone shimmering pink, blue and white, floating above calm moonlit water"
+  },
+  "stone-diamonds-stacked": {
+   "aspect": "1:1",
+   "scene": "a stacked silver ring set with one big diamond surrounded by small diamonds, throwing rainbow sparkles across a twilight sky"
+  },
+  "stone-diamond": {
+   "aspect": "1:1",
+   "scene": "a single brilliant diamond solitaire ring catching a beam of starlight, crisp rainbow flares, deep violet background"
+  },
+  "element-earth": {
+   "aspect": "1:1",
+   "scene": "a glowing green mountain with spruce trees and layered granite, the earth itself radiating a soft green aura under sparkle stars"
+  },
+  "element-fire": {
+   "aspect": "1:1",
+   "scene": "a swirling column of orange and red flame shaped like a rising spark, embers spiralling into a violet night sky"
+  },
+  "element-water": {
+   "aspect": "1:1",
+   "scene": "a curling blue ocean wave with a moonlit crest, foam turning to stars as it breaks"
+  },
+  "element-wind": {
+   "aspect": "1:1",
+   "scene": "silver-white ribbons of wind spiralling through the sky, carrying leaves and sparkles, clouds parting into rays"
+  },
+  "element-heart": {
+   "aspect": "1:1",
+   "scene": "a glowing pink heart-shaped nebula of light and stardust, warm rays radiating outward"
+  },
+  "emblem-fire-tiger": {
+   "aspect": "21:9",
+   "scene": "a majestic tiger made of living orange and gold flame, leaping across a wide sunset sky, trailing sparks, side view"
+  },
+  "emblem-cabin": {
+   "aspect": "21:9",
+   "scene": "a cozy log cabin in a spruce forest at dusk, chimney smoke curling into the stars, warm golden window light, wide panorama"
+  },
+  "emblem-wood-rat": {
+   "aspect": "21:9",
+   "scene": "a clever little rat with bright eyes sitting on a mossy log under a glowing moon, made of soft green and teal light, wide panorama"
+  },
+  "emblem-shore": {
+   "aspect": "21:9",
+   "scene": "woods meeting the edge of the water, a calm moonlit shoreline with smooth stones and gentle waves, wide panorama"
+  },
+  "mood-mischief": {
+   "aspect": "16:9",
+   "scene": "a playful night over a small Atlantic Canadian fishing village with spruce trees and colourful clapboard houses, shooting stars zig-zagging like they are playing tag, sparkle stars scattering like confetti; no palm trees, the moon has no face"
+  },
+  "mood-rest": {
+   "aspect": "16:9",
+   "scene": "a hammock strung between two pines under a peaceful starry sky, a lantern glowing softly, gentle lake water"
+  },
+  "mood-courage": {
+   "aspect": "16:9",
+   "scene": "a lone lighthouse standing tall against towering storm waves, its beam cutting bravely through dramatic clouds"
+  },
+  "mood-crossing": {
+   "aspect": "16:9",
+   "scene": "a birchbark canoe pulled up on a quiet moonlit shore, paddles resting across it, calm water stretching to a far shore of spruce"
+  },
+  "mood-feast": {
+   "aspect": "16:9",
+   "scene": "a long wooden table outdoors under string lights and stars, overflowing with bread, fruit, pies and glowing candles"
+  },
+  "mood-focus": {
+   "aspect": "16:9",
+   "scene": "a single bright arrow of light shooting straight toward a glowing star target across a deep violet sky"
+  },
+  "mood-wonder": {
+   "aspect": "16:9",
+   "scene": "swirling aurora borealis ribbons of green, pink and violet over a snowy forest and frozen lake"
+  },
+  "mood-homecoming": {
+   "aspect": "16:9",
+   "scene": "a winding path through snowy woods leading to a glowing cabin door left open, warm light spilling out onto the snow"
+  },
+  "mood-celebration": {
+   "aspect": "16:9",
+   "scene": "fireworks bursting in airbrush colours over a harbour, reflections dancing on the water, sparkle stars"
+  },
+  "mood-patience": {
+   "aspect": "16:9",
+   "scene": "a tiny seedling sprouting from a granite boulder under a slow, enormous rising moon, time-lapse star trails circling above"
+  },
+  "mood-spark": {
+   "aspect": "16:9",
+   "scene": "a single match flaring into a brilliant starburst, igniting a sky full of shooting stars"
+  },
+  "mood-release": {
+   "aspect": "16:9",
+   "scene": "glowing paper lanterns drifting up from a beach into the night sky, the tide going out beneath them"
+  }
+ }
+}
