@@ -14,7 +14,7 @@ The keepsake "Today's Reading" pill is held back until Joel approves the content
 **Goal:** `static/fire-and-mountain/tarot-links.json` (78 cards, canonical `https://biddytarot.com/...`); keepsake split into `shared.css` + `sky.js`; seven spread cards linked with plain `<a>`.
 **Success Criteria:** link checker: 78/78 return 200 with no redirect; keepsake before/after screenshots pixel-identical at 390 and 1280 (excluding random starfield, which is disabled for the comparison).
 **Tests:** `test/tarot.test.mjs` (78 unique names and URLs, names match card-name grammar); `check-links.mjs`; Playwright pixel diff.
-**Status:** Not Started
+**Status:** Complete
 
 ## Stage 3: Illustration library
 **Goal:** 34 airbrush WebP images in `static/fire-and-mountain/today/img/` from fal `nano-banana/edit` with `art/reference.jpg` as style reference.

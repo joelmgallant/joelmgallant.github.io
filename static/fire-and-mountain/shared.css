@@ -133,3 +133,10 @@ footer small { font-family: var(--sans); font-size: .74rem; color: var(--ink-sof
   h1 { color: #111; background: none; }
   .js .reveal { opacity: 1; transform: none; }
 }
+
+/* Tarot card links (Biddy Tarot) */
+a.tarot-link { color: inherit; text-decoration: underline dotted var(--gold); text-underline-offset: .2em; text-decoration-thickness: 1px; }
+a.tarot-link:hover, a.tarot-link:focus-visible { color: var(--gold); }
+
+/* DES: "don't even scream", for big coincidences */
+.des { font-family: var(--display); font-weight: 700; letter-spacing: .12em; color: var(--gold); white-space: nowrap; }
