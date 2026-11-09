@@ -1,0 +1,2192 @@
+{
+ "2026-11-10": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0.02,
+  "moonSign": "Sagittarius"
+ },
+ "2026-11-11": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.05,
+  "moonSign": "Sagittarius"
+ },
+ "2026-11-12": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.1,
+  "moonSign": "Sagittarius"
+ },
+ "2026-11-13": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.17,
+  "moonSign": "Capricorn"
+ },
+ "2026-11-14": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.24,
+  "moonSign": "Capricorn"
+ },
+ "2026-11-15": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.33,
+  "moonSign": "Aquarius"
+ },
+ "2026-11-16": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.42,
+  "moonSign": "Aquarius"
+ },
+ "2026-11-17": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.52,
+  "moonSign": "Aquarius"
+ },
+ "2026-11-18": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.62,
+  "moonSign": "Pisces"
+ },
+ "2026-11-19": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.71,
+  "moonSign": "Pisces"
+ },
+ "2026-11-20": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.8,
+  "moonSign": "Aries"
+ },
+ "2026-11-21": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.88,
+  "moonSign": "Aries"
+ },
+ "2026-11-22": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.94,
+  "moonSign": "Taurus"
+ },
+ "2026-11-23": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 0.98,
+  "moonSign": "Taurus"
+ },
+ "2026-11-24": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 1,
+  "moonSign": "Gemini"
+ },
+ "2026-11-25": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 0.98,
+  "moonSign": "Gemini"
+ },
+ "2026-11-26": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.94,
+  "moonSign": "Cancer"
+ },
+ "2026-11-27": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.87,
+  "moonSign": "Cancer"
+ },
+ "2026-11-28": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.78,
+  "moonSign": "Leo"
+ },
+ "2026-11-29": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.67,
+  "moonSign": "Leo"
+ },
+ "2026-11-30": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.57,
+  "moonSign": "Virgo"
+ },
+ "2026-12-01": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.46,
+  "moonSign": "Virgo"
+ },
+ "2026-12-02": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.35,
+  "moonSign": "Virgo"
+ },
+ "2026-12-03": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.26,
+  "moonSign": "Libra"
+ },
+ "2026-12-04": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.17,
+  "moonSign": "Libra"
+ },
+ "2026-12-05": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.11,
+  "moonSign": "Scorpio"
+ },
+ "2026-12-06": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.05,
+  "moonSign": "Scorpio"
+ },
+ "2026-12-07": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0.02,
+  "moonSign": "Sagittarius"
+ },
+ "2026-12-08": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0,
+  "moonSign": "Sagittarius"
+ },
+ "2026-12-09": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0.01,
+  "moonSign": "Sagittarius"
+ },
+ "2026-12-10": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0.02,
+  "moonSign": "Capricorn"
+ },
+ "2026-12-11": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.06,
+  "moonSign": "Capricorn"
+ },
+ "2026-12-12": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.11,
+  "moonSign": "Capricorn"
+ },
+ "2026-12-13": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.18,
+  "moonSign": "Aquarius"
+ },
+ "2026-12-14": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.26,
+  "moonSign": "Aquarius"
+ },
+ "2026-12-15": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.35,
+  "moonSign": "Pisces"
+ },
+ "2026-12-16": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.44,
+  "moonSign": "Pisces"
+ },
+ "2026-12-17": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.55,
+  "moonSign": "Aries"
+ },
+ "2026-12-18": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.65,
+  "moonSign": "Aries"
+ },
+ "2026-12-19": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.75,
+  "moonSign": "Aries"
+ },
+ "2026-12-20": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.84,
+  "moonSign": "Taurus"
+ },
+ "2026-12-21": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.91,
+  "moonSign": "Taurus"
+ },
+ "2026-12-22": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 0.97,
+  "moonSign": "Gemini"
+ },
+ "2026-12-23": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 1,
+  "moonSign": "Gemini"
+ },
+ "2026-12-24": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 0.99,
+  "moonSign": "Cancer"
+ },
+ "2026-12-25": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.96,
+  "moonSign": "Cancer"
+ },
+ "2026-12-26": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.9,
+  "moonSign": "Leo"
+ },
+ "2026-12-27": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.82,
+  "moonSign": "Leo"
+ },
+ "2026-12-28": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.72,
+  "moonSign": "Virgo"
+ },
+ "2026-12-29": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.62,
+  "moonSign": "Virgo"
+ },
+ "2026-12-30": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.51,
+  "moonSign": "Libra"
+ },
+ "2026-12-31": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.41,
+  "moonSign": "Libra"
+ },
+ "2027-01-01": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.31,
+  "moonSign": "Scorpio"
+ },
+ "2027-01-02": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.23,
+  "moonSign": "Scorpio"
+ },
+ "2027-01-03": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.15,
+  "moonSign": "Scorpio"
+ },
+ "2027-01-04": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.09,
+  "moonSign": "Sagittarius"
+ },
+ "2027-01-05": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.04,
+  "moonSign": "Sagittarius"
+ },
+ "2027-01-06": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0.01,
+  "moonSign": "Capricorn"
+ },
+ "2027-01-07": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0,
+  "moonSign": "Capricorn"
+ },
+ "2027-01-08": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0.01,
+  "moonSign": "Capricorn"
+ },
+ "2027-01-09": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0.03,
+  "moonSign": "Aquarius"
+ },
+ "2027-01-10": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.07,
+  "moonSign": "Aquarius"
+ },
+ "2027-01-11": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.13,
+  "moonSign": "Pisces"
+ },
+ "2027-01-12": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.2,
+  "moonSign": "Pisces"
+ },
+ "2027-01-13": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.28,
+  "moonSign": "Pisces"
+ },
+ "2027-01-14": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.38,
+  "moonSign": "Aries"
+ },
+ "2027-01-15": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.48,
+  "moonSign": "Aries"
+ },
+ "2027-01-16": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.59,
+  "moonSign": "Taurus"
+ },
+ "2027-01-17": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.69,
+  "moonSign": "Taurus"
+ },
+ "2027-01-18": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.79,
+  "moonSign": "Gemini"
+ },
+ "2027-01-19": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.88,
+  "moonSign": "Gemini"
+ },
+ "2027-01-20": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.95,
+  "moonSign": "Cancer"
+ },
+ "2027-01-21": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 0.99,
+  "moonSign": "Cancer"
+ },
+ "2027-01-22": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 1,
+  "moonSign": "Leo"
+ },
+ "2027-01-23": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 0.98,
+  "moonSign": "Leo"
+ },
+ "2027-01-24": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.93,
+  "moonSign": "Virgo"
+ },
+ "2027-01-25": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.86,
+  "moonSign": "Virgo"
+ },
+ "2027-01-26": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.78,
+  "moonSign": "Libra"
+ },
+ "2027-01-27": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.68,
+  "moonSign": "Libra"
+ },
+ "2027-01-28": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.58,
+  "moonSign": "Libra"
+ },
+ "2027-01-29": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.48,
+  "moonSign": "Scorpio"
+ },
+ "2027-01-30": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.38,
+  "moonSign": "Scorpio"
+ },
+ "2027-01-31": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.29,
+  "moonSign": "Sagittarius"
+ },
+ "2027-02-01": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.21,
+  "moonSign": "Sagittarius"
+ },
+ "2027-02-02": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.14,
+  "moonSign": "Capricorn"
+ },
+ "2027-02-03": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.08,
+  "moonSign": "Capricorn"
+ },
+ "2027-02-04": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0.04,
+  "moonSign": "Capricorn"
+ },
+ "2027-02-05": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0.01,
+  "moonSign": "Aquarius"
+ },
+ "2027-02-06": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0,
+  "moonSign": "Aquarius"
+ },
+ "2027-02-07": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0.01,
+  "moonSign": "Aquarius"
+ },
+ "2027-02-08": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0.04,
+  "moonSign": "Pisces"
+ },
+ "2027-02-09": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.08,
+  "moonSign": "Pisces"
+ },
+ "2027-02-10": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.15,
+  "moonSign": "Aries"
+ },
+ "2027-02-11": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.23,
+  "moonSign": "Aries"
+ },
+ "2027-02-12": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.32,
+  "moonSign": "Taurus"
+ },
+ "2027-02-13": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.43,
+  "moonSign": "Taurus"
+ },
+ "2027-02-14": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.54,
+  "moonSign": "Gemini"
+ },
+ "2027-02-15": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.65,
+  "moonSign": "Gemini"
+ },
+ "2027-02-16": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.76,
+  "moonSign": "Gemini"
+ },
+ "2027-02-17": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.85,
+  "moonSign": "Cancer"
+ },
+ "2027-02-18": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.92,
+  "moonSign": "Cancer"
+ },
+ "2027-02-19": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 0.98,
+  "moonSign": "Leo"
+ },
+ "2027-02-20": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 1,
+  "moonSign": "Leo"
+ },
+ "2027-02-21": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 0.99,
+  "moonSign": "Virgo"
+ },
+ "2027-02-22": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.96,
+  "moonSign": "Virgo"
+ },
+ "2027-02-23": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.9,
+  "moonSign": "Libra"
+ },
+ "2027-02-24": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.83,
+  "moonSign": "Libra"
+ },
+ "2027-02-25": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.75,
+  "moonSign": "Scorpio"
+ },
+ "2027-02-26": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.65,
+  "moonSign": "Scorpio"
+ },
+ "2027-02-27": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.56,
+  "moonSign": "Sagittarius"
+ },
+ "2027-02-28": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.46,
+  "moonSign": "Sagittarius"
+ },
+ "2027-03-01": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.36,
+  "moonSign": "Sagittarius"
+ },
+ "2027-03-02": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.28,
+  "moonSign": "Capricorn"
+ },
+ "2027-03-03": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.2,
+  "moonSign": "Capricorn"
+ },
+ "2027-03-04": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.13,
+  "moonSign": "Aquarius"
+ },
+ "2027-03-05": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.07,
+  "moonSign": "Aquarius"
+ },
+ "2027-03-06": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0.03,
+  "moonSign": "Aquarius"
+ },
+ "2027-03-07": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0.01,
+  "moonSign": "Pisces"
+ },
+ "2027-03-08": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0,
+  "moonSign": "Pisces"
+ },
+ "2027-03-09": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0.02,
+  "moonSign": "Aries"
+ },
+ "2027-03-10": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.06,
+  "moonSign": "Aries"
+ },
+ "2027-03-11": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.11,
+  "moonSign": "Aries"
+ },
+ "2027-03-12": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.19,
+  "moonSign": "Taurus"
+ },
+ "2027-03-13": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.28,
+  "moonSign": "Taurus"
+ },
+ "2027-03-14": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.38,
+  "moonSign": "Gemini"
+ },
+ "2027-03-15": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.49,
+  "moonSign": "Gemini"
+ },
+ "2027-03-16": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.61,
+  "moonSign": "Cancer"
+ },
+ "2027-03-17": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.72,
+  "moonSign": "Cancer"
+ },
+ "2027-03-18": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.82,
+  "moonSign": "Leo"
+ },
+ "2027-03-19": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.9,
+  "moonSign": "Leo"
+ },
+ "2027-03-20": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.96,
+  "moonSign": "Virgo"
+ },
+ "2027-03-21": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 0.99,
+  "moonSign": "Virgo"
+ },
+ "2027-03-22": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 1,
+  "moonSign": "Libra"
+ },
+ "2027-03-23": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 0.98,
+  "moonSign": "Libra"
+ },
+ "2027-03-24": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.94,
+  "moonSign": "Scorpio"
+ },
+ "2027-03-25": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.88,
+  "moonSign": "Scorpio"
+ },
+ "2027-03-26": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.81,
+  "moonSign": "Scorpio"
+ },
+ "2027-03-27": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.73,
+  "moonSign": "Sagittarius"
+ },
+ "2027-03-28": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.63,
+  "moonSign": "Sagittarius"
+ },
+ "2027-03-29": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.54,
+  "moonSign": "Capricorn"
+ },
+ "2027-03-30": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.45,
+  "moonSign": "Capricorn"
+ },
+ "2027-03-31": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.35,
+  "moonSign": "Capricorn"
+ },
+ "2027-04-01": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.27,
+  "moonSign": "Aquarius"
+ },
+ "2027-04-02": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.19,
+  "moonSign": "Aquarius"
+ },
+ "2027-04-03": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.12,
+  "moonSign": "Pisces"
+ },
+ "2027-04-04": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.06,
+  "moonSign": "Pisces"
+ },
+ "2027-04-05": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0.02,
+  "moonSign": "Pisces"
+ },
+ "2027-04-06": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0,
+  "moonSign": "Aries"
+ },
+ "2027-04-07": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0.01,
+  "moonSign": "Aries"
+ },
+ "2027-04-08": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0.03,
+  "moonSign": "Taurus"
+ },
+ "2027-04-09": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.08,
+  "moonSign": "Taurus"
+ },
+ "2027-04-10": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.16,
+  "moonSign": "Gemini"
+ },
+ "2027-04-11": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.25,
+  "moonSign": "Gemini"
+ },
+ "2027-04-12": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.35,
+  "moonSign": "Cancer"
+ },
+ "2027-04-13": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.46,
+  "moonSign": "Cancer"
+ },
+ "2027-04-14": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.58,
+  "moonSign": "Leo"
+ },
+ "2027-04-15": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.69,
+  "moonSign": "Leo"
+ },
+ "2027-04-16": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.79,
+  "moonSign": "Virgo"
+ },
+ "2027-04-17": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.87,
+  "moonSign": "Virgo"
+ },
+ "2027-04-18": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.94,
+  "moonSign": "Virgo"
+ },
+ "2027-04-19": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 0.98,
+  "moonSign": "Libra"
+ },
+ "2027-04-20": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 1,
+  "moonSign": "Libra"
+ },
+ "2027-04-21": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 0.99,
+  "moonSign": "Scorpio"
+ },
+ "2027-04-22": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 0.97,
+  "moonSign": "Scorpio"
+ },
+ "2027-04-23": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.92,
+  "moonSign": "Sagittarius"
+ },
+ "2027-04-24": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.86,
+  "moonSign": "Sagittarius"
+ },
+ "2027-04-25": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.79,
+  "moonSign": "Capricorn"
+ },
+ "2027-04-26": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.71,
+  "moonSign": "Capricorn"
+ },
+ "2027-04-27": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.62,
+  "moonSign": "Capricorn"
+ },
+ "2027-04-28": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.52,
+  "moonSign": "Aquarius"
+ },
+ "2027-04-29": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.43,
+  "moonSign": "Aquarius"
+ },
+ "2027-04-30": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.33,
+  "moonSign": "Aquarius"
+ },
+ "2027-05-01": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.25,
+  "moonSign": "Pisces"
+ },
+ "2027-05-02": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.16,
+  "moonSign": "Pisces"
+ },
+ "2027-05-03": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.1,
+  "moonSign": "Aries"
+ },
+ "2027-05-04": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.04,
+  "moonSign": "Aries"
+ },
+ "2027-05-05": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0.01,
+  "moonSign": "Taurus"
+ },
+ "2027-05-06": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0,
+  "moonSign": "Taurus"
+ },
+ "2027-05-07": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0.02,
+  "moonSign": "Gemini"
+ },
+ "2027-05-08": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.06,
+  "moonSign": "Gemini"
+ },
+ "2027-05-09": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.13,
+  "moonSign": "Cancer"
+ },
+ "2027-05-10": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.22,
+  "moonSign": "Cancer"
+ },
+ "2027-05-11": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.32,
+  "moonSign": "Cancer"
+ },
+ "2027-05-12": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.44,
+  "moonSign": "Leo"
+ },
+ "2027-05-13": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.55,
+  "moonSign": "Leo"
+ },
+ "2027-05-14": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.66,
+  "moonSign": "Virgo"
+ },
+ "2027-05-15": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.76,
+  "moonSign": "Virgo"
+ },
+ "2027-05-16": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.85,
+  "moonSign": "Libra"
+ },
+ "2027-05-17": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.91,
+  "moonSign": "Libra"
+ },
+ "2027-05-18": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 0.96,
+  "moonSign": "Scorpio"
+ },
+ "2027-05-19": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 0.99,
+  "moonSign": "Scorpio"
+ },
+ "2027-05-20": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 1,
+  "moonSign": "Sagittarius"
+ },
+ "2027-05-21": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 0.98,
+  "moonSign": "Sagittarius"
+ },
+ "2027-05-22": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.95,
+  "moonSign": "Sagittarius"
+ },
+ "2027-05-23": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.9,
+  "moonSign": "Capricorn"
+ },
+ "2027-05-24": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.84,
+  "moonSign": "Capricorn"
+ },
+ "2027-05-25": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.77,
+  "moonSign": "Aquarius"
+ },
+ "2027-05-26": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.68,
+  "moonSign": "Aquarius"
+ },
+ "2027-05-27": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.59,
+  "moonSign": "Aquarius"
+ },
+ "2027-05-28": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.5,
+  "moonSign": "Pisces"
+ },
+ "2027-05-29": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.4,
+  "moonSign": "Pisces"
+ },
+ "2027-05-30": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.3,
+  "moonSign": "Aries"
+ },
+ "2027-05-31": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.21,
+  "moonSign": "Aries"
+ },
+ "2027-06-01": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.13,
+  "moonSign": "Aries"
+ },
+ "2027-06-02": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.07,
+  "moonSign": "Taurus"
+ },
+ "2027-06-03": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0.02,
+  "moonSign": "Taurus"
+ },
+ "2027-06-04": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0,
+  "moonSign": "Gemini"
+ },
+ "2027-06-05": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0.01,
+  "moonSign": "Gemini"
+ },
+ "2027-06-06": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.05,
+  "moonSign": "Cancer"
+ },
+ "2027-06-07": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.11,
+  "moonSign": "Cancer"
+ },
+ "2027-06-08": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.2,
+  "moonSign": "Leo"
+ },
+ "2027-06-09": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.3,
+  "moonSign": "Leo"
+ },
+ "2027-06-10": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.41,
+  "moonSign": "Virgo"
+ },
+ "2027-06-11": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.52,
+  "moonSign": "Virgo"
+ },
+ "2027-06-12": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.63,
+  "moonSign": "Libra"
+ },
+ "2027-06-13": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.73,
+  "moonSign": "Libra"
+ },
+ "2027-06-14": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.82,
+  "moonSign": "Scorpio"
+ },
+ "2027-06-15": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.89,
+  "moonSign": "Scorpio"
+ },
+ "2027-06-16": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.94,
+  "moonSign": "Scorpio"
+ },
+ "2027-06-17": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 0.98,
+  "moonSign": "Sagittarius"
+ },
+ "2027-06-18": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 1,
+  "moonSign": "Sagittarius"
+ },
+ "2027-06-19": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 1,
+  "moonSign": "Capricorn"
+ },
+ "2027-06-20": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 0.98,
+  "moonSign": "Capricorn"
+ },
+ "2027-06-21": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.94,
+  "moonSign": "Capricorn"
+ },
+ "2027-06-22": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.89,
+  "moonSign": "Aquarius"
+ },
+ "2027-06-23": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.82,
+  "moonSign": "Aquarius"
+ },
+ "2027-06-24": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.74,
+  "moonSign": "Pisces"
+ },
+ "2027-06-25": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.65,
+  "moonSign": "Pisces"
+ },
+ "2027-06-26": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.56,
+  "moonSign": "Pisces"
+ },
+ "2027-06-27": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.46,
+  "moonSign": "Aries"
+ },
+ "2027-06-28": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.36,
+  "moonSign": "Aries"
+ },
+ "2027-06-29": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.26,
+  "moonSign": "Taurus"
+ },
+ "2027-06-30": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.17,
+  "moonSign": "Taurus"
+ },
+ "2027-07-01": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.09,
+  "moonSign": "Gemini"
+ },
+ "2027-07-02": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0.03,
+  "moonSign": "Gemini"
+ },
+ "2027-07-03": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0,
+  "moonSign": "Cancer"
+ },
+ "2027-07-04": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0,
+  "moonSign": "Cancer"
+ },
+ "2027-07-05": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0.03,
+  "moonSign": "Leo"
+ },
+ "2027-07-06": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.09,
+  "moonSign": "Leo"
+ },
+ "2027-07-07": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.17,
+  "moonSign": "Virgo"
+ },
+ "2027-07-08": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.27,
+  "moonSign": "Virgo"
+ },
+ "2027-07-09": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.38,
+  "moonSign": "Libra"
+ },
+ "2027-07-10": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.48,
+  "moonSign": "Libra"
+ },
+ "2027-07-11": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.59,
+  "moonSign": "Libra"
+ },
+ "2027-07-12": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.69,
+  "moonSign": "Scorpio"
+ },
+ "2027-07-13": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.78,
+  "moonSign": "Scorpio"
+ },
+ "2027-07-14": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.86,
+  "moonSign": "Sagittarius"
+ },
+ "2027-07-15": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.92,
+  "moonSign": "Sagittarius"
+ },
+ "2027-07-16": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 0.96,
+  "moonSign": "Capricorn"
+ },
+ "2027-07-17": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 0.99,
+  "moonSign": "Capricorn"
+ },
+ "2027-07-18": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 1,
+  "moonSign": "Capricorn"
+ },
+ "2027-07-19": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 0.99,
+  "moonSign": "Aquarius"
+ },
+ "2027-07-20": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 0.97,
+  "moonSign": "Aquarius"
+ },
+ "2027-07-21": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.92,
+  "moonSign": "Pisces"
+ },
+ "2027-07-22": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.86,
+  "moonSign": "Pisces"
+ },
+ "2027-07-23": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.79,
+  "moonSign": "Pisces"
+ },
+ "2027-07-24": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.71,
+  "moonSign": "Aries"
+ },
+ "2027-07-25": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.61,
+  "moonSign": "Aries"
+ },
+ "2027-07-26": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.51,
+  "moonSign": "Taurus"
+ },
+ "2027-07-27": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.4,
+  "moonSign": "Taurus"
+ },
+ "2027-07-28": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.3,
+  "moonSign": "Taurus"
+ },
+ "2027-07-29": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.2,
+  "moonSign": "Gemini"
+ },
+ "2027-07-30": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.11,
+  "moonSign": "Gemini"
+ },
+ "2027-07-31": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.05,
+  "moonSign": "Cancer"
+ },
+ "2027-08-01": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0.01,
+  "moonSign": "Cancer"
+ },
+ "2027-08-02": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0,
+  "moonSign": "Leo"
+ },
+ "2027-08-03": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0.02,
+  "moonSign": "Leo"
+ },
+ "2027-08-04": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.07,
+  "moonSign": "Virgo"
+ },
+ "2027-08-05": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.15,
+  "moonSign": "Virgo"
+ },
+ "2027-08-06": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.24,
+  "moonSign": "Libra"
+ },
+ "2027-08-07": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.34,
+  "moonSign": "Libra"
+ },
+ "2027-08-08": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.44,
+  "moonSign": "Scorpio"
+ },
+ "2027-08-09": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.54,
+  "moonSign": "Scorpio"
+ },
+ "2027-08-10": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.64,
+  "moonSign": "Sagittarius"
+ },
+ "2027-08-11": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.73,
+  "moonSign": "Sagittarius"
+ },
+ "2027-08-12": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.81,
+  "moonSign": "Sagittarius"
+ },
+ "2027-08-13": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.88,
+  "moonSign": "Capricorn"
+ },
+ "2027-08-14": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.94,
+  "moonSign": "Capricorn"
+ },
+ "2027-08-15": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 0.97,
+  "moonSign": "Aquarius"
+ },
+ "2027-08-16": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 1,
+  "moonSign": "Aquarius"
+ },
+ "2027-08-17": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 1,
+  "moonSign": "Aquarius"
+ },
+ "2027-08-18": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 0.98,
+  "moonSign": "Pisces"
+ },
+ "2027-08-19": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.95,
+  "moonSign": "Pisces"
+ },
+ "2027-08-20": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.9,
+  "moonSign": "Aries"
+ },
+ "2027-08-21": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.83,
+  "moonSign": "Aries"
+ },
+ "2027-08-22": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.75,
+  "moonSign": "Aries"
+ },
+ "2027-08-23": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.66,
+  "moonSign": "Taurus"
+ },
+ "2027-08-24": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.55,
+  "moonSign": "Taurus"
+ },
+ "2027-08-25": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.44,
+  "moonSign": "Gemini"
+ },
+ "2027-08-26": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.33,
+  "moonSign": "Gemini"
+ },
+ "2027-08-27": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.23,
+  "moonSign": "Cancer"
+ },
+ "2027-08-28": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.14,
+  "moonSign": "Cancer"
+ },
+ "2027-08-29": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.07,
+  "moonSign": "Leo"
+ },
+ "2027-08-30": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0.02,
+  "moonSign": "Leo"
+ },
+ "2027-08-31": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0,
+  "moonSign": "Virgo"
+ },
+ "2027-09-01": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0.01,
+  "moonSign": "Virgo"
+ },
+ "2027-09-02": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.05,
+  "moonSign": "Libra"
+ },
+ "2027-09-03": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.12,
+  "moonSign": "Libra"
+ },
+ "2027-09-04": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.2,
+  "moonSign": "Scorpio"
+ },
+ "2027-09-05": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.29,
+  "moonSign": "Scorpio"
+ },
+ "2027-09-06": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.39,
+  "moonSign": "Sagittarius"
+ },
+ "2027-09-07": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.49,
+  "moonSign": "Sagittarius"
+ },
+ "2027-09-08": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.58,
+  "moonSign": "Sagittarius"
+ },
+ "2027-09-09": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.68,
+  "moonSign": "Capricorn"
+ },
+ "2027-09-10": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.76,
+  "moonSign": "Capricorn"
+ },
+ "2027-09-11": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.84,
+  "moonSign": "Aquarius"
+ },
+ "2027-09-12": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.9,
+  "moonSign": "Aquarius"
+ },
+ "2027-09-13": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.95,
+  "moonSign": "Aquarius"
+ },
+ "2027-09-14": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 0.98,
+  "moonSign": "Pisces"
+ },
+ "2027-09-15": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 1,
+  "moonSign": "Pisces"
+ },
+ "2027-09-16": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 0.99,
+  "moonSign": "Aries"
+ },
+ "2027-09-17": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 0.97,
+  "moonSign": "Aries"
+ },
+ "2027-09-18": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.93,
+  "moonSign": "Aries"
+ },
+ "2027-09-19": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.87,
+  "moonSign": "Taurus"
+ },
+ "2027-09-20": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.79,
+  "moonSign": "Taurus"
+ },
+ "2027-09-21": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.69,
+  "moonSign": "Gemini"
+ },
+ "2027-09-22": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.59,
+  "moonSign": "Gemini"
+ },
+ "2027-09-23": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.48,
+  "moonSign": "Cancer"
+ },
+ "2027-09-24": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.37,
+  "moonSign": "Cancer"
+ },
+ "2027-09-25": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.26,
+  "moonSign": "Leo"
+ },
+ "2027-09-26": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.16,
+  "moonSign": "Leo"
+ },
+ "2027-09-27": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.09,
+  "moonSign": "Virgo"
+ },
+ "2027-09-28": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0.03,
+  "moonSign": "Virgo"
+ },
+ "2027-09-29": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0,
+  "moonSign": "Virgo"
+ },
+ "2027-09-30": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0.01,
+  "moonSign": "Libra"
+ },
+ "2027-10-01": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0.03,
+  "moonSign": "Libra"
+ },
+ "2027-10-02": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.08,
+  "moonSign": "Scorpio"
+ },
+ "2027-10-03": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.15,
+  "moonSign": "Scorpio"
+ },
+ "2027-10-04": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.23,
+  "moonSign": "Sagittarius"
+ },
+ "2027-10-05": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.32,
+  "moonSign": "Sagittarius"
+ },
+ "2027-10-06": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.42,
+  "moonSign": "Capricorn"
+ },
+ "2027-10-07": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.51,
+  "moonSign": "Capricorn"
+ },
+ "2027-10-08": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.61,
+  "moonSign": "Capricorn"
+ },
+ "2027-10-09": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.7,
+  "moonSign": "Aquarius"
+ },
+ "2027-10-10": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.78,
+  "moonSign": "Aquarius"
+ },
+ "2027-10-11": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.85,
+  "moonSign": "Pisces"
+ },
+ "2027-10-12": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.91,
+  "moonSign": "Pisces"
+ },
+ "2027-10-13": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.96,
+  "moonSign": "Pisces"
+ },
+ "2027-10-14": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 0.99,
+  "moonSign": "Aries"
+ },
+ "2027-10-15": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 1,
+  "moonSign": "Aries"
+ },
+ "2027-10-16": {
+  "phase": "full",
+  "phaseName": "Full Moon",
+  "illumination": 0.99,
+  "moonSign": "Taurus"
+ },
+ "2027-10-17": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.95,
+  "moonSign": "Taurus"
+ },
+ "2027-10-18": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.9,
+  "moonSign": "Gemini"
+ },
+ "2027-10-19": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.82,
+  "moonSign": "Gemini"
+ },
+ "2027-10-20": {
+  "phase": "waning-gibbous",
+  "phaseName": "Waning Gibbous",
+  "illumination": 0.73,
+  "moonSign": "Gemini"
+ },
+ "2027-10-21": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.63,
+  "moonSign": "Cancer"
+ },
+ "2027-10-22": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.51,
+  "moonSign": "Cancer"
+ },
+ "2027-10-23": {
+  "phase": "last-quarter",
+  "phaseName": "Last Quarter",
+  "illumination": 0.4,
+  "moonSign": "Leo"
+ },
+ "2027-10-24": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.29,
+  "moonSign": "Leo"
+ },
+ "2027-10-25": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.19,
+  "moonSign": "Virgo"
+ },
+ "2027-10-26": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.11,
+  "moonSign": "Virgo"
+ },
+ "2027-10-27": {
+  "phase": "waning-crescent",
+  "phaseName": "Waning Crescent",
+  "illumination": 0.05,
+  "moonSign": "Libra"
+ },
+ "2027-10-28": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0.01,
+  "moonSign": "Libra"
+ },
+ "2027-10-29": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0,
+  "moonSign": "Scorpio"
+ },
+ "2027-10-30": {
+  "phase": "new",
+  "phaseName": "New Moon",
+  "illumination": 0.02,
+  "moonSign": "Scorpio"
+ },
+ "2027-10-31": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.05,
+  "moonSign": "Sagittarius"
+ },
+ "2027-11-01": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.11,
+  "moonSign": "Sagittarius"
+ },
+ "2027-11-02": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.17,
+  "moonSign": "Sagittarius"
+ },
+ "2027-11-03": {
+  "phase": "waxing-crescent",
+  "phaseName": "Waxing Crescent",
+  "illumination": 0.25,
+  "moonSign": "Capricorn"
+ },
+ "2027-11-04": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.34,
+  "moonSign": "Capricorn"
+ },
+ "2027-11-05": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.43,
+  "moonSign": "Aquarius"
+ },
+ "2027-11-06": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.53,
+  "moonSign": "Aquarius"
+ },
+ "2027-11-07": {
+  "phase": "first-quarter",
+  "phaseName": "First Quarter",
+  "illumination": 0.63,
+  "moonSign": "Aquarius"
+ },
+ "2027-11-08": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.71,
+  "moonSign": "Pisces"
+ },
+ "2027-11-09": {
+  "phase": "waxing-gibbous",
+  "phaseName": "Waxing Gibbous",
+  "illumination": 0.8,
+  "moonSign": "Pisces"
+ }
+}

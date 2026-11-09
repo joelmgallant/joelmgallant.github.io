@@ -1,0 +1,14 @@
+{
+  "name": "fire-and-mountain-tools",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "sky": "node sky.mjs",
+    "build": "node build.mjs",
+    "check-links": "node check-links.mjs"
+  },
+  "dependencies": {
+    "astronomy-engine": "2.1.19"
+  }
+}
