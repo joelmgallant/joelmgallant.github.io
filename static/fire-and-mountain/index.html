@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>document.documentElement.classList.add("js");</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Fire &amp; The Mountain · A Cosmic Reading for Joel &amp; Nancy</title>
+<meta name="description" content="A cosmic reading for two old friends: stones, stars, a past life, a reversed tarot spread, and five elements on one set of hands.">
+<!-- Personal page: keep it out of search engines. Remove this line to make it discoverable. -->
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="The Fire & The Mountain">
+<meta property="og:description" content="A cosmic reading for Joel & Nancy.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0d0a1f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%94%AE%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --night: #0d0a1f;
+    --night-2: #1a1033;
+    --veil: rgba(28, 20, 54, 0.72);
+    --veil-edge: rgba(242, 196, 109, 0.22);
+    --ink: #f3ecff;
+    --ink-soft: #c9bde6;
+    --gold: #f2c46d;
+    --ruby: #d0587f;
+    --onyx: #3a3946;
+    --pearl: #dfe9f2;
+    --diamond: #bfe6ff;
+    --earth: #7cc47f;
+    --fire: #ef6a4c;
+    --water: #5aaee6;
+    --wind: #eef3fa;
+    --heart: #ff8cba;
+    --radius: 18px;
+    --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    --display: "Cinzel", "Trajan Pro", Georgia, serif;
+    --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; background-color: var(--night); }
+  body {
+    margin: 0;
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 1.22rem;
+    line-height: 1.6;
+    background-color: var(--night);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  /* Sky lives on a fixed layer (background-attachment: fixed is unreliable on iOS) */
+  body::before {
+    content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse at 20% 0%, rgba(208, 88, 127, 0.18), transparent 55%),
+      radial-gradient(ellipse at 85% 30%, rgba(90, 174, 230, 0.12), transparent 50%),
+      radial-gradient(ellipse at 50% 100%, rgba(242, 196, 109, 0.10), transparent 60%),
+      linear-gradient(180deg, var(--night) 0%, var(--night-2) 60%, var(--night) 100%);
+  }
+  #stars { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+  .star {
+    position: absolute; border-radius: 50%; background: #fff;
+    animation: twinkle var(--d, 4s) ease-in-out infinite; animation-delay: var(--delay, 0s);
+  }
+  @keyframes twinkle { 0%, 100% { opacity: .15; } 50% { opacity: .9; } }
+
+  main { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; padding: 0 22px 80px; }
+
+  /* Hero */
+  header.hero { text-align: center; padding: 72px 0 36px; }
+  .candle { width: 34px; height: 92px; margin: 0 auto 26px; position: relative; }
+  .candle .wax {
+    position: absolute; bottom: 0; left: 5px; width: 24px; height: 58px; border-radius: 6px 6px 4px 4px;
+    background: linear-gradient(90deg, #e9dcc7, #fff6e6 45%, #d9c8ad);
+  }
+  .candle .wick { position: absolute; bottom: 58px; left: 16px; width: 2px; height: 8px; background: #2b2018; }
+  .candle .flame {
+    position: absolute; bottom: 64px; left: 8px; width: 18px; height: 30px;
+    border-radius: 50% 50% 40% 40% / 65% 65% 35% 35%;
+    background: radial-gradient(ellipse at 50% 75%, #fff8d6 0%, #ffd36b 35%, #ff8a3d 70%, rgba(255,90,40,0) 100%);
+    box-shadow: 0 0 28px 10px rgba(255, 190, 90, 0.35);
+    transform-origin: 50% 90%;
+    animation: flicker 2.6s ease-in-out infinite;
+  }
+  @keyframes flicker {
+    0%, 100% { transform: rotate(-2deg) scaleY(1); }
+    25% { transform: rotate(2deg) scaleY(1.06); }
+    50% { transform: rotate(-1deg) scaleY(.94); }
+    75% { transform: rotate(1.5deg) scaleY(1.03); }
+  }
+  h1 {
+    font-family: var(--display); font-weight: 700; letter-spacing: .04em;
+    font-size: clamp(2.1rem, 6vw, 3.6rem); line-height: 1.15; margin: 0;
+    background: linear-gradient(90deg, var(--fire), var(--gold) 45%, var(--pearl) 75%, var(--diamond));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .subtitle { font-family: var(--display); font-size: 1.05rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin: 14px 0 22px; }
+  .stage { font-style: italic; color: var(--ink-soft); }
+  .hero .stage { font-size: 1.35rem; max-width: 560px; margin: 0 auto; }
+
+  nav.toc { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 34px 0 10px; }
+  nav.toc a {
+    font-family: var(--sans); font-size: .78rem; letter-spacing: .04em; color: var(--ink-soft); text-decoration: none;
+    padding: 6px 12px; border: 1px solid var(--veil-edge); border-radius: 999px; background: var(--veil);
+    transition: color .2s, border-color .2s, background .2s;
+  }
+  nav.toc a:hover, nav.toc a:focus-visible { color: var(--ink); border-color: var(--gold); background: rgba(242,196,109,.1); }
+
+  /* Sections */
+  section { margin: 46px 0; scroll-margin-top: 20px; }
+  .panel {
+    background: var(--veil); border: 1px solid var(--veil-edge); border-radius: var(--radius);
+    padding: 30px clamp(20px, 4vw, 40px); backdrop-filter: blur(3px);
+    box-shadow: 0 10px 40px rgba(0,0,0,.25);
+  }
+  h2 { font-family: var(--display); font-weight: 500; font-size: clamp(1.45rem, 3.6vw, 1.95rem); margin: 0 0 16px; letter-spacing: .02em; }
+  h2 .glyph { margin-right: .35em; }
+  h3 { font-family: var(--display); font-weight: 500; font-size: 1.12rem; letter-spacing: .05em; color: var(--gold); margin: 26px 0 6px; }
+  p { margin: 0 0 14px; }
+  strong { font-weight: 600; color: #fff; }
+  .divider { text-align: center; color: var(--gold); opacity: .55; letter-spacing: 1em; font-size: .9rem; margin: 10px 0; user-select: none; }
+
+  blockquote {
+    margin: 22px 0 6px; padding: 18px 22px; border-left: 3px solid var(--gold);
+    background: linear-gradient(90deg, rgba(242,196,109,.10), transparent); border-radius: 0 12px 12px 0;
+    font-size: 1.3rem; font-style: italic;
+  }
+
+  /* Stones */
+  .stone-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 18px 0; }
+  .stone {
+    border-radius: 14px; padding: 18px; border: 1px solid var(--veil-edge); background: rgba(0,0,0,.18);
+    display: grid; grid-template-columns: 54px 1fr; gap: 14px; align-items: center;
+  }
+  .gem { width: 54px; height: 54px; border-radius: 50%; }
+  .gem.ruby { background: radial-gradient(circle at 35% 30%, #ffd2e1 0%, #d0587f 35%, #7a2346 80%); box-shadow: 0 0 22px rgba(208,88,127,.55); }
+  .gem.onyx { background: radial-gradient(circle at 35% 30%, #8a8a9a 0%, #2a2934 40%, #0b0b10 85%); box-shadow: 0 0 18px rgba(160,160,200,.25); }
+  .stone p { margin: 0; font-size: 1.08rem; }
+
+  /* Profiles */
+  .profiles { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .profile { border-radius: var(--radius); padding: 26px; border: 1px solid var(--veil-edge); }
+  .profile.joel { background: linear-gradient(160deg, rgba(239,106,76,.16), rgba(0,0,0,.15)); }
+  .profile.nancy { background: linear-gradient(160deg, rgba(124,196,127,.13), rgba(90,174,230,.08)); }
+  .profile h2 { font-size: 1.35rem; }
+  .born { font-family: var(--sans); font-size: .82rem; letter-spacing: .05em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  dl { margin: 0; }
+  dt { font-family: var(--sans); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); margin-top: 12px; }
+  dd { margin: 2px 0 0; font-size: 1.08rem; }
+  dd b { color: #fff; font-weight: 600; }
+  .energy { margin-top: 18px; padding-top: 14px; border-top: 1px dashed var(--veil-edge); font-style: italic; color: var(--ink-soft); }
+
+  /* Tables */
+  .table-wrap { overflow-x: auto; margin: 16px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 1.05rem; }
+  th { font-family: var(--sans); font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--veil-edge); }
+  td { padding: 12px; border-bottom: 1px solid rgba(255,255,255,.07); vertical-align: top; }
+  td:first-child { font-style: italic; color: var(--ink-soft); }
+
+  /* Tarot spread */
+  .spread {
+    display: grid; gap: 14px; margin: 22px 0 8px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: ". high ." "nancy mutual joel" ". shadow .";
+  }
+  .tcard {
+    border-radius: 14px; padding: 16px 14px; text-align: center; min-height: 150px;
+    background: linear-gradient(180deg, rgba(160,140,220,.18), rgba(30,20,60,.55));
+    border: 1px solid rgba(200,180,255,.28); position: relative;
+    display: flex; flex-direction: column; justify-content: center; gap: 6px;
+    transition: transform .3s ease, box-shadow .3s ease;
+  }
+  .tcard:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(120,90,220,.3); }
+  .tcard .pos { font-family: var(--sans); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); }
+  .tcard .name { font-family: var(--display); font-size: .98rem; line-height: 1.3; }
+  .tcard .rev { align-self: center; font-family: var(--sans); font-size: .62rem; letter-spacing: .14em; text-transform: uppercase; color: var(--heart); border: 1px solid rgba(255,140,186,.5); border-radius: 999px; padding: 1px 8px; }
+  .tcard .whisper { font-size: .98rem; font-style: italic; color: var(--ink-soft); line-height: 1.35; }
+  .a-high { grid-area: high; } .a-nancy { grid-area: nancy; } .a-mutual { grid-area: mutual; } .a-joel { grid-area: joel; } .a-shadow { grid-area: shadow; }
+
+  /* Rituals */
+  ul.rituals { list-style: none; padding: 0; margin: 10px 0; display: grid; gap: 12px; }
+  ul.rituals li { display: grid; grid-template-columns: 36px 1fr; gap: 10px; align-items: start; padding: 14px 16px; border-radius: 12px; background: rgba(0,0,0,.18); border: 1px solid rgba(255,255,255,.06); }
+  ul.rituals .ico { font-size: 1.4rem; line-height: 1.2; }
+
+  /* Elements */
+  .elements { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin: 18px 0; }
+  .el { text-align: center; padding: 14px 6px; border-radius: 14px; background: rgba(0,0,0,.2); border: 1px solid rgba(255,255,255,.08); }
+  .el .orb { width: 34px; height: 34px; border-radius: 50%; margin: 0 auto 8px; }
+  .el .label { font-family: var(--display); font-size: .9rem; }
+  .el .stone-name { font-family: var(--sans); font-size: .7rem; color: var(--ink-soft); margin-top: 2px; }
+  .orb.earth { background: var(--earth); box-shadow: 0 0 18px var(--earth); }
+  .orb.fire { background: var(--fire); box-shadow: 0 0 18px var(--fire); }
+  .orb.water { background: var(--water); box-shadow: 0 0 18px var(--water); }
+  .orb.wind { background: var(--wind); box-shadow: 0 0 18px var(--wind); }
+  .orb.heart { background: var(--heart); box-shadow: 0 0 18px var(--heart); }
+  .hands-figure { margin: 22px 0; padding: 14px; border-radius: 14px; background: rgba(0,0,0,.22); border: 1px solid var(--veil-edge); }
+  .hands-figure svg { width: 100%; height: auto; display: block; }
+  .hands-figure figcaption { font-family: var(--sans); font-size: .76rem; color: var(--ink-soft); text-align: center; margin-top: 6px; }
+  .hands { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+
+  footer { text-align: center; padding: 30px 0 10px; }
+  footer .closing { font-size: 1.35rem; font-style: italic; color: var(--ink-soft); }
+  footer .seal { font-family: var(--display); font-size: 1.15rem; margin: 12px 0 22px; color: var(--gold); }
+  footer small { font-family: var(--sans); font-size: .74rem; color: var(--ink-soft); opacity: .75; }
+
+  /* Reveal on scroll */
+  .js .reveal { opacity: 0; transform: translateY(16px); transition: opacity .8s ease, transform .8s ease; }
+  .js .reveal.shown { opacity: 1; transform: none; }
+
+  @media (max-width: 680px) {
+    body { font-size: 1.12rem; }
+    .stone-pair, .profiles, .hands { grid-template-columns: 1fr; }
+    .spread { grid-template-columns: 1fr 1fr; grid-template-areas: "high high" "nancy joel" "mutual mutual" "shadow shadow"; }
+    .elements { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .star, .candle .flame { animation: none; }
+    .js .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+  @media print {
+    html, body { background: #fff; color: #111; }
+    body * { color: #111 !important; }
+    body::before, #stars, .candle, nav.toc { display: none; }
+    .panel, .profile, .tcard { background: none; border-color: #ccc; box-shadow: none; color: #111; }
+    h1 { color: #111; background: none; }
+    .js .reveal { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+<div id="stars" aria-hidden="true"></div>
+
+<main>
+  <header class="hero">
+    <div class="candle" aria-hidden="true"><div class="flame"></div><div class="wick"></div><div class="wax"></div></div>
+    <h1>The Fire &amp; The Mountain</h1>
+    <p class="subtitle">A Cosmic Reading for Joel &amp; Nancy</p>
+    <p class="stage">The candle flickers. The cards are shuffled. The stones have chosen their keepers...</p>
+    <nav class="toc" aria-label="Sections">
+      <a href="#stones">Stones</a>
+      <a href="#keepers">The Keepers</a>
+      <a href="#alignment">Alignment</a>
+      <a href="#exchange">Exchange</a>
+      <a href="#past-life">Past Life</a>
+      <a href="#tarot">Tarot</a>
+      <a href="#reading">Reading</a>
+      <a href="#rituals">Rituals</a>
+      <a href="#hero-hands">Hero Hands</a>
+    </nav>
+  </header>
+
+  <!-- 1. Stones -->
+  <section id="stones" class="panel reveal">
+    <h2><span class="glyph">🔮</span>The Stones Have Spoken</h2>
+    <p>Two friends. Two stones. One sacred exchange.</p>
+    <div class="stone-pair">
+      <div class="stone">
+        <div class="gem ruby" aria-hidden="true"></div>
+        <p><strong>Nancy wears the Ruby.</strong> A smooth, glowing cabochon in ornate silver, purplish-pink like the first light of dawn.</p>
+      </div>
+      <div class="stone">
+        <div class="gem onyx" aria-hidden="true"></div>
+        <p><strong>Joel wears the Black Onyx.</strong> A bracelet of deep, protective darkness, worn on the left wrist, the side of the heart.</p>
+      </div>
+    </div>
+    <p>And here's the radical, goosebump-inducing twist: <strong>each of you is carrying the other's stone.</strong> You're holding each other's energy safe. The universe does not do coincidences like this.</p>
+  </section>
+
+  <!-- 2. Keepers -->
+  <section id="keepers" class="reveal">
+    <div class="profiles">
+      <article class="profile joel">
+        <h2><span class="glyph">🔥</span>Joel: The Spark at the Start of Everything</h2>
+        <div class="born">Born March 21, 1986 · Spring Equinox</div>
+        <dl>
+          <dt>Sun Sign</dt><dd><b>Aries ♈.</b> The very first breath of the zodiac. A beginner, a pioneer, a spark. Born on the exact day light and dark stand in perfect balance and the world tips toward spring.</dd>
+          <dt>Ruling Planet</dt><dd><b>Mars.</b> The warrior. Courage, drive, fire.</dd>
+          <dt>Sacred Stone</dt><dd><b>Ruby.</b> Yes, the very ruby on Nancy's finger.</dd>
+          <dt>Chinese Zodiac</dt><dd><b>Fire Tiger 🐅.</b> Bold, magnetic, restless, burning bright for everyone around them.</dd>
+          <dt>Life Path</dt><dd><b>3.</b> The communicator. The teacher. The one who lifts people with words.</dd>
+        </dl>
+        <p class="energy">Joel's energy: the fire that starts things, the voice that rallies the room, the heart that pours out until it needs a little holding.</p>
+      </article>
+      <article class="profile nancy">
+        <h2><span class="glyph">🏔️</span>Nancy: The Light Returning</h2>
+        <div class="born">Born December 22, 1984 · Winter Solstice</div>
+        <dl>
+          <dt>Sun Sign</dt><dd><b>Capricorn ♑.</b> Born as the longest night ends and the light begins its slow, faithful return.</dd>
+          <dt>Ruling Planet</dt><dd><b>Saturn.</b> The patient builder. Wisdom, endurance, foundations that last.</dd>
+          <dt>Sacred Stone</dt><dd><b>Black Onyx.</b> Yes, the very onyx on Joel's wrist.</dd>
+          <dt>Chinese Zodiac</dt><dd><b>Wood Rat 🐀.</b> Clever, resourceful, quietly perceptive. She sees what others miss.</dd>
+          <dt>Life Path</dt><dd><b>11.</b> A master number. Intuitive, spiritual, a seeker of deeper truths.</dd>
+        </dl>
+        <p class="energy">Nancy's energy: the mountain that makes things last, the steady knowing, the light that always comes back.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3. Alignment -->
+  <section id="alignment" class="panel reveal">
+    <h2><span class="glyph">🌗</span>The Alignment: Equinox Meets Solstice</h2>
+    <p>You were born at <strong>two of the great turning points of the year</strong>: the Spring Equinox and the Winter Solstice.</p>
+    <p>You're both <strong>cardinal signs</strong>, the initiators of the zodiac. Aries is the fire that begins. Capricorn is the mountain that endures. Mars and Saturn can clash like thunder, but when they're aligned? <strong>Nothing stops them.</strong></p>
+  </section>
+
+  <!-- 4. Exchange -->
+  <section id="exchange" class="panel reveal">
+    <h2><span class="glyph">💎</span>The Sacred Exchange</h2>
+    <h3>💗 The Ruby on Nancy's Hand</h3>
+    <p>Nancy holds Joel's fire: his Mars, his courage, his passion. She keeps it safe so he doesn't burn out. The ruby's purplish-pink glow carries the gentler gifts of pink sapphire too: compassion, resilience, and warmth.</p>
+    <p>When worn on the <strong>right pinky</strong>, the Mercury finger, the ruby projects confident, heartfelt communication out into the world. It's the mark of a messenger and a leader who teaches with heart.</p>
+    <h3>🖤 The Onyx on Joel's Wrist</h3>
+    <p>Joel holds Nancy's steadiness: her Saturn, her grounding, her protection. Worn on the <strong>left wrist</strong>, the receiving side, the onyx draws out heaviness and pressure and lets the weight of old mistakes be set down.</p>
+    <p>Its whispered message: <em>You are allowed to forgive yourself. The lessons have already been learned.</em> That reminder comes partly from Nancy, a sign that someone holds you gently even when you can't.</p>
+  </section>
+
+  <!-- 5. Past life -->
+  <section id="past-life" class="panel reveal">
+    <h2><span class="glyph">🌲</span>The Past Life: Builder &amp; Storyteller</h2>
+    <p class="stage">The candle is relit. Three questions are asked, one soul at a time...</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th scope="col">The Question</th><th scope="col">Joel</th><th scope="col">Nancy</th></tr></thead>
+        <tbody>
+          <tr><td>Where does your soul return?</td><td>A cabin in the woods</td><td>Woods at the edge of the water</td></tr>
+          <tr><td>What did your hands do?</td><td>Touched the wood</td><td>Spoke, and gesticulated</td></tr>
+          <tr><td>What did you fear losing most?</td><td>Those he loved</td><td>The privilege of helping others level up</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3>The Vision</h3>
+    <p>The veil lifts on the 1600s, in <strong>Mi'kma'ki</strong>, the land the Mi'kmaq have always called home, where forest meets shore along these very coasts. The Acadians and the Mi'kmaq lived side by side there as allies, friends, and often family. That bond is real in history, not only in the stars.</p>
+    <p><strong>He</strong> was an Acadian builder in a cabin among the trees, working cedar and spruce with patient, rough hands. He kept the chimney smoking in case the people he loved came home.</p>
+    <p><strong>She</strong> was a Mi'kmaw woman by the water, a storyteller whose hands danced as she spoke. People gathered to hear her, and she helped them grow stronger and wiser.</p>
+    <p>He was new to the land, learning to survive it. She already knew its ways. So she taught him, and he built beside her people, and a friendship formed that outlasted the seasons.</p>
+    <h3>The Long Dark</h3>
+    <p>Then came the hard years, the Expulsion of 1755, when so many Acadians were torn from their homes. His deepest fear came true. History tells us the Mi'kmaq sheltered Acadians who fled into the woods, and in this vision she was there, keeping him hidden and steady through the long dark.</p>
+    <h3>Full Circle</h3>
+    <p>In this life, the debt and the love come full circle. <strong>He still builds, teaches, and leads. She still lifts people up.</strong> The stones you've swapped carry the old promise forward: each of you guarding what the other can't carry alone.</p>
+    <blockquote>Old friends, across centuries, found again on the same shores.</blockquote>
+  </section>
+
+  <!-- 6. Tarot -->
+  <section id="tarot" class="panel reveal">
+    <h2><span class="glyph">🃏</span>The Tarot Speaks (Reversed)</h2>
+    <p class="stage">Seven cards from the Shadowscapes deck, laid on the paisley cloth... then turned upside down, one by one. The candle dips.</p>
+
+    <div class="spread" role="list" aria-label="The tarot spread, laid out as on the cloth">
+      <div class="tcard a-high" role="listitem">
+        <span class="pos">Highest Good</span>
+        <span class="name">The Sun + Knight of Pentacles</span><span class="rev">reversed</span>
+        <span class="whisper">The joy is here, but clouded. Stop earning joy and simply allow it.</span>
+      </div>
+      <div class="tcard a-nancy" role="listitem">
+        <span class="pos">Nancy's Reason</span>
+        <span class="name">Six of Swords</span><span class="rev">reversed</span>
+        <span class="whisper">A crossing not yet finished. Joel helps her lift the oars and keep rowing.</span>
+      </div>
+      <div class="tcard a-mutual" role="listitem">
+        <span class="pos">Mutual Reason</span>
+        <span class="name">Knight of Wands</span><span class="rev">reversed</span>
+        <span class="whisper">Two fire hearts running ten directions. Aim the fire at one thing.</span>
+      </div>
+      <div class="tcard a-joel" role="listitem">
+        <span class="pos">Joel's Reason</span>
+        <span class="name">Six of Pentacles</span><span class="rev">reversed</span>
+        <span class="whisper">Giving and receiving out of balance. Nancy teaches him to receive.</span>
+      </div>
+      <div class="tcard a-shadow" role="listitem">
+        <span class="pos">Shadow</span>
+        <span class="name">Nine of Cups + Eight of Swords</span><span class="rev">reversed</span>
+        <span class="whisper">The wish that feels hollow, and the cage that was only ever made of thoughts.</span>
+      </div>
+    </div>
+
+    <h3>Highest Good</h3>
+    <p>The Sun reversed doesn't mean the light is gone. It means you've stopped letting yourselves feel it. The Knight of Pentacles reversed shows why: duty without rest, work piled on work, a horse never turned out to pasture.</p>
+    <h3>Nancy's Reason</h3>
+    <p><em>A hush...</em> Something she's still carrying, a weight not yet set down on the far shore. Joel is in her life to help her finish the crossing.</p>
+    <h3>Joel's Reason</h3>
+    <p><em>Taps the card twice...</em> He gives and gives, but won't let anyone give back. Nancy is here to teach him to receive. That's the onyx on his wrist again, the self-forgiveness.</p>
+    <h3>Mutual Reason</h3>
+    <p>Passion scattered, burning too fast. Together, you're meant to point that fire at one thing instead of everything.</p>
+    <h3>The Shadow</h3>
+    <p><em>The flame leans...</em> Chasing the next goal and never feeling full. Then the twist: the Eight of Swords reversed is release. The blindfold slips, and the swords were never locked around you. The shadow already holds its own key.</p>
+    <blockquote><span class="stage">Gathers the cards...</span> You've both been holding yourselves to impossible standards. Let the joy in. Let the help in. You're freer than you believe.</blockquote>
+  </section>
+
+  <!-- 7. Reading -->
+  <section id="reading" class="panel reveal">
+    <h2><span class="glyph">🌟</span>The Reading</h2>
+    <p class="stage">The cards fall. The stars lean in close...</p>
+    <blockquote>The Spark and the Mountain have found each other again. One holds the fire. One holds the ground. Each guards what the other cannot carry alone. When the fire runs low, the mountain shelters it. When the mountain grows heavy, the fire warms it. This is not luck. This is alignment.</blockquote>
+  </section>
+
+  <!-- 8. Rituals -->
+  <section id="rituals" class="panel reveal">
+    <h2><span class="glyph">✨</span>Rituals for the Two Keepers</h2>
+    <ul class="rituals">
+      <li><span class="ico" aria-hidden="true">🌕</span><span><strong>Full Moon Recharge:</strong> Set the ruby and the onyx side by side under the full moon. Let them catch up.</span></li>
+      <li><span class="ico" aria-hidden="true">☀️</span><span><strong>Ruby Sunrise:</strong> Give the ruby a few minutes of morning sun to wake its fire (just not too long!).</span></li>
+      <li><span class="ico" aria-hidden="true">🤲</span><span><strong>Intention Swap:</strong> Hold your stone, think of the other person, and send them one wish. They'll feel it.</span></li>
+      <li><span class="ico" aria-hidden="true">💌</span><span><strong>The Return:</strong> When the time comes to swap back, share one thing the stone taught you.</span></li>
+    </ul>
+    <h3>🖤 The Wrist-Switching Ritual</h3>
+    <p>The onyx changes its current depending on the wrist. On Joel's <strong>left wrist</strong>, the receiving side, it draws in calm and lets him set his own weight down. On his <strong>right wrist</strong>, the giving side, it sends Saturn's steadiness and protection outward, straight to Nancy, shielding her the way she holds his fire.</p>
+    <p>Remember the Six of Pentacles: Joel's lesson is learning to receive, not only to give. So switch wrists with the days. Left when he needs grounding for himself, right when he wants to send his strength to Nancy. The energy flows both ways, like a tide between the cabin and the shore.</p>
+  </section>
+
+  <!-- 9. Hero hands -->
+  <section id="hero-hands" class="panel reveal">
+    <h2><span class="glyph">🌍</span>Nancy's Hero Hands</h2>
+    <p class="stage">The five elements gathered on one set of hands... and Captain Planet was summoned.</p>
+
+    <div class="elements" role="list" aria-label="The five elements and their stones">
+      <div class="el" role="listitem"><div class="orb earth"></div><div class="label">Earth</div><div class="stone-name">Black onyx</div></div>
+      <div class="el" role="listitem"><div class="orb fire"></div><div class="label">Fire</div><div class="stone-name">Ruby</div></div>
+      <div class="el" role="listitem"><div class="orb water"></div><div class="label">Water</div><div class="stone-name">Mother of pearl</div></div>
+      <div class="el" role="listitem"><div class="orb wind"></div><div class="label">Wind</div><div class="stone-name">Diamonds</div></div>
+      <div class="el" role="listitem"><div class="orb heart"></div><div class="label">Heart</div><div class="stone-name">Ruby</div></div>
+    </div>
+
+    <figure class="hands-figure">
+      <svg viewBox="0 0 760 400" role="img" aria-labelledby="hands-title hands-desc" font-family="Inter, system-ui, sans-serif" font-size="13">
+        <title id="hands-title">Nancy's hero hands</title>
+        <desc id="hands-desc">Left hand: diamonds on the middle and ring fingers, black onyx bracelet on the wrist. Right hand: mother of pearl on the ring finger, ruby on the pinky.</desc>
+        <defs>
+          <radialGradient id="g-ruby" cx="35%" cy="30%" r="70%"><stop offset="0" stop-color="#ffd2e1"/><stop offset=".45" stop-color="#d0587f"/><stop offset="1" stop-color="#7a2346"/></radialGradient>
+          <linearGradient id="g-pearl" x1="0" x2="1"><stop offset="0" stop-color="#f7fbff"/><stop offset=".5" stop-color="#d8e4f5"/><stop offset="1" stop-color="#f3dff0"/></linearGradient>
+          <linearGradient id="g-dia" x1="0" x2="1"><stop offset="0" stop-color="#e9f8ff"/><stop offset=".5" stop-color="#9fd8ff"/><stop offset="1" stop-color="#ffffff"/></linearGradient>
+          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <g fill="none" stroke="#c9bde6" stroke-width="1.4" stroke-opacity=".75">
+          <!-- Left hand (palm + 4 fingers + thumb) -->
+          <rect x="130" y="170" width="140" height="120" rx="28"/>
+          <rect x="135" y="120" width="22" height="60" rx="11"/>
+          <rect x="162" y="100" width="22" height="80" rx="11"/>
+          <rect x="189" y="90" width="22" height="90" rx="11"/>
+          <rect x="216" y="100" width="22" height="80" rx="11"/>
+          <rect x="269" y="190" width="22" height="60" rx="11" transform="rotate(35 280 250)"/>
+          <!-- Right hand -->
+          <rect x="490" y="170" width="140" height="120" rx="28"/>
+          <rect x="522" y="100" width="22" height="80" rx="11"/>
+          <rect x="549" y="90" width="22" height="90" rx="11"/>
+          <rect x="576" y="100" width="22" height="80" rx="11"/>
+          <rect x="603" y="120" width="22" height="60" rx="11"/>
+          <rect x="469" y="190" width="22" height="60" rx="11" transform="rotate(-35 480 250)"/>
+        </g>
+        <!-- Left: diamonds on middle (stacked set) and ring fingers -->
+        <g filter="url(#glow)">
+          <rect x="186" y="140" width="28" height="11" rx="3" fill="url(#g-dia)" stroke="#bfe6ff" stroke-width="1.5"/>
+          <rect x="159" y="140" width="28" height="11" rx="3" fill="url(#g-dia)" stroke="#bfe6ff" stroke-width="1.5"/>
+        </g>
+        <!-- Left: onyx bracelet -->
+        <rect x="138" y="296" width="124" height="20" rx="10" fill="#1a1922" stroke="#8a8a9a" stroke-width="1.4"/>
+        <g fill="#2e2d38" stroke="#6d6c7c" stroke-width="1">
+          <circle cx="152" cy="306" r="6"/><circle cx="168" cy="306" r="6"/><circle cx="184" cy="306" r="6"/><circle cx="200" cy="306" r="6"/><circle cx="216" cy="306" r="6"/><circle cx="232" cy="306" r="6"/><circle cx="248" cy="306" r="6"/>
+        </g>
+        <!-- Right: mother of pearl on ring finger, ruby on pinky -->
+        <g filter="url(#glow)">
+          <rect x="573" y="140" width="28" height="11" rx="3" fill="url(#g-pearl)" stroke="#dfe9f2" stroke-width="1.5"/>
+          <rect x="600" y="140" width="28" height="11" rx="3" fill="url(#g-ruby)" stroke="#d0587f" stroke-width="1.5"/>
+        </g>
+        <!-- Labels -->
+        <g text-anchor="middle">
+          <text x="200" y="60" font-family="Cinzel, Georgia, serif" font-size="16" fill="#f2c46d">Left hand: the hero's hand</text>
+          <text x="200" y="344" font-size="12" fill="#c9bde6">Diamonds on middle and ring fingers (wind)</text>
+          <text x="200" y="362" font-size="12" fill="#c9bde6">Black onyx bracelet (earth)</text>
+          <text x="560" y="60" font-family="Cinzel, Georgia, serif" font-size="16" fill="#f2c46d">Right hand: the storyteller's hand</text>
+          <text x="560" y="344" font-size="12" fill="#c9bde6">Mother of pearl on ring finger (water)</text>
+          <text x="560" y="362" font-size="12" fill="#c9bde6">Ruby on pinky (fire and heart)</text>
+        </g>
+      </svg>
+      <figcaption>Nancy's hero hands · five elements</figcaption>
+    </figure>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th scope="col">Element</th><th scope="col">Stone</th><th scope="col">Where Nancy wears it</th></tr></thead>
+        <tbody>
+          <tr><td>Earth</td><td>Black onyx</td><td>Bracelet, left wrist</td></tr>
+          <tr><td>Fire</td><td>Ruby</td><td>Right pinky</td></tr>
+          <tr><td>Water</td><td>Mother of pearl</td><td>Right ring finger</td></tr>
+          <tr><td>Wind</td><td>Diamonds</td><td>Left middle finger (the stacked set) and left ring finger</td></tr>
+          <tr><td>Heart</td><td>Ruby</td><td>Right pinky, the heart stone</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="hands">
+      <div>
+        <h3>The Left Hand: The Hero's Hand</h3>
+        <p>The receiving side. The onyx draws in calm and protection. The stacked diamonds sit on the middle finger, Saturn's finger of balance and the onyx's own planet, making a rock-solid foundation that still sparkles. The ring finger diamond, on the vein that runs to the heart, brings clear and steady love. <strong>That's a hero's hand. Don't you forget it.</strong></p>
+      </div>
+      <div>
+        <h3>The Right Hand: The Storyteller's Hand</h3>
+        <p>The giving side. The mother of pearl sits on the ring finger, the Sun's finger, bringing moonlight to joy and creativity. Right beside it, the ruby on the pinky, Mercury's finger, puts fire in her words. Moon and flame, water and fire, touching: everything she sends out is warm, sincere, and passionate without ever burning.</p>
+      </div>
+    </div>
+    <blockquote>By your powers combined... Earth, Fire, Water, Wind, and Heart. Nancy has all five.</blockquote>
+  </section>
+
+  <footer>
+    <div class="divider" aria-hidden="true">✦ ✦ ✦</div>
+    <p class="closing">Equinox and Solstice. Fire and Mountain. Ruby and Onyx. Joel and Nancy.</p>
+    <p class="seal">🔮 The stars don't whisper much louder than this. 🔮</p>
+    <small>Made for fun, for friendship, and for a little cosmic magic.</small>
+  </footer>
+</main>
+
+<script>
+  (function () {
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Starfield
+    var sky = document.getElementById('stars');
+    var count = window.innerWidth < 680 ? 70 : 140;
+    for (var i = 0; i < count; i++) {
+      var s = document.createElement('span');
+      var size = Math.random() < 0.85 ? 1 + Math.random() * 1.2 : 2 + Math.random() * 1.5;
+      s.className = 'star';
+      s.style.width = s.style.height = size + 'px';
+      s.style.left = (Math.random() * 100) + '%';
+      s.style.top = (Math.random() * 100) + '%';
+      s.style.setProperty('--d', (3 + Math.random() * 5).toFixed(1) + 's');
+      s.style.setProperty('--delay', (-Math.random() * 6).toFixed(1) + 's');
+      sky.appendChild(s);
+    }
+
+    // Reveal sections as they scroll in
+    var items = document.querySelectorAll('.reveal');
+    if (reduce || !('IntersectionObserver' in window)) {
+      items.forEach(function (el) { el.classList.add('shown'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('shown'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.08 });
+    items.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+</body>
+</html>
