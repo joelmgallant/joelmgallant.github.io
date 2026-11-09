@@ -19,7 +19,7 @@ Design: `docs/superpowers/specs/2026-11-09-fire-and-mountain-daily-reading-desig
 | `style-guide.md` | The writing rules every subagent follows |
 | `agent-prompt.md` | Per-month subagent prompt template |
 | `validate-month.mjs` | Self-check one month file (subagents run this) |
-| `build.mjs` | Validates all months, merges sky data → `static/fire-and-mountain/today/data/` |
+| `build.mjs` | Validates all months, merges sky data → one hashed file per day in `static/fire-and-mountain/today/days/` (the page fetches only today's) |
 | `review.mjs` | Writes `review.html` with every day, for proofreading |
 | `art.mjs`, `art/prompts.json`, `art/reference.jpg` | Illustration library via fal `nano-banana/edit` |
 | `check-links.mjs` | Every tarot URL answers 200 with no redirect; every image exists |

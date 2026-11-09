@@ -14,9 +14,9 @@ function person(name, card) {
 }
 
 const days = months.flatMap((month) => {
-  const path = here(`../../static/fire-and-mountain/today/data/${month}.json`);
+  const path = here(`./months/${month}.json`);
   return existsSync(path) ? JSON.parse(readFileSync(path, 'utf8')) : [];
-});
+}).sort((first, second) => first.date.localeCompare(second.date)).map((entry) => ({ ...entry, sky: sky[entry.date] }));
 
 const body = days.map((entry) => `<section id="d${entry.date}" class="${entry.des ? 'des' : ''}">
   <h2>${entry.date} · ${escape(entry.title)} ${entry.des ? '<span class="seal">ΔΕΣ</span>' : ''}</h2>

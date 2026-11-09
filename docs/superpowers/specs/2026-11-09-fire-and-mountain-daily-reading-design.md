@@ -41,7 +41,7 @@ static/fire-and-mountain/
     ├── today.js            DOM rendering; imports today-core.mjs
     ├── sw.js               service worker, scope /fire-and-mountain/today/
     ├── manifest.webmanifest
-    ├── data/YYYY-MM.json   13 month files (Nov 2026 partial ... Nov 2027 partial)
+    ├── days/<hash>.json    365 files, one per day, named by a salted SHA-256 of the date
     ├── img/                ~34 WebP illustrations
     └── icons/              icon-192.png, icon-512.png, icon-maskable-512.png, apple-touch-icon.png
 
@@ -51,7 +51,7 @@ tools/fire-and-mountain/    (not published)
 ├── style-guide.md          the writing rules given to every subagent
 ├── agent-prompt.md         the per-month subagent prompt template
 ├── sky.mjs                 writes sky.json for the date range
-├── build.mjs               merges agent month files + sky data -> static/.../data/, runs checks
+├── build.mjs               validates agent month files, merges sky data -> static/.../days/<hash>.json
 ├── check-links.mjs         verifies tarot-links.json and image references
 ├── review.mjs              writes review.html (all 365 days in card style)
 ├── months/YYYY-MM.json     raw subagent output
@@ -78,7 +78,7 @@ The site has no root `package.json`; `tools/fire-and-mountain/package.json` stay
 
 ### Behaviour
 
-- Picks the entry whose date equals the device's local date (`YYYY-MM-DD`), loading only that month's file.
+- Downloads only today's file, `days/<dayFileName(date)>`, so future readings can't be read ahead from the site (Joel's call, 2026-11-09). The readable source still lives in the public repo under `tools/`; Joel accepted that trade-off over making the repo private or rewriting history.
 - On `visibilitychange` to visible, re-checks the date and re-renders if it changed (midnight rollover).
 - `[[Card Name]]` in any text field becomes `<a href="(Biddy URL)" target="_blank" rel="noopener">Card Name</a>`, styled with a gold dotted underline. Unknown names render as plain text (the build rejects them anyway).
 - Text is inserted with `textContent`; only the card-link conversion creates elements. No `innerHTML` of content.
@@ -96,7 +96,7 @@ The site has no root `package.json`; `tools/fire-and-mountain/package.json` stay
 
 - `manifest.webmanifest`: `name` "The Fire & The Mountain: Today", `short_name` "Fire & Mountain", `start_url` and `scope` `/fire-and-mountain/today/`, `display` `standalone`, `background_color` `#0d0a1f`, warm `theme_color`, the four icons (maskable has a safe-zone layout).
 - `sw.js` registered from `/fire-and-mountain/today/` with scope `./`. It cannot control `/`, `/doom/` or the keepsake.
-- Cache strategy: precache the page shell, shared files, `tarot-links.json`, current and next month's data, and all images. Stale-while-revalidate on fetch. Cache name carries a version string; bumping it on deploy evicts old caches in `activate`.
+- Cache strategy: precache the page shell, shared files, `tarot-links.json` and all images. Day files are cached only as the page fetches them (never ahead), so offline shows the last day loaded online. Stale-while-revalidate on fetch. Cache name carries a version string; bumping it on deploy evicts old caches in `activate`.
 - Icons: a candle on a warm airbrush sky, drawn as SVG and rendered to PNG.
 - `<meta name="robots" content="noindex, nofollow">`. No analytics or third-party scripts beyond Google Fonts.
 
@@ -148,7 +148,7 @@ About 450 words per day, about 165k words for the year.
 
 1. `sky.mjs` writes `sky.json` for all 365 dates.
 2. 13 subagents, one per calendar month, in two waves (7 then 6). Each receives `style-guide.md`, `agent-prompt.md`, and its month's slice of `sky.json`, and writes `months/YYYY-MM.json`. Agents write files; their final messages are not trusted for counts or status.
-3. `build.mjs` validates and merges into `static/fire-and-mountain/today/data/YYYY-MM.json`. Any failing month, or any days flagged as near-duplicates, go to one cleanup subagent to rewrite, then the build runs again.
+3. `build.mjs` validates everything and, only if the whole year passes, writes one hashed file per day into `static/fire-and-mountain/today/days/`. Any failing month, or any days flagged as near-duplicates, go to one cleanup subagent to rewrite, then the build runs again.
 4. `review.mjs` writes `review.html`. Joel reviews; requested changes are made the same way. Nothing is published until Joel approves.
 
 ### Build checks

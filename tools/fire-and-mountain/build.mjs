@@ -1,16 +1,16 @@
 // Validates months/YYYY-MM.json (subagent output), merges in sky data, and writes
-// static/fire-and-mountain/today/data/YYYY-MM.json for every month that passes.
-// Writes build-report.json. Exits 1 if anything fails.
+// one hashed file per day into static/fire-and-mountain/today/days/ (only when every month
+// passes, so the site never gets a partial year). Writes build-report.json. Exits 1 on failure.
 // Usage: node build.mjs [--partial]   (--partial: skip year-wide checks while months are missing)
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { dayFileName } from '../../static/fire-and-mountain/today/today-core.mjs';
 import { tarotLinks } from './lib/tarot-cards.mjs';
 import { validateMonth, yearChecks } from './lib/validate.mjs';
 
 const here = (path) => new URL(path, import.meta.url);
 const sky = JSON.parse(readFileSync(here('./sky.json'), 'utf8'));
 const cardNames = new Set(Object.keys(tarotLinks()));
-const outDir = here('../../static/fire-and-mountain/today/data/');
-mkdirSync(outDir, { recursive: true });
+const outDir = here('../../static/fire-and-mountain/today/days/');
 
 const datesByMonth = new Map();
 for (const date of Object.keys(sky)) {
@@ -34,7 +34,6 @@ for (const [month, dates] of datesByMonth) {
   if (errors.length) { failed = true; continue; }
   const merged = [...entries].sort((first, second) => first.date.localeCompare(second.date))
     .map(({ date, ...rest }) => ({ date, sky: sky[date], ...rest }));
-  writeFileSync(new URL(`${month}.json`, outDir), `${JSON.stringify(merged)}\n`);
   passedEntries.push(...merged);
 }
 
@@ -43,6 +42,15 @@ if (!process.argv.includes('--partial')) {
   report.year = errors;
   report.flaggedDates = flaggedDates;
   if (errors.length) failed = true;
+}
+
+if (!failed) {
+  rmSync(outDir, { recursive: true, force: true });
+  mkdirSync(outDir, { recursive: true });
+  for (const entry of passedEntries) {
+    writeFileSync(new URL(await dayFileName(entry.date), outDir), `${JSON.stringify(entry)}\n`);
+  }
+  console.log(`wrote ${passedEntries.length} day files to static/fire-and-mountain/today/days/`);
 }
 
 writeFileSync(here('./build-report.json'), `${JSON.stringify(report, null, 1)}\n`);

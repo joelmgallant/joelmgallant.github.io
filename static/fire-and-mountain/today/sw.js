@@ -1,7 +1,7 @@
 // Service worker for /fire-and-mountain/today/ only (its scope is this folder).
 // Stale-while-revalidate: show the cached copy instantly, refresh it in the background.
 // Bump VERSION on every deploy that changes these files.
-const VERSION = 'today-v1';
+const VERSION = 'today-v2';
 
 const IMAGE_NAMES = [
   'moon-new', 'moon-waxing-crescent', 'moon-first-quarter', 'moon-waxing-gibbous', 'moon-full',
@@ -20,19 +20,11 @@ const SHELL = [
   ...IMAGE_NAMES.map((name) => `img/${name}.webp`),
 ];
 
-function monthFile(offsetMonths) {
-  const date = new Date();
-  date.setDate(1);
-  date.setMonth(date.getMonth() + offsetMonths);
-  return `data/${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}.json`;
-}
-
 self.addEventListener('install', (event) => {
   event.waitUntil((async () => {
     const cache = await caches.open(VERSION);
     await cache.addAll(SHELL);
-    // Current and next month's readings; a missing month (end of batch) is fine.
-    await Promise.allSettled([monthFile(0), monthFile(1)].map((path) => cache.add(path)));
+    // Day files are cached only as the page fetches them, so future readings never land on the device.
     await self.skipWaiting();
   })());
 });

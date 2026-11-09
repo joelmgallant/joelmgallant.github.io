@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { localIsoDate, monthKey, resolveDay, pickEntry, tokenizeCards, isWaxing, moonPath, sigilPoints,
+import { localIsoDate, resolveDay, dayFileName, tokenizeCards, isWaxing, moonPath, sigilPoints,
   FIRST_DAY, LAST_DAY } from '../../../static/fire-and-mountain/today/today-core.mjs';
 
 test('localIsoDate uses the local calendar date, zero-padded', () => {
@@ -8,9 +8,6 @@ test('localIsoDate uses the local calendar date, zero-padded', () => {
   assert.equal(localIsoDate(new Date(2027, 0, 5, 0, 1)), '2027-01-05');
 });
 
-test('monthKey is YYYY-MM', () => {
-  assert.equal(monthKey('2027-03-21'), '2027-03');
-});
 
 test('resolveDay: inside, before and after the batch', () => {
   assert.deepEqual(resolveDay('2027-03-21'), { status: 'ok', date: '2027-03-21' });
@@ -19,10 +16,12 @@ test('resolveDay: inside, before and after the batch', () => {
   assert.deepEqual(resolveDay('2027-11-10'), { status: 'after' });
 });
 
-test('pickEntry finds the entry for a date or returns null', () => {
-  const entries = [{ date: '2027-03-20' }, { date: '2027-03-21' }];
-  assert.equal(pickEntry(entries, '2027-03-21'), entries[1]);
-  assert.equal(pickEntry(entries, '2027-03-22'), null);
+test('dayFileName is a stable, unguessable 16-hex-character name per date', async () => {
+  const first = await dayFileName('2026-11-10');
+  assert.match(first, /^[0-9a-f]{16}\.json$/);
+  assert.equal(first, await dayFileName('2026-11-10'));
+  assert.notEqual(first, await dayFileName('2026-11-11'));
+  assert.ok(!first.includes('2026'));
 });
 
 test('tokenizeCards splits text into plain parts and known card links', () => {

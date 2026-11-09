@@ -1,5 +1,5 @@
 // Renders today's reading. Pure logic lives in today-core.mjs.
-import { localIsoDate, monthKey, resolveDay, pickEntry, tokenizeCards, isWaxing, moonPath, sigilPoints }
+import { localIsoDate, resolveDay, dayFileName, tokenizeCards, isWaxing, moonPath, sigilPoints }
   from './today-core.mjs';
 
 const STONE_NAMES = { ruby: 'Ruby', onyx: 'Black onyx', pearl: 'Mother of pearl',
@@ -124,6 +124,7 @@ function showStatus(message, { retry = false } = {}) {
 
 async function fetchJson(path) {
   const response = await fetch(path);
+  if (response.status === 404) return null;
   if (!response.ok) throw new Error(`${path}: HTTP ${response.status}`);
   return response.json();
 }
@@ -137,12 +138,11 @@ async function render() {
     return;
   }
   try {
-    const [links, entries] = await Promise.all([
+    const [links, entry] = await Promise.all([
       fetchJson('/fire-and-mountain/tarot-links.json'),
-      fetchJson(`data/${monthKey(day.date)}.json`),
+      fetchJson(`days/${await dayFileName(day.date)}`),
     ]);
-    tarotLinks = links;
-    const entry = pickEntry(entries, day.date);
+    tarotLinks = links ?? {};
     if (!entry) { showStatus('The stars are quiet today. Try again a little later. ✨', { retry: true }); return; }
     renderEntry(entry);
   } catch (error) {

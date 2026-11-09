@@ -12,18 +12,22 @@ export function localIsoDate(date) {
   return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
 }
 
-export function monthKey(isoDate) {
-  return isoDate.slice(0, 7);
+const DAY_SALT = 'fire-and-mountain-days-v1';
+
+/**
+ * Each day's reading lives in its own file with a hashed name, so the page downloads only
+ * today's reading and future days can't be found by editing a URL. Used by build.mjs too.
+ */
+export async function dayFileName(isoDate) {
+  const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(`${DAY_SALT}:${isoDate}`));
+  const hex = [...new Uint8Array(digest)].slice(0, 8).map((byte) => byte.toString(16).padStart(2, '0')).join('');
+  return `${hex}.json`;
 }
 
 /** Which reading to show: dates before the batch show the first day; after it, nothing. */
 export function resolveDay(isoDate) {
   if (isoDate > LAST_DAY) return { status: 'after' };
   return { status: 'ok', date: isoDate < FIRST_DAY ? FIRST_DAY : isoDate };
-}
-
-export function pickEntry(entries, isoDate) {
-  return entries.find((entry) => entry.date === isoDate) ?? null;
 }
 
 /** Split text into plain parts and [[Card]] links. Unknown cards become plain text. */
