@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>document.documentElement.classList.add("js");</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Today's Reading · The Fire &amp; The Mountain</title>
+<meta name="description" content="A daily cosmic reading for Joel and Nancy.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#2a1230">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/fire-and-mountain/shared.css">
+<link rel="stylesheet" href="today.css">
+</head>
+<body>
+<div id="stars" aria-hidden="true"></div>
+
+<main class="today">
+  <header class="top">
+    <div class="candle" aria-hidden="true"><div class="flame"></div><div class="wick"></div><div class="wax"></div></div>
+    <p class="date" id="date"></p>
+    <h1>Today's Reading</h1>
+    <p class="day-title" id="day-title"></p>
+  </header>
+
+  <noscript><p class="status">The stars need JavaScript to speak today 🔮 <a href="/fire-and-mountain/">Visit the full Fire &amp; Mountain reading</a>.</p></noscript>
+  <div class="status-box" id="status-box" hidden>
+    <p class="status" id="status"></p>
+    <button type="button" class="retry" id="retry" hidden>Try again</button>
+  </div>
+
+  <article id="reading" hidden>
+    <figure class="hero">
+      <img id="moon-scene" alt="" width="800" height="584">
+      <svg class="moon-overlay" id="moon-overlay" viewBox="0 0 100 100" aria-hidden="true">
+        <defs><filter id="moon-glow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+        <circle cx="50" cy="50" r="48" fill="rgba(30, 14, 50, 0.55)" stroke="rgba(255, 243, 214, 0.35)" stroke-width="0.8"/>
+        <path id="moon-overlay-lit" fill="#fff3d6" filter="url(#moon-glow)"/>
+      </svg>
+      <svg class="sigil" id="sigil" viewBox="0 0 64 64" aria-hidden="true"></svg>
+      <span class="des-seal" id="des-seal" title="Don't even scream: a synchronicity day" hidden>ΔΕΣ</span>
+    </figure>
+
+    <div class="sky">
+      <svg class="sky-moon" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="48" fill="#2a2440"/>
+        <path id="sky-moon-lit" fill="#fff3d6"/>
+      </svg>
+      <p id="sky-line"></p>
+    </div>
+
+    <p class="sky-story" id="sky-story"></p>
+
+    <div class="cards" id="cards"></div>
+
+    <section class="together">
+      <img id="mood-image" alt="" width="800" height="457">
+      <div class="together-body">
+        <p class="label" id="mood-label"></p>
+        <blockquote id="together-text"></blockquote>
+      </div>
+    </section>
+  </article>
+
+  <footer class="today-footer">
+    <a href="/fire-and-mountain/">← The full Fire &amp; Mountain reading</a>
+    <small>Made for fun, for friendship, and for a little cosmic magic.</small>
+  </footer>
+</main>
+
+<template id="person-card">
+  <article class="card">
+    <div class="banner"><img class="emblem" alt="" width="800" height="343"></div>
+    <h2 class="who"></h2>
+    <div class="card-body">
+      <p class="reading-1"></p>
+      <p class="reading-2"></p>
+      <p class="label">Today's mission</p>
+      <p class="mission"></p>
+      <p class="label">Watch for</p>
+      <p class="omen"></p>
+      <div class="chips">
+        <div class="chip"><img class="stone-image" alt="" width="64" height="64"><span><span class="chip-kind">Stone</span><b class="stone-name"></b><span class="stone-why"></span></span></div>
+        <div class="chip"><span class="orb"></span><span><span class="chip-kind">Element</span><b class="element-name"></b><span class="element-why"></span></span></div>
+      </div>
+    </div>
+  </article>
+</template>
+
+<script src="/fire-and-mountain/sky.js"></script>
+<script type="module" src="today.js"></script>
+</body>
+</html>

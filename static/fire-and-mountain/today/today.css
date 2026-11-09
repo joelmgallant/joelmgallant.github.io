@@ -1,0 +1,107 @@
+/* Daily reading page: the warm '70s airbrush variant of the shared design system. */
+:root {
+  --sunset: #ff8a4c;
+  --magenta: #c2457a;
+}
+
+body::before {
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(255, 138, 76, 0.30), transparent 55%),
+    radial-gradient(ellipse at 85% 35%, rgba(194, 69, 122, 0.20), transparent 50%),
+    radial-gradient(ellipse at 10% 70%, rgba(90, 174, 230, 0.08), transparent 50%),
+    linear-gradient(180deg, #24102f 0%, var(--night-2) 50%, var(--night) 100%);
+}
+
+main.today { max-width: 920px; padding: 0 16px 60px; }
+
+/* Header */
+.top { text-align: center; padding: 34px 0 10px; }
+.top .candle { transform: scale(0.7); margin: -14px auto 0; }
+.date { font-family: var(--sans); font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin: 0; }
+.top h1 {
+  font-size: clamp(1.7rem, 6vw, 2.6rem); margin: 6px 0 2px;
+  background: linear-gradient(90deg, var(--sunset), var(--gold) 50%, var(--heart));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.day-title { font-style: italic; color: var(--ink-soft); font-size: 1.3rem; margin: 0; min-height: 1.6em; }
+
+/* Status and fallbacks */
+.status-box, noscript .status { display: block; text-align: center; margin: 40px auto; max-width: 520px; }
+.status { font-size: 1.25rem; font-style: italic; color: var(--ink-soft); }
+.status a { color: var(--gold); }
+.retry {
+  font-family: var(--sans); font-size: 0.9rem; color: var(--night); background: var(--gold);
+  border: 0; border-radius: 999px; padding: 10px 22px; cursor: pointer;
+}
+.retry:focus-visible { outline: 3px solid var(--heart); outline-offset: 3px; }
+
+/* Hero */
+.hero { position: relative; margin: 14px 0; border-radius: 18px; overflow: hidden; border: 1px solid var(--veil-edge); box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35); }
+.hero img { display: block; width: 100%; height: auto; aspect-ratio: 800 / 584; object-fit: cover; background: #3a1a3a; }
+.moon-overlay { position: absolute; left: 50%; top: 9%; width: 19%; transform: translateX(-50%); overflow: visible; }
+.sigil { position: absolute; right: 10px; bottom: 10px; width: clamp(52px, 12%, 84px); height: auto; }
+.sigil-ring { fill: rgba(20, 8, 30, 0.35); stroke: var(--gold); stroke-opacity: 0.6; stroke-width: 1; }
+.sigil-line { fill: none; stroke: var(--gold); stroke-width: 1.2; stroke-linejoin: round; }
+.sigil-star { fill: #fff8e6; }
+.des-seal {
+  position: absolute; left: 12px; top: 12px; transform: rotate(-8deg);
+  font-family: var(--display); font-weight: 700; letter-spacing: 0.14em; font-size: 1.05rem;
+  color: #2a1230; background: radial-gradient(circle at 35% 30%, #fff1c2, var(--gold) 60%, #c9962f);
+  padding: 10px 12px 9px 15px; border-radius: 50%; box-shadow: 0 0 0 3px rgba(242, 196, 109, 0.35), 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+/* Sky strip */
+.sky { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border: 1px solid var(--veil-edge); border-radius: 14px; background: var(--veil); }
+.sky-moon { width: 34px; height: 34px; flex: none; }
+.sky p { margin: 0; font-family: var(--sans); font-size: 0.86rem; color: var(--ink-soft); }
+.sky b { color: var(--ink); font-weight: 600; }
+.sky-story { font-style: italic; color: var(--ink-soft); font-size: 1.22rem; margin: 18px 4px; }
+
+/* Person cards */
+.cards { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: start; }
+.card { border-radius: 18px; border: 1px solid var(--veil-edge); overflow: hidden; }
+.card.joel { background: linear-gradient(170deg, rgba(239, 106, 76, 0.24), rgba(20, 8, 30, 0.55)); }
+.card.nancy { background: linear-gradient(170deg, rgba(124, 196, 127, 0.18), rgba(90, 174, 230, 0.14) 45%, rgba(20, 8, 30, 0.55)); }
+.banner { height: 110px; overflow: hidden; }
+.banner img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.who { display: flex; align-items: center; gap: 8px; margin: 14px 18px 0; font-size: 1.3rem; }
+.star8 { width: 22px; height: 22px; flex: none; }
+.star8-main { fill: var(--gold); }
+.star8-diagonal { fill: var(--heart); }
+.card-body { padding: 4px 18px 18px; }
+.card-body p { margin: 10px 0; }
+.label { font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gold); margin: 16px 0 4px !important; }
+.mission { padding: 10px 12px; border-radius: 10px; background: rgba(0, 0, 0, 0.25); border-left: 3px solid var(--gold); }
+.chips { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
+.chip { display: flex; gap: 10px; align-items: center; padding: 8px; border-radius: 12px; background: rgba(0, 0, 0, 0.28); border: 1px solid rgba(255, 255, 255, 0.08); }
+.chip img, .chip .orb { width: 46px; height: 46px; flex: none; border-radius: 10px; object-fit: cover; }
+.chip .orb { border-radius: 50%; }
+.chip > span { font-family: var(--sans); font-size: 0.74rem; line-height: 1.35; color: var(--ink-soft); }
+.chip-kind { display: block; font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
+.chip b { display: block; color: var(--ink); font-size: 0.86rem; font-weight: 600; }
+.orb.earth { background: var(--earth); box-shadow: 0 0 14px var(--earth); }
+.orb.fire { background: var(--fire); box-shadow: 0 0 14px var(--fire); }
+.orb.water { background: var(--water); box-shadow: 0 0 14px var(--water); }
+.orb.wind { background: var(--wind); box-shadow: 0 0 14px var(--wind); }
+.orb.heart { background: var(--heart); box-shadow: 0 0 14px var(--heart); }
+
+/* Together */
+.together { margin: 22px 0 0; border-radius: 18px; overflow: hidden; border: 1px solid var(--veil-edge); background: var(--veil); }
+.together img { display: block; width: 100%; height: auto; aspect-ratio: 800 / 457; max-height: 260px; object-fit: cover; }
+.together-body { padding: 14px 18px 18px; }
+.together blockquote { margin: 6px 0 0; padding: 4px 0 4px 14px; border-left: 3px solid var(--gold); background: none; font-size: 1.28rem; }
+
+.today-footer { text-align: center; padding: 36px 0 0; display: grid; gap: 14px; }
+.today-footer a { color: var(--gold); font-family: var(--display); }
+.today-footer small { font-family: var(--sans); font-size: 0.76rem; color: var(--ink-soft); }
+
+@media (max-width: 680px) {
+  body { font-size: 1.12rem; }
+  .cards { grid-template-columns: 1fr; }
+  .moon-overlay { width: 22%; }
+}
+
+@media print {
+  .hero, .together img, .banner, .chip img { display: none; }
+  .card, .sky, .together { background: none; border-color: #ccc; }
+}
