@@ -114,9 +114,12 @@ The site has no root `package.json`; `tools/fire-and-mountain/package.json` stay
              "stone": "onyx", "stoneWhy": "…", "element": "earth", "elementWhy": "…" },
   "nancy": { "emblem": "shore", "reading": ["…", "…"], "mission": "…", "omen": "…",
              "stone": "pearl", "stoneWhy": "…", "element": "water", "elementWhy": "…" },
-  "together": { "mood": "mischief", "text": "…" }
+  "together": { "mood": "mischief", "text": "…" },
+  "des": false
 }
 ```
+
+`des` marks a "Don't Even Scream" day (Joel and Nancy's in-joke for big coincidences, also written "DES" or "ΔΕΣ", delta-epsilon-sigma). On those days the reading features a synchronicity and names it; the page stamps a gold ΔΕΣ seal on the moon scene.
 
 Subagents write everything except `sky`; the build adds `sky` from `sky.json` so the moon is never written by a model.
 
@@ -155,6 +158,7 @@ About 450 words per day, about 165k words for the year.
 - All enums valid.
 - Every `[[Card Name]]` is a key in `tarot-links.json`.
 - Banned-phrase list (section 6) finds nothing.
+- DES: every `des: true` day contains "don't even scream", "DES" or "ΔΕΣ" somewhere in its text; no `des: false` day does; 40 to 70 DES days in the year.
 - Near-duplicates: no two openings (first 8 words of any `reading` paragraph, `skyStory`, `together.text`) match across the year, and no two missions or omens share 6 or more consecutive words.
 
 ## 6. Style guide (summary; full text in `tools/fire-and-mountain/style-guide.md`)
@@ -165,6 +169,7 @@ About 450 words per day, about 165k words for the year.
 - Dramatic, made-up astrology ("Mars is side-eyeing your inbox").
 - Their lore, often: ruby and onyx, wrist switching, Fire Tiger and Wood Rat, Life Paths 3 and 11, the cabin and the shore, the cards from their spread, Captain Planet in original words.
 - Small dares and missions; joint missions in "Together today".
+- About one day in seven is a DES day: a specific, ridiculous coincidence or synchronicity, called out with "Don't even scream", "DES" or "ΔΕΣ".
 - Short, punchy sentences, warm and mischievous; an occasional italic stage direction.
 - Joel is fire and spark (Aries, Mars); Nancy is mountain and returning light (Capricorn, Saturn).
 
@@ -204,6 +209,7 @@ Expected fal cost: about $1.50, up to about $3 with rerolls.
 1. Move the inline CSS into `shared.css` (shared parts) and keep page-only CSS inline; move the starfield and reveal script into `sky.js`. Keep the inline head script that adds the `js` class.
 2. Add a "✨ Today's Reading" pill to the header nav, linking to `today/`.
 3. Link the seven spread cards in the `#tarot` section to Biddy Tarot with plain `<a>` tags (no JS dependency).
+3a. In `#stones`, after "The universe does not do coincidences like this.", add a one-line ΔΕΣ nod (Joel-requested; the only keepsake copy change).
 4. The page must look identical after the split: pixel comparison of before/after screenshots at 390px and 1280px.
 
 ## 9. Testing and acceptance
