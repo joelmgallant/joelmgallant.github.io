@@ -3,3 +3,4 @@ art/originals/
 build-report.json
 months/*.part*.json
 review.html
+cleanup-*.md

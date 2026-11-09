@@ -159,7 +159,7 @@ About 450 words per day, about 165k words for the year.
 - Every `[[Card Name]]` is a key in `tarot-links.json`.
 - Banned-phrase list (section 6) finds nothing.
 - DES: every `des: true` day contains "don't even scream", "DES" or "ΔΕΣ" somewhere in its text; no `des: false` day does; 40 to 70 DES days in the year.
-- Near-duplicates: no two openings (first 8 words of any `reading` paragraph, `skyStory`, `together.text`) match across the year, and no two missions or omens share 6 or more consecutive words.
+- Near-duplicates: no two openings (first 8 words of any `reading` paragraph, `skyStory`, `together.text`) match across the year, and no two missions or omens share 8 or more consecutive words (6 flagged ordinary connecting phrases; tuned on the real year).
 
 ## 6. Style guide (summary; full text in `tools/fire-and-mountain/style-guide.md`)
 

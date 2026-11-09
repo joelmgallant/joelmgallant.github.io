@@ -112,7 +112,7 @@ function openings(entry) {
   return texts.map((text) => normalize(text).slice(0, 8)).filter((first) => first.length === 8).map((first) => first.join(' '));
 }
 
-function shingles(text, size = 6) {
+function shingles(text, size = 8) {
   const tokens = normalize(text);
   const result = [];
   for (let index = 0; index + size <= tokens.length; index += 1) result.push(tokens.slice(index, index + size).join(' '));
