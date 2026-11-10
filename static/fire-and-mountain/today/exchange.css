@@ -107,3 +107,7 @@
 .exchange-join summary:focus-visible { outline: 3px solid var(--heart); outline-offset: 3px; }
 .join-form { display: flex; gap: 10px; margin-top: 12px; }
 .join-form .answer-input { font-size: 0.95rem; flex: 1; min-width: 0; }
+.join-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.join-label { font-family: var(--sans); font-size: 0.95rem; color: var(--gold); margin: 0; }
+.exchange-guest .exchange-join { margin-top: 10px; }
+.exchange-guest .exchange-join summary { font-size: 0.8rem; color: var(--ink-soft); }
