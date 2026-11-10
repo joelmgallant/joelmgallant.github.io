@@ -13,7 +13,7 @@ AWS: account 622206739165, `--profile personal`, `ca-central-1`.
 **Goal:** `deploy.sh` (idempotent: table, bucket + CORS + public-access block, role, Lambda zip with deps, function URL + CORS, reserved concurrency 5); `keys.mjs` (generate key + SHA-256); `smoke.mjs`.
 **Success Criteria:** smoke passes with temporary test keys: 401 without key, post → sealed → second post → revealed, photo + audio presigned POST upload and presigned GET fetch, history. Test data removed afterwards.
 **Tests:** `node smoke.mjs` against the live function URL.
-**Status:** Not Started
+**Status:** Complete (function URL https://2etmatfpkhkso64i3jfuychdsa0cmkeu.lambda-url.ca-central-1.on.aws/; test keys deployed, localhost CORS on)
 
 ## Stage 3: Page
 **Goal:** `exchange-core.mjs` (+ tests), `exchange-api.mjs`, `exchange.js`, `exchange.css`, `exchange-sounds.mjs`; panel wired into `today/index.html`; SW precache + `VERSION` bump.
