@@ -90,6 +90,8 @@ nav.toc a {
   transition: color .2s, border-color .2s, background .2s;
 }
 nav.toc a:hover, nav.toc a:focus-visible { color: var(--ink); border-color: var(--gold); background: rgba(242,196,109,.1); }
+nav.toc a.today-link { color: #1b0b26; background: var(--gold); border-color: var(--gold); font-weight: 600; }
+nav.toc a.today-link:hover, nav.toc a.today-link:focus-visible { color: #1b0b26; background: #ffd98f; }
 
 /* Sections */
 section { margin: 46px 0; scroll-margin-top: 20px; }
