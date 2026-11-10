@@ -1,7 +1,7 @@
 // Service worker for /fire-and-mountain/today/ only (its scope is this folder).
 // Stale-while-revalidate: show the cached copy instantly, refresh it in the background.
 // Bump VERSION on every deploy that changes these files.
-const VERSION = 'today-v3';
+const VERSION = 'today-v4';
 
 const IMAGE_NAMES = [
   'moon-new', 'moon-waxing-crescent', 'moon-first-quarter', 'moon-waxing-gibbous', 'moon-full',

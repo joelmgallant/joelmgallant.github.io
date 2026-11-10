@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { parseJoinKey, panelState, hostLine, pickRecordingType, scaledSize, nickname, otherName }
+import { parseJoinKey, parsePastedLink, panelState, hostLine, pickRecordingType, scaledSize, nickname, otherName }
   from '../../../static/fire-and-mountain/today/exchange-core.mjs';
 
 const KEY = 'a'.repeat(43);
@@ -11,6 +11,15 @@ test('parseJoinKey accepts a 43-character base64url key from the hash and reject
   assert.equal(parseJoinKey('#join=short'), null);
   assert.equal(parseJoinKey(`#other=${KEY}`), null);
   assert.equal(parseJoinKey(''), null);
+});
+
+test('parsePastedLink pulls the key out of a pasted invite link or a bare key', () => {
+  assert.equal(parsePastedLink(`https://joelmgallant.com/fire-and-mountain/today/#join=${KEY}`), KEY);
+  assert.equal(parsePastedLink(`  https://joelmgallant.com/fire-and-mountain/today/#join=${KEY}\n`), KEY);
+  assert.equal(parsePastedLink(KEY), KEY);
+  assert.equal(parsePastedLink('https://joelmgallant.com/fire-and-mountain/today/'), null);
+  assert.equal(parsePastedLink(`#join=${KEY}extra`), null);
+  assert.equal(parsePastedLink(''), null);
 });
 
 const response = (overrides) => ({ open: true, revealed: false, match: false, me: null, them: { answered: false }, ...overrides });

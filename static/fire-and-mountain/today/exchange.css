@@ -100,3 +100,10 @@
   .chunky, .big-button { transition: none; }
 }
 @media print { .exchange { display: none; } }
+
+/* Guest view: a quiet join box for devices (or installed apps) without a stored link. */
+.exchange.exchange-guest { padding: 12px 16px; box-shadow: none; border-width: 2px; background: rgba(27, 11, 38, 0.6); }
+.exchange-join summary { font-family: var(--sans); font-size: 0.9rem; color: var(--gold); cursor: pointer; }
+.exchange-join summary:focus-visible { outline: 3px solid var(--heart); outline-offset: 3px; }
+.join-form { display: flex; gap: 10px; margin-top: 12px; }
+.join-form .answer-input { font-size: 0.95rem; flex: 1; min-width: 0; }

@@ -1,7 +1,7 @@
 // The Exchange: sealed daily answers between Joel and Nancy, revealed together quiz-show style.
 import { createApi, ApiError } from './exchange-api.mjs';
 import { createComposer } from './exchange-composer.mjs';
-import { parseJoinKey, panelState, hostLine, nickname, otherName } from './exchange-core.mjs';
+import { parseJoinKey, parsePastedLink, panelState, hostLine, nickname, otherName } from './exchange-core.mjs';
 import { NAMES, answerCard, element, plainPrompt } from './exchange-ui.mjs';
 import { playSting, soundEnabled, setSoundEnabled } from './exchange-sounds.mjs';
 import { dayFileName } from './today-core.mjs';
@@ -18,30 +18,60 @@ function writeStored(key, value) {
   try { localStorage.setItem(key, JSON.stringify(value)); } catch { /* private mode */ }
 }
 
-async function joinFromHash() {
-  const key = parseJoinKey(location.hash);
-  if (!key) return { identity: readStored(IDENTITY_KEY), notice: null };
-  history.replaceState(null, '', location.pathname + location.search);
+const BAD_LINK = "That link didn't work. Ask Joel for a fresh one.";
+
+async function joinWithKey(key) {
   try {
     const { person } = await createApi(key).whoami();
     const identity = { key, person };
     writeStored(IDENTITY_KEY, identity);
     return { identity, notice: `Welcome, ${nickname(person)}. You're on the show. 🎤` };
   } catch {
-    return { identity: readStored(IDENTITY_KEY), notice: "That link didn't work. Ask Joel for a fresh one." };
+    return null;
   }
+}
+
+async function joinFromHash() {
+  const key = parseJoinKey(location.hash);
+  if (!key) return { identity: readStored(IDENTITY_KEY), notice: null };
+  history.replaceState(null, '', location.pathname + location.search);
+  return (await joinWithKey(key)) ?? { identity: readStored(IDENTITY_KEY), notice: BAD_LINK };
+}
+
+/** Installed home-screen apps keep their own storage, so let people paste their link in. */
+function joinBox(notice, onJoin) {
+  const input = element('input', { type: 'url', className: 'answer-input', placeholder: 'Paste your Exchange link',
+    ariaLabel: 'Your Exchange link', autocomplete: 'off' });
+  const status = element('p', { className: 'composer-status', textContent: notice ?? '' });
+  const button = element('button', { type: 'submit', className: 'chunky', textContent: 'Join' });
+  const form = element('form', { className: 'join-form' }, input, button);
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const key = parsePastedLink(input.value);
+    if (!key) { status.textContent = BAD_LINK; return; }
+    button.disabled = true;
+    status.textContent = 'Checking the guest list…';
+    const joined = await joinWithKey(key);
+    button.disabled = false;
+    if (joined) onJoin(joined); else status.textContent = BAD_LINK;
+  });
+  const details = element('details', { className: 'exchange-join', open: Boolean(notice) },
+    element('summary', { textContent: '🎤 Got an Exchange link? Join here' }), form, status);
+  return details;
 }
 
 let teardown = () => {};
 
-export async function mountExchange({ container, date, prompt }) {
+export async function mountExchange({ container, date, prompt }, joined = null) {
   teardown();
-  const { identity, notice } = await joinFromHash();
+  const { identity, notice } = joined ?? await joinFromHash();
   if (!identity) {
-    container.hidden = !notice;
-    if (notice) container.replaceChildren(element('p', { className: 'exchange-notice', textContent: notice }));
+    container.hidden = false;
+    container.classList.add('exchange-guest');
+    container.replaceChildren(joinBox(notice, (joinedNow) => mountExchange({ container, date, prompt }, joinedNow)));
     return;
   }
+  container.classList.remove('exchange-guest');
   const api = createApi(identity.key);
   const me = identity.person;
   let pollTimer = null;

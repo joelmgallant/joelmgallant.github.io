@@ -11,6 +11,12 @@ export function parseJoinKey(hash) {
   return match ? match[1] : null;
 }
 
+/** Key from a pasted invite link (or a bare key), for installed apps that can't open a #join link. */
+export function parsePastedLink(text) {
+  const trimmed = (text ?? '').trim();
+  return parseJoinKey(trimmed.slice(trimmed.indexOf('#'))) ?? parseJoinKey(`#join=${trimmed}`);
+}
+
 /** Which panel to show: none, offline, unanswered, waiting, revealed or closed. */
 export function panelState({ hasKey, error, response }) {
   if (!hasKey) return 'none';
