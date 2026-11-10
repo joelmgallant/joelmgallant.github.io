@@ -1,7 +1,7 @@
 // Service worker for /fire-and-mountain/today/ only (its scope is this folder).
 // Stale-while-revalidate: show the cached copy instantly, refresh it in the background.
 // Bump VERSION on every deploy that changes these files.
-const VERSION = 'today-v2';
+const VERSION = 'today-v3';
 
 const IMAGE_NAMES = [
   'moon-new', 'moon-waxing-crescent', 'moon-first-quarter', 'moon-waxing-gibbous', 'moon-full',
@@ -15,6 +15,7 @@ const IMAGE_NAMES = [
 
 const SHELL = [
   './', 'today.css', 'today.js', 'today-core.mjs', 'manifest.webmanifest',
+  'exchange.css', 'exchange.js', 'exchange-core.mjs', 'exchange-api.mjs', 'exchange-sounds.mjs', 'exchange-ui.mjs', 'exchange-composer.mjs',
   'icons/icon-192.png', 'icons/icon-512.png',
   '/fire-and-mountain/shared.css', '/fire-and-mountain/sky.js', '/fire-and-mountain/tarot-links.json',
   ...IMAGE_NAMES.map((name) => `img/${name}.webp`),

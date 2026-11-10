@@ -1,6 +1,7 @@
 // Renders today's reading. Pure logic lives in today-core.mjs.
 import { localIsoDate, resolveDay, dayFileName, tokenizeCards, isWaxing, moonPath, sigilPoints }
   from './today-core.mjs';
+import { mountExchange } from './exchange.js';
 
 const STONE_NAMES = { ruby: 'Ruby', onyx: 'Black onyx', pearl: 'Mother of pearl',
   'diamonds-stacked': 'Stacked diamonds', diamond: 'Diamond' };
@@ -110,6 +111,8 @@ function renderEntry(entry) {
   byId('mood-image').src = `img/mood-${entry.together.mood}.webp`;
   byId('mood-label').textContent = `Together today · ${entry.together.mood}`;
   fillText(byId('together-text'), entry.together.text);
+  mountExchange({ container: byId('exchange'), date: entry.date, prompt: entry.together.text })
+    .catch((error) => console.warn('exchange unavailable', error));
 
   byId('status-box').hidden = true;
   byId('reading').hidden = false;

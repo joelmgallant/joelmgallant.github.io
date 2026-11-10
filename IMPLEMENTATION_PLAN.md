@@ -19,7 +19,7 @@ AWS: account 622206739165, `--profile personal`, `ca-central-1`.
 **Goal:** `exchange-core.mjs` (+ tests), `exchange-api.mjs`, `exchange.js`, `exchange.css`, `exchange-sounds.mjs`; panel wired into `today/index.html`; SW precache + `VERSION` bump.
 **Success Criteria:** six panel states (spec §5); join flow; photo resize; recorder with 60 s cap and preview; reveal sequence; ΔΕΣ match stamp; scrapbook; reduced motion; no panel without a key.
 **Tests:** `exchange-core` unit tests; Playwright with two contexts (Joel/Nancy test keys) against the live API, 390/1280 screenshots, no console errors. Function URL CORS temporarily allows `http://localhost:8811`.
-**Status:** Not Started
+**Status:** Complete
 
 ## Stage 4: Go live
 **Goal:** remove localhost from CORS, delete test data, generate real keys into `~/.secrets/tokens/`, set real hashes, push site, verify live.
