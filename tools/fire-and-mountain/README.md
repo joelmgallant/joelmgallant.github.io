@@ -41,3 +41,14 @@ Design: `docs/superpowers/specs/2026-11-09-fire-and-mountain-daily-reading-desig
 ## Images
 
 `node art.mjs` regenerates only missing images (it costs money per image). `node art.mjs <name>` forces one. Read every image after generating: the model draws the moon as a crescent regardless of the prompt, so phase scenes other than `moon-full` are deliberately moonless and the page draws the accurate moon on top.
+
+## The Exchange (backend)
+
+Sealed daily answers between Joel and Nancy. Spec: `docs/superpowers/specs/2026-11-09-fire-and-mountain-exchange-design.md`. Code in `exchange/` (Lambda: `src/`, tests: `npm test` inside `exchange/`).
+
+- **AWS:** account 622206739165, `--profile personal`, `ca-central-1`. Lambda `fm-exchange` (function URL in `static/fire-and-mountain/today/exchange-api.mjs`), DynamoDB `fm-exchanges`, S3 `fm-exchange-media-622206739165`, role `fm-exchange-role`.
+- **Deploy code changes:** `cd exchange && bash deploy.sh` (keeps the deployed key hashes).
+- **Personal links:** `~/.secrets/tokens/fm-exchange-{joel,nancy}-link` (hashes alongside). Only the SHA-256 hashes live in AWS.
+- **Reissue a lost link:** `node keys.mjs nancy` → save `link`/`hash` to the token files → `KEY_HASH_NANCY=<hash> bash deploy.sh` → `secretsync push`. The old link stops working immediately.
+- **End-to-end check:** generate two throwaway keys, deploy them with `EXTRA_ORIGIN` unset, run `node smoke.mjs <url> <keys.json> <open-date>` (it deletes its own data), then redeploy the real hashes. Never run it on a day Joel and Nancy have already answered: cleanup deletes that whole day.
+- **New reading year:** update `FIRST_DAY`/`LAST_DAY` in `deploy.sh` too, and redeploy.
