@@ -1,0 +1,102 @@
+// HTTP routing for the exchange API (Lambda function URL, payload v2).
+// Storage and media are injected so the rules can be tested without AWS.
+import { randomUUID } from 'node:crypto';
+import { AUDIO_TYPES, PEOPLE, addDays, answerFromBody, dayStatus, halifaxToday, isRevealed, personForKey,
+  shapeExchange, validateAnswer } from './core.mjs';
+
+const UPLOADS = {
+  photo: { types: { 'image/jpeg': 'jpg' }, maxBytes: 5 * 1024 * 1024 },
+  audio: { types: AUDIO_TYPES, maxBytes: 3 * 1024 * 1024 },
+};
+
+const respond = (statusCode, body) => ({
+  statusCode, headers: { 'content-type': 'application/json', 'cache-control': 'no-store' }, body: JSON.stringify(body),
+});
+const fail = (statusCode, error) => respond(statusCode, { error });
+
+function parseBody(event) {
+  if (!event.body) return {};
+  const text = event.isBase64Encoded ? Buffer.from(event.body, 'base64').toString('utf8') : event.body;
+  try {
+    const parsed = JSON.parse(text);
+    return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : {};
+  } catch { return null; }
+}
+
+async function signAnswer(answer, media) {
+  if (!answer) return answer;
+  const signed = { ...answer };
+  if (answer.photoKey) signed.photoUrl = await media.getUrl(answer.photoKey);
+  if (answer.audioKey) signed.audioUrl = await media.getUrl(answer.audioKey);
+  return signed;
+}
+
+async function signShape(shape, media) {
+  const signed = { ...shape, me: await signAnswer(shape.me, media), them: { ...shape.them } };
+  if (shape.them.answer) signed.them.answer = await signAnswer(shape.them.answer, media);
+  return signed;
+}
+
+export function createHandler({ store, media, hashes, batch, now = () => new Date() }) {
+  async function getExchange(person, date, status) {
+    const item = (await store.get(date)) ?? { date };
+    return respond(200, await signShape(shapeExchange(item, person, status), media));
+  }
+
+  async function putExchange(person, date, status, event) {
+    const body = parseBody(event);
+    if (body === null) return fail(400, 'body must be JSON');
+    const error = validateAnswer(body, date, person);
+    if (error) return fail(400, error);
+    const existing = (await store.get(date)) ?? { date };
+    if (!status.open || isRevealed(existing, status)) return fail(409, 'this round is closed');
+    const item = await store.putAnswer(date, person, answerFromBody(body, now()));
+    return respond(200, await signShape(shapeExchange(item, person, status), media));
+  }
+
+  async function createUpload(person, date, status, event) {
+    const upload = UPLOADS[event.queryStringParameters?.kind];
+    if (!upload) return fail(400, 'kind must be photo or audio');
+    const body = parseBody(event);
+    const extension = upload.types[body?.contentType];
+    if (!extension) return fail(400, `contentType must be one of ${Object.keys(upload.types).join(', ')}`);
+    const existing = (await store.get(date)) ?? { date };
+    if (!status.open || isRevealed(existing, status)) return fail(409, 'this round is closed');
+    const key = `${date}/${person}/${event.queryStringParameters.kind}-${randomUUID()}.${extension}`;
+    const form = await media.presignPost({ key, contentType: body.contentType, maxBytes: upload.maxBytes });
+    return respond(200, { key, ...form });
+  }
+
+  async function history(person, today, event) {
+    const before = event.queryStringParameters?.before ?? addDays(today, 2);
+    const limit = Math.min(Number(event.queryStringParameters?.limit) || 30, 60);
+    const days = [];
+    for (const item of await store.scan()) {
+      const status = dayStatus(item.date, today, batch);
+      if (!status.valid || item.date >= before || !isRevealed(item, status)) continue;
+      days.push(shapeExchange(item, person, status));
+    }
+    days.sort((first, second) => second.date.localeCompare(first.date));
+    return respond(200, { days: await Promise.all(days.slice(0, limit).map((day) => signShape(day, media))) });
+  }
+
+  return async function handler(event) {
+    const method = event.requestContext?.http?.method;
+    const path = event.rawPath ?? '/';
+    const header = event.headers?.authorization ?? '';
+    const person = personForKey(header.startsWith('Bearer ') ? header.slice(7) : '', hashes);
+    if (!person || !PEOPLE.includes(person)) return fail(401, 'unknown key');
+
+    const today = halifaxToday(now());
+    if (method === 'GET' && path === '/whoami') return respond(200, { person });
+    if (method === 'GET' && path === '/history') return history(person, today, event);
+
+    const date = event.queryStringParameters?.date;
+    const status = dayStatus(date, today, batch);
+    const routes = { 'GET /exchange': getExchange, 'PUT /exchange': putExchange, 'POST /upload': createUpload };
+    const route = routes[`${method} ${path}`];
+    if (!route) return fail(404, 'not found');
+    if (!status.valid) return fail(400, 'date is outside the reading year');
+    return route(person, date, status, event);
+  };
+}
