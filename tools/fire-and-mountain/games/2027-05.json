@@ -1,0 +1,366 @@
+[
+  {
+    "date": "2027-05-01",
+    "game": {
+      "type": "tabloid",
+      "intro": "Mud season just signed a treaty with the boot rack, and Saturn demands a front page. Fill the blank. Hold the presses.",
+      "headline": "MUD BOOTS SIGN PEACE TREATY WITH FRONT HALL, ___ REFUSES TO ATTEND"
+    }
+  },
+  {
+    "date": "2027-05-02",
+    "game": {
+      "type": "closest",
+      "intro": "The peepers are back, singing in the ditches like a tiny swamp choir. Saturn wants accompaniment. Count the keys.",
+      "question": "A standard 88-key piano has black keys and white keys. How many of the keys are white?",
+      "unit": "white keys",
+      "secret": {
+        "value": 52
+      },
+      "source": "Standard 88-key piano: 52 white keys + 36 black keys = 88 (7 full octaves of 7 white keys = 49, plus A0, B0 and C8)"
+    }
+  },
+  {
+    "date": "2027-05-03",
+    "game": {
+      "type": "lightning",
+      "intro": "The moon just moved into Joel's sign and kicked its boots off at the cabin door. Ten seconds a pair. Go.",
+      "pairs": [
+        [
+          "Woodstove",
+          "Campfire"
+        ],
+        [
+          "Porch swing",
+          "Hammock"
+        ],
+        [
+          "Chimney smoke",
+          "Pine needles"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-05-04",
+    "game": {
+      "type": "mind",
+      "intro": "DES alert: two blue umbrellas, one sidewalk. Saturn wants to know if your brains match as well as your gear.",
+      "question": "You open an umbrella you forgot you owned and something falls out. What do you hope it is?",
+      "options": [
+        "A note in your own handwriting",
+        "A pressed flower",
+        "A key to nothing you own",
+        "A tiny plastic dinosaur"
+      ]
+    }
+  },
+  {
+    "date": "2027-05-05",
+    "game": {
+      "type": "closeup",
+      "intro": "New moon, fresh start, tiny seeds. Saturn wants to see something small with big ambitions.",
+      "prompt": "Something in your home smaller than a seed packet that has a very big job. Get close enough that it looks important."
+    }
+  },
+  {
+    "date": "2027-05-06",
+    "game": {
+      "type": "wrong",
+      "intro": "Darkest sky of May. Perfect lighting for being confidently, magnificently wrong.",
+      "question": "Where does the sun go at night?",
+      "secret": {
+        "rule": "mostVowels"
+      }
+    }
+  },
+  {
+    "date": "2027-05-07",
+    "game": {
+      "type": "sound",
+      "intro": "Gemini moon means two of everything, including noise. Especially noise.",
+      "prompt": "Two sounds from a busy kitchen happening at the same time, performed solo. The other guesses both."
+    }
+  },
+  {
+    "date": "2027-05-08",
+    "game": {
+      "type": "emoji",
+      "intro": "A thin crescent smile is back in the sky. Saturn asks you to smile back, in pictures only.",
+      "prompt": "Something that always makes you grin within three seconds."
+    }
+  },
+  {
+    "date": "2027-05-09",
+    "game": {
+      "type": "tales",
+      "intro": "Windows open, house breathing again. Tell the truth twice and let one fib drift in on the breeze.",
+      "prompt": "Three sounds that came through your window this week. One never happened."
+    }
+  },
+  {
+    "date": "2027-05-10",
+    "game": {
+      "type": "lightning",
+      "intro": "First day on the clothesline. Hang your answers out fast, the wind is not waiting.",
+      "pairs": [
+        [
+          "Clothespin",
+          "Clothes hanger"
+        ],
+        [
+          "Flapping sheets",
+          "Folded towels"
+        ],
+        [
+          "Fold it",
+          "Roll it"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-05-11",
+    "game": {
+      "type": "mind",
+      "intro": "Half a moon, full nerve. Pick bravely, then guess what the other one was brave enough to pick.",
+      "question": "Which tiny act of courage would you rather do today?",
+      "options": [
+        "Sing in an empty stairwell",
+        "Ask a stranger their dog's name",
+        "Wear mismatched socks on purpose",
+        "Send a voice memo, no retakes"
+      ]
+    }
+  },
+  {
+    "date": "2027-05-12",
+    "game": {
+      "type": "closeup",
+      "intro": "Don't even scream: two lion shirts, one room. The moon is in Leo and it wants its close-up.",
+      "prompt": "Something with a mane, a fringe or tassels. Get so close it looks like a jungle."
+    }
+  },
+  {
+    "date": "2027-05-13",
+    "game": {
+      "type": "wrong",
+      "intro": "Someone borrowed the crown and Saturn has questions. Answer wrongly, but with royal confidence.",
+      "question": "What are royal crowns traditionally made of?",
+      "secret": {
+        "rule": "longest"
+      }
+    }
+  },
+  {
+    "date": "2027-05-14",
+    "game": {
+      "type": "sound",
+      "intro": "Virgo moon, spreadsheet energy. Saturn wants to hear things getting sorted.",
+      "prompt": "Something being put neatly in its place: a drawer closing, a stapler landing, a very satisfied filing cabinet."
+    }
+  },
+  {
+    "date": "2027-05-15",
+    "game": {
+      "type": "tabloid",
+      "intro": "The lilac buds have been watching all week. Nobody knows what they saw. You decide.",
+      "headline": "LILAC BUDS CAUGHT ___ ON BACKYARD CAMERA, NEIGHBOURHOOD DEMANDS ANSWERS"
+    }
+  },
+  {
+    "date": "2027-05-16",
+    "game": {
+      "type": "closest",
+      "intro": "Libra moon, balanced stones, everything in neat rows. Stack your guess carefully and do not topple past the top.",
+      "question": "A classic 9-by-9 number-placement puzzle grid, the kind with nine 3-by-3 boxes, has how many little squares?",
+      "unit": "squares",
+      "secret": {
+        "value": 81
+      },
+      "source": "9 x 9 grid = 81 cells (standard sudoku layout)"
+    }
+  },
+  {
+    "date": "2027-05-17",
+    "game": {
+      "type": "lightning",
+      "intro": "First porch evening of the year. Answer fast so you can get back to doing nothing beautifully.",
+      "pairs": [
+        [
+          "Rocking chair",
+          "Porch steps"
+        ],
+        [
+          "Crickets",
+          "Wind chimes"
+        ],
+        [
+          "Last light",
+          "First star"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-05-18",
+    "game": {
+      "type": "mind",
+      "intro": "Full Moon Recharge night. Ruby and onyx side by side on the sill. Now line your minds up too.",
+      "question": "The full moon offers to take one chore off your plate for a whole week. What do you hand it?",
+      "options": [
+        "The dishes",
+        "Every single email",
+        "Deciding what's for supper",
+        "Finding lost things"
+      ]
+    }
+  },
+  {
+    "date": "2027-05-19",
+    "game": {
+      "type": "closeup",
+      "intro": "DES: a dog in yellow rain boots. Saturn rules that today's photos must be equally ridiculous.",
+      "prompt": "Something yellow. Zoom in until it looks like the surface of a mystery planet."
+    }
+  },
+  {
+    "date": "2027-05-20",
+    "game": {
+      "type": "wrong",
+      "intro": "Fullest moon of spring, and Saturn is wearing a party hat. Celebrate by being spectacularly incorrect.",
+      "question": "What makes the moon look full?",
+      "secret": {
+        "rule": "shortest"
+      }
+    }
+  },
+  {
+    "date": "2027-05-21",
+    "game": {
+      "type": "sound",
+      "intro": "Long weekend launch sequence initiated. Saturn needs the soundtrack.",
+      "prompt": "A long weekend starting, in one noise. Car door, screen door, a giant sigh of relief: your call."
+    }
+  },
+  {
+    "date": "2027-05-22",
+    "game": {
+      "type": "emoji",
+      "intro": "Your hoodie smells like a campfire and Saturn approves. Tell the whole story in pictures.",
+      "prompt": "Your perfect campfire evening, from the first spark to the last ember."
+    }
+  },
+  {
+    "date": "2027-05-23",
+    "game": {
+      "type": "tales",
+      "intro": "The moon is climbing Nancy's mountain. Carry three tales up the trail and hide one fib in the backpack.",
+      "prompt": "Three places you have stood that had a great view. One is pure fiction."
+    }
+  },
+  {
+    "date": "2027-05-24",
+    "game": {
+      "type": "lightning",
+      "intro": "Planting day. Ten seconds a pair, which Saturn insists is how long a seed takes to sprout.",
+      "pairs": [
+        [
+          "Seeds",
+          "Seedlings"
+        ],
+        [
+          "Rain barrel",
+          "Garden hose"
+        ],
+        [
+          "Sunflowers",
+          "Sweet peas"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-05-25",
+    "game": {
+      "type": "mind",
+      "intro": "Aquarius moon, inventor energy. Pick the gadget you'd build, then guess what the other one built.",
+      "question": "Which ridiculous invention would you actually use every day?",
+      "options": [
+        "Socks that find each other",
+        "A kettle that tells jokes",
+        "A mailbox that waves hello",
+        "Keys that whistle back"
+      ]
+    }
+  },
+  {
+    "date": "2027-05-26",
+    "game": {
+      "type": "closeup",
+      "intro": "The cosmic broom is out, sweeping the sky tidy. Show us what it missed.",
+      "prompt": "Something with bristles: a brush, a broom, a doormat, a very fluffy cat. Get close enough to count them."
+    }
+  },
+  {
+    "date": "2027-05-27",
+    "game": {
+      "type": "wrong",
+      "intro": "DES: you both took the same lilac photo. Prove you don't share one brain by being wrong differently.",
+      "question": "What colour are lilacs?",
+      "secret": {
+        "rule": "lastAlphabetically"
+      }
+    }
+  },
+  {
+    "date": "2027-05-28",
+    "game": {
+      "type": "sound",
+      "intro": "The fog rolled in and swallowed the harbour. Saturn wants to hear it from inside the soup.",
+      "prompt": "A foghorn, a buoy bell or a gull lost in the mist. Pick one and give it everything."
+    }
+  },
+  {
+    "date": "2027-05-29",
+    "game": {
+      "type": "tabloid",
+      "intro": "Beach glass season. Somewhere a little green shard is about to be very famous.",
+      "headline": "BEACHCOMBER FINDS SEA GLASS SHAPED EXACTLY LIKE ___, EXPERTS BAFFLED"
+    }
+  },
+  {
+    "date": "2027-05-30",
+    "game": {
+      "type": "closest",
+      "intro": "The moon swings back into Joel's sign for a return visit and plants a flag. Saturn wants to know how pointy it is.",
+      "question": "How many points does the red maple leaf on Canada's national flag have?",
+      "unit": "points",
+      "secret": {
+        "value": 11
+      },
+      "source": "The stylized maple leaf on the Canadian flag (proclaimed 1965) has 11 points"
+    }
+  },
+  {
+    "date": "2027-05-31",
+    "game": {
+      "type": "lightning",
+      "intro": "Last night of May. Wave goodbye to spring with three snap decisions.",
+      "pairs": [
+        [
+          "Sparklers",
+          "Glow sticks"
+        ],
+        [
+          "Kitchen dance party",
+          "Slow dance"
+        ],
+        [
+          "Confetti",
+          "Streamers"
+        ]
+      ]
+    }
+  }
+]

@@ -1,0 +1,324 @@
+[
+  {
+    "date": "2027-02-10",
+    "game": {
+      "type": "closeup",
+      "intro": "The moon moves into Aries and settles into the cabin. Chimney smoking. Show us something that belongs there.",
+      "prompt": "Something that would look right at home in a cabin in the woods."
+    }
+  },
+  {
+    "date": "2027-02-11",
+    "game": {
+      "type": "wrong",
+      "intro": "Don't even scream: you both made the same typo. Saturn finds this suspicious and wonderful. Spell badly with pride.",
+      "question": "How do you spell the word necessary?",
+      "secret": {
+        "rule": "shortest"
+      }
+    }
+  },
+  {
+    "date": "2027-02-12",
+    "game": {
+      "type": "sound",
+      "intro": "Moon in Taurus: everything is slow, including the bull. Especially the bull. Take your time with this one.",
+      "prompt": "A bull who has decided to moo in extreme slow motion, all afternoon."
+    }
+  },
+  {
+    "date": "2027-02-13",
+    "game": {
+      "type": "emoji",
+      "intro": "Good blanket day. Saturn has claimed the corner of the couch. Spell us something worth staying under for.",
+      "prompt": "A cozy movie worth watching under the good blanket."
+    }
+  },
+  {
+    "date": "2027-02-14",
+    "game": {
+      "type": "tales",
+      "intro": "Happy Valentine's Day to the best pals in the cosmos. Saturn brought cards. Bring two truths and one whopper.",
+      "prompt": "Three things you've never told each other. One of them is a complete fib."
+    }
+  },
+  {
+    "date": "2027-02-15",
+    "game": {
+      "type": "lightning",
+      "intro": "Two loud opinions walk into the studio. Moon in Gemini. Ten seconds each and no fence-sitting allowed.",
+      "pairs": [
+        [
+          "Pineapple pizza: yes",
+          "Pineapple pizza: no"
+        ],
+        [
+          "Socks with sandals",
+          "Bare toes always"
+        ],
+        [
+          "Cereal is soup",
+          "Cereal is cereal"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-02-16",
+    "game": {
+      "type": "mind",
+      "intro": "Forty tabs open, one of them is playing music, and Saturn can't find which. Pick yours, guess theirs.",
+      "question": "Which tab is open in the back of your brain right now?",
+      "options": [
+        "A song from the nineties",
+        "A reply I keep drafting",
+        "A trip I haven't planned",
+        "Why the cat does that"
+      ]
+    }
+  },
+  {
+    "date": "2027-02-17",
+    "game": {
+      "type": "closeup",
+      "intro": "A shell on the windowsill brought the shore home. Get close enough that it looks like a whole new planet.",
+      "prompt": "Something sitting on a windowsill in your home, shot so close it could be a planet."
+    }
+  },
+  {
+    "date": "2027-02-18",
+    "game": {
+      "type": "wrong",
+      "intro": "DES! The same blue jay visited twice. Saturn has filed a full report and would like your wrongest testimony.",
+      "question": "What colour is a blue jay?",
+      "secret": {
+        "rule": "firstAlphabetically"
+      }
+    }
+  },
+  {
+    "date": "2027-02-19",
+    "game": {
+      "type": "sound",
+      "intro": "Full moon in Leo and the lion is warming up backstage. The crew wants to hear every scale.",
+      "prompt": "A lion doing vocal warm-ups backstage before its big show."
+    }
+  },
+  {
+    "date": "2027-02-20",
+    "game": {
+      "type": "tabloid",
+      "intro": "The Great February Recharge! Ruby and onyx on the sill, side by side. The paparazzi are already outside.",
+      "headline": "FULL MOON CAUGHT CHARGING ___ ON A WINDOWSILL, ONYX DENIES EVERYTHING"
+    }
+  },
+  {
+    "date": "2027-02-21",
+    "game": {
+      "type": "closest",
+      "intro": "Tidy afterglow day. Saturn has swept up the moonlight and wants a year. Close, but not over.",
+      "question": "In what year did the Confederation Bridge to Prince Edward Island open to traffic?",
+      "unit": "year",
+      "secret": {
+        "value": 1997
+      },
+      "source": "Confederation Bridge opened to traffic on May 31, 1997."
+    }
+  },
+  {
+    "date": "2027-02-22",
+    "game": {
+      "type": "lightning",
+      "intro": "A lid has gone missing and Saturn suspects everyone. Answer fast so you look innocent.",
+      "pairs": [
+        [
+          "Hunt for the lid",
+          "Just use foil"
+        ],
+        [
+          "Junk drawer",
+          "Mystery bin"
+        ],
+        [
+          "Snoop",
+          "Mind my business"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-02-23",
+    "game": {
+      "type": "mind",
+      "intro": "Moon in Libra and a spoon balanced on a mug. Saturn holds his breath. Pick your trick, guess theirs.",
+      "question": "Which spoon trick would you most like to master?",
+      "options": [
+        "Spoon balanced on my nose",
+        "A five-spoon tower",
+        "The perfect mug clink",
+        "Spoon hanging off my ear"
+      ]
+    }
+  },
+  {
+    "date": "2027-02-24",
+    "game": {
+      "type": "closeup",
+      "intro": "Even trade day. Saturn is running the swap meet and he wants to see the goods up close.",
+      "prompt": "Something you'd happily trade for a cup of something hot."
+    }
+  },
+  {
+    "date": "2027-02-25",
+    "game": {
+      "type": "wrong",
+      "intro": "Don't even scream: two identical snowmen in two different yards. Saturn wants answers. Wrong ones.",
+      "question": "What do you traditionally use for a snowman's nose?",
+      "secret": {
+        "rule": "mostWords"
+      }
+    }
+  },
+  {
+    "date": "2027-02-26",
+    "game": {
+      "type": "sound",
+      "intro": "Somewhere in the house is a secret drawer. Saturn is releasing the suspense music budget.",
+      "prompt": "A creaky old drawer sliding open to reveal a secret, with your own suspense music."
+    }
+  },
+  {
+    "date": "2027-02-27",
+    "game": {
+      "type": "emoji",
+      "intro": "The arrow points toward March and the moon is in Sagittarius, bow drawn. Saturn wants your bravest plan.",
+      "prompt": "Something you're bravely planning to try once March arrives."
+    }
+  },
+  {
+    "date": "2027-02-28",
+    "game": {
+      "type": "tales",
+      "intro": "February takes its final bow. Saturn is throwing roses. Send it off with two truths and one beautiful lie.",
+      "prompt": "Three things you'd seal in a February time capsule. One of them is invented."
+    }
+  },
+  {
+    "date": "2027-02-01",
+    "game": {
+      "type": "lightning",
+      "intro": "February opens with a mitten that refuses to go on. Focus. Ten seconds each. Saturn is timing you with a sundial.",
+      "pairs": [
+        [
+          "Mittens",
+          "Gloves"
+        ],
+        [
+          "Toque",
+          "Hood up"
+        ],
+        [
+          "Shovel now",
+          "Shovel later"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-02-02",
+    "game": {
+      "type": "mind",
+      "intro": "The moon drops by Nancy's mountain and a groundhog drops by the studio. Pick your forecast, guess theirs.",
+      "question": "A groundhog pops up and offers you a forecast. Which one are you hoping for?",
+      "options": [
+        "Six more weeks of winter",
+        "An early spring",
+        "Fog until further notice",
+        "One perfect snow day"
+      ]
+    }
+  },
+  {
+    "date": "2027-02-03",
+    "game": {
+      "type": "closeup",
+      "intro": "Saturn has a label maker and he is not afraid to use it. Get so close the label can't save them.",
+      "prompt": "Something in your home with a label on it. Zoom in until the words give nothing away."
+    }
+  },
+  {
+    "date": "2027-02-04",
+    "game": {
+      "type": "wrong",
+      "intro": "Dark moon, blank page. Saturn wants something written on it and he does not care if it's correct.",
+      "question": "What do you call a word that reads the same forwards and backwards?",
+      "secret": {
+        "rule": "fewestWords"
+      }
+    }
+  },
+  {
+    "date": "2027-02-05",
+    "game": {
+      "type": "sound",
+      "intro": "DES day: two orange shovels, one snowbank, zero explanation. The crew wants to hear that shovel sing.",
+      "prompt": "A metal shovel scraping the driveway at dawn, performed with deep feeling."
+    }
+  },
+  {
+    "date": "2027-02-06",
+    "game": {
+      "type": "tabloid",
+      "intro": "Breaking: the Tiger and the Rat are throwing a party and Saturn is on the guest list for once. Stop the presses.",
+      "headline": "TIGER AND RAT THROW PARTY, WHOLE TOWN STILL TALKING ABOUT THE ___"
+    }
+  },
+  {
+    "date": "2027-02-07",
+    "game": {
+      "type": "closest",
+      "intro": "Sock amnesty day: all strays forgiven. Saturn is less forgiving about guesses that go over.",
+      "question": "How many tiles are in a standard double-six set of dominoes? Smug bonus if you spot why it suits February.",
+      "unit": "tiles",
+      "secret": {
+        "value": 28
+      },
+      "source": "A double-six domino set has every pairing of 0-6 with repeats: 7x8/2 = 28 tiles."
+    }
+  },
+  {
+    "date": "2027-02-08",
+    "game": {
+      "type": "lightning",
+      "intro": "The kettle dreamed last night and it's still a little steamy about it. Three fast picks, no overthinking.",
+      "pairs": [
+        [
+          "Whistling kettle",
+          "Silent kettle"
+        ],
+        [
+          "Steam",
+          "Frost"
+        ],
+        [
+          "Big mug",
+          "Dainty teacup"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-02-09",
+    "game": {
+      "type": "mind",
+      "intro": "Someone wrote in the fog on the window. Saturn is patient, but he would like to know who.",
+      "question": "You find a message written in the fog on a window. What do you hope it says?",
+      "options": [
+        "Hi",
+        "Wipe me, I dare you",
+        "You're doing great",
+        "A tiny drawn moon"
+      ]
+    }
+  }
+]

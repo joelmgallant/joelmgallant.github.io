@@ -1,6 +1,8 @@
 // HTTP routing for the exchange API (Lambda function URL, payload v2).
 // Storage and media are injected so the rules can be tested without AWS.
 import { randomUUID } from 'node:crypto';
+import { createGameRoutes, gameKey } from './game-routes.mjs';
+import { fail, parseBody, respond, signShape } from './http.mjs';
 import { AUDIO_TYPES, PEOPLE, addDays, answerFromBody, dayStatus, halifaxToday, isRevealed, personForKey,
   shapeExchange, validateAnswer } from './core.mjs';
 
@@ -9,35 +11,8 @@ const UPLOADS = {
   audio: { types: AUDIO_TYPES, maxBytes: 3 * 1024 * 1024 },
 };
 
-const respond = (statusCode, body) => ({
-  statusCode, headers: { 'content-type': 'application/json', 'cache-control': 'no-store' }, body: JSON.stringify(body),
-});
-const fail = (statusCode, error) => respond(statusCode, { error });
-
-function parseBody(event) {
-  if (!event.body) return {};
-  const text = event.isBase64Encoded ? Buffer.from(event.body, 'base64').toString('utf8') : event.body;
-  try {
-    const parsed = JSON.parse(text);
-    return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : {};
-  } catch { return null; }
-}
-
-async function signAnswer(answer, media) {
-  if (!answer) return answer;
-  const signed = { ...answer };
-  if (answer.photoKey) signed.photoUrl = await media.getUrl(answer.photoKey);
-  if (answer.audioKey) signed.audioUrl = await media.getUrl(answer.audioKey);
-  return signed;
-}
-
-async function signShape(shape, media) {
-  const signed = { ...shape, me: await signAnswer(shape.me, media), them: { ...shape.them } };
-  if (shape.them.answer) signed.them.answer = await signAnswer(shape.them.answer, media);
-  return signed;
-}
-
-export function createHandler({ store, media, hashes, batch, now = () => new Date() }) {
+export function createHandler({ store, media, hashes, batch, games = {}, now = () => new Date() }) {
+  const game = createGameRoutes({ store, media, games, now });
   async function getExchange(person, date, status) {
     const item = (await store.get(date)) ?? { date };
     return respond(200, await signShape(shapeExchange(item, person, status), media));
@@ -60,9 +35,11 @@ export function createHandler({ store, media, hashes, batch, now = () => new Dat
     const body = parseBody(event);
     const extension = upload.types[body?.contentType];
     if (!extension) return fail(400, `contentType must be one of ${Object.keys(upload.types).join(', ')}`);
-    const existing = (await store.get(date)) ?? { date };
-    if (!status.open || isRevealed(existing, status)) return fail(409, 'this round is closed');
-    const key = `${date}/${person}/${event.queryStringParameters.kind}-${randomUUID()}.${extension}`;
+    const forGame = event.queryStringParameters?.round === 'game';
+    const allowed = forGame ? await game.canUpload(date, status) : status.open && !isRevealed((await store.get(date)) ?? { date }, status);
+    if (!allowed) return fail(409, 'this round is closed');
+    const kind = `${forGame ? 'game-' : ''}${event.queryStringParameters.kind}`;
+    const key = `${date}/${person}/${kind}-${randomUUID()}.${extension}`;
     const form = await media.presignPost({ key, contentType: body.contentType, maxBytes: upload.maxBytes });
     return respond(200, { key, ...form });
   }
@@ -70,14 +47,19 @@ export function createHandler({ store, media, hashes, batch, now = () => new Dat
   async function history(person, today, event) {
     const before = event.queryStringParameters?.before ?? addDays(today, 2);
     const limit = Math.min(Number(event.queryStringParameters?.limit) || 30, 60);
+    const items = await store.scan();
+    const byKey = new Map(items.map((item) => [item.date, item]));
     const days = [];
-    for (const item of await store.scan()) {
+    for (const item of items) {
       const status = dayStatus(item.date, today, batch);
       if (!status.valid || item.date >= before || !isRevealed(item, status)) continue;
-      days.push(shapeExchange(item, person, status));
+      days.push({ shape: shapeExchange(item, person, status), status });
     }
-    days.sort((first, second) => second.date.localeCompare(first.date));
-    return respond(200, { days: await Promise.all(days.slice(0, limit).map((day) => signShape(day, media))) });
+    days.sort((first, second) => second.shape.date.localeCompare(first.shape.date));
+    return respond(200, { days: await Promise.all(days.slice(0, limit).map(async ({ shape, status }) => ({
+      ...(await signShape(shape, media)),
+      game: await game.historyView(byKey.get(gameKey(shape.date)), person, status, shape.date),
+    }))) });
   }
 
   return async function handler(event) {
@@ -93,7 +75,10 @@ export function createHandler({ store, media, hashes, batch, now = () => new Dat
 
     const date = event.queryStringParameters?.date;
     const status = dayStatus(date, today, batch);
-    const routes = { 'GET /exchange': getExchange, 'PUT /exchange': putExchange, 'POST /upload': createUpload };
+    const routes = {
+      'GET /exchange': getExchange, 'PUT /exchange': putExchange, 'POST /upload': createUpload,
+      'GET /game': game.getGame, 'PUT /game': game.putGame, 'PUT /game/guess': game.putGuess, 'PUT /game/ruling': game.putRuling,
+    };
     const route = routes[`${method} ${path}`];
     if (!route) return fail(404, 'not found');
     if (!status.valid) return fail(400, 'date is outside the reading year');

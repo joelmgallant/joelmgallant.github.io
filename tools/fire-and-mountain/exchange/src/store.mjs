@@ -1,4 +1,4 @@
-// DynamoDB storage: one item per date, holding each person's answer.
+// DynamoDB storage: one item per date holding each person's answer, plus one game#<date> item per Bonus Round.
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient, GetCommand, ScanCommand, UpdateCommand } from '@aws-sdk/lib-dynamodb';
 
@@ -18,6 +18,23 @@ export function createStore(tableName) {
         ReturnValues: 'ALL_NEW',
       }));
       return Attributes;
+    },
+    /** Set one attribute; with ifAbsent, returns null instead of overwriting an existing value. */
+    async setField(key, field, value, { ifAbsent = false } = {}) {
+      try {
+        const { Attributes } = await client.send(new UpdateCommand({
+          TableName: tableName, Key: { date: key },
+          UpdateExpression: 'SET #field = :value',
+          ...(ifAbsent ? { ConditionExpression: 'attribute_not_exists(#field)' } : {}),
+          ExpressionAttributeNames: { '#field': field },
+          ExpressionAttributeValues: { ':value': value },
+          ReturnValues: 'ALL_NEW',
+        }));
+        return Attributes;
+      } catch (error) {
+        if (ifAbsent && error.name === 'ConditionalCheckFailedException') return null;
+        throw error;
+      }
     },
     async scan() {
       const items = [];

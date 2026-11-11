@@ -1,0 +1,348 @@
+[
+  {
+    "date": "2027-01-10",
+    "game": {
+      "type": "closest",
+      "intro": "The first sliver of moon is back. Ease in gently, get close, and do not go over. Saturn is watching the line.",
+      "question": "How many letters are in the Greek alphabet, alpha through omega?",
+      "unit": "letters",
+      "secret": {
+        "value": 24
+      },
+      "source": "Standard modern Greek alphabet: 24 letters, alpha to omega."
+    }
+  },
+  {
+    "date": "2027-01-11",
+    "game": {
+      "type": "lightning",
+      "intro": "Moon in Pisces, brain in a puddle. Three quick picks before the daydream floats away.",
+      "pairs": [
+        [
+          "Jump the puddle",
+          "Splash the puddle"
+        ],
+        [
+          "Daydream",
+          "Night dream"
+        ],
+        [
+          "Rain boots",
+          "Soggy socks"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-01-12",
+    "game": {
+      "type": "mind",
+      "intro": "DES alert: the clocks have been gossiping behind your backs. Saturn wants to know which one squealed.",
+      "question": "Which clock in your home is most likely to spill your secrets?",
+      "options": [
+        "The microwave clock",
+        "The stove clock",
+        "The one in the car",
+        "The bedside alarm"
+      ]
+    }
+  },
+  {
+    "date": "2027-01-13",
+    "game": {
+      "type": "closeup",
+      "intro": "Deep breath before the cannonball. Saturn has his towel ready. Get dangerously close to something round.",
+      "prompt": "Something in your house that is round, a bit heavy, and would make an excellent splash."
+    }
+  },
+  {
+    "date": "2027-01-14",
+    "game": {
+      "type": "wrong",
+      "intro": "The moon is in Aries and the Tiger has the house keys. Saturn has hidden the spares. Be wrong with confidence.",
+      "question": "What do you call a baby kangaroo?",
+      "secret": {
+        "rule": "lastAlphabetically"
+      }
+    }
+  },
+  {
+    "date": "2027-01-15",
+    "game": {
+      "type": "sound",
+      "intro": "Mid-month clipboard check. Saturn would like you to know he can hear you not filing things.",
+      "prompt": "Saturn flipping through his clipboard, clicking his pen and sighing at your paperwork."
+    }
+  },
+  {
+    "date": "2027-01-16",
+    "game": {
+      "type": "emoji",
+      "intro": "The Great Slow Saturday. Nobody is rushing. Saturn is still in his robe. Spell us something delicious.",
+      "prompt": "Your perfect slow Saturday breakfast, course by course."
+    }
+  },
+  {
+    "date": "2027-01-17",
+    "game": {
+      "type": "tales",
+      "intro": "A jar lid has won again. Patience is the theme, revenge is the subtext. Two truths and one tall tale, please.",
+      "prompt": "Three household objects that have personally defeated you. One of them is made up."
+    }
+  },
+  {
+    "date": "2027-01-18",
+    "game": {
+      "type": "lightning",
+      "intro": "Moon in Gemini means two conversations at once. Saturn will be listening to both. Quick picks!",
+      "pairs": [
+        [
+          "Talk it out",
+          "Text it out"
+        ],
+        [
+          "One voice memo",
+          "Five tiny texts"
+        ],
+        [
+          "Inside voice",
+          "Porch voice"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-01-19",
+    "game": {
+      "type": "mind",
+      "intro": "Today is the day of the second question. Saturn has many. He'll start with this one.",
+      "question": "If the universe let you ask it one follow-up question, which would you pick?",
+      "options": [
+        "Why?",
+        "Why not?",
+        "Wait, how?",
+        "Can you say that again?"
+      ]
+    }
+  },
+  {
+    "date": "2027-01-20",
+    "game": {
+      "type": "closeup",
+      "intro": "Don't even scream: two puzzle pieces, two houses, one perfect fit. Show us the half and make them guess.",
+      "prompt": "One of two things in your home that fit together perfectly. Shoot it so close it's a mystery."
+    }
+  },
+  {
+    "date": "2027-01-21",
+    "game": {
+      "type": "wrong",
+      "intro": "The porch light moon is on, full and bright in Cancer. Saturn left it on for you. Now be beautifully wrong.",
+      "question": "What is the main job of a lighthouse?",
+      "secret": {
+        "rule": "longest"
+      }
+    }
+  },
+  {
+    "date": "2027-01-22",
+    "game": {
+      "type": "sound",
+      "intro": "Full moon in Leo! Ruby and onyx are recharging on the sill and the studio lion wants a turn at the mic.",
+      "prompt": "A lion trying to roar politely so it doesn't wake the neighbours."
+    }
+  },
+  {
+    "date": "2027-01-23",
+    "game": {
+      "type": "tabloid",
+      "intro": "The moon is still full and still bowing. Nobody asked for an encore. It's doing one anyway.",
+      "headline": "FULL MOON REFUSES TO LEAVE THE STAGE, DEMANDS ___ FOR ITS ENCORE"
+    }
+  },
+  {
+    "date": "2027-01-24",
+    "game": {
+      "type": "closest",
+      "intro": "Sock drawer reckoning day. Focus up: the closest guess without going over takes the trophy and the spare socks.",
+      "question": "How many cards are in a full standard tarot deck, Major and Minor Arcana together?",
+      "unit": "cards",
+      "secret": {
+        "value": 78
+      },
+      "source": "Standard tarot deck: 22 Major Arcana + 56 Minor Arcana = 78 (the style guide's own card list)."
+    }
+  },
+  {
+    "date": "2027-01-25",
+    "game": {
+      "type": "lightning",
+      "intro": "A button is hanging by one thread and so is Saturn's patience. Rest day rules: answer fast, then nap.",
+      "pairs": [
+        [
+          "Sew it on",
+          "Safety pin it"
+        ],
+        [
+          "Cardigan",
+          "Hoodie"
+        ],
+        [
+          "Afternoon nap",
+          "Afternoon snack"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-01-26",
+    "game": {
+      "type": "mind",
+      "intro": "Moon in Libra, scales perfectly even. Saturn is making a crossing and needs to know what you're weighing.",
+      "question": "The universe hands you a perfectly balanced scale. What goes on it first?",
+      "options": [
+        "A single snowflake",
+        "My favourite ring",
+        "A stack of library books",
+        "My whole to-do list"
+      ]
+    }
+  },
+  {
+    "date": "2027-01-27",
+    "game": {
+      "type": "closeup",
+      "intro": "Half moon, half price, half everything. Saturn signs the peace treaty and wants to see your better half.",
+      "prompt": "Something in your kitchen that comes in halves."
+    }
+  },
+  {
+    "date": "2027-01-28",
+    "game": {
+      "type": "wrong",
+      "intro": "Don't even scream: three hearts and an octopus. Saturn is counting arms and would like your wildest count.",
+      "question": "How many arms does an octopus have?",
+      "secret": {
+        "rule": "mostVowels"
+      }
+    }
+  },
+  {
+    "date": "2027-01-29",
+    "game": {
+      "type": "sound",
+      "intro": "There's a sealed envelope on the judges' desk. Saturn won't open it until he hears your most dramatic version.",
+      "prompt": "An envelope being opened very, very slowly, like the results of a contest of utmost importance."
+    }
+  },
+  {
+    "date": "2027-01-30",
+    "game": {
+      "type": "emoji",
+      "intro": "Nor'easter incoming! The crew has taped the windows and Saturn is wearing two toques. Spell us your plan.",
+      "prompt": "Your full nor'easter survival plan, from first flake to final shovel."
+    }
+  },
+  {
+    "date": "2027-01-31",
+    "game": {
+      "type": "tales",
+      "intro": "Last page of January. Saturn is closing the book but first he wants one good fib for the margins.",
+      "prompt": "Three things that happened to you this January. One of them is pure fiction."
+    }
+  },
+  {
+    "date": "2027-01-01",
+    "game": {
+      "type": "sound",
+      "intro": "Twenty Twenty-Seven is open for business and the crew already blew a noisemaker in Saturn's ear. Warm up those pipes.",
+      "prompt": "A party popper that misfired at 12:01 and is now quietly embarrassed about it."
+    }
+  },
+  {
+    "date": "2027-01-02",
+    "game": {
+      "type": "emoji",
+      "intro": "Confetti in the couch, confetti in the boots. Saturn has declared a rest day and is lying face down on the judges' desk.",
+      "prompt": "Something you found under the couch cushions after the holidays."
+    }
+  },
+  {
+    "date": "2027-01-03",
+    "game": {
+      "type": "tales",
+      "intro": "A mitten came home today after weeks at sea. In honour of its return, Saturn wants your finest lost-and-found lies.",
+      "prompt": "Three things you lost and later found again. One of them never happened."
+    }
+  },
+  {
+    "date": "2027-01-04",
+    "game": {
+      "type": "lightning",
+      "intro": "The compass is spinning, the moon is in Sagittarius, and you have ten seconds per choice. No dithering, Tiger.",
+      "pairs": [
+        [
+          "North wind",
+          "South wind"
+        ],
+        [
+          "Follow the map",
+          "Wander off"
+        ],
+        [
+          "Sled",
+          "Snowshoes"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-01-05",
+    "game": {
+      "type": "mind",
+      "intro": "Don't even scream: a narwhal, in this economy? Saturn has spilled his coffee. Pick yours, then guess theirs.",
+      "question": "A narwhal surfaces in the harbour and offers you exactly one favour. What do you ask for?",
+      "options": [
+        "A tusk-guided tour of the bay",
+        "Its secret ocean playlist",
+        "A ride back to the shore",
+        "A photo together, obviously"
+      ]
+    }
+  },
+  {
+    "date": "2027-01-06",
+    "game": {
+      "type": "closeup",
+      "intro": "New moon in Capricorn: the Mountain gets the dark sky all to herself. Bring us something that fights the dark.",
+      "prompt": "Something in your home that glows in the dark, or at least tries really hard."
+    }
+  },
+  {
+    "date": "2027-01-07",
+    "game": {
+      "type": "wrong",
+      "intro": "Zero percent moon tonight. Saturn says that's suspicious and wants your most confident nonsense on the record.",
+      "question": "How many moons does Earth have?",
+      "secret": {
+        "rule": "mostWords"
+      }
+    }
+  },
+  {
+    "date": "2027-01-08",
+    "game": {
+      "type": "sound",
+      "intro": "The moon packs its bags and leaves Capricorn. Somewhere a plow driver hums. Give us the full opera.",
+      "prompt": "A snowplow passing your window at 5 am, performed as a dramatic opera solo."
+    }
+  },
+  {
+    "date": "2027-01-09",
+    "game": {
+      "type": "tabloid",
+      "intro": "Welcome to the Snow Day Inventors' Fair! Saturn judged the potato cannon and is still picking spuds out of his rings.",
+      "headline": "SNOW DAY INVENTOR UNVEILS ___, SHOVELS EVERYWHERE FILE FORMAL COMPLAINT"
+    }
+  }
+]

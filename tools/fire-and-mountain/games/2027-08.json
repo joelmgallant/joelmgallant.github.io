@@ -1,0 +1,367 @@
+[
+  {
+    "date": "2027-08-01",
+    "game": {
+      "type": "tales",
+      "intro": "New moon in Cancer, and the hermit crab is shopping for a bigger shell. Saturn wants three stories, one fake.",
+      "prompt": "Three times you moved something from one place to another. Two true, one completely invented."
+    }
+  },
+  {
+    "date": "2027-08-02",
+    "game": {
+      "type": "lightning",
+      "intro": "The moon took off without leaving a note. Mischief is in charge. Ten seconds per pair, go!",
+      "pairs": [
+        [
+          "Road trip",
+          "Stay put"
+        ],
+        [
+          "Window seat",
+          "Aisle seat"
+        ],
+        [
+          "Map",
+          "Get lost"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-08-03",
+    "game": {
+      "type": "mind",
+      "intro": "There is an unfinished speech in the air, and Saturn wants the ending. Guess what the other picked.",
+      "question": "You are handed a microphone with zero warning. What do you do with it?",
+      "options": [
+        "Give a toast",
+        "Tell a story",
+        "Do a dramatic weather report",
+        "Hand it back, very politely"
+      ]
+    }
+  },
+  {
+    "date": "2027-08-04",
+    "game": {
+      "type": "closeup",
+      "intro": "Focus day. The drawer is labelled, the label is crooked, and the camera is right up against it.",
+      "prompt": "Something from inside a drawer you open every day, so close it becomes a mystery."
+    }
+  },
+  {
+    "date": "2027-08-05",
+    "game": {
+      "type": "wrong",
+      "intro": "Twin buttons, popped off in two towns at the same time. ΔΕΣ. Now answer this one wrong.",
+      "question": "Why do shirts have buttons?",
+      "secret": {
+        "rule": "lastAlphabetically"
+      }
+    }
+  },
+  {
+    "date": "2027-08-06",
+    "game": {
+      "type": "sound",
+      "intro": "The scales are wobbling. Patience. The crew wants something steady, then something not steady at all.",
+      "prompt": "A rowboat gently knocking against a wooden dock, over and over, until it gets bored."
+    }
+  },
+  {
+    "date": "2027-08-07",
+    "game": {
+      "type": "tabloid",
+      "intro": "A half-moon handshake under Libra. The tabloids were hiding in the bushes. Fill the blank.",
+      "headline": "MOUNTAIN AND FIRE AGREE TO ___, SATURN DEMANDS A RECOUNT"
+    }
+  },
+  {
+    "date": "2027-08-08",
+    "game": {
+      "type": "closest",
+      "intro": "The diary is locked, but this answer is not. Scorpio moon says guess close and keep a secret.",
+      "question": "The Canso Causeway finally tied Cape Breton to the mainland. In what year did it officially open?",
+      "unit": "year",
+      "secret": {
+        "value": 1955
+      },
+      "source": "The Canso Causeway officially opened on August 13, 1955 (Nova Scotia government and Canadian historical records)."
+    }
+  },
+  {
+    "date": "2027-08-09",
+    "game": {
+      "type": "lightning",
+      "intro": "A lighthouse is blinking at you across the crossing. The crew blinks back. Three quick picks.",
+      "pairs": [
+        [
+          "Lighthouse",
+          "Sailboat"
+        ],
+        [
+          "Foghorn",
+          "Wind chime"
+        ],
+        [
+          "High tide",
+          "Low tide"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-08-10",
+    "game": {
+      "type": "mind",
+      "intro": "An arrow landed in the hayfield and it is pointing at this question. Focus, contestants.",
+      "question": "It is a hot August afternoon with nothing scheduled. Where do you end up?",
+      "options": [
+        "Lying in tall grass",
+        "On a shaded porch",
+        "Waist-deep in the ocean",
+        "Napping with the fan on"
+      ]
+    }
+  },
+  {
+    "date": "2027-08-11",
+    "game": {
+      "type": "closeup",
+      "intro": "The sky started sparkling, so the crew wants sparkle up close. Very close. Uncomfortably close.",
+      "prompt": "Something shiny or sparkly in your home, so close the light turns into a blur of stars."
+    }
+  },
+  {
+    "date": "2027-08-12",
+    "game": {
+      "type": "wrong",
+      "intro": "Shooting stars and a synchronized wish. Don't even scream. Saturn wants your worst astronomy.",
+      "question": "What causes the shooting stars people watch for every August?",
+      "secret": {
+        "rule": "fewestWords"
+      }
+    }
+  },
+  {
+    "date": "2027-08-13",
+    "game": {
+      "type": "sound",
+      "intro": "The moon came home to Capricorn and Nancy's mountain threw a party. Make the party noises.",
+      "prompt": "A surprise party at the exact moment the lights flick on and everyone forgets their line."
+    }
+  },
+  {
+    "date": "2027-08-14",
+    "game": {
+      "type": "emoji",
+      "intro": "The mountain is quietly applauding. Patience pays off. Spell your answer in tiny pictures.",
+      "prompt": "Something you waited a very long time for, and it was worth it. Emoji only."
+    }
+  },
+  {
+    "date": "2027-08-15",
+    "game": {
+      "type": "tales",
+      "intro": "Eve of the Sturgeon Moon and a feast in the air. Saturn will taste-test all three stories.",
+      "prompt": "Three meals you remember from summers past. Two real, one invented and suspiciously delicious."
+    }
+  },
+  {
+    "date": "2027-08-16",
+    "game": {
+      "type": "lightning",
+      "intro": "Full Moon Recharge night. Ruby and onyx side by side. The crew is moving fast before moonrise.",
+      "pairs": [
+        [
+          "Howl at it",
+          "Wave at it"
+        ],
+        [
+          "Blanket",
+          "Bare grass"
+        ],
+        [
+          "Front step",
+          "Rooftop"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-08-17",
+    "game": {
+      "type": "mind",
+      "intro": "The full moon is in Aquarius and it is inventing things again. Pick your invention, guess theirs.",
+      "question": "You can invent one small gadget that will exist tomorrow. Which do you choose?",
+      "options": [
+        "Self-folding laundry",
+        "A pen that never wanders off",
+        "A pocket-sized fog machine",
+        "Socks that find their twin"
+      ]
+    }
+  },
+  {
+    "date": "2027-08-18",
+    "game": {
+      "type": "closeup",
+      "intro": "Rest day. A fog bank rolled in, so the crew is daydreaming through a lens at very close range.",
+      "prompt": "Something from your favourite resting spot: a cushion, a blanket, the arm of a chair. Get close."
+    }
+  },
+  {
+    "date": "2027-08-19",
+    "game": {
+      "type": "wrong",
+      "intro": "Another message in a jar is drifting your way. Saturn reads it upside down and wants wrong answers.",
+      "question": "What is the tide, and why does it keep coming back?",
+      "secret": {
+        "rule": "mostVowels"
+      }
+    }
+  },
+  {
+    "date": "2027-08-20",
+    "game": {
+      "type": "sound",
+      "intro": "The moon knocked on Joel's door in Aries at the exact same second as a neighbour. DES. Knock knock.",
+      "prompt": "Somebody knocking on a door with a very particular secret rhythm that only friends would know."
+    }
+  },
+  {
+    "date": "2027-08-21",
+    "game": {
+      "type": "tabloid",
+      "intro": "The Ram is throwing a parade in Aries and the newsroom ran out of ink. Fill in the headline.",
+      "headline": "PARADE FOR ONE RAM DRAWS CROWD OF ___, MARCHING BAND DEEPLY CONFUSED"
+    }
+  },
+  {
+    "date": "2027-08-22",
+    "game": {
+      "type": "closest",
+      "intro": "Ten things started, zero finished, moon still in Aries. Count carefully before you release a guess.",
+      "question": "Count every province and every territory in Canada together. How many are there?",
+      "unit": "provinces and territories",
+      "secret": {
+        "value": 13
+      },
+      "source": "Canada has 10 provinces and 3 territories (Yukon, Northwest Territories, Nunavut since 1999) = 13."
+    }
+  },
+  {
+    "date": "2027-08-23",
+    "game": {
+      "type": "lightning",
+      "intro": "Slow garden day. Patience. The crew is watering the Lightning Round and it still came up fast.",
+      "pairs": [
+        [
+          "Sunflower",
+          "Zucchini"
+        ],
+        [
+          "Watering can",
+          "Garden hose"
+        ],
+        [
+          "Weed it",
+          "Let it grow"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-08-24",
+    "game": {
+      "type": "mind",
+      "intro": "The hinge is stubborn and squeaky, which Saturn finds relatable. Pick a feast, guess the other.",
+      "question": "You get to host one end-of-summer gathering. What kind is it?",
+      "options": [
+        "A beach bonfire",
+        "A backyard potluck",
+        "A porch with board games",
+        "A picnic on a hill"
+      ]
+    }
+  },
+  {
+    "date": "2027-08-25",
+    "game": {
+      "type": "closeup",
+      "intro": "Two conversations at once, both mischievous. The camera is eavesdropping on one very small object.",
+      "prompt": "Something that makes a noise when you use it, photographed so close it looks silent."
+    }
+  },
+  {
+    "date": "2027-08-26",
+    "game": {
+      "type": "wrong",
+      "intro": "Wonder day. Someone borrowed a word and never gave it back. Saturn wants the most wrong definition.",
+      "question": "What does the word 'serendipity' mean?",
+      "secret": {
+        "rule": "shortest"
+      }
+    }
+  },
+  {
+    "date": "2027-08-27",
+    "game": {
+      "type": "sound",
+      "intro": "Mirror shelves in two homes, same books in the same order. ΔΕΣ! The crew wants a homecoming noise.",
+      "prompt": "Walking into your own home after a long day: keys, the door, the big sigh, the bag hitting the floor."
+    }
+  },
+  {
+    "date": "2027-08-28",
+    "game": {
+      "type": "emoji",
+      "intro": "Porch light on, waning moon in Cancer, nobody in a hurry. Rest your thumbs on a few emoji.",
+      "prompt": "A perfect late-summer evening, from the first firefly to the last yawn, in emoji only."
+    }
+  },
+  {
+    "date": "2027-08-29",
+    "game": {
+      "type": "tales",
+      "intro": "The last bonfire of summer, Leo moon roaring. Saturn wants campfire stories, one of them a whopper.",
+      "prompt": "Three things that have happened to you around a campfire. Two true, one taller than the flames."
+    }
+  },
+  {
+    "date": "2027-08-30",
+    "game": {
+      "type": "lightning",
+      "intro": "Blank page day. Release what is left of summer. The crew is flipping the calendar in ten seconds.",
+      "pairs": [
+        [
+          "Blank page",
+          "Full notebook"
+        ],
+        [
+          "Eraser",
+          "Highlighter"
+        ],
+        [
+          "Summer",
+          "Fall"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-08-31",
+    "game": {
+      "type": "mind",
+      "intro": "Last day of August. The pencil case is packed and courage is high. One last read of the other's mind.",
+      "question": "September is knocking. Which new-season ritual are you most excited about?",
+      "options": [
+        "The first sweater day",
+        "A fresh notebook",
+        "Apple picking",
+        "The first fire in the stove"
+      ]
+    }
+  }
+]

@@ -65,7 +65,8 @@ ROLE_ARN=$(aws_ iam get-role --role-name "$ROLE" --query Role.Arn --output text)
 # --- Package ----------------------------------------------------------------
 DIST="${HERE}/dist"
 rm -rf "$DIST" && mkdir -p "$DIST/pkg"
-cp -R "${HERE}/src" "${HERE}/package.json" "${HERE}/package-lock.json" "$DIST/pkg/"
+[[ -f "${HERE}/games.json" ]] || { echo "games.json missing: run node ../build.mjs first" >&2; exit 1; }
+cp -R "${HERE}/src" "${HERE}/package.json" "${HERE}/package-lock.json" "${HERE}/games.json" "$DIST/pkg/"
 (cd "$DIST/pkg" && npm ci --omit=dev --silent && zip -qr "$DIST/function.zip" .)
 echo "packaged $(du -h "$DIST/function.zip" | cut -f1)"
 

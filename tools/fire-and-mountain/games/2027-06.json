@@ -1,0 +1,346 @@
+[
+  {
+    "date": "2027-06-01",
+    "game": {
+      "type": "mind",
+      "intro": "The moon borrowed Joel's sneakers and went for a jog. Pick fast, guess faster.",
+      "question": "If you had to sprint somewhere right now, where would you most like to end up?",
+      "options": [
+        "The ocean",
+        "The top of a hill",
+        "A library",
+        "Straight back to bed"
+      ]
+    }
+  },
+  {
+    "date": "2027-06-02",
+    "game": {
+      "type": "closeup",
+      "intro": "Somebody warmed the bench for you. Sit down and point your camera at something cozy.",
+      "prompt": "Something soft you would happily sit on for an hour. Get close enough to count the threads."
+    }
+  },
+  {
+    "date": "2027-06-03",
+    "game": {
+      "type": "wrong",
+      "intro": "Focus day. Saturn has one question and zero patience for correct answers.",
+      "question": "How do bees make honey?",
+      "secret": {
+        "rule": "mostWords"
+      }
+    }
+  },
+  {
+    "date": "2027-06-04",
+    "game": {
+      "type": "sound",
+      "intro": "Don't even scream: you drew the same doodle. Now prove your ears are just as synced.",
+      "prompt": "The noise your favourite doodle would make if it came to life. The other guesses the doodle."
+    }
+  },
+  {
+    "date": "2027-06-05",
+    "game": {
+      "type": "emoji",
+      "intro": "Gemini moon, forty tabs open, zero regrets. Close one by explaining it in emoji.",
+      "prompt": "The last random thing you looked up out of pure curiosity."
+    }
+  },
+  {
+    "date": "2027-06-06",
+    "game": {
+      "type": "tales",
+      "intro": "A hermit crab moved into a bigger shell and threw a party. Bring three stories; one is from nowhere.",
+      "prompt": "Three places you have lived or stayed that had a strange quirk. One quirk is made up."
+    }
+  },
+  {
+    "date": "2027-06-07",
+    "game": {
+      "type": "lightning",
+      "intro": "The fog mailed you a postcard. It says: decide quickly, I roll back in at noon.",
+      "pairs": [
+        [
+          "Postcard",
+          "Sealed letter"
+        ],
+        [
+          "Fog",
+          "Drizzle"
+        ],
+        [
+          "Lighthouse",
+          "Sea stack"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-06-08",
+    "game": {
+      "type": "mind",
+      "intro": "Leo moon: the Tiger meets a lion cousin at the family reunion. Pick your big-cat move.",
+      "question": "You meet a long-lost big cat cousin at a reunion. What's your opening move?",
+      "options": [
+        "A dignified nod",
+        "A roaring contest",
+        "Compare stripes and mane",
+        "Share the sunniest nap spot"
+      ]
+    }
+  },
+  {
+    "date": "2027-06-09",
+    "game": {
+      "type": "closeup",
+      "intro": "Today everything gets a standing ovation. Even the tiny stuff. Especially the tiny stuff.",
+      "prompt": "Something ordinary you used today that deserves applause. Zoom in on its finest feature."
+    }
+  },
+  {
+    "date": "2027-06-10",
+    "game": {
+      "type": "wrong",
+      "intro": "Virgo moon. The sock drawer is under audit, and Saturn wants answers. Preferably wrong ones.",
+      "question": "Why do socks come in pairs?",
+      "secret": {
+        "rule": "firstAlphabetically"
+      }
+    }
+  },
+  {
+    "date": "2027-06-11",
+    "game": {
+      "type": "sound",
+      "intro": "DES: two strangers said Saturn on the same day. The judge is flattered. Make some noise for him.",
+      "prompt": "What Saturn's rings sound like spinning. Hum, whoosh or rattle, but commit."
+    }
+  },
+  {
+    "date": "2027-06-12",
+    "game": {
+      "type": "tabloid",
+      "intro": "Libra moon, and the playground seesaw is in delicate talks. One word breaks the deadlock.",
+      "headline": "PLAYGROUND SEESAW REFUSES TO GO UP AGAIN UNTIL IT GETS ___"
+    }
+  },
+  {
+    "date": "2027-06-13",
+    "game": {
+      "type": "closest",
+      "intro": "The lupins held a vote and they want poetry. Saturn counts the lines. Guess without going over.",
+      "question": "How many lines are in a traditional sonnet?",
+      "unit": "lines",
+      "secret": {
+        "value": 14
+      },
+      "source": "A sonnet is by definition a 14-line poem (Petrarchan 8+6, Shakespearean 4+4+4+2)"
+    }
+  },
+  {
+    "date": "2027-06-14",
+    "game": {
+      "type": "lightning",
+      "intro": "Scorpio moon and a locked drawer nobody mentions. Answer before your curiosity picks the lock.",
+      "pairs": [
+        [
+          "Secret",
+          "Surprise"
+        ],
+        [
+          "Tiny key",
+          "Combination dial"
+        ],
+        [
+          "Attic",
+          "Basement"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-06-15",
+    "game": {
+      "type": "mind",
+      "intro": "The black flies called a summit. You did not RSVP. Negotiate anyway.",
+      "question": "The black flies offer peace if you give up one outdoor June thing. What do you trade away?",
+      "options": [
+        "Evening walks",
+        "Hanging laundry",
+        "Weeding the garden",
+        "Sitting on the dock"
+      ]
+    }
+  },
+  {
+    "date": "2027-06-16",
+    "game": {
+      "type": "closeup",
+      "intro": "The moon is clearing its throat before a big speech. Show us its stunt double.",
+      "prompt": "Something round that has sat in the same spot for ages. Get close enough to see its craters."
+    }
+  },
+  {
+    "date": "2027-06-17",
+    "game": {
+      "type": "wrong",
+      "intro": "Archer's Full Moon Recharge. Ruby and onyx are on the sill. Aim your wrong answer at the bullseye.",
+      "question": "What does an archer aim at?",
+      "secret": {
+        "rule": "fewestWords"
+      }
+    }
+  },
+  {
+    "date": "2027-06-18",
+    "game": {
+      "type": "sound",
+      "intro": "Unplanned detour day. Saturn has rerouted the whole show through your voice memos.",
+      "prompt": "A GPS voice recalculating after a wrong turn, in pure noises. No words allowed."
+    }
+  },
+  {
+    "date": "2027-06-19",
+    "game": {
+      "type": "emoji",
+      "intro": "Don't even scream: ladders everywhere today. Climb Nancy's mountain one emoji at a time.",
+      "prompt": "Something you would find at the very top of a tall place."
+    }
+  },
+  {
+    "date": "2027-06-20",
+    "game": {
+      "type": "tales",
+      "intro": "Full moon on Nancy's mountain, spotlight on. Tell three, fib once, and watch who blinks.",
+      "prompt": "Three times you got a cheer or a round of applause as a kid. One never happened."
+    }
+  },
+  {
+    "date": "2027-06-21",
+    "game": {
+      "type": "lightning",
+      "intro": "Longest day of the year, so naturally this is the shortest round. Ten seconds each, solstice star.",
+      "pairs": [
+        [
+          "Midnight sun",
+          "High noon"
+        ],
+        [
+          "Lemonade stand",
+          "Ice cream truck"
+        ],
+        [
+          "Solstice bonfire",
+          "Solstice picnic"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-06-22",
+    "game": {
+      "type": "mind",
+      "intro": "Nancy's half-birthday is officially recognized. Saturn ordered half a cake. Choose wisely.",
+      "question": "What is the correct way to celebrate a half-birthday?",
+      "options": [
+        "Half a song, sung very loudly",
+        "One candle, cut in two",
+        "A party at exactly noon",
+        "Gifts wrapped only halfway"
+      ]
+    }
+  },
+  {
+    "date": "2027-06-23",
+    "game": {
+      "type": "closeup",
+      "intro": "Aquarius moon wants weird inventions. Show us a gadget so close it looks like it came from space.",
+      "prompt": "Anything with buttons, dials or switches. Get close enough that it looks like a spaceship console."
+    }
+  },
+  {
+    "date": "2027-06-24",
+    "game": {
+      "type": "wrong",
+      "intro": "Tide pool daydream. Nothing to do but stare at tiny crabs and answer badly.",
+      "question": "Why does the tide go in and out?",
+      "secret": {
+        "rule": "mostVowels"
+      }
+    }
+  },
+  {
+    "date": "2027-06-25",
+    "game": {
+      "type": "sound",
+      "intro": "The fog forgot its lines and is just mumbling now. Help it out with a sound effect.",
+      "prompt": "A sea creature making a dramatic stage entrance: seal, whale, lobster or crab. Give it a noise."
+    }
+  },
+  {
+    "date": "2027-06-26",
+    "game": {
+      "type": "tabloid",
+      "intro": "A bottle washed up with no message inside. The front page needs to know what was in there instead.",
+      "headline": "BOTTLE WASHES ASHORE WITH NO MESSAGE, ONLY A TINY ___"
+    }
+  },
+  {
+    "date": "2027-06-27",
+    "game": {
+      "type": "closest",
+      "intro": "DES: an orange cat at exactly 4:07. Saturn is obsessed with clocks today. Guess carefully.",
+      "question": "How many minutes are there in one full week?",
+      "unit": "minutes",
+      "secret": {
+        "value": 10080
+      },
+      "source": "7 days x 24 hours x 60 minutes = 10,080"
+    }
+  },
+  {
+    "date": "2027-06-28",
+    "game": {
+      "type": "lightning",
+      "intro": "Moon in Aries, Tiger at the starting line. One sprint, three pairs, no warm-up lap.",
+      "pairs": [
+        [
+          "Sprint",
+          "Stroll"
+        ],
+        [
+          "Starting line",
+          "Finish line"
+        ],
+        [
+          "Tiger",
+          "Cheetah"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-06-29",
+    "game": {
+      "type": "mind",
+      "intro": "Taurus moon says lie down. The hammock is open to negotiations. State your terms.",
+      "question": "The hammock will hold you all afternoon, but you may bring only one thing. What is it?",
+      "options": [
+        "A book",
+        "A nap playlist",
+        "A cold drink",
+        "Absolutely nothing"
+      ]
+    }
+  },
+  {
+    "date": "2027-06-30",
+    "game": {
+      "type": "closeup",
+      "intro": "June is folding its beach towel and heading home. Show us a little summer before it goes.",
+      "prompt": "Something striped: towel, umbrella, shirt, awning. Zoom in until the stripes look like a highway."
+    }
+  }
+]

@@ -1,0 +1,353 @@
+[
+  {
+    "date": "2027-10-01",
+    "game": {
+      "type": "sound",
+      "intro": "October opens with a new moon in Libra and the scales reset to zero. Give us the sound of everything settling.",
+      "prompt": "An old set of balance scales tipping back and forth until it finally settles."
+    }
+  },
+  {
+    "date": "2027-10-02",
+    "game": {
+      "type": "tabloid",
+      "intro": "Scorpio moon, and something under the porch has opinions. The tabloid crew is on the scene with a flashlight.",
+      "headline": "PORCH INSPECTION REVEALS ___ HAS BEEN LIVING UNDERNEATH ALL SUMMER, REFUSES TO COMMENT"
+    }
+  },
+  {
+    "date": "2027-10-03",
+    "game": {
+      "type": "closest",
+      "intro": "Third-sweater Sunday. Saturn wants a number that belongs to you two alone. Count carefully, do not go over.",
+      "question": "Counting forward from Joel's birthday (March 21) to Nancy's (December 22), how many days apart are they?",
+      "unit": "days",
+      "secret": {
+        "value": 276
+      },
+      "source": "Calendar arithmetic: Mar 21 to Mar 31 = 10, Apr-Nov = 244, plus 22 in December = 276 (no February in range, so leap years do not matter)."
+    }
+  },
+  {
+    "date": "2027-10-04",
+    "game": {
+      "type": "lightning",
+      "intro": "Don't even scream: two identical squirrels, one fence, zero explanation. Three quick choices, no burying answers.",
+      "pairs": [
+        [
+          "Acorn",
+          "Pine cone"
+        ],
+        [
+          "Squirrel",
+          "Chipmunk"
+        ],
+        [
+          "Leap",
+          "Look first"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-10-05",
+    "game": {
+      "type": "mind",
+      "intro": "Sagittarius moon, and the arrow just landed in the mailbox. Pick your dream delivery and guess the other's.",
+      "question": "Which would you most love to find in your mailbox this week?",
+      "options": [
+        "A handwritten postcard",
+        "Seeds from a stranger",
+        "A tiny mysterious key",
+        "A drawing by a kid"
+      ]
+    }
+  },
+  {
+    "date": "2027-10-06",
+    "game": {
+      "type": "closeup",
+      "intro": "The moon climbs home into Capricorn, one patient step at a time. Show us something you climb, too. Zoom in.",
+      "prompt": "Something you climb, step on or reach up for every single day."
+    }
+  },
+  {
+    "date": "2027-10-07",
+    "game": {
+      "type": "wrong",
+      "intro": "Halfway lantern night, Capricorn moon. Saturn is lighting the way home with nonsense. Bring your wrongest.",
+      "question": "What do you put inside a lantern to make it glow?",
+      "secret": {
+        "rule": "mostWords"
+      }
+    }
+  },
+  {
+    "date": "2027-10-08",
+    "game": {
+      "type": "sound",
+      "intro": "The mountain lends a ladder today. Saturn is holding it steady and wants to hear every proud little rung.",
+      "prompt": "A ladder being climbed by someone extremely proud of each rung."
+    }
+  },
+  {
+    "date": "2027-10-09",
+    "game": {
+      "type": "emoji",
+      "intro": "Aquarius moon, and the weathervane has opinions it is dying to share. Translate today's sky into emoji only.",
+      "prompt": "Today's weather where you are, plus exactly how you feel about it."
+    }
+  },
+  {
+    "date": "2027-10-10",
+    "game": {
+      "type": "tales",
+      "intro": "Thanksgiving weekend: the long table just added a leaf. Pass the stories around, two true and one tall.",
+      "prompt": "Three things you are thankful for this week. One should be wildly invented."
+    }
+  },
+  {
+    "date": "2027-10-11",
+    "game": {
+      "type": "lightning",
+      "intro": "Thanksgiving Monday and the gratitude tide is in. Three holiday picks, ten seconds each, no seconds on stalling.",
+      "pairs": [
+        [
+          "Pie first",
+          "Pie last"
+        ],
+        [
+          "Long walk",
+          "Long nap"
+        ],
+        [
+          "Board game",
+          "Charades"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-10-12",
+    "game": {
+      "type": "mind",
+      "intro": "The leftovers have formed a philosophy club and need a leader. Vote, then guess who the other one backed.",
+      "question": "The leftovers are electing a club president. Who gets your vote?",
+      "options": [
+        "The cranberry sauce",
+        "The last bread roll",
+        "The mystery container",
+        "The wishbone"
+      ]
+    }
+  },
+  {
+    "date": "2027-10-13",
+    "game": {
+      "type": "closeup",
+      "intro": "Don't even scream: matching mugs on two different shelves. Zoom in close so the other can't tell whose is whose.",
+      "prompt": "Your favourite mug, from an angle it has never once been seen from."
+    }
+  },
+  {
+    "date": "2027-10-14",
+    "game": {
+      "type": "wrong",
+      "intro": "Full moon in Aries! The Tiger's moon rises and Joel's sign gets the spotlight. Saturn wants it wrong and short.",
+      "question": "What colour is the full moon?",
+      "secret": {
+        "rule": "fewestWords"
+      }
+    }
+  },
+  {
+    "date": "2027-10-15",
+    "game": {
+      "type": "sound",
+      "intro": "One hundred percent glow tonight. Ruby and onyx are on the windowsill. Somebody give the moon its howl.",
+      "prompt": "A wolf, a coyote or a very ambitious dog howling at the full moon."
+    }
+  },
+  {
+    "date": "2027-10-16",
+    "game": {
+      "type": "tabloid",
+      "intro": "Taurus moon, blanket delivery day. The bull is bringing homecoming warmth and the newsroom has questions.",
+      "headline": "BULL SEEN DELIVERING ___ DOOR TO DOOR, TOWN DECLARES EMERGENCY NAP"
+    }
+  },
+  {
+    "date": "2027-10-17",
+    "game": {
+      "type": "closest",
+      "intro": "Slow walk through the gold leaves. Saturn has a local history question and a very long memory. Stay under.",
+      "question": "In what year did Nova Scotia become one of Canada's four founding provinces?",
+      "unit": "year",
+      "secret": {
+        "value": 1867
+      },
+      "source": "Confederation: Nova Scotia, New Brunswick, Ontario and Quebec united under the British North America Act on July 1, 1867."
+    }
+  },
+  {
+    "date": "2027-10-18",
+    "game": {
+      "type": "lightning",
+      "intro": "Gemini moon, the twins are swapping accessories again. Three cold-weather picks, ten seconds, choose fast.",
+      "pairs": [
+        [
+          "Beret",
+          "Toque"
+        ],
+        [
+          "Earmuffs",
+          "Hood up"
+        ],
+        [
+          "Scarf",
+          "Turtleneck"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-10-19",
+    "game": {
+      "type": "mind",
+      "intro": "A notebook with no spine has applied for a job. Give it a purpose, then guess which one the other picked.",
+      "question": "A notebook with no spine needs a job. What should it hold?",
+      "options": [
+        "Overheard funny sentences",
+        "Dreams, written half-asleep",
+        "Lists of lists",
+        "Doodles of nobody in particular"
+      ]
+    }
+  },
+  {
+    "date": "2027-10-20",
+    "game": {
+      "type": "closeup",
+      "intro": "Don't even scream: same stranger, two places, one afternoon. Find your own repeat sighting and zoom right in.",
+      "prompt": "Something you spotted twice today in two completely different places."
+    }
+  },
+  {
+    "date": "2027-10-21",
+    "game": {
+      "type": "wrong",
+      "intro": "Cancer moon, and the crab is building a hearth. Saturn is warming his hands by your terrible answers.",
+      "question": "What do crabs carry on their backs?",
+      "secret": {
+        "rule": "firstAlphabetically"
+      }
+    }
+  },
+  {
+    "date": "2027-10-22",
+    "game": {
+      "type": "sound",
+      "intro": "Last quarter moon, the lighthouse is on its nap break. Somebody has to cover the night shift very quietly.",
+      "prompt": "A foghorn trying to whisper so it does not wake the lighthouse."
+    }
+  },
+  {
+    "date": "2027-10-23",
+    "game": {
+      "type": "emoji",
+      "intro": "Leo moon and the lion is practising its roar for Halloween. Show us your costume, told only in emoji.",
+      "prompt": "A Halloween costume you would actually wear this year."
+    }
+  },
+  {
+    "date": "2027-10-24",
+    "game": {
+      "type": "tales",
+      "intro": "The crescent is wearing a tiny crown tonight. Tell three royal tales of small victories, one of them fake.",
+      "prompt": "Three times you were crowned champion of something extremely tiny."
+    }
+  },
+  {
+    "date": "2027-10-25",
+    "game": {
+      "type": "lightning",
+      "intro": "Virgo moon, junk drawer audit. Saturn is holding a clipboard over the drawer. Three choices, ten seconds each.",
+      "pairs": [
+        [
+          "Rubber bands",
+          "Twist ties"
+        ],
+        [
+          "Spare key",
+          "Mystery key"
+        ],
+        [
+          "Label it",
+          "Leave it"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-10-26",
+    "game": {
+      "type": "mind",
+      "intro": "Halloween week, and a polite ghost has moved in. Choose its forever chore, then guess what the other picked.",
+      "question": "A friendly ghost moves in and offers to do one chore forever. Which one?",
+      "options": [
+        "Folding laundry",
+        "Matching every sock",
+        "Shovelling the driveway",
+        "Finding lost keys"
+      ]
+    }
+  },
+  {
+    "date": "2027-10-27",
+    "game": {
+      "type": "closeup",
+      "intro": "Libra moon, the last leaf is negotiating terms. Saturn wants close-up evidence of whatever is still hanging on.",
+      "prompt": "The most stubborn leaf, bud or petal still hanging on near you."
+    }
+  },
+  {
+    "date": "2027-10-28",
+    "game": {
+      "type": "wrong",
+      "intro": "New moon, and the moon has gone under cover. Saturn asks a science question and wants it beautifully botched.",
+      "question": "Why can't we see the moon during a new moon?",
+      "secret": {
+        "rule": "longest"
+      }
+    }
+  },
+  {
+    "date": "2027-10-29",
+    "game": {
+      "type": "sound",
+      "intro": "Don't even scream: two pumpkins carved the exact same grin on two different porches. Give us your best gourd giggle.",
+      "prompt": "A jack-o'-lantern laughing at its own joke."
+    }
+  },
+  {
+    "date": "2027-10-30",
+    "game": {
+      "type": "tabloid",
+      "intro": "Costume rehearsal of doom! The new moon is in Scorpio and somebody is refusing to break character.",
+      "headline": "HALLOWEEN DRESS REHEARSAL GOES WILD AS ___ REFUSES TO TAKE OFF COSTUME"
+    }
+  },
+  {
+    "date": "2027-10-31",
+    "game": {
+      "type": "closest",
+      "intro": "Happy Halloween! The Fire Tiger is trick-or-treating and Saturn hands out one spooky number. Count every leg.",
+      "question": "How many legs in total do two spiders, one black cat and one owl have?",
+      "unit": "legs",
+      "secret": {
+        "value": 22
+      },
+      "source": "Animal anatomy: each spider has 8 legs (16), a cat has 4, an owl has 2; 16 + 4 + 2 = 22."
+    }
+  }
+]

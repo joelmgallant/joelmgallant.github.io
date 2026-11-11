@@ -1,0 +1,1384 @@
+{
+ "2026-11-10": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2026-11-11": {
+  "type": "closeup"
+ },
+ "2026-11-12": {
+  "type": "wrong",
+  "secret": {
+   "rule": "longest"
+  }
+ },
+ "2026-11-13": {
+  "type": "sound"
+ },
+ "2026-11-14": {
+  "type": "tabloid"
+ },
+ "2026-11-15": {
+  "type": "closest",
+  "secret": {
+   "value": 54
+  }
+ },
+ "2026-11-16": {
+  "type": "lightning"
+ },
+ "2026-11-17": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2026-11-18": {
+  "type": "closeup"
+ },
+ "2026-11-19": {
+  "type": "wrong",
+  "secret": {
+   "rule": "shortest"
+  }
+ },
+ "2026-11-20": {
+  "type": "sound"
+ },
+ "2026-11-21": {
+  "type": "emoji"
+ },
+ "2026-11-22": {
+  "type": "tales"
+ },
+ "2026-11-23": {
+  "type": "lightning"
+ },
+ "2026-11-24": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2026-11-25": {
+  "type": "closeup"
+ },
+ "2026-11-26": {
+  "type": "wrong",
+  "secret": {
+   "rule": "mostVowels"
+  }
+ },
+ "2026-11-27": {
+  "type": "sound"
+ },
+ "2026-11-28": {
+  "type": "tabloid"
+ },
+ "2026-11-29": {
+  "type": "closest",
+  "secret": {
+   "value": 64
+  }
+ },
+ "2026-11-30": {
+  "type": "lightning"
+ },
+ "2026-12-01": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2026-12-02": {
+  "type": "closeup"
+ },
+ "2026-12-03": {
+  "type": "wrong",
+  "secret": {
+   "rule": "firstAlphabetically"
+  }
+ },
+ "2026-12-04": {
+  "type": "sound"
+ },
+ "2026-12-05": {
+  "type": "emoji"
+ },
+ "2026-12-06": {
+  "type": "tales"
+ },
+ "2026-12-07": {
+  "type": "lightning"
+ },
+ "2026-12-08": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2026-12-09": {
+  "type": "closeup"
+ },
+ "2026-12-10": {
+  "type": "wrong",
+  "secret": {
+   "rule": "fewestWords"
+  }
+ },
+ "2026-12-11": {
+  "type": "sound"
+ },
+ "2026-12-12": {
+  "type": "tabloid"
+ },
+ "2026-12-13": {
+  "type": "closest",
+  "secret": {
+   "value": 22
+  }
+ },
+ "2026-12-14": {
+  "type": "lightning"
+ },
+ "2026-12-15": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2026-12-16": {
+  "type": "closeup"
+ },
+ "2026-12-17": {
+  "type": "wrong",
+  "secret": {
+   "rule": "mostWords"
+  }
+ },
+ "2026-12-18": {
+  "type": "sound"
+ },
+ "2026-12-19": {
+  "type": "emoji"
+ },
+ "2026-12-20": {
+  "type": "tales"
+ },
+ "2026-12-21": {
+  "type": "lightning"
+ },
+ "2026-12-22": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2026-12-23": {
+  "type": "closeup"
+ },
+ "2026-12-24": {
+  "type": "wrong",
+  "secret": {
+   "rule": "lastAlphabetically"
+  }
+ },
+ "2026-12-25": {
+  "type": "sound"
+ },
+ "2026-12-26": {
+  "type": "tabloid"
+ },
+ "2026-12-27": {
+  "type": "closest",
+  "secret": {
+   "value": 89
+  }
+ },
+ "2026-12-28": {
+  "type": "lightning"
+ },
+ "2026-12-29": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2026-12-30": {
+  "type": "closeup"
+ },
+ "2026-12-31": {
+  "type": "wrong",
+  "secret": {
+   "rule": "longest"
+  }
+ },
+ "2027-01-10": {
+  "type": "closest",
+  "secret": {
+   "value": 24
+  }
+ },
+ "2027-01-11": {
+  "type": "lightning"
+ },
+ "2027-01-12": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-01-13": {
+  "type": "closeup"
+ },
+ "2027-01-14": {
+  "type": "wrong",
+  "secret": {
+   "rule": "lastAlphabetically"
+  }
+ },
+ "2027-01-15": {
+  "type": "sound"
+ },
+ "2027-01-16": {
+  "type": "emoji"
+ },
+ "2027-01-17": {
+  "type": "tales"
+ },
+ "2027-01-18": {
+  "type": "lightning"
+ },
+ "2027-01-19": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-01-20": {
+  "type": "closeup"
+ },
+ "2027-01-21": {
+  "type": "wrong",
+  "secret": {
+   "rule": "longest"
+  }
+ },
+ "2027-01-22": {
+  "type": "sound"
+ },
+ "2027-01-23": {
+  "type": "tabloid"
+ },
+ "2027-01-24": {
+  "type": "closest",
+  "secret": {
+   "value": 78
+  }
+ },
+ "2027-01-25": {
+  "type": "lightning"
+ },
+ "2027-01-26": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-01-27": {
+  "type": "closeup"
+ },
+ "2027-01-28": {
+  "type": "wrong",
+  "secret": {
+   "rule": "mostVowels"
+  }
+ },
+ "2027-01-29": {
+  "type": "sound"
+ },
+ "2027-01-30": {
+  "type": "emoji"
+ },
+ "2027-01-31": {
+  "type": "tales"
+ },
+ "2027-01-01": {
+  "type": "sound"
+ },
+ "2027-01-02": {
+  "type": "emoji"
+ },
+ "2027-01-03": {
+  "type": "tales"
+ },
+ "2027-01-04": {
+  "type": "lightning"
+ },
+ "2027-01-05": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-01-06": {
+  "type": "closeup"
+ },
+ "2027-01-07": {
+  "type": "wrong",
+  "secret": {
+   "rule": "mostWords"
+  }
+ },
+ "2027-01-08": {
+  "type": "sound"
+ },
+ "2027-01-09": {
+  "type": "tabloid"
+ },
+ "2027-02-10": {
+  "type": "closeup"
+ },
+ "2027-02-11": {
+  "type": "wrong",
+  "secret": {
+   "rule": "shortest"
+  }
+ },
+ "2027-02-12": {
+  "type": "sound"
+ },
+ "2027-02-13": {
+  "type": "emoji"
+ },
+ "2027-02-14": {
+  "type": "tales"
+ },
+ "2027-02-15": {
+  "type": "lightning"
+ },
+ "2027-02-16": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-02-17": {
+  "type": "closeup"
+ },
+ "2027-02-18": {
+  "type": "wrong",
+  "secret": {
+   "rule": "firstAlphabetically"
+  }
+ },
+ "2027-02-19": {
+  "type": "sound"
+ },
+ "2027-02-20": {
+  "type": "tabloid"
+ },
+ "2027-02-21": {
+  "type": "closest",
+  "secret": {
+   "value": 1997
+  }
+ },
+ "2027-02-22": {
+  "type": "lightning"
+ },
+ "2027-02-23": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-02-24": {
+  "type": "closeup"
+ },
+ "2027-02-25": {
+  "type": "wrong",
+  "secret": {
+   "rule": "mostWords"
+  }
+ },
+ "2027-02-26": {
+  "type": "sound"
+ },
+ "2027-02-27": {
+  "type": "emoji"
+ },
+ "2027-02-28": {
+  "type": "tales"
+ },
+ "2027-02-01": {
+  "type": "lightning"
+ },
+ "2027-02-02": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-02-03": {
+  "type": "closeup"
+ },
+ "2027-02-04": {
+  "type": "wrong",
+  "secret": {
+   "rule": "fewestWords"
+  }
+ },
+ "2027-02-05": {
+  "type": "sound"
+ },
+ "2027-02-06": {
+  "type": "tabloid"
+ },
+ "2027-02-07": {
+  "type": "closest",
+  "secret": {
+   "value": 28
+  }
+ },
+ "2027-02-08": {
+  "type": "lightning"
+ },
+ "2027-02-09": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-03-01": {
+  "type": "lightning"
+ },
+ "2027-03-02": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-03-03": {
+  "type": "closeup"
+ },
+ "2027-03-04": {
+  "type": "wrong",
+  "secret": {
+   "rule": "longest"
+  }
+ },
+ "2027-03-05": {
+  "type": "sound"
+ },
+ "2027-03-06": {
+  "type": "tabloid"
+ },
+ "2027-03-07": {
+  "type": "closest",
+  "secret": {
+   "value": 36
+  }
+ },
+ "2027-03-08": {
+  "type": "lightning"
+ },
+ "2027-03-09": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-03-10": {
+  "type": "closeup"
+ },
+ "2027-03-11": {
+  "type": "wrong",
+  "secret": {
+   "rule": "shortest"
+  }
+ },
+ "2027-03-12": {
+  "type": "sound"
+ },
+ "2027-03-13": {
+  "type": "emoji"
+ },
+ "2027-03-14": {
+  "type": "tales"
+ },
+ "2027-03-15": {
+  "type": "lightning"
+ },
+ "2027-03-16": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-03-17": {
+  "type": "closeup"
+ },
+ "2027-03-18": {
+  "type": "wrong",
+  "secret": {
+   "rule": "mostWords"
+  }
+ },
+ "2027-03-19": {
+  "type": "sound"
+ },
+ "2027-03-20": {
+  "type": "tabloid"
+ },
+ "2027-03-21": {
+  "type": "closest",
+  "secret": {
+   "value": 14
+  }
+ },
+ "2027-03-22": {
+  "type": "lightning"
+ },
+ "2027-03-23": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-03-24": {
+  "type": "closeup"
+ },
+ "2027-03-25": {
+  "type": "wrong",
+  "secret": {
+   "rule": "firstAlphabetically"
+  }
+ },
+ "2027-03-26": {
+  "type": "sound"
+ },
+ "2027-03-27": {
+  "type": "emoji"
+ },
+ "2027-03-28": {
+  "type": "tales"
+ },
+ "2027-03-29": {
+  "type": "lightning"
+ },
+ "2027-03-30": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-03-31": {
+  "type": "closeup"
+ },
+ "2027-04-01": {
+  "type": "wrong",
+  "secret": {
+   "rule": "lastAlphabetically"
+  }
+ },
+ "2027-04-02": {
+  "type": "sound"
+ },
+ "2027-04-03": {
+  "type": "tabloid"
+ },
+ "2027-04-04": {
+  "type": "closest",
+  "secret": {
+   "value": 1965
+  }
+ },
+ "2027-04-05": {
+  "type": "lightning"
+ },
+ "2027-04-06": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-04-07": {
+  "type": "closeup"
+ },
+ "2027-04-08": {
+  "type": "wrong",
+  "secret": {
+   "rule": "fewestWords"
+  }
+ },
+ "2027-04-09": {
+  "type": "sound"
+ },
+ "2027-04-10": {
+  "type": "emoji"
+ },
+ "2027-04-11": {
+  "type": "tales"
+ },
+ "2027-04-12": {
+  "type": "lightning"
+ },
+ "2027-04-13": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-04-14": {
+  "type": "closeup"
+ },
+ "2027-04-15": {
+  "type": "wrong",
+  "secret": {
+   "rule": "mostVowels"
+  }
+ },
+ "2027-04-16": {
+  "type": "sound"
+ },
+ "2027-04-17": {
+  "type": "tabloid"
+ },
+ "2027-04-18": {
+  "type": "closest",
+  "secret": {
+   "value": 1949
+  }
+ },
+ "2027-04-19": {
+  "type": "lightning"
+ },
+ "2027-04-20": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-04-21": {
+  "type": "closeup"
+ },
+ "2027-04-22": {
+  "type": "wrong",
+  "secret": {
+   "rule": "shortest"
+  }
+ },
+ "2027-04-23": {
+  "type": "sound"
+ },
+ "2027-04-24": {
+  "type": "emoji"
+ },
+ "2027-04-25": {
+  "type": "tales"
+ },
+ "2027-04-26": {
+  "type": "lightning"
+ },
+ "2027-04-27": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-04-28": {
+  "type": "closeup"
+ },
+ "2027-04-29": {
+  "type": "wrong",
+  "secret": {
+   "rule": "longest"
+  }
+ },
+ "2027-04-30": {
+  "type": "sound"
+ },
+ "2027-05-01": {
+  "type": "tabloid"
+ },
+ "2027-05-02": {
+  "type": "closest",
+  "secret": {
+   "value": 52
+  }
+ },
+ "2027-05-03": {
+  "type": "lightning"
+ },
+ "2027-05-04": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-05-05": {
+  "type": "closeup"
+ },
+ "2027-05-06": {
+  "type": "wrong",
+  "secret": {
+   "rule": "mostVowels"
+  }
+ },
+ "2027-05-07": {
+  "type": "sound"
+ },
+ "2027-05-08": {
+  "type": "emoji"
+ },
+ "2027-05-09": {
+  "type": "tales"
+ },
+ "2027-05-10": {
+  "type": "lightning"
+ },
+ "2027-05-11": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-05-12": {
+  "type": "closeup"
+ },
+ "2027-05-13": {
+  "type": "wrong",
+  "secret": {
+   "rule": "longest"
+  }
+ },
+ "2027-05-14": {
+  "type": "sound"
+ },
+ "2027-05-15": {
+  "type": "tabloid"
+ },
+ "2027-05-16": {
+  "type": "closest",
+  "secret": {
+   "value": 81
+  }
+ },
+ "2027-05-17": {
+  "type": "lightning"
+ },
+ "2027-05-18": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-05-19": {
+  "type": "closeup"
+ },
+ "2027-05-20": {
+  "type": "wrong",
+  "secret": {
+   "rule": "shortest"
+  }
+ },
+ "2027-05-21": {
+  "type": "sound"
+ },
+ "2027-05-22": {
+  "type": "emoji"
+ },
+ "2027-05-23": {
+  "type": "tales"
+ },
+ "2027-05-24": {
+  "type": "lightning"
+ },
+ "2027-05-25": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-05-26": {
+  "type": "closeup"
+ },
+ "2027-05-27": {
+  "type": "wrong",
+  "secret": {
+   "rule": "lastAlphabetically"
+  }
+ },
+ "2027-05-28": {
+  "type": "sound"
+ },
+ "2027-05-29": {
+  "type": "tabloid"
+ },
+ "2027-05-30": {
+  "type": "closest",
+  "secret": {
+   "value": 11
+  }
+ },
+ "2027-05-31": {
+  "type": "lightning"
+ },
+ "2027-06-01": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-06-02": {
+  "type": "closeup"
+ },
+ "2027-06-03": {
+  "type": "wrong",
+  "secret": {
+   "rule": "mostWords"
+  }
+ },
+ "2027-06-04": {
+  "type": "sound"
+ },
+ "2027-06-05": {
+  "type": "emoji"
+ },
+ "2027-06-06": {
+  "type": "tales"
+ },
+ "2027-06-07": {
+  "type": "lightning"
+ },
+ "2027-06-08": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-06-09": {
+  "type": "closeup"
+ },
+ "2027-06-10": {
+  "type": "wrong",
+  "secret": {
+   "rule": "firstAlphabetically"
+  }
+ },
+ "2027-06-11": {
+  "type": "sound"
+ },
+ "2027-06-12": {
+  "type": "tabloid"
+ },
+ "2027-06-13": {
+  "type": "closest",
+  "secret": {
+   "value": 14
+  }
+ },
+ "2027-06-14": {
+  "type": "lightning"
+ },
+ "2027-06-15": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-06-16": {
+  "type": "closeup"
+ },
+ "2027-06-17": {
+  "type": "wrong",
+  "secret": {
+   "rule": "fewestWords"
+  }
+ },
+ "2027-06-18": {
+  "type": "sound"
+ },
+ "2027-06-19": {
+  "type": "emoji"
+ },
+ "2027-06-20": {
+  "type": "tales"
+ },
+ "2027-06-21": {
+  "type": "lightning"
+ },
+ "2027-06-22": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-06-23": {
+  "type": "closeup"
+ },
+ "2027-06-24": {
+  "type": "wrong",
+  "secret": {
+   "rule": "mostVowels"
+  }
+ },
+ "2027-06-25": {
+  "type": "sound"
+ },
+ "2027-06-26": {
+  "type": "tabloid"
+ },
+ "2027-06-27": {
+  "type": "closest",
+  "secret": {
+   "value": 10080
+  }
+ },
+ "2027-06-28": {
+  "type": "lightning"
+ },
+ "2027-06-29": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-06-30": {
+  "type": "closeup"
+ },
+ "2027-07-01": {
+  "type": "wrong",
+  "secret": {
+   "rule": "longest"
+  }
+ },
+ "2027-07-02": {
+  "type": "sound"
+ },
+ "2027-07-03": {
+  "type": "emoji"
+ },
+ "2027-07-04": {
+  "type": "tales"
+ },
+ "2027-07-05": {
+  "type": "lightning"
+ },
+ "2027-07-06": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-07-07": {
+  "type": "closeup"
+ },
+ "2027-07-08": {
+  "type": "wrong",
+  "secret": {
+   "rule": "mostWords"
+  }
+ },
+ "2027-07-09": {
+  "type": "sound"
+ },
+ "2027-07-10": {
+  "type": "tabloid"
+ },
+ "2027-07-11": {
+  "type": "closest",
+  "secret": {
+   "value": 21
+  }
+ },
+ "2027-07-12": {
+  "type": "lightning"
+ },
+ "2027-07-13": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-07-14": {
+  "type": "closeup"
+ },
+ "2027-07-15": {
+  "type": "wrong",
+  "secret": {
+   "rule": "shortest"
+  }
+ },
+ "2027-07-16": {
+  "type": "sound"
+ },
+ "2027-07-17": {
+  "type": "emoji"
+ },
+ "2027-07-18": {
+  "type": "tales"
+ },
+ "2027-07-19": {
+  "type": "lightning"
+ },
+ "2027-07-20": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-07-21": {
+  "type": "closeup"
+ },
+ "2027-07-22": {
+  "type": "wrong",
+  "secret": {
+   "rule": "mostVowels"
+  }
+ },
+ "2027-07-23": {
+  "type": "sound"
+ },
+ "2027-07-24": {
+  "type": "tabloid"
+ },
+ "2027-07-25": {
+  "type": "closest",
+  "secret": {
+   "value": 225
+  }
+ },
+ "2027-07-26": {
+  "type": "lightning"
+ },
+ "2027-07-27": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-07-28": {
+  "type": "closeup"
+ },
+ "2027-07-29": {
+  "type": "wrong",
+  "secret": {
+   "rule": "firstAlphabetically"
+  }
+ },
+ "2027-07-30": {
+  "type": "sound"
+ },
+ "2027-07-31": {
+  "type": "emoji"
+ },
+ "2027-08-01": {
+  "type": "tales"
+ },
+ "2027-08-02": {
+  "type": "lightning"
+ },
+ "2027-08-03": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-08-04": {
+  "type": "closeup"
+ },
+ "2027-08-05": {
+  "type": "wrong",
+  "secret": {
+   "rule": "lastAlphabetically"
+  }
+ },
+ "2027-08-06": {
+  "type": "sound"
+ },
+ "2027-08-07": {
+  "type": "tabloid"
+ },
+ "2027-08-08": {
+  "type": "closest",
+  "secret": {
+   "value": 1955
+  }
+ },
+ "2027-08-09": {
+  "type": "lightning"
+ },
+ "2027-08-10": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-08-11": {
+  "type": "closeup"
+ },
+ "2027-08-12": {
+  "type": "wrong",
+  "secret": {
+   "rule": "fewestWords"
+  }
+ },
+ "2027-08-13": {
+  "type": "sound"
+ },
+ "2027-08-14": {
+  "type": "emoji"
+ },
+ "2027-08-15": {
+  "type": "tales"
+ },
+ "2027-08-16": {
+  "type": "lightning"
+ },
+ "2027-08-17": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-08-18": {
+  "type": "closeup"
+ },
+ "2027-08-19": {
+  "type": "wrong",
+  "secret": {
+   "rule": "mostVowels"
+  }
+ },
+ "2027-08-20": {
+  "type": "sound"
+ },
+ "2027-08-21": {
+  "type": "tabloid"
+ },
+ "2027-08-22": {
+  "type": "closest",
+  "secret": {
+   "value": 13
+  }
+ },
+ "2027-08-23": {
+  "type": "lightning"
+ },
+ "2027-08-24": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-08-25": {
+  "type": "closeup"
+ },
+ "2027-08-26": {
+  "type": "wrong",
+  "secret": {
+   "rule": "shortest"
+  }
+ },
+ "2027-08-27": {
+  "type": "sound"
+ },
+ "2027-08-28": {
+  "type": "emoji"
+ },
+ "2027-08-29": {
+  "type": "tales"
+ },
+ "2027-08-30": {
+  "type": "lightning"
+ },
+ "2027-08-31": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-09-01": {
+  "type": "closeup"
+ },
+ "2027-09-02": {
+  "type": "wrong",
+  "secret": {
+   "rule": "longest"
+  }
+ },
+ "2027-09-03": {
+  "type": "sound"
+ },
+ "2027-09-04": {
+  "type": "tabloid"
+ },
+ "2027-09-05": {
+  "type": "closest",
+  "secret": {
+   "value": 360
+  }
+ },
+ "2027-09-06": {
+  "type": "lightning"
+ },
+ "2027-09-07": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-09-08": {
+  "type": "closeup"
+ },
+ "2027-09-09": {
+  "type": "wrong",
+  "secret": {
+   "rule": "firstAlphabetically"
+  }
+ },
+ "2027-09-10": {
+  "type": "sound"
+ },
+ "2027-09-11": {
+  "type": "emoji"
+ },
+ "2027-09-12": {
+  "type": "tales"
+ },
+ "2027-09-13": {
+  "type": "lightning"
+ },
+ "2027-09-14": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-09-15": {
+  "type": "closeup"
+ },
+ "2027-09-16": {
+  "type": "wrong",
+  "secret": {
+   "rule": "mostVowels"
+  }
+ },
+ "2027-09-17": {
+  "type": "sound"
+ },
+ "2027-09-18": {
+  "type": "tabloid"
+ },
+ "2027-09-19": {
+  "type": "closest",
+  "secret": {
+   "value": 168
+  }
+ },
+ "2027-09-20": {
+  "type": "lightning"
+ },
+ "2027-09-21": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-09-22": {
+  "type": "closeup"
+ },
+ "2027-09-23": {
+  "type": "wrong",
+  "secret": {
+   "rule": "shortest"
+  }
+ },
+ "2027-09-24": {
+  "type": "sound"
+ },
+ "2027-09-25": {
+  "type": "emoji"
+ },
+ "2027-09-26": {
+  "type": "tales"
+ },
+ "2027-09-27": {
+  "type": "lightning"
+ },
+ "2027-09-28": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-09-29": {
+  "type": "closeup"
+ },
+ "2027-09-30": {
+  "type": "wrong",
+  "secret": {
+   "rule": "lastAlphabetically"
+  }
+ },
+ "2027-10-01": {
+  "type": "sound"
+ },
+ "2027-10-02": {
+  "type": "tabloid"
+ },
+ "2027-10-03": {
+  "type": "closest",
+  "secret": {
+   "value": 276
+  }
+ },
+ "2027-10-04": {
+  "type": "lightning"
+ },
+ "2027-10-05": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-10-06": {
+  "type": "closeup"
+ },
+ "2027-10-07": {
+  "type": "wrong",
+  "secret": {
+   "rule": "mostWords"
+  }
+ },
+ "2027-10-08": {
+  "type": "sound"
+ },
+ "2027-10-09": {
+  "type": "emoji"
+ },
+ "2027-10-10": {
+  "type": "tales"
+ },
+ "2027-10-11": {
+  "type": "lightning"
+ },
+ "2027-10-12": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-10-13": {
+  "type": "closeup"
+ },
+ "2027-10-14": {
+  "type": "wrong",
+  "secret": {
+   "rule": "fewestWords"
+  }
+ },
+ "2027-10-15": {
+  "type": "sound"
+ },
+ "2027-10-16": {
+  "type": "tabloid"
+ },
+ "2027-10-17": {
+  "type": "closest",
+  "secret": {
+   "value": 1867
+  }
+ },
+ "2027-10-18": {
+  "type": "lightning"
+ },
+ "2027-10-19": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-10-20": {
+  "type": "closeup"
+ },
+ "2027-10-21": {
+  "type": "wrong",
+  "secret": {
+   "rule": "firstAlphabetically"
+  }
+ },
+ "2027-10-22": {
+  "type": "sound"
+ },
+ "2027-10-23": {
+  "type": "emoji"
+ },
+ "2027-10-24": {
+  "type": "tales"
+ },
+ "2027-10-25": {
+  "type": "lightning"
+ },
+ "2027-10-26": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-10-27": {
+  "type": "closeup"
+ },
+ "2027-10-28": {
+  "type": "wrong",
+  "secret": {
+   "rule": "longest"
+  }
+ },
+ "2027-10-29": {
+  "type": "sound"
+ },
+ "2027-10-30": {
+  "type": "tabloid"
+ },
+ "2027-10-31": {
+  "type": "closest",
+  "secret": {
+   "value": 22
+  }
+ },
+ "2027-11-01": {
+  "type": "lightning"
+ },
+ "2027-11-02": {
+  "type": "mind",
+  "optionCount": 4
+ },
+ "2027-11-03": {
+  "type": "closeup"
+ },
+ "2027-11-04": {
+  "type": "wrong",
+  "secret": {
+   "rule": "shortest"
+  }
+ },
+ "2027-11-05": {
+  "type": "sound"
+ },
+ "2027-11-06": {
+  "type": "emoji"
+ },
+ "2027-11-07": {
+  "type": "tales"
+ },
+ "2027-11-08": {
+  "type": "lightning"
+ },
+ "2027-11-09": {
+  "type": "mind",
+  "optionCount": 4
+ }
+}

@@ -1,0 +1,367 @@
+[
+  {
+    "date": "2027-03-01",
+    "game": {
+      "type": "lightning",
+      "intro": "Monday, and the snowbank is watching. Three quick picks, ten seconds each. Saturn has the stopwatch.",
+      "pairs": [
+        [
+          "Snowbank",
+          "Slush puddle"
+        ],
+        [
+          "Toque",
+          "Earmuffs"
+        ],
+        [
+          "Shovel first",
+          "Coffee first"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-03-02",
+    "game": {
+      "type": "mind",
+      "intro": "The Mountain is hosting tea. Pick for yourself, then guess your friend. Saturn brought the good cups.",
+      "question": "A surprise guest knocks halfway through tea. Who would you most want it to be?",
+      "options": [
+        "A very polite fox",
+        "A lost lighthouse keeper",
+        "A cheerful ghost with scones",
+        "Your ten-year-old self"
+      ]
+    }
+  },
+  {
+    "date": "2027-03-03",
+    "game": {
+      "type": "closeup",
+      "intro": "Somewhere the second mitten is waiting. Today the camera gets so close it forgets what it's looking at.",
+      "prompt": "Something woolly, knitted or fuzzy, shot so close it could pass for a mountain range."
+    }
+  },
+  {
+    "date": "2027-03-04",
+    "game": {
+      "type": "wrong",
+      "intro": "Two identical hats on a DES day? The crew is shook. Answer wrong, answer proud.",
+      "question": "What is the capital city of Canada?",
+      "secret": {
+        "rule": "longest"
+      }
+    }
+  },
+  {
+    "date": "2027-03-05",
+    "game": {
+      "type": "sound",
+      "intro": "Small wins deserve a soundtrack. Saturn is wearing headphones and pretending not to listen.",
+      "prompt": "The sound of something finishing: a microwave beep, a printer's last sigh, a dryer buzzer. Your call."
+    }
+  },
+  {
+    "date": "2027-03-06",
+    "game": {
+      "type": "tabloid",
+      "intro": "New moon, blank page, fresh ink. The studio printer is warmed up and hungry for scandal.",
+      "headline": "NEW MOON SPOTTED ___ IN EMPTY NOTEBOOK, STATIONERY SHOP BAFFLED"
+    }
+  },
+  {
+    "date": "2027-03-07",
+    "game": {
+      "type": "closest",
+      "intro": "The fog is keeping secrets, but Saturn is keeping score. Guess close, never over.",
+      "question": "A standard 88-key piano has white keys and black keys. How many of its keys are black?",
+      "unit": "black keys",
+      "secret": {
+        "value": 36
+      },
+      "source": "Standard 88-key piano: 52 white keys + 36 black keys"
+    }
+  },
+  {
+    "date": "2027-03-08",
+    "game": {
+      "type": "lightning",
+      "intro": "The sky is at its darkest, which means the choices glow brighter. Three pairs. Go.",
+      "pairs": [
+        [
+          "Stargazing",
+          "Cloud watching"
+        ],
+        [
+          "Candle",
+          "Lantern"
+        ],
+        [
+          "Hum",
+          "Whistle"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-03-09",
+    "game": {
+      "type": "mind",
+      "intro": "The moon is knocking on the Tiger's door. Brave question, honest guesses. Saturn is taking notes.",
+      "question": "Which small act of courage sounds most fun to you right now?",
+      "options": [
+        "Sing with the car windows down",
+        "Wave at every dog you pass",
+        "Order the dish you can't pronounce",
+        "Wear the loudest socks you own"
+      ]
+    }
+  },
+  {
+    "date": "2027-03-10",
+    "game": {
+      "type": "closeup",
+      "intro": "Ten unfinished things? Pick one and zoom in until it looks like art. Saturn calls that progress.",
+      "prompt": "Something half-finished at home: a puzzle, a sweater, a book with a bookmark. Get uncomfortably close."
+    }
+  },
+  {
+    "date": "2027-03-11",
+    "game": {
+      "type": "wrong",
+      "intro": "The kettle refused to boil, so the crew refuses to be right. Wrong answers only, please.",
+      "question": "At what temperature in Celsius does water boil at sea level?",
+      "secret": {
+        "rule": "shortest"
+      }
+    }
+  },
+  {
+    "date": "2027-03-12",
+    "game": {
+      "type": "sound",
+      "intro": "Everyone said periwinkle today. DES. Now say it with sound effects, no words allowed.",
+      "prompt": "A seashore sound: a gull complaining, a wave giving up, a buoy bell, a periwinkle being dramatic."
+    }
+  },
+  {
+    "date": "2027-03-13",
+    "game": {
+      "type": "emoji",
+      "intro": "Sap is running and so is the crew. Spell it in little pictures, no letters, sticky fingers allowed.",
+      "prompt": "A breakfast you'd make for a cabin full of sleepy friends."
+    }
+  },
+  {
+    "date": "2027-03-14",
+    "game": {
+      "type": "tales",
+      "intro": "Somebody stole an hour last night. Two of these stories are true, one is the thief. Find it.",
+      "prompt": "Three things that happened to you on a Sunday morning, ever. One of them never happened."
+    }
+  },
+  {
+    "date": "2027-03-15",
+    "game": {
+      "type": "lightning",
+      "intro": "Beware the Ides of slightly different opinions. Disagree loudly, love each other anyway.",
+      "pairs": [
+        [
+          "Toast cut square",
+          "Toast cut diagonal"
+        ],
+        [
+          "Socks with sandals",
+          "Never ever"
+        ],
+        [
+          "Pineapple on pizza",
+          "Absolutely not"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-03-16",
+    "game": {
+      "type": "mind",
+      "intro": "The shell meets the chimney today. Shore or cabin? The crew wants to know where your heart parks.",
+      "question": "You get one perfect evening, all expenses imaginary. Where are you spending it?",
+      "options": [
+        "Cabin, fire going, rain on roof",
+        "Shore, blanket, sunset",
+        "Rooftop, string lights, music",
+        "Kitchen, everyone, too loud"
+      ]
+    }
+  },
+  {
+    "date": "2027-03-17",
+    "game": {
+      "type": "closeup",
+      "intro": "Today is unreasonably green. Find the greenest thing you can and shove the camera right in its face.",
+      "prompt": "Something green, shot so close the other can't tell if it's a plant, a sock or a sea monster."
+    }
+  },
+  {
+    "date": "2027-03-18",
+    "game": {
+      "type": "wrong",
+      "intro": "The Lion grabbed the mic, so give the most confident wrong answer the studio has ever heard.",
+      "question": "How many legs does a spider have?",
+      "secret": {
+        "rule": "mostWords"
+      }
+    }
+  },
+  {
+    "date": "2027-03-19",
+    "game": {
+      "type": "sound",
+      "intro": "Applause for nobody in particular! Now give the crew a sound actually worth clapping for.",
+      "prompt": "A tiny crowd: one person cheering, a polite little clap, a single kazoo in the back row."
+    }
+  },
+  {
+    "date": "2027-03-20",
+    "game": {
+      "type": "tabloid",
+      "intro": "Equinox eve. Day and night are on the balance beam and the tabloids are camped outside.",
+      "headline": "DAY AND NIGHT CAUGHT ___ ON BALANCE BEAM, SATURN DEMANDS RECOUNT"
+    }
+  },
+  {
+    "date": "2027-03-21",
+    "game": {
+      "type": "closest",
+      "intro": "Happy birthday, Fire Tiger! Full moon, equinox, DES. Saturn baked a number. Don't go over it.",
+      "question": "The Knight of Wands has siblings. How many Wands cards are in a standard tarot deck, Ace through King?",
+      "unit": "cards",
+      "secret": {
+        "value": 14
+      },
+      "source": "Each tarot suit has 14 cards: Ace, 2-10, Page, Knight, Queen, King (56 Minor Arcana / 4 suits)"
+    }
+  },
+  {
+    "date": "2027-03-22",
+    "game": {
+      "type": "lightning",
+      "intro": "Libra is weighing the leftover confetti. Light day, light choices. Three pairs, ten seconds each.",
+      "pairs": [
+        [
+          "Nap",
+          "Long walk"
+        ],
+        [
+          "Leftover cake",
+          "Leftover pizza"
+        ],
+        [
+          "Pajamas all day",
+          "Get dressed anyway"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-03-23",
+    "game": {
+      "type": "mind",
+      "intro": "The scales tip toward the Mountain. Steady question, steady hands, wild guesses welcome.",
+      "question": "Which slow thing is secretly the most satisfying to watch?",
+      "options": [
+        "Bread rising",
+        "Snow piling up",
+        "The tide coming in",
+        "Paint drying, honestly"
+      ]
+    }
+  },
+  {
+    "date": "2027-03-24",
+    "game": {
+      "type": "closeup",
+      "intro": "Something is in the locked drawer. Show only a sliver of it. Saturn loves a mystery.",
+      "prompt": "Something from the back of a drawer you rarely open. Zoom in until it becomes a riddle."
+    }
+  },
+  {
+    "date": "2027-03-25",
+    "game": {
+      "type": "wrong",
+      "intro": "The ice lets go today, and so does accuracy. Wrong answers only. Saturn is grading on a curve.",
+      "question": "What season comes right after winter?",
+      "secret": {
+        "rule": "firstAlphabetically"
+      }
+    }
+  },
+  {
+    "date": "2027-03-26",
+    "game": {
+      "type": "sound",
+      "intro": "The Detective Rat is on a case and needs audio evidence. Make the sound, let the other crack it.",
+      "prompt": "A detective movie sound: a creaky door, footsteps in the rain, a dramatic gasp, a smug magnifying glass."
+    }
+  },
+  {
+    "date": "2027-03-27",
+    "game": {
+      "type": "emoji",
+      "intro": "The arrow landed in the mud and stuck. Courage! Spell it out in tiny pictures, no letters.",
+      "prompt": "A brave thing you did once that still makes you proud."
+    }
+  },
+  {
+    "date": "2027-03-28",
+    "game": {
+      "type": "tales",
+      "intro": "Twin robins on a DES day. Two of these stories are as true as robins. One is a tall tale.",
+      "prompt": "Three times the same thing happened to you twice in one day."
+    }
+  },
+  {
+    "date": "2027-03-29",
+    "game": {
+      "type": "lightning",
+      "intro": "The moon is home in the Mountain's sign. Cozy Monday, three cozy choices. Go.",
+      "pairs": [
+        [
+          "Wool blanket",
+          "Down duvet"
+        ],
+        [
+          "Hot cocoa",
+          "Hot cider"
+        ],
+        [
+          "Rain on the roof",
+          "Wind in the trees"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-03-30",
+    "game": {
+      "type": "mind",
+      "intro": "The crocus waited all winter. You only need to wait ten seconds. Pick, guess, reveal.",
+      "question": "Which first sign of spring makes you happiest?",
+      "options": [
+        "A crocus poking through",
+        "The first peepers singing",
+        "Coat unzipped in daylight",
+        "Mud on every boot"
+      ]
+    }
+  },
+  {
+    "date": "2027-03-31",
+    "game": {
+      "type": "closeup",
+      "intro": "March is leaving like a lamb. Catch it on the way out, close enough to see the wool.",
+      "prompt": "Something that changed this month: a melting icicle, a new sprout, a shrinking snowbank. Zoom way in."
+    }
+  }
+]

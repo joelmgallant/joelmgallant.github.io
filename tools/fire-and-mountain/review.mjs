@@ -13,6 +13,19 @@ function person(name, card) {
     <p><b>Mission:</b> ${prose(card.mission)}</p><p><b>Watch for:</b> ${prose(card.omen)}</p></div>`;
 }
 
+const games = new Map(months.flatMap((month) => {
+  const path = here(`./games/${month}.json`);
+  return existsSync(path) ? JSON.parse(readFileSync(path, 'utf8')).map(({ date, game }) => [date, game]) : [];
+}));
+
+function gameBlock(game) {
+  if (!game) return '<p class="game"><b>🎲 Bonus Round:</b> <i>missing</i></p>';
+  const { type, intro, secret, source, ...fields } = game;
+  const details = Object.entries(fields).map(([key, value]) => `<b>${key}:</b> ${escape(Array.isArray(value) ? value.map((item) => (Array.isArray(item) ? item.join(' / ') : item)).join(' · ') : value)}`).join('<br>');
+  const hidden = secret ? `<br><b>secret:</b> ${escape(JSON.stringify(secret))}${source ? ` <small>(${escape(source)})</small>` : ''}` : '';
+  return `<div class="game"><b>🎲 ${type}</b> — <i>${escape(intro)}</i><br>${details}${hidden}</div>`;
+}
+
 const days = months.flatMap((month) => {
   const path = here(`./months/${month}.json`);
   return existsSync(path) ? JSON.parse(readFileSync(path, 'utf8')) : [];
@@ -24,6 +37,7 @@ const body = days.map((entry) => `<section id="d${entry.date}" class="${entry.de
   <p class="story">${prose(entry.skyStory)}</p>
   <div class="people">${person('🔥 Joel', entry.joel)}${person('🏔️ Nancy', entry.nancy)}</div>
   <p class="together"><b>Together:</b> ${prose(entry.together.text)}</p>
+  ${gameBlock(games.get(entry.date))}
 </section>`).join('\n');
 
 const index = days.map((entry) => `<a href="#d${entry.date}">${entry.date.slice(5)}</a>`).join(' ');
@@ -41,6 +55,7 @@ writeFileSync(here('./review.html'), `<!doctype html><html lang="en"><head><meta
   .story { font-style: italic; } .people { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   .seal { font: bold 12px system-ui; background: #f2c46d; padding: 2px 6px; border-radius: 8px; }
   u { text-decoration: underline dotted #b07d1a; }
+  .game { font: 14px/1.5 system-ui, sans-serif; background: #f1ecff; padding: 8px 10px; border-radius: 8px; }
   @media (max-width: 700px) { .people { grid-template-columns: 1fr; } }
 </style></head><body>
 <h1>Daily Reading Review (${days.length} days)</h1><nav>${index}</nav>

@@ -1,0 +1,343 @@
+[
+  {
+    "date": "2027-04-01",
+    "game": {
+      "type": "wrong",
+      "intro": "April Fools! The moon swapped the salt and sugar. You swap every right answer for a wrong one.",
+      "question": "What do bees make?",
+      "secret": {
+        "rule": "lastAlphabetically"
+      }
+    }
+  },
+  {
+    "date": "2027-04-02",
+    "game": {
+      "type": "sound",
+      "intro": "The Great Puddle Census is underway. The crew needs audio of every splash. Make some noise.",
+      "prompt": "A wet sound: boots in a puddle, a drip from the eaves, rain on a tin roof, a dog shaking off."
+    }
+  },
+  {
+    "date": "2027-04-03",
+    "game": {
+      "type": "tabloid",
+      "intro": "The fog machine is on again. Through the haze, the tabloid camera clicks. Fill in the scoop.",
+      "headline": "FOG ROLLS IN, REFUSES TO LEAVE UNTIL ___, TOWN NEGOTIATORS SUMMONED"
+    }
+  },
+  {
+    "date": "2027-04-04",
+    "game": {
+      "type": "closest",
+      "intro": "Matching sand shovels? DES. Saturn has a year in mind. Get close, don't go over, keep your shovel.",
+      "question": "In what year was Canada's red-and-white maple leaf flag first raised as the national flag?",
+      "unit": "year",
+      "secret": {
+        "value": 1965
+      },
+      "source": "Proclaimed and first officially raised on February 15, 1965 (now National Flag of Canada Day)"
+    }
+  },
+  {
+    "date": "2027-04-05",
+    "game": {
+      "type": "lightning",
+      "intro": "The blank page has opinions and so does Saturn. Three pairs, fast. No second drafts.",
+      "pairs": [
+        [
+          "Pen",
+          "Pencil"
+        ],
+        [
+          "Lined paper",
+          "Blank paper"
+        ],
+        [
+          "Morning brain",
+          "Midnight brain"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-04-06",
+    "game": {
+      "type": "mind",
+      "intro": "The Ram kicked open the door. Spark day! Pick your adventure, then guess your friend's.",
+      "question": "You can start one ridiculous new hobby tomorrow. Which one?",
+      "options": [
+        "Competitive kite flying",
+        "Ships in bottles",
+        "Yodelling",
+        "Rock stacking on the shore"
+      ]
+    }
+  },
+  {
+    "date": "2027-04-07",
+    "game": {
+      "type": "closeup",
+      "intro": "Courage can be borrowed. So can objects. Show something that isn't really yours, up close.",
+      "prompt": "Something you borrowed and never quite gave back. Zoom so close it can't testify against you."
+    }
+  },
+  {
+    "date": "2027-04-08",
+    "game": {
+      "type": "wrong",
+      "intro": "The Bull wants a nap, so keep your wrong answers short and sleepy. Or don't. Saturn decides.",
+      "question": "How many hours are in a day?",
+      "secret": {
+        "rule": "fewestWords"
+      }
+    }
+  },
+  {
+    "date": "2027-04-09",
+    "game": {
+      "type": "sound",
+      "intro": "The snowbank is giving back everything it ate all winter. Narrate the thaw, sound effects only.",
+      "prompt": "Melting: a slow drip, slush sliding off a roof, a snowbank sighing, a lost mitten resurfacing."
+    }
+  },
+  {
+    "date": "2027-04-10",
+    "game": {
+      "type": "emoji",
+      "intro": "The Twins started a group chat. Answer the way they would: emoji only, zero letters, max drama.",
+      "prompt": "A movie or show about two of something: twins, best friends, a pair of very odd ducks."
+    }
+  },
+  {
+    "date": "2027-04-11",
+    "game": {
+      "type": "tales",
+      "intro": "Sunday of two opinions. Three stories, two true, one invented. Saturn already knows which.",
+      "prompt": "Three opinions you have held very strongly at some point in your life. One you never held."
+    }
+  },
+  {
+    "date": "2027-04-12",
+    "game": {
+      "type": "lightning",
+      "intro": "The soup moon rises, warm and sloshy. Three pairs, ten seconds. Spoons ready.",
+      "pairs": [
+        [
+          "Chowder",
+          "Tomato soup"
+        ],
+        [
+          "Crackers",
+          "Crusty bread"
+        ],
+        [
+          "Big mug",
+          "Tiny bowl"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-04-13",
+    "game": {
+      "type": "mind",
+      "intro": "An identical sandwich prophecy? DES. Pick your sandwich, guess theirs. A match gets a gasp.",
+      "question": "Which sandwich would you defend in a courtroom?",
+      "options": [
+        "Grilled cheese",
+        "Lobster roll",
+        "Egg salad",
+        "Peanut butter and banana"
+      ]
+    }
+  },
+  {
+    "date": "2027-04-14",
+    "game": {
+      "type": "closeup",
+      "intro": "The Lion takes the stage! Find the most dramatic object in the house and give it a close-up.",
+      "prompt": "Something shiny, sparkly or sequined, shot so close it looks like a disco planet."
+    }
+  },
+  {
+    "date": "2027-04-15",
+    "game": {
+      "type": "wrong",
+      "intro": "Backwards hat day. The crew is answering backwards too. Wrong answers only, bonus for style.",
+      "question": "In which direction does the sun rise?",
+      "secret": {
+        "rule": "mostVowels"
+      }
+    }
+  },
+  {
+    "date": "2027-04-16",
+    "game": {
+      "type": "sound",
+      "intro": "The clipboard moon is checking boxes. Make a sound worth a checkmark and let the other guess.",
+      "prompt": "An office sound: a stapler chomping, hold music, a squeaky chair, a printer jamming."
+    }
+  },
+  {
+    "date": "2027-04-17",
+    "game": {
+      "type": "tabloid",
+      "intro": "The quest for the perfect pebble has gone public. Reporters are on the beach. Fill the blank.",
+      "headline": "PERFECT PEBBLE FOUND ON SHORE, EXPERTS CLAIM IT ___"
+    }
+  },
+  {
+    "date": "2027-04-18",
+    "game": {
+      "type": "closest",
+      "intro": "Last polish before the party. Saturn polished a year. Guess close and don't you dare go over.",
+      "question": "In what year did Newfoundland join Canada as its tenth province?",
+      "unit": "year",
+      "secret": {
+        "value": 1949
+      },
+      "source": "Newfoundland joined Confederation on March 31, 1949"
+    }
+  },
+  {
+    "date": "2027-04-19",
+    "game": {
+      "type": "lightning",
+      "intro": "The Full Moon Recharge begins. Ruby, onyx, moonlight. Three pairs to warm up the batteries.",
+      "pairs": [
+        [
+          "Ruby",
+          "Onyx"
+        ],
+        [
+          "Moonrise",
+          "Sunset"
+        ],
+        [
+          "Porch",
+          "Window seat"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-04-20",
+    "game": {
+      "type": "mind",
+      "intro": "The owls agreed on a DES night. Can you two agree? Pick yours, guess theirs, hoot if you match.",
+      "question": "Which night sound would you most like to fall asleep to?",
+      "options": [
+        "An owl",
+        "A distant foghorn",
+        "Rain on the window",
+        "A crackling fire"
+      ]
+    }
+  },
+  {
+    "date": "2027-04-21",
+    "game": {
+      "type": "closeup",
+      "intro": "The Scorpion is collecting stones. Join in, but only show a tiny corner of yours.",
+      "prompt": "A stone, rock, gem or pebble, shot so close the other has to guess where it came from."
+    }
+  },
+  {
+    "date": "2027-04-22",
+    "game": {
+      "type": "wrong",
+      "intro": "Five elements roll call! Earth, fire, water, wind, heart. Answer wrong and keep it brief.",
+      "question": "What do plants need from the sun to grow?",
+      "secret": {
+        "rule": "shortest"
+      }
+    }
+  },
+  {
+    "date": "2027-04-23",
+    "game": {
+      "type": "sound",
+      "intro": "The Archer packed a picnic. Make the sound of something at a picnic and let your friend guess it.",
+      "prompt": "A picnic sound: a cooler lid, a fly that won't leave, a can popping open, a blanket in the wind."
+    }
+  },
+  {
+    "date": "2027-04-24",
+    "game": {
+      "type": "emoji",
+      "intro": "Kite without a string! Spark day. Let your thumbs fly free, emoji only, no letters allowed.",
+      "prompt": "Something you'd love to do on the first warm, windy day of spring."
+    }
+  },
+  {
+    "date": "2027-04-25",
+    "game": {
+      "type": "tales",
+      "intro": "The Goat climbs home today. Three tales from your own climbs, two true, one invented. Go.",
+      "prompt": "Three things you have climbed: a tree, a hill, a ladder, a very tall bunk bed. One is made up."
+    }
+  },
+  {
+    "date": "2027-04-26",
+    "game": {
+      "type": "lightning",
+      "intro": "Slow and steady Monday. Take all ten seconds per pair. Saturn approves of a leisurely pace.",
+      "pairs": [
+        [
+          "Tortoise",
+          "Hare"
+        ],
+        [
+          "Crossword",
+          "Jigsaw"
+        ],
+        [
+          "Early bird",
+          "Snooze button"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-04-27",
+    "game": {
+      "type": "mind",
+      "intro": "Goats appeared out of nowhere. DES! Choose your goat-adjacent fate and guess your friend's.",
+      "question": "A goat moves in with you for a week. What is its job?",
+      "options": [
+        "Lawn care",
+        "Emotional support",
+        "Alarm clock",
+        "Head of security"
+      ]
+    }
+  },
+  {
+    "date": "2027-04-28",
+    "game": {
+      "type": "closeup",
+      "intro": "Inventor's Wednesday! Zoom in on a gadget until it looks like a machine from the future.",
+      "prompt": "A tool, gizmo or kitchen gadget, shot so close it looks like a part off a spaceship."
+    }
+  },
+  {
+    "date": "2027-04-29",
+    "game": {
+      "type": "wrong",
+      "intro": "Low tide, rowboat stuck. Paddle out with the most wrong answer you can row.",
+      "question": "How many oars does a rowboat usually have?",
+      "secret": {
+        "rule": "longest"
+      }
+    }
+  },
+  {
+    "date": "2027-04-30",
+    "game": {
+      "type": "sound",
+      "intro": "Eve of the May Parade! Every float needs a soundtrack. Make yours and let your friend guess it.",
+      "prompt": "A parade sound: a marching drum, a tuba warming up, a tiny fire truck siren, a crowd going wild."
+    }
+  }
+]

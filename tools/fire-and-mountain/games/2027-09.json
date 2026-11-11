@@ -1,0 +1,343 @@
+[
+  {
+    "date": "2027-09-01",
+    "game": {
+      "type": "closeup",
+      "intro": "New moon, new pencil case. Saturn sharpened every crayon in the studio and now dares you to zoom way, way in.",
+      "prompt": "Something on your desk or table that has been sitting there since before summer started."
+    }
+  },
+  {
+    "date": "2027-09-02",
+    "game": {
+      "type": "wrong",
+      "intro": "The moon is in Libra, weighing everybody's choices. Tonight Saturn only weighs the wrong ones. Take your time.",
+      "question": "How many sides does a stop sign have?",
+      "secret": {
+        "rule": "longest"
+      }
+    }
+  },
+  {
+    "date": "2027-09-03",
+    "game": {
+      "type": "sound",
+      "intro": "Mischief on a Friday. The studio dryer is missing a sock and Mars is the prime suspect. Lend us your best sound effect.",
+      "prompt": "A washing machine eating exactly one sock and feeling very pleased about it."
+    }
+  },
+  {
+    "date": "2027-09-04",
+    "game": {
+      "type": "tabloid",
+      "intro": "Scorpio moon, secret pockets. Somebody's cardigan has been hiding something, and the presses are rolling.",
+      "headline": "CARDIGAN FOUND TO CONTAIN ___, KNITTING CIRCLE CLAIMS IT KNEW ALL ALONG"
+    }
+  },
+  {
+    "date": "2027-09-05",
+    "game": {
+      "type": "closest",
+      "intro": "Don't even scream: two identical gnomes are watching this round from two different lawns. Guess bold, stay under.",
+      "question": "A lawn gnome spins all the way around once to check who is watching. How many degrees did it turn?",
+      "unit": "degrees",
+      "secret": {
+        "value": 360
+      },
+      "source": "Definition: one full rotation (a full circle) is 360 degrees."
+    }
+  },
+  {
+    "date": "2027-09-06",
+    "game": {
+      "type": "lightning",
+      "intro": "Labour Day. The crew has unionized in favour of hammocks. Three lazy choices, ten seconds each, no overthinking.",
+      "pairs": [
+        [
+          "Hammock",
+          "Deck chair"
+        ],
+        [
+          "Nap at noon",
+          "Nap at four"
+        ],
+        [
+          "Sun hat",
+          "Shade tree"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-09-07",
+    "game": {
+      "type": "mind",
+      "intro": "Back-to-school week, and the lunchbox has returned from exile. Pick yours, then guess what the other one grabbed.",
+      "question": "Which lunchbox would ten-year-old you have defended with your whole heart?",
+      "options": [
+        "Shiny metal with a dragon",
+        "Plaid with a matching thermos",
+        "Glow-in-the-dark robot",
+        "Plain paper bag, for mystery"
+      ]
+    }
+  },
+  {
+    "date": "2027-09-08",
+    "game": {
+      "type": "closeup",
+      "intro": "Somewhere a pair of sunglasses is giggling. Saturn would like photographic evidence of its hideout. Close. Closer.",
+      "prompt": "The spot your lost sunglasses would hide if they secretly wanted to be found by Thursday."
+    }
+  },
+  {
+    "date": "2027-09-09",
+    "game": {
+      "type": "wrong",
+      "intro": "The moon climbs into Capricorn and Nancy's mountain holds the clipboard. Saturn grades on a curve made of nonsense.",
+      "question": "What colour is a school bus?",
+      "secret": {
+        "rule": "firstAlphabetically"
+      }
+    }
+  },
+  {
+    "date": "2027-09-10",
+    "game": {
+      "type": "sound",
+      "intro": "Capricorn moon, committee season. Saturn has called the meeting to order and the goat has the floor. Let us hear it.",
+      "prompt": "A goat calling a very serious meeting to order with absolutely no gavel."
+    }
+  },
+  {
+    "date": "2027-09-11",
+    "game": {
+      "type": "emoji",
+      "intro": "Aquarius moon, inventor's junk drawer wide open. Build us a gadget out of nothing but little pictures.",
+      "prompt": "An invention the world clearly needs but nobody has bothered to build yet."
+    }
+  },
+  {
+    "date": "2027-09-12",
+    "game": {
+      "type": "tales",
+      "intro": "DES alert: the rubber ducks are organized. Two of your floaty facts are true, one is pure bathwater. Nobody quack.",
+      "prompt": "Three things you have found floating somewhere they had no business floating."
+    }
+  },
+  {
+    "date": "2027-09-13",
+    "game": {
+      "type": "lightning",
+      "intro": "The moon is almost full and still practising its entrance. Quick rehearsal, three cues, ten seconds a cue.",
+      "pairs": [
+        [
+          "Dress rehearsal",
+          "Opening night"
+        ],
+        [
+          "Encore",
+          "Curtain call"
+        ],
+        [
+          "Front row",
+          "Balcony"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-09-14",
+    "game": {
+      "type": "mind",
+      "intro": "The full moon showed up a day early with a casserole. Tell us your arrival style, then guess your partner in crime's.",
+      "question": "Be honest: how do you arrive at a party?",
+      "options": [
+        "Ten minutes early, helping",
+        "Exactly on time, smug",
+        "Fashionably late, glowing",
+        "Last one in, best story"
+      ]
+    }
+  },
+  {
+    "date": "2027-09-15",
+    "game": {
+      "type": "closeup",
+      "intro": "Full Moon Recharge night. Ruby and onyx are sunbathing in moonlight, so you two zoom in on something luminous.",
+      "prompt": "Something in your home that glows after dark and is not a screen."
+    }
+  },
+  {
+    "date": "2027-09-16",
+    "game": {
+      "type": "wrong",
+      "intro": "The moon is visiting Joel's sign and the Tiger has put out snacks. Answer boldly, answer wrongly, answer with fire.",
+      "question": "What sound does a tiger make?",
+      "secret": {
+        "rule": "mostVowels"
+      }
+    }
+  },
+  {
+    "date": "2027-09-17",
+    "game": {
+      "type": "sound",
+      "intro": "Thermostat wars have begun. Saturn sides with whoever gives the most dramatic impression. Fire it up.",
+      "prompt": "The furnace kicking on for the first time since spring, with a lot of feelings about it."
+    }
+  },
+  {
+    "date": "2027-09-18",
+    "game": {
+      "type": "tabloid",
+      "intro": "Waning moon, letting-go Saturday. Today's front page releases something into the wild. Fill in the blank gently.",
+      "headline": "AREA FRIENDS RELEASE ___ BACK INTO THE WILD AFTER ELEVEN YEARS, IT SEEMS FINE"
+    }
+  },
+  {
+    "date": "2027-09-19",
+    "game": {
+      "type": "closest",
+      "intro": "Don't even scream, the marmalade predicted this exact question. Guess under, and keep the toast away from the tiles.",
+      "question": "Add up every pip on all 28 tiles of a standard double-six domino set. What is the total?",
+      "unit": "pips",
+      "secret": {
+        "value": 168
+      },
+      "source": "Double-six set: each value 0-6 appears 8 times across the 28 tiles, so 8 x (0+1+...+6) = 8 x 21 = 168."
+    }
+  },
+  {
+    "date": "2027-09-20",
+    "game": {
+      "type": "lightning",
+      "intro": "Taurus moon, stubborn seedling, slow Monday. Three cozy picks, ten seconds each, then back to your blanket.",
+      "pairs": [
+        [
+          "Sunflower",
+          "Pumpkin vine"
+        ],
+        [
+          "Drizzle on the window",
+          "Leaves underfoot"
+        ],
+        [
+          "Slippers",
+          "Thick socks"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-09-21",
+    "game": {
+      "type": "mind",
+      "intro": "Gemini moon, hat-swapping season. Pick a career to borrow for a day, then guess which hat the other one grabbed.",
+      "question": "You must swap hats with one of these for a whole day. Who?",
+      "options": [
+        "A lighthouse keeper",
+        "A ship's cook",
+        "A circus ringmaster",
+        "A beekeeper"
+      ]
+    }
+  },
+  {
+    "date": "2027-09-22",
+    "game": {
+      "type": "closeup",
+      "intro": "Happy half-birthday, Spring Tiger. Six months to go, so today Saturn only wants to see things that are half done.",
+      "prompt": "Something in your home that is exactly half full, half done or halfway finished."
+    }
+  },
+  {
+    "date": "2027-09-23",
+    "game": {
+      "type": "wrong",
+      "intro": "Equinox! The cabin door creaks open for autumn. Saturn has one very easy question and wants it gloriously wrong.",
+      "question": "What season begins on the autumn equinox?",
+      "secret": {
+        "rule": "shortest"
+      }
+    }
+  },
+  {
+    "date": "2027-09-24",
+    "game": {
+      "type": "sound",
+      "intro": "Blanket fort revival night. The structural engineer is Saturn and he is not impressed. Give us the soundtrack.",
+      "prompt": "A blanket fort collapsing politely, one cushion at a time."
+    }
+  },
+  {
+    "date": "2027-09-25",
+    "game": {
+      "type": "emoji",
+      "intro": "Leo moon, roar practice. The lion wants proof of courage, but only in tiny pictures. Brave little emoji only.",
+      "prompt": "The bravest small thing you did this week."
+    }
+  },
+  {
+    "date": "2027-09-26",
+    "game": {
+      "type": "tales",
+      "intro": "Don't even scream: two matching sun-faced kites, one sky. Two of your sky facts are true, one drifted in from fiction.",
+      "prompt": "Three things you saw up in the sky this month: clouds, birds or something stranger."
+    }
+  },
+  {
+    "date": "2027-09-27",
+    "game": {
+      "type": "lightning",
+      "intro": "Virgo moon, colour-coded Monday. The studio label maker is warm. Three tidy picks, ten seconds each.",
+      "pairs": [
+        [
+          "Blue pen",
+          "Black pen"
+        ],
+        [
+          "Sticky notes",
+          "Index cards"
+        ],
+        [
+          "Highlighter",
+          "Underline"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-09-28",
+    "game": {
+      "type": "mind",
+      "intro": "Dark moon, quiet hour. The crew has dimmed the studio lights. Choose your silence and guess the other's.",
+      "question": "You get sixty perfectly silent minutes. Where do you spend them?",
+      "options": [
+        "Cabin, by the woodstove",
+        "Shore, at low tide",
+        "An empty library",
+        "A hammock under stars"
+      ]
+    }
+  },
+  {
+    "date": "2027-09-29",
+    "game": {
+      "type": "closeup",
+      "intro": "New moon, brand-new notebook. Saturn loves a first page. Show us one so close we can almost smell the paper.",
+      "prompt": "The first page of something: a notebook, a book, a calendar, a recipe card."
+    }
+  },
+  {
+    "date": "2027-09-30",
+    "game": {
+      "type": "wrong",
+      "intro": "Last day of the golden month. Saturn is packing up September and accepting only the wrongest of answers.",
+      "question": "What month comes after September?",
+      "secret": {
+        "rule": "lastAlphabetically"
+      }
+    }
+  }
+]

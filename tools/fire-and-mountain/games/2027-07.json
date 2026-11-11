@@ -1,0 +1,351 @@
+[
+  {
+    "date": "2027-07-01",
+    "game": {
+      "type": "wrong",
+      "intro": "Happy Canada Day, contestants! Saturn has a borrowed sparkler and zero respect for facts. Lie with pride.",
+      "question": "What colour is the maple leaf on the Canadian flag?",
+      "secret": {
+        "rule": "longest"
+      }
+    }
+  },
+  {
+    "date": "2027-07-02",
+    "game": {
+      "type": "sound",
+      "intro": "The moon took a personal day, so the crew is running the sound booth unsupervised. Godspeed.",
+      "prompt": "A screen door slamming shut on a lazy July afternoon, followed by the spring that keeps wobbling."
+    }
+  },
+  {
+    "date": "2027-07-03",
+    "game": {
+      "type": "emoji",
+      "intro": "New moon, new shell. The hermit crabs demanded a housewarming round and Saturn caved instantly.",
+      "prompt": "The perfect summer cottage, described entirely in emoji: where it is, what is on the porch, who lives under it."
+    }
+  },
+  {
+    "date": "2027-07-04",
+    "game": {
+      "type": "tales",
+      "intro": "Two orphan flip-flops, one on each beach. ΔΕΣ. Saturn wants three stories and is sniffing for the fake.",
+      "prompt": "Three things you have found on a beach in your life. Two real, one so good it should have been real."
+    }
+  },
+  {
+    "date": "2027-07-05",
+    "game": {
+      "type": "lightning",
+      "intro": "The lion borrowed a sunhat and the crew borrowed a stopwatch. Ten seconds each. Pounce!",
+      "pairs": [
+        [
+          "Sunhat",
+          "Sunglasses"
+        ],
+        [
+          "Cannonball",
+          "Toe dip"
+        ],
+        [
+          "Lawn chair",
+          "Beach towel"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-07-06",
+    "game": {
+      "type": "mind",
+      "intro": "Mischief day. Somewhere a crowd is applauding nobody, and Saturn wants to know what you would clap for.",
+      "question": "A stranger starts a slow clap just for you. What did you do to deserve it?",
+      "options": [
+        "Parallel parked in one go",
+        "Caught a falling ice cream cone",
+        "Opened a stuck jar",
+        "Said something wise mid-yawn"
+      ]
+    }
+  },
+  {
+    "date": "2027-07-07",
+    "game": {
+      "type": "closeup",
+      "intro": "Focus day. The beach bag is alphabetized and the camera is so close it can hear the sand.",
+      "prompt": "Something in your bag or pocket right now, photographed so close it looks like an alien landscape."
+    }
+  },
+  {
+    "date": "2027-07-08",
+    "game": {
+      "type": "wrong",
+      "intro": "Peace talks with the mosquitoes are ongoing. Meanwhile, Saturn will accept only nonsense.",
+      "question": "Why do mosquitoes buzz?",
+      "secret": {
+        "rule": "mostWords"
+      }
+    }
+  },
+  {
+    "date": "2027-07-09",
+    "game": {
+      "type": "sound",
+      "intro": "Crossing day. The canoe is balanced, the paddles are ready, and the microphone is very wet.",
+      "prompt": "A canoe paddle dipping into a perfectly calm lake at dawn, plus one loon who has opinions."
+    }
+  },
+  {
+    "date": "2027-07-10",
+    "game": {
+      "type": "tabloid",
+      "intro": "Libra moon brokered a fair trade on a seashell and the newsroom lost its mind. Fill the blank.",
+      "headline": "SEASHELL TRADED FOR ___ IN TENSE BEACH SUMMIT, GULLS CALL IT A ROBBERY"
+    }
+  },
+  {
+    "date": "2027-07-11",
+    "game": {
+      "type": "closest",
+      "intro": "Hammock negotiations have stalled, so Saturn rolled the dice. Literally. Guess low, guess smart.",
+      "question": "Grab one of the six-sided dice from a board game. Add up the dots on all six faces. How many?",
+      "unit": "dots",
+      "secret": {
+        "value": 21
+      },
+      "source": "Standard six-sided dice have faces 1 through 6; 1+2+3+4+5+6 = 21."
+    }
+  },
+  {
+    "date": "2027-07-12",
+    "game": {
+      "type": "lightning",
+      "intro": "Same wrong number, two phones. Don't even scream. The crew is dialling up three fast choices.",
+      "pairs": [
+        [
+          "Call",
+          "Text"
+        ],
+        [
+          "Voicemail",
+          "Hang up"
+        ],
+        [
+          "Ringtone",
+          "Vibrate"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-07-13",
+    "game": {
+      "type": "mind",
+      "intro": "You found a secret cove. Wonder is in the air and Saturn is trying to act casual about it.",
+      "question": "You find a cove nobody knows about. What do you leave there for the next lucky visitor?",
+      "options": [
+        "A painted rock",
+        "A tiny driftwood fort",
+        "A note in a jar",
+        "Footprints, nothing else"
+      ]
+    }
+  },
+  {
+    "date": "2027-07-14",
+    "game": {
+      "type": "closeup",
+      "intro": "There is an arrow-shaped cloud pointing somewhere. The crew followed it straight to your camera.",
+      "prompt": "Something that points: an arrow, a finger, a pencil tip, a weathervane. Make it unrecognizable."
+    }
+  },
+  {
+    "date": "2027-07-15",
+    "game": {
+      "type": "wrong",
+      "intro": "Courage day, detours encouraged. Saturn wants the wrong road taken at full speed.",
+      "question": "How do you know which way is north without a compass?",
+      "secret": {
+        "rule": "shortest"
+      }
+    }
+  },
+  {
+    "date": "2027-07-16",
+    "game": {
+      "type": "sound",
+      "intro": "The full moon is climbing Nancy's mountain tonight. The crew wants the soundtrack of the summit.",
+      "prompt": "Someone reaching the top of a very tall hill: the huffing, the triumph, the wind, the view."
+    }
+  },
+  {
+    "date": "2027-07-17",
+    "game": {
+      "type": "emoji",
+      "intro": "Saturn is wearing sandals today. Everyone is uncomfortable. Release it all into emoji.",
+      "prompt": "A planet on vacation: where it goes, what it packs, and what it refuses to do while it is there."
+    }
+  },
+  {
+    "date": "2027-07-18",
+    "game": {
+      "type": "tales",
+      "intro": "Full Moon Recharge at the shore. Ruby and onyx are glowing. Saturn wants one lie between them.",
+      "prompt": "Three things you have done under a full moon. Two true, one tall enough to touch it."
+    }
+  },
+  {
+    "date": "2027-07-19",
+    "game": {
+      "type": "lightning",
+      "intro": "The inventor's bonfire is lit under an Aquarius moon. Three choices, ten seconds, no patents.",
+      "pairs": [
+        [
+          "Gadget",
+          "Gizmo"
+        ],
+        [
+          "Blueprint",
+          "Wing it"
+        ],
+        [
+          "Marshmallow",
+          "Hot dog"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-07-20",
+    "game": {
+      "type": "mind",
+      "intro": "Twin driftwood seahorses on two beaches. ΔΕΣ, honestly. Now read each other's minds.",
+      "question": "The ocean offers you one souvenir. Which do you carry home?",
+      "options": [
+        "A seahorse-shaped stick",
+        "Sea glass the colour of ruby",
+        "A perfect sand dollar",
+        "A rock with a hole in it"
+      ]
+    }
+  },
+  {
+    "date": "2027-07-21",
+    "game": {
+      "type": "closeup",
+      "intro": "Patience. The fog is listening. So is the camera, which is pressed right up against something.",
+      "prompt": "Something soft or fuzzy in your house, so close the other person can count the fibres."
+    }
+  },
+  {
+    "date": "2027-07-22",
+    "game": {
+      "type": "wrong",
+      "intro": "A message in a jar is crossing the bay. Saturn will judge your answer like a cranky postmaster.",
+      "question": "How long does it take a message in a bottle to cross the Atlantic?",
+      "secret": {
+        "rule": "mostVowels"
+      }
+    }
+  },
+  {
+    "date": "2027-07-23",
+    "game": {
+      "type": "sound",
+      "intro": "The Tidepool Parliament is in session. Order! Order! Every crab gets the floor today.",
+      "prompt": "A crab scuttling across a rock in a very important hurry, and the barnacles reacting."
+    }
+  },
+  {
+    "date": "2027-07-24",
+    "game": {
+      "type": "tabloid",
+      "intro": "The moon kicked open Joel's door in Aries. The press got there first. Fill in the scandal.",
+      "headline": "FIRE TIGER SPOTTED ___ AT DAWN, WITNESSES SAY IT LOOKED SMUG"
+    }
+  },
+  {
+    "date": "2027-07-25",
+    "game": {
+      "type": "closest",
+      "intro": "The Tiger is mid-cannonball. Splash zone rules: guess close, but going over means a dunking.",
+      "question": "Board game break between cannonballs: how many squares are on a standard Scrabble board?",
+      "unit": "squares",
+      "secret": {
+        "value": 225
+      },
+      "source": "A standard Scrabble board is a 15 x 15 grid = 225 squares."
+    }
+  },
+  {
+    "date": "2027-07-26",
+    "game": {
+      "type": "lightning",
+      "intro": "Slow porch day. The crew is in rocking chairs. Even the Lightning Round is yawning.",
+      "pairs": [
+        [
+          "Rocking chair",
+          "Porch step"
+        ],
+        [
+          "Iced tea",
+          "Lemonade"
+        ],
+        [
+          "Wave hello",
+          "Pretend asleep"
+        ]
+      ]
+    }
+  },
+  {
+    "date": "2027-07-27",
+    "game": {
+      "type": "mind",
+      "intro": "Two buckets of blueberries, picked the same minute, miles apart. DES! Now guess the snack.",
+      "question": "Blueberry season is here. What is the best thing to do with a full bucket?",
+      "options": [
+        "Eat them warm off the bush",
+        "Bake a grunt",
+        "Freeze them for January",
+        "Share them with the neighbours"
+      ]
+    }
+  },
+  {
+    "date": "2027-07-28",
+    "game": {
+      "type": "closeup",
+      "intro": "The wheelbarrow is stubborn and so is Saturn. Focus that lens like you mean it.",
+      "prompt": "Something with a wheel on it, so close the other person can see every scuff and spoke."
+    }
+  },
+  {
+    "date": "2027-07-29",
+    "game": {
+      "type": "wrong",
+      "intro": "A two-sided postcard. One side tells the truth. Saturn only reads the other side.",
+      "question": "What do people usually write on a postcard?",
+      "secret": {
+        "rule": "firstAlphabetically"
+      }
+    }
+  },
+  {
+    "date": "2027-07-30",
+    "game": {
+      "type": "sound",
+      "intro": "The cove has an echo, the crew has a microphone, and Saturn has earplugs. Let it go.",
+      "prompt": "Yelling hello into a cave and hearing the echo answer back, but slightly sassier each time."
+    }
+  },
+  {
+    "date": "2027-07-31",
+    "game": {
+      "type": "emoji",
+      "intro": "Last day of July. A shell rides home in a pocket. Spell out the summer before it sneaks away.",
+      "prompt": "Your favourite memory from this July, told in five emoji or fewer. No words, no peeking."
+    }
+  }
+]
