@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="description" content="Agatha the dwarf Life cleric at level 5, under the 2024 rules.">
+<title>Agatha, Level 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Alegreya+Sans:ital,wght@0,400;0,700;1,400&family=Caveat:wght@500;700&display=swap">
+<style>
+/* One idea: a page torn from Agatha's field cookbook, sitting on a peat-dark table. Ruled margin, a few pencilled notes in her hand, everything else plain. */
+:root {
+  --table: #3b3a2a;
+  --paper: #f5eedb;
+  --paper-2: #ece2c8;
+  --ink: #29271d;
+  --peat: #5c3f2b;
+  --bog: #3e5b37;
+  --gold: #a8781d;
+  --heal: #b2463a;
+  --pencil: #6a6556;
+  --rule: #d9cba9;
+  --display: "Bree Serif", Rockwell, Georgia, serif;
+  --body: "Alegreya Sans", "Gill Sans", "Segoe UI", system-ui, sans-serif;
+  --hand: "Caveat", "Bradley Hand", "Segoe Print", cursive;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --table: #0e0f0b; --paper: #1d1c16; --paper-2: #26241c; --ink: #ebe3cc; --peat: #d4b28f;
+    --bog: #9dc188; --gold: #e2b65a; --heal: #ec8f78; --pencil: #a9a18c; --rule: #3a3629; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --table: #0e0f0b; --paper: #1d1c16; --paper-2: #26241c; --ink: #ebe3cc; --peat: #d4b28f;
+  --bog: #9dc188; --gold: #e2b65a; --heal: #ec8f78; --pencil: #a9a18c; --rule: #3a3629; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--table); color: var(--ink); font: 400 1.06rem/1.55 var(--body); overflow-x: hidden; }
+a { color: inherit; text-decoration-color: color-mix(in srgb, var(--bog) 60%, transparent); text-underline-offset: .16em; text-decoration-thickness: 1.5px; }
+a:hover { color: var(--bog); text-decoration-color: var(--bog); }
+a:focus-visible, input:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+.outer {
+  padding-left: max(18px, env(safe-area-inset-left, 0px));
+  padding-right: max(18px, env(safe-area-inset-right, 0px));
+  padding-block: 1.5rem 2.5rem;
+}
+.sheet {
+  max-width: 50rem; margin: 0 auto; background: var(--paper);
+  box-shadow: 0 1px 0 var(--rule), 0 14px 30px rgb(0 0 0 / .28);
+  position: relative;
+  padding: 2rem 1.4rem 2.5rem 2.6rem;
+}
+/* the red margin rule of an exercise book */
+.sheet::before { content: ""; position: absolute; top: 0; bottom: 0; left: 1.5rem; border-left: 2px double color-mix(in srgb, var(--heal) 55%, transparent); }
+@media (min-width: 40rem) { .sheet { padding: 2.75rem 2.75rem 3rem 4.5rem; } .sheet::before { left: 2.6rem; } }
+
+header { margin-bottom: 2rem; }
+h1 { font: 400 clamp(2.6rem, 9vw, 4rem)/1 var(--display); margin: 0; color: var(--peat); }
+.sub { margin: .35rem 0 0; color: var(--pencil); }
+h2 { font: 400 1.55rem/1.2 var(--display); margin: 2.6rem 0 .8rem; color: var(--peat); text-decoration: underline wavy color-mix(in srgb, var(--gold) 70%, transparent); text-decoration-thickness: 1.5px; text-underline-offset: .3em; text-decoration-skip-ink: none; }
+h3 { font: 700 1.1rem/1.3 var(--body); margin: 1.4rem 0 .3rem; }
+p { margin: 0 0 .8rem; max-width: 66ch; }
+.pg { font-size: .8rem; color: var(--pencil); white-space: nowrap; }
+.small { font-size: .9rem; color: var(--pencil); }
+
+/* her pencilled notes */
+.note { font: 500 1.35rem/1.2 var(--hand); color: var(--heal); margin: .2rem 0 1rem; max-width: 34ch; transform: rotate(-1.2deg); transform-origin: left; }
+.note.right { margin-left: auto; text-align: right; transform: rotate(1deg); transform-origin: right; }
+
+/* the turn: the main thing */
+.turn { margin: 0; }
+.turn dt { font: 400 1.2rem/1.25 var(--display); color: var(--bog); margin-top: 1.1rem; }
+.turn dt:first-child { margin-top: 0; }
+.turn dt .cost { font: 700 .78rem/1 var(--body); color: var(--pencil); letter-spacing: .04em; margin-left: .35rem; }
+.turn dd { margin: .2rem 0 0; max-width: 64ch; }
+
+/* numbers: a plain ledger */
+.ledger { border-collapse: collapse; width: 100%; max-width: 34rem; font-variant-numeric: tabular-nums; }
+.ledger th, .ledger td { text-align: left; padding: .45rem .5rem .45rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.ledger th { font-weight: 400; width: 46%; }
+.ledger td b { font: 400 1.2rem/1 var(--display); color: var(--bog); }
+.ledger td .pg { margin-left: .3rem; }
+
+/* tickable spell slots */
+.slots { display: grid; gap: .3rem; }
+.slots div { display: flex; align-items: center; gap: .35rem; }
+.slots span { width: 3.6rem; font-size: .9rem; color: var(--pencil); }
+.slots input { appearance: none; -webkit-appearance: none; margin: 0; width: 1.05rem; height: 1.05rem; border: 2px solid var(--bog); border-radius: 50%; background: transparent; cursor: pointer; display: grid; place-content: center; }
+.slots input::after { content: ""; width: .5rem; height: .5rem; border-radius: 50%; background: var(--bog); }
+.slots input:checked { border-color: var(--pencil); }
+.slots input:checked::after { background: transparent; width: .9rem; height: 2px; border-radius: 0; background: var(--heal); transform: rotate(-35deg); }
+
+.hp { border-collapse: collapse; font-variant-numeric: tabular-nums; margin: .4rem 0 .8rem; }
+.hp th, .hp td { padding: .35rem 1.1rem .35rem 0; border-bottom: 1px solid var(--rule); text-align: left; }
+.hp th { font-weight: 700; font-size: .85rem; color: var(--pencil); }
+.hp td:nth-child(2), .hp td:nth-child(3) { font: 400 1.15rem/1 var(--display); color: var(--bog); }
+
+/* to-do list */
+.todo { list-style: none; padding: 0; margin: 0; display: grid; gap: .55rem; max-width: 64ch; }
+.todo label { display: grid; grid-template-columns: 1.4rem 1fr; gap: .4rem; align-items: start; cursor: pointer; }
+.todo input { appearance: none; -webkit-appearance: none; margin: .25rem 0 0; width: 1rem; height: 1rem; border: 2px solid var(--peat); background: transparent; cursor: pointer; display: grid; place-content: center; }
+.todo input:checked::after { content: ""; width: .55rem; height: .3rem; border-left: 2.5px solid var(--heal); border-bottom: 2.5px solid var(--heal); transform: translateY(-2px) rotate(-45deg); }
+.todo input:checked + span { color: var(--pencil); }
+
+.levels { margin: 0; }
+.levels dt { font-weight: 700; margin-top: .9rem; }
+.levels dt small { font-weight: 400; color: var(--pencil); margin-right: .4rem; }
+.levels dd { margin: .15rem 0 0; max-width: 64ch; }
+
+.always { margin: .3rem 0 .9rem; padding: 0; list-style: none; }
+.always li { padding: .2rem 0; }
+.always b { display: inline-block; min-width: 4.8rem; font-weight: 400; color: var(--pencil); font-size: .9rem; }
+
+/* spell lists: reference, so small and plain */
+.lists { font-size: .9rem; }
+.lists h3 { font-size: .95rem; margin: 1.2rem 0 .25rem; color: var(--peat); }
+.lists ul { list-style: none; margin: 0; padding: 0; columns: 3 10.5rem; column-gap: 1.5rem; }
+.lists li { break-inside: avoid; padding: .12rem 0; }
+.lists li i { font-style: normal; font-size: .75rem; color: var(--pencil); margin-left: .25rem; }
+.lists li i.mine { color: var(--heal); }
+.lock { display: inline-block; width: .7em; height: .7em; margin-left: .25em; vertical-align: .05em; background: currentColor; opacity: .55;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 7V5a4 4 0 0 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 0 0-4 0v2z'/%3E%3C/svg%3E") center/contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 7V5a4 4 0 0 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 0 0-4 0v2z'/%3E%3C/svg%3E") center/contain no-repeat; }
+
+/* phones: restack tables into blocks, roomier tap targets */
+@media (max-width: 40rem) {
+  .ledger, .ledger tbody, .ledger tr, .ledger th, .ledger td { display: block; width: auto; }
+  .ledger tr { padding: .5rem 0; border-bottom: 1px solid var(--rule); }
+  .ledger th, .ledger td { border: 0; padding: 0; }
+  .ledger th { font-size: .9rem; color: var(--pencil); }
+  .hp { width: 100%; }
+  .hp thead { display: none; }
+  .hp, .hp tbody, .hp tr, .hp td { display: block; }
+  .hp tr { display: grid; grid-template-columns: 1fr 1fr; gap: .1rem 1rem; padding: .5rem 0; border-bottom: 1px solid var(--rule); }
+  .hp td { border: 0; padding: 0; }
+  .hp td:first-child { grid-column: 1 / -1; font-weight: 700; }
+  .hp td::before { content: attr(data-label); display: block; font: 400 .8rem/1.3 var(--body); color: var(--pencil); }
+  .hp td:first-child::before { display: inline; margin-right: .4rem; }
+  .lists { font-size: 1rem; }
+  .lists ul { columns: 2 8rem; column-gap: 1rem; }
+  .lists li { padding: .3rem 0; line-height: 1.3; }
+  .slots input { width: 1.5rem; height: 1.5rem; }
+  .slots input::after { width: .7rem; height: .7rem; }
+  .slots input:checked::after { width: 1.2rem; }
+  .todo input { width: 1.2rem; height: 1.2rem; }
+  .note.right { text-align: left; margin-left: 0; transform: rotate(-1deg); transform-origin: left; }
+}
+footer { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+</head>
+<body>
+<div class="outer">
+<article class="sheet">
+
+<header>
+  <h1>Agatha</h1>
+  <p class="sub">Dwarf, Life Domain cleric, level 5. Rules from the 2024 Player's Handbook.</p>
+  <p class="note">Four levels at once. Fine. Pull up a stool and we'll go through it.</p>
+</header>
+
+<h2>What you can do on your turn now</h2>
+<p>You have <b>2 uses of Channel Divinity</b>. A short rest gives one back and a long rest gives both back. Each use can be any of the first three below. <span class="pg">PHB p. 70</span></p>
+
+<dl class="turn">
+  <dt>Preserve Life <span class="cost">action, 1 Channel Divinity</span></dt>
+  <dd>Hold up your holy symbol and hand out <b>25 hit points</b> (5 times your cleric level) however you like among Bloodied creatures within 30 feet of you, yourself included. Bloodied means down to half their hit points or less. It can't heal anyone past half their maximum, so it's for pulling people out of trouble, not topping them up. <span class="pg">p. 73</span></dd>
+  <dt>Divine Spark <span class="cost">action, 1 Channel Divinity</span></dt>
+  <dd>Point your holy symbol at one creature you can see within 30 feet. Roll 1d8 and add your Wisdom modifier. Either heal them that much, or make them roll a Constitution save and take that much necrotic or radiant damage (half if they pass). With +3 Wisdom it's 1d8+3 either way. <span class="pg">p. 70</span></dd>
+  <dt>Turn Undead, with Sear Undead <span class="cost">action, 1 Channel Divinity</span></dt>
+  <dd>Every undead you choose within 30 feet makes a Wisdom save. The ones that fail are frightened and can't act for a minute, and they spend their turns getting away from you. Hitting one ends it for that one. New at level 5, you also roll a d8 for each point of your Wisdom modifier (at least one) and every undead that failed takes that much radiant damage. That damage doesn't break the effect. +3 Wisdom means 3d8. <span class="pg">pp. 70–71</span></dd>
+  <dt>Healing spells hit harder</dt>
+  <dd>With Disciple of Life, whenever a spell you cast with a slot heals someone, they get an extra 2 plus the slot's level on top. <a href="https://www.dndbeyond.com/spells/2619079-cure-wounds" target="_blank" rel="noopener">Cure Wounds</a> from a level 1 slot heals 3 extra. <a href="https://www.dndbeyond.com/spells/2619028-mass-healing-word" target="_blank" rel="noopener">Mass Healing Word</a> from a level 3 slot gives 5 extra to each of the up to six people it heals. Cantrips don't use a slot, so they don't count. <span class="pg">p. 73</span></dd>
+  <dt>Level 3 spells</dt>
+  <dd>You now have two level 3 slots. <a href="https://www.dndbeyond.com/spells/2618956-revivify" target="_blank" rel="noopener">Revivify</a> is always ready. Touch someone who died in the last minute and they're back at 1 hit point. It eats a diamond worth 300 gp or more, so you need one in your pack before it matters. <span class="pg">pp. 73, 312</span></dd>
+</dl>
+<p class="note right">The big pot of stew is Preserve Life. Don't waste it on one scraped knee.</p>
+
+<h2>Your numbers</h2>
+<table class="ledger">
+  <tbody>
+    <tr><th scope="row">Proficiency bonus</th><td><b>+3</b> <span class="pg">p. 70</span></td></tr>
+    <tr><th scope="row">Spell slots <span class="small">(tick them off as you use them)</span></th><td>
+      <div class="slots" role="group" aria-label="Spell slots: four level 1, three level 2, two level 3">
+        <div><span>Level 1</span><input type="checkbox" aria-label="Level 1 slot"><input type="checkbox" aria-label="Level 1 slot"><input type="checkbox" aria-label="Level 1 slot"><input type="checkbox" aria-label="Level 1 slot"></div>
+        <div><span>Level 2</span><input type="checkbox" aria-label="Level 2 slot"><input type="checkbox" aria-label="Level 2 slot"><input type="checkbox" aria-label="Level 2 slot"></div>
+        <div><span>Level 3</span><input type="checkbox" aria-label="Level 3 slot"><input type="checkbox" aria-label="Level 3 slot"></div>
+      </div>
+      <span class="pg">p. 70. All back after a long rest.</span></td></tr>
+    <tr><th scope="row">Prepared spells</th><td><b>9</b> you pick, plus 6 domain spells that are always ready <span class="pg">pp. 70, 73</span></td></tr>
+    <tr><th scope="row">Cantrips</th><td><b>4</b> (5 if your Divine Order is Thaumaturge) <span class="pg">p. 70</span></td></tr>
+    <tr><th scope="row">Channel Divinity</th><td><b>2</b> uses <span class="pg">p. 70</span></td></tr>
+    <tr><th scope="row">Spell save DC</th><td>8 + Wisdom modifier + 3 <span class="pg">p. 238</span></td></tr>
+    <tr><th scope="row">Spell attack</th><td>Wisdom modifier + 3 <span class="pg">p. 238</span></td></tr>
+  </tbody>
+</table>
+<p class="small">So with +3 Wisdom, monsters need 14 to resist your spells and your spell attacks are +6. Turn Undead and Divine Spark use the same DC.</p>
+
+<h3>Hit points</h3>
+<p>Clerics start with 8 + Con modifier at level 1 and get 5 + Con modifier for each level after (or roll a d8 each level instead). As a dwarf, Dwarven Toughness adds 1 more per level, so 5 extra by level 5. <span class="pg">pp. 40, 42, 188</span></p>
+<table class="hp">
+  <thead><tr><th>Con modifier</th><th>Max HP</th><th>With Dwarven Toughness</th></tr></thead>
+  <tbody>
+    <tr><td data-label="Con modifier">+0</td><td data-label="Max HP">28</td><td data-label="With Dwarven Toughness">33</td></tr>
+    <tr><td data-label="Con modifier">+1</td><td data-label="Max HP">33</td><td data-label="With Dwarven Toughness">38</td></tr>
+    <tr><td data-label="Con modifier">+2</td><td data-label="Max HP">38</td><td data-label="With Dwarven Toughness">43</td></tr>
+    <tr><td data-label="Con modifier">+3</td><td data-label="Max HP">43</td><td data-label="With Dwarven Toughness">48</td></tr>
+  </tbody>
+</table>
+<p class="small">Dwarven Toughness is the 2024 dwarf. If your sheet uses an older dwarf, check with the DM whether it applies. If your feat bumps Constitution, go down a row.</p>
+
+<h2>Sort these out before next session</h2>
+<ul class="todo">
+  <li><label><input type="checkbox"><span><b>Divine Order</b>, if you didn't pick one at level 1. Protector gives you martial weapons and heavy armor. Thaumaturge gives you an extra cantrip, plus your Wisdom modifier (at least +1) added to Intelligence checks for Arcana or Religion. <span class="pg">p. 70</span></span></label></li>
+  <li><label><input type="checkbox"><span><b>Your level 4 feat.</b> Ability Score Improvement means +2 to one score or +1 to two, max 20. Most clerics put it in Wisdom. You can take a different feat you qualify for instead. <span class="pg">pp. 71, 202</span></span></label></li>
+  <li><label><input type="checkbox"><span><b>One new cantrip</b>, so you have 4. You're also allowed to swap one old cantrip for another each time you level. <span class="pg">p. 69</span></span></label></li>
+  <li><label><input type="checkbox"><span><b>Prepared spells.</b> You go from 4 to 9, from levels 1, 2 and 3 in any mix. The lists are at the bottom. <span class="pg">p. 69</span></span></label></li>
+  <li><label><input type="checkbox"><span><b>Write the domain spells on your sheet.</b> They're free, see below. <span class="pg">p. 73</span></span></label></li>
+  <li><label><input type="checkbox"><span><b>New max HP</b> from the table above.</span></label></li>
+  <li><label><input type="checkbox"><span><b>A diamond for Revivify</b>, 300 gp or more. Ask the DM where you'd get one.</span></label></li>
+</ul>
+
+<h2>Your Life Domain spells</h2>
+<p>These are always prepared and don't count against your 9. <span class="pg">p. 73</span></p>
+<ul class="always">
+  <li><b>From level 3</b> <a href="https://www.dndbeyond.com/spells/2618845-aid" target="_blank" rel="noopener">Aid</a>, <a href="https://www.dndbeyond.com/spells/2618933-bless" target="_blank" rel="noopener">Bless</a>, <a href="https://www.dndbeyond.com/spells/2619079-cure-wounds" target="_blank" rel="noopener">Cure Wounds</a>, <a href="https://www.dndbeyond.com/spells/2619016-lesser-restoration" target="_blank" rel="noopener">Lesser Restoration</a></li>
+  <li><b>From level 5</b> <a href="https://www.dndbeyond.com/spells/2619028-mass-healing-word" target="_blank" rel="noopener">Mass Healing Word</a>, <a href="https://www.dndbeyond.com/spells/2618956-revivify" target="_blank" rel="noopener">Revivify</a></li>
+</ul>
+
+<h2>How you got here</h2>
+<dl class="levels">
+  <dt><small>Level 1</small>Spellcasting and Divine Order <span class="pg">pp. 69–70</span></dt>
+  <dd>Cleric magic, plus the Protector or Thaumaturge choice above.</dd>
+  <dt><small>Level 2</small>Channel Divinity <span class="pg">p. 70</span></dt>
+  <dd>Two uses, recharging as above. Divine Spark and Turn Undead come with it.</dd>
+  <dt><small>Level 3</small>Life Domain <span class="pg">p. 73</span></dt>
+  <dd>Disciple of Life, Preserve Life and the first four domain spells.</dd>
+  <dt><small>Level 4</small>Ability Score Improvement <span class="pg">pp. 69, 71</span></dt>
+  <dd>Your feat, and your fourth cantrip.</dd>
+  <dt><small>Level 5</small>Sear Undead <span class="pg">pp. 71, 73</span></dt>
+  <dd>Radiant damage on Turn Undead, level 3 slots, and Mass Healing Word and Revivify join your domain spells. Proficiency goes up to +3.</dd>
+</dl>
+
+<h2>How cleric spells work</h2>
+<p>You don't have a spellbook. After every long rest you can change your prepared list, picking any cleric spells you have slots for, up to 9. Swap the lot if the day ahead looks different. <span class="pg">p. 69</span></p>
+<p>Wisdom powers all of it. A holy symbol works as your focus, so if your pilgrim's sun badge is your holy symbol, that's what you hold up. <span class="pg">p. 69</span></p>
+<p>Casting a level 1+ spell uses a slot of that level or higher. Plenty of spells do more from a higher slot, so <a href="https://www.dndbeyond.com/spells/2619079-cure-wounds" target="_blank" rel="noopener">Cure Wounds</a> from a level 2 slot heals more than from a level 1 slot (and Disciple of Life adds 4 instead of 3). Cantrips are free, cast them all day.</p>
+<p><b>Concentration</b> spells (marked <i>conc</i> below) last while you keep your mind on them. You can only hold one at a time, and taking damage can break it. <b>Ritual</b> spells can be cast with no slot if you take 10 extra minutes, as long as you have them prepared. <span class="pg">p. 235</span></p>
+
+<h2>The cleric spell list, up to level 3</h2>
+<div class="lists">
+  <p class="small">From PHB pp. 71–72. <i class="mine">always</i> means it's one of your domain spells. <i>item</i> means it needs a particular material, sometimes one that costs money. A small lock means D&amp;D Beyond only shows that spell to people with the 2024 Player's Handbook there.</p>
+  <h3>Cantrips</h3>
+  <ul>
+    <li><a href="https://www.dndbeyond.com/spells/2618971-guidance" target="_blank" rel="noopener">Guidance</a><i>conc</i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618996-light" target="_blank" rel="noopener">Light</a></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619033-mending" target="_blank" rel="noopener">Mending</a></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618947-resistance" target="_blank" rel="noopener">Resistance</a><i>conc</i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618967-sacred-flame" target="_blank" rel="noopener">Sacred Flame</a></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619067-spare-the-dying" target="_blank" rel="noopener">Spare the Dying</a></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619174-thaumaturgy" target="_blank" rel="noopener">Thaumaturgy</a></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619188-toll-the-dead" target="_blank" rel="noopener">Toll the Dead</a><i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619217-word-of-radiance" target="_blank" rel="noopener">Word of Radiance</a><i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></li>
+  </ul>
+  <h3>Level 1</h3>
+  <ul>
+    <li><a href="https://www.dndbeyond.com/spells/2618900-bane" target="_blank" rel="noopener">Bane</a><i>conc</i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618933-bless" target="_blank" rel="noopener">Bless</a><i>conc, item</i><i class="mine">always</i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618985-command" target="_blank" rel="noopener">Command</a></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619074-create-or-destroy-water" target="_blank" rel="noopener">Create or Destroy Water</a></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619079-cure-wounds" target="_blank" rel="noopener">Cure Wounds</a><i class="mine">always</i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619090-detect-evil-and-good" target="_blank" rel="noopener">Detect Evil and Good</a><i>conc</i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619097-detect-magic" target="_blank" rel="noopener">Detect Magic</a><i>conc, ritual</i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619093-detect-poison-and-disease" target="_blank" rel="noopener">Detect Poison and Disease</a><i>conc, ritual</i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619136-guiding-bolt" target="_blank" rel="noopener">Guiding Bolt</a></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619143-healing-word" target="_blank" rel="noopener">Healing Word</a></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619181-inflict-wounds" target="_blank" rel="noopener">Inflict Wounds</a></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618912-protection-from-evil-and-good" target="_blank" rel="noopener">Protection from Evil and Good</a><i>conc, item</i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618917-purify-food-and-drink" target="_blank" rel="noopener">Purify Food and Drink</a><i>ritual</i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619003-sanctuary" target="_blank" rel="noopener">Sanctuary</a></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619020-shield-of-faith" target="_blank" rel="noopener">Shield of Faith</a><i>conc</i></li>
+  </ul>
+  <h3>Level 2</h3>
+  <ul>
+    <li><a href="https://www.dndbeyond.com/spells/2618845-aid" target="_blank" rel="noopener">Aid</a><i class="mine">always</i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618882-augury" target="_blank" rel="noopener">Augury</a><i>ritual, item</i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618938-blindness-deafness" target="_blank" rel="noopener">Blindness/Deafness</a></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618959-calm-emotions" target="_blank" rel="noopener">Calm Emotions</a><i>conc</i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619065-continual-flame" target="_blank" rel="noopener">Continual Flame</a><i>item</i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619165-enhance-ability" target="_blank" rel="noopener">Enhance Ability</a><i>conc</i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618883-find-traps" target="_blank" rel="noopener">Find Traps</a></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618942-gentle-repose" target="_blank" rel="noopener">Gentle Repose</a><i>ritual, item</i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619153-hold-person" target="_blank" rel="noopener">Hold Person</a><i>conc</i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619016-lesser-restoration" target="_blank" rel="noopener">Lesser Restoration</a><i class="mine">always</i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619002-locate-object" target="_blank" rel="noopener">Locate Object</a><i>conc</i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618892-prayer-of-healing" target="_blank" rel="noopener">Prayer of Healing</a></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618915-protection-from-poison" target="_blank" rel="noopener">Protection from Poison</a></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619061-silence" target="_blank" rel="noopener">Silence</a><i>conc, ritual</i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619081-spiritual-weapon" target="_blank" rel="noopener">Spiritual Weapon</a><i>conc</i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619203-warding-bond" target="_blank" rel="noopener">Warding Bond</a><i>item</i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619221-zone-of-truth" target="_blank" rel="noopener">Zone of Truth</a></li>
+  </ul>
+  <h3>Level 3</h3>
+  <ul>
+    <li><a href="https://www.dndbeyond.com/spells/2618853-animate-dead" target="_blank" rel="noopener">Animate Dead</a></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618891-aura-of-vitality" target="_blank" rel="noopener">Aura of Vitality</a><i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i><i>conc</i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618911-beacon-of-hope" target="_blank" rel="noopener">Beacon of Hope</a><i>conc</i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618923-bestow-curse" target="_blank" rel="noopener">Bestow Curse</a><i>conc</i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618972-clairvoyance" target="_blank" rel="noopener">Clairvoyance</a><i>conc, item</i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619073-create-food-and-water" target="_blank" rel="noopener">Create Food and Water</a></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619083-daylight" target="_blank" rel="noopener">Daylight</a></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619103-dispel-magic" target="_blank" rel="noopener">Dispel Magic</a></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618873-feign-death" target="_blank" rel="noopener">Feign Death</a><i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i><i>ritual</i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618951-glyph-of-warding" target="_blank" rel="noopener">Glyph of Warding</a><i>item</i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619018-magic-circle" target="_blank" rel="noopener">Magic Circle</a><i>item</i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619028-mass-healing-word" target="_blank" rel="noopener">Mass Healing Word</a><i class="mine">always</i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619031-meld-into-stone" target="_blank" rel="noopener">Meld into Stone</a><i>ritual</i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618908-protection-from-energy" target="_blank" rel="noopener">Protection from Energy</a><i>conc</i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618943-remove-curse" target="_blank" rel="noopener">Remove Curse</a></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618956-revivify" target="_blank" rel="noopener">Revivify</a><i>item</i><i class="mine">always</i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619015-sending" target="_blank" rel="noopener">Sending</a></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619068-speak-with-dead" target="_blank" rel="noopener">Speak with Dead</a></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619078-spirit-guardians" target="_blank" rel="noopener">Spirit Guardians</a><i>conc</i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619190-tongues" target="_blank" rel="noopener">Tongues</a></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619207-water-walk" target="_blank" rel="noopener">Water Walk</a><i>ritual</i></li>
+  </ul>
+</div>
+<p class="note">Nobody reads the whole menu. Pick what keeps people standing.</p>
+
+<h2>The other domains</h2>
+<p class="small">Just so you know what the other clerics are up to. <span class="pg">pp. 74–77</span></p>
+<p class="small"><b>Light</b> burns things, with a radiant flash and a reaction that makes attacks miss. <b>Trickery</b> makes an illusion of you to cast spells from and sneak around with. <b>War</b> gets extra weapon attacks as a bonus action and can turn a miss into a hit.</p>
+
+<h2>Coming up</h2>
+<p>At <b>6</b> you get Blessed Healer, so healing someone else with a slot heals you too, 2 plus the slot level. Channel Divinity goes up to 3 uses and you get a third level 3 slot. <span class="pg">pp. 70, 74</span></p>
+<p>Level <b>7</b> brings Blessed Strikes (extra radiant or necrotic damage on a weapon hit, or Wisdom added to cantrip damage, your pick), a level 4 slot, Divine Spark goes to 2d8, and <a href="https://www.dndbeyond.com/spells/2618884-aura-of-life" target="_blank" rel="noopener">Aura of Life</a> and <a href="https://www.dndbeyond.com/spells/2619085-death-ward" target="_blank" rel="noopener">Death Ward</a> become domain spells. <span class="pg">pp. 70–71, 73</span></p>
+<p>Then another feat at <b>8</b>. <span class="pg">p. 71</span></p>
+<p class="note right">Stew's on. Go save somebody.</p>
+
+<footer>
+  <p class="small">Rules put in plain words from the 2024 Player's Handbook, with printed page numbers. The pencil notes are Agatha talking, not rules. Spell names link to the 2024 versions on D&amp;D Beyond.</p>
+</footer>
+
+</article>
+</div>
+</body>
+</html>
