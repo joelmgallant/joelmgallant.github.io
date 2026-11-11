@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="description" content="Sorcerer, Warlock and Wizard side by side at level 5, under the 2024 rules.">
+<title>Three Spellcasters</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+/* A two-colour letterpress handbill: black and vermilion ink on off-white stock. One poster headline, then a working comparison table, then plain notes. */
+:root {
+  --stock: #f1ede4;
+  --stock-shade: #e4dfd2;
+  --ink: #1b1918;
+  --ink-soft: #57524c;
+  --red: #b8321f;
+  --rule: #b9b2a5;
+  --poster: "Alfa Slab One", "Rockwell", "Courier New", serif;
+  --type: "Old Standard TT", "Iowan Old Style", "Times New Roman", serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--stock); }
+body { color: var(--ink); font: 400 1.08rem/1.55 var(--type); }
+a { color: var(--ink); text-decoration-color: var(--red); text-underline-offset: .15em; }
+a:hover { color: var(--red); }
+a:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+
+.sheet { max-width: 54rem; margin: 0 auto; padding: 2.5rem max(18px, env(safe-area-inset-right, 0px)) 4rem max(18px, env(safe-area-inset-left, 0px)); }
+
+.bill { border: 6px double var(--ink); padding: 1.6rem 1.4rem 1.4rem; text-align: center; display: grid; gap: .6rem; }
+.bill .top { font: italic 400 1rem/1.3 var(--type); color: var(--ink-soft); margin: 0; }
+.bill h1 { font: 400 clamp(1.9rem, 8.4vw, 5.2rem)/.92 var(--poster); overflow-wrap: anywhere; margin: 0; letter-spacing: .01em; text-transform: uppercase; }
+.bill h1 span { color: var(--red); display: block; font-size: .52em; letter-spacing: .12em; margin-bottom: .15em; }
+.bill .sub { margin: 0; font-size: 1.05rem; }
+.bill .sub b { color: var(--red); }
+
+.intro { margin: 2rem auto 0; max-width: 40rem; font-size: 1.15rem; }
+.intro em { color: var(--red); font-style: italic; }
+
+h2 { font: 400 1.65rem/1.1 var(--poster); text-transform: uppercase; margin: 3rem 0 .9rem; letter-spacing: .02em; }
+h2 small { font: italic 400 1rem/1 var(--type); text-transform: none; color: var(--ink-soft); letter-spacing: 0; margin-left: .4rem; }
+h3 { font: 700 1.3rem/1.2 var(--type); margin: 2rem 0 .4rem; }
+p { margin: 0 0 .8rem; max-width: 40rem; }
+.small { font-size: .9rem; color: var(--ink-soft); }
+.pg { font-size: .82rem; color: var(--ink-soft); white-space: nowrap; }
+
+.scroll { overflow-x: auto; }
+table.compare { width: 100%; min-width: 36rem; border-collapse: collapse; font-variant-numeric: tabular-nums lining-nums; }
+.compare th, .compare td { text-align: left; vertical-align: top; padding: .6rem .7rem; border-bottom: 1px solid var(--rule); }
+.compare thead th { font: 400 1.15rem/1 var(--poster); text-transform: uppercase; border-bottom: 3px solid var(--ink); padding-bottom: .55rem; }
+.compare tbody th { font: 700 .95rem/1.3 var(--type); width: 10.5rem; }
+.compare td b { color: var(--red); font-weight: 700; }
+.compare tr.money td { background: var(--stock-shade); }
+.slots { font-family: var(--poster); letter-spacing: .14em; color: var(--red); white-space: nowrap; }
+
+table.hp { border-collapse: collapse; font-variant-numeric: tabular-nums; margin: .4rem 0 1rem; }
+.hp th, .hp td { padding: .3rem 1rem .3rem 0; border-bottom: 1px solid var(--rule); text-align: left; }
+.hp th { font-weight: 700; font-size: .9rem; }
+
+ul.moves { margin: .2rem 0 0; padding: 0 0 0 1.1rem; max-width: 40rem; }
+ul.moves li { margin-bottom: .45rem; }
+ul.moves li::marker { color: var(--red); }
+
+.origins { display: grid; gap: .9rem; margin-top: .4rem; }
+.origin { border-left: 3px solid var(--red); padding-left: .9rem; max-width: 42rem; }
+.origin p { margin: 0 0 .25rem; }
+.origin .name { font-weight: 700; }
+.origin .spells { font-size: .92rem; color: var(--ink-soft); }
+.origin .spells a { color: var(--ink-soft); }
+
+.lock { display: inline-block; width: .65em; height: .65em; margin-left: .2em; background: currentColor; opacity: .55;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 7V5a4 4 0 0 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 0 0-4 0v2z'/%3E%3C/svg%3E") center/contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 7V5a4 4 0 0 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 0 0-4 0v2z'/%3E%3C/svg%3E") center/contain no-repeat; }
+
+.signoff { margin-top: 3rem; padding-top: 1.2rem; border-top: 3px solid var(--ink); }
+.signoff p { font-size: 1.1rem; }
+.signoff em { color: var(--red); }
+footer { margin-top: 2rem; font-size: .85rem; color: var(--ink-soft); max-width: 40rem; }
+@media (max-width: 40rem) {
+  body { font-size: 1.04rem; }
+  .sheet { padding-top: 1.2rem; }
+  .bill { padding: 1.2rem .9rem 1rem; border-width: 5px; }
+  .intro { margin-top: 1.4rem; font-size: 1.08rem; }
+  h2 { margin-top: 2.4rem; }
+  .scroll { overflow-x: visible; }
+  table.compare { min-width: 0; }
+  .compare thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .compare, .compare tbody, .compare tr, .compare th, .compare td { display: block; width: auto; }
+  .compare tr { border-bottom: 2px solid var(--ink); padding: .7rem 0 .55rem; }
+  .compare tr.money { background: var(--stock-shade); padding-left: .6rem; padding-right: .6rem; }
+  .compare tr.money td { background: none; }
+  .compare tbody th { border: 0; padding: 0 0 .35rem; font-size: 1.02rem; color: var(--red); }
+  .compare td { border: 0; padding: .2rem 0; display: grid; grid-template-columns: 5.6rem 1fr; gap: .5rem; align-items: baseline; }
+  .compare td::before { content: attr(data-label); font-family: var(--poster); text-transform: uppercase; font-size: .78rem; letter-spacing: .04em; padding-top: .18rem; }
+  .compare td br { display: none; }
+  .compare td .small::before { content: " "; }
+  .compare td .small { margin-left: 0; }
+  ul.moves { padding-left: 1rem; }
+  ul.moves li { margin-bottom: .6rem; }
+  .origin .spells a { display: inline-block; padding: .1rem 0; }
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="bill">
+  <p class="top">For one night only, at the table of your choosing</p>
+  <h1><span>The amazing</span>Three Spellcasters</h1>
+  <p class="sub">Sorcerer, Warlock and Wizard, compared at <b>level 5</b> · 2024 Player's Handbook</p>
+</header>
+
+<p class="intro">Step right up. <em>Three ways to get magic,</em> and they play very differently once you're at level 5. The table below is the whole comparison. Everything after it is detail for when you've narrowed it down.</p>
+
+<h2>Side by side</h2>
+<div class="scroll">
+<table class="compare">
+  <thead><tr><th scope="col"></th><th scope="col">Sorcerer</th><th scope="col">Warlock</th><th scope="col">Wizard</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Where the magic comes from</th><td data-label="Sorcerer"><span class="v">You were born with it</span></td><td data-label="Warlock"><span class="v">A bargain with a patron</span></td><td data-label="Wizard"><span class="v">Years of study and a spellbook</span></td></tr>
+    <tr><th scope="row">Casting stat</th><td data-label="Sorcerer"><span class="v">Charisma</span></td><td data-label="Warlock"><span class="v">Charisma</span></td><td data-label="Wizard"><span class="v">Intelligence</span></td></tr>
+    <tr><th scope="row">Armor</th><td data-label="Sorcerer"><span class="v">None</span></td><td data-label="Warlock"><span class="v">Light armor</span></td><td data-label="Wizard"><span class="v">None</span></td></tr>
+    <tr><th scope="row">Hit points (Con +2)</th><td data-label="Sorcerer"><span class="v">32</span></td><td data-label="Warlock"><span class="v"><b>38</b></span></td><td data-label="Wizard"><span class="v">32</span></td></tr>
+    <tr class="money"><th scope="row">Spell slots</th><td data-label="Sorcerer"><span class="v"><span class="slots">4 · 3 · 2</span><br><span class="small">of levels 1, 2 and 3</span></span></td><td data-label="Warlock"><span class="v"><span class="slots">2</span><br><span class="small">both level 3</span></span></td><td data-label="Wizard"><span class="v"><span class="slots">4 · 3 · 2</span><br><span class="small">of levels 1, 2 and 3</span></span></td></tr>
+    <tr class="money"><th scope="row">Slots come back</th><td data-label="Sorcerer"><span class="v">Long rest</span></td><td data-label="Warlock"><span class="v"><b>Short rest</b> (an hour)</span></td><td data-label="Wizard"><span class="v">Long rest, plus a few on a short rest</span></td></tr>
+    <tr><th scope="row">Spells ready to cast</th><td data-label="Sorcerer"><span class="v">9</span></td><td data-label="Warlock"><span class="v">6</span></td><td data-label="Wizard"><span class="v">9, and you can pick a whole new set each morning</span></td></tr>
+    <tr><th scope="row">Cantrips</th><td data-label="Sorcerer"><span class="v"><b>5</b></span></td><td data-label="Warlock"><span class="v">3</span></td><td data-label="Wizard"><span class="v">4</span></td></tr>
+    <tr><th scope="row">Their extra thing</th><td data-label="Sorcerer"><span class="v">5 sorcery points for bending spells</span></td><td data-label="Warlock"><span class="v">5 invocations, permanent gifts from the patron</span></td><td data-label="Wizard"><span class="v">A spellbook that keeps growing</span></td></tr>
+    <tr><th scope="row">Proficiency bonus</th><td colspan="3" data-label="All three"><span class="v">+3 for all three</span></td></tr>
+  </tbody>
+</table>
+</div>
+<p class="small">From each class's table, PHB pp. 140, 154 and 166.</p>
+
+<p>Hit points with a different Constitution, using the steady amount the book offers per level instead of rolling (PHB pp. 40, 42):</p>
+<div class="scroll">
+<table class="hp">
+  <thead><tr><th>Con</th><th>Sorcerer</th><th>Warlock</th><th>Wizard</th></tr></thead>
+  <tbody>
+    <tr><td>+0</td><td>22</td><td>28</td><td>22</td></tr>
+    <tr><td>+1</td><td>27</td><td>33</td><td>27</td></tr>
+    <tr><td>+2</td><td>32</td><td>38</td><td>32</td></tr>
+    <tr><td>+3</td><td>37</td><td>43</td><td>37</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>Sorcerer <small>PHB p. 139</small></h2>
+<p>A sorcerer knows fewer spells but can mess with how they work. Want your spell cast silently, or a bit faster, or aimed at two people at once? That's what sorcery points are for.</p>
+<ul class="moves">
+  <li><b>Innate Sorcery</b> (level 1, p. 140). For a minute your spells are harder to resist and easier to hit with. Twice a day.</li>
+  <li><b>Sorcery points and Metamagic</b> (level 2, pp. 140–141). You have 5 points and know 2 ways to change a spell, like Subtle, Quickened or Twinned. You can also melt a spare slot into points, or turn 5 points into an extra level 3 slot.</li>
+  <li><b>Sorcerous Restoration</b> (level 5, p. 141). A short rest gives you 2 points back, once a day.</li>
+</ul>
+
+<h3>Origins, chosen at level 3</h3>
+<div class="origins">
+  <div class="origin"><p><span class="name">Aberrant</span> <span class="pg">p. 145</span>. Something alien got into your head. You can talk to someone mind to mind, even from miles away.</p>
+    <p class="spells">Free spells: <a href="https://www.dndbeyond.com/spells/2618871-arms-of-hadar" target="_blank" rel="noopener">Arms of Hadar<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a>, <a href="https://www.dndbeyond.com/spells/2618959-calm-emotions" target="_blank" rel="noopener">Calm Emotions</a>, <a href="https://www.dndbeyond.com/spells/2619099-detect-thoughts" target="_blank" rel="noopener">Detect Thoughts</a>, <a href="https://www.dndbeyond.com/spells/2619104-dissonant-whispers" target="_blank" rel="noopener">Dissonant Whispers</a>, <a href="https://www.dndbeyond.com/spells/2619037-mind-sliver" target="_blank" rel="noopener">Mind Sliver<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a>, and at 5, <a href="https://www.dndbeyond.com/spells/2619162-hunger-of-hadar" target="_blank" rel="noopener">Hunger of Hadar<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a> and <a href="https://www.dndbeyond.com/spells/2619015-sending" target="_blank" rel="noopener">Sending</a>.</p></div>
+  <div class="origin"><p><span class="name">Clockwork</span> <span class="pg">p. 146</span>. Your power comes from cosmic order. A few times a day you can cancel someone's advantage or disadvantage so they roll straight.</p>
+    <p class="spells">Free spells: <a href="https://www.dndbeyond.com/spells/2618845-aid" target="_blank" rel="noopener">Aid</a>, <a href="https://www.dndbeyond.com/spells/2619222-alarm" target="_blank" rel="noopener">Alarm</a>, <a href="https://www.dndbeyond.com/spells/2619016-lesser-restoration" target="_blank" rel="noopener">Lesser Restoration</a>, <a href="https://www.dndbeyond.com/spells/2618912-protection-from-evil-and-good" target="_blank" rel="noopener">Protection from Evil and Good</a>, and at 5, <a href="https://www.dndbeyond.com/spells/2619103-dispel-magic" target="_blank" rel="noopener">Dispel Magic</a> and <a href="https://www.dndbeyond.com/spells/2618908-protection-from-energy" target="_blank" rel="noopener">Protection from Energy</a>.</p></div>
+  <div class="origin"><p><span class="name">Draconic</span> <span class="pg">p. 148</span>. There's a dragon in the family. You get extra hit points (+5 at level 5) and decent natural armor.</p>
+    <p class="spells">Free spells: <a href="https://www.dndbeyond.com/spells/2618846-alter-self" target="_blank" rel="noopener">Alter Self</a>, <a href="https://www.dndbeyond.com/spells/2618966-chromatic-orb" target="_blank" rel="noopener">Chromatic Orb</a>, <a href="https://www.dndbeyond.com/spells/2618985-command" target="_blank" rel="noopener">Command</a>, <a href="https://www.dndbeyond.com/spells/2619150-dragons-breath" target="_blank" rel="noopener">Dragon's Breath</a>, and at 5, <a href="https://www.dndbeyond.com/spells/2618872-fear" target="_blank" rel="noopener">Fear</a> and <a href="https://www.dndbeyond.com/spells/2618909-fly" target="_blank" rel="noopener">Fly</a>.</p></div>
+  <div class="origin"><p><span class="name">Wild Magic</span> <span class="pg">p. 149</span>. Your spells sometimes set off random surges, and now and then you can give yourself advantage on a roll. There's no free spell list with this one.</p></div>
+</div>
+
+<h2>Warlock <small>PHB p. 153</small></h2>
+<p>A warlock only gets two spell slots, but they're always at full strength and they come back after a short rest. If your group takes a lot of breathers, that adds up fast. Warlocks are also a little tougher, with more hit points and light armor.</p>
+<ul class="moves">
+  <li><b>Eldritch Invocations</b> (level 1, p. 153). Permanent magic secrets. You have 5 by level 5. The pacts people talk about (a summoned weapon, a familiar, a book of extra magic) are picked from these.</li>
+  <li><b>Pact Magic</b> (level 1, pp. 153–154). Your two slots are level 3 now and refill on a short rest.</li>
+  <li><b>Magical Cunning</b> (level 2, p. 154). A minute-long ritual that gets one slot back, once a day.</li>
+</ul>
+
+<h3>Patrons, chosen at level 3</h3>
+<div class="origins">
+  <div class="origin"><p><span class="name">Archfey</span> <span class="pg">p. 159</span>. A fey noble. You can blink a short distance for free a few times a day, and each blink comes with a bonus, like a few temporary hit points.</p>
+    <p class="spells">Free spells: <a href="https://www.dndbeyond.com/spells/2618959-calm-emotions" target="_blank" rel="noopener">Calm Emotions</a>, <a href="https://www.dndbeyond.com/spells/2618858-faerie-fire" target="_blank" rel="noopener">Faerie Fire</a>, <a href="https://www.dndbeyond.com/spells/2619133-misty-step" target="_blank" rel="noopener">Misty Step</a>, <a href="https://www.dndbeyond.com/spells/2618854-phantasmal-force" target="_blank" rel="noopener">Phantasmal Force</a>, <a href="https://www.dndbeyond.com/spells/2619064-sleep" target="_blank" rel="noopener">Sleep</a>, and at 5, <a href="https://www.dndbeyond.com/spells/2618939-blink" target="_blank" rel="noopener">Blink</a> and <a href="https://www.dndbeyond.com/spells/2618869-plant-growth" target="_blank" rel="noopener">Plant Growth</a>.</p></div>
+  <div class="origin"><p><span class="name">Celestial</span> <span class="pg">p. 160</span>. A heavenly patron. You carry a pool of healing dice (6d6 at level 5) to hand out as a bonus action.</p>
+    <p class="spells">Free spells: <a href="https://www.dndbeyond.com/spells/2618845-aid" target="_blank" rel="noopener">Aid</a>, <a href="https://www.dndbeyond.com/spells/2619079-cure-wounds" target="_blank" rel="noopener">Cure Wounds</a>, <a href="https://www.dndbeyond.com/spells/2619136-guiding-bolt" target="_blank" rel="noopener">Guiding Bolt</a>, <a href="https://www.dndbeyond.com/spells/2619016-lesser-restoration" target="_blank" rel="noopener">Lesser Restoration</a>, <a href="https://www.dndbeyond.com/spells/2618996-light" target="_blank" rel="noopener">Light</a>, <a href="https://www.dndbeyond.com/spells/2618967-sacred-flame" target="_blank" rel="noopener">Sacred Flame</a>, and at 5, <a href="https://www.dndbeyond.com/spells/2619083-daylight" target="_blank" rel="noopener">Daylight</a> and <a href="https://www.dndbeyond.com/spells/2618956-revivify" target="_blank" rel="noopener">Revivify</a>.</p></div>
+  <div class="origin"><p><span class="name">Fiend</span> <span class="pg">p. 161</span>. A demon or devil. Every time an enemy drops near you, you get temporary hit points. Lots of fire.</p>
+    <p class="spells">Free spells: <a href="https://www.dndbeyond.com/spells/2618946-burning-hands" target="_blank" rel="noopener">Burning Hands</a>, <a href="https://www.dndbeyond.com/spells/2618985-command" target="_blank" rel="noopener">Command</a>, <a href="https://www.dndbeyond.com/spells/2619005-scorching-ray" target="_blank" rel="noopener">Scorching Ray</a>, <a href="https://www.dndbeyond.com/spells/2619101-suggestion" target="_blank" rel="noopener">Suggestion</a>, and at 5, <a href="https://www.dndbeyond.com/spells/2618887-fireball" target="_blank" rel="noopener">Fireball</a> and <a href="https://www.dndbeyond.com/spells/2619091-stinking-cloud" target="_blank" rel="noopener">Stinking Cloud</a>.</p></div>
+  <div class="origin"><p><span class="name">Great Old One</span> <span class="pg">pp. 162–163</span>. Something huge and ancient. Mind-to-mind talking at long range, psychic damage on demand, and you can cast charms and illusions without a word or a gesture.</p>
+    <p class="spells">Free spells: <a href="https://www.dndbeyond.com/spells/2619099-detect-thoughts" target="_blank" rel="noopener">Detect Thoughts</a>, <a href="https://www.dndbeyond.com/spells/2619104-dissonant-whispers" target="_blank" rel="noopener">Dissonant Whispers</a>, <a href="https://www.dndbeyond.com/spells/2618854-phantasmal-force" target="_blank" rel="noopener">Phantasmal Force</a>, <a href="https://www.dndbeyond.com/spells/2619132-tashas-hideous-laughter" target="_blank" rel="noopener">Tasha's Hideous Laughter</a>, and at 5, <a href="https://www.dndbeyond.com/spells/2618972-clairvoyance" target="_blank" rel="noopener">Clairvoyance</a> and <a href="https://www.dndbeyond.com/spells/2619162-hunger-of-hadar" target="_blank" rel="noopener">Hunger of Hadar<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a>.</p></div>
+</div>
+
+<h2>Wizard <small>PHB p. 165</small></h2>
+<p>The wizard has the most spells by far, all written in a book, and gets to change which ones are ready every morning. Good if you like planning ahead and collecting things.</p>
+<ul class="moves">
+  <li><b>The spellbook</b> (level 1, pp. 165–167). It has 14 spells by level 5, and you can copy in spells you find on adventures (2 hours and 50 gp per spell level).</li>
+  <li><b>Ritual Adept</b> (level 1, p. 166). Ritual spells can be cast straight from the book without preparing them.</li>
+  <li><b>Arcane Recovery</b> (level 1, p. 166). Once a day on a short rest, get back one level 3 slot, or a level 2 and a level 1.</li>
+  <li><b>Scholar</b> (level 2, p. 166). Expertise in one bookish skill, like Arcana or History.</li>
+  <li><b>Memorize Spell</b> (level 5, p. 167). On a short rest, swap one ready spell for another from the book.</li>
+</ul>
+
+<h3>Schools, chosen at level 3</h3>
+<p class="small">Schools don't come with free spell lists. Each one adds 2 free spells of its school to your book when you pick it, and one more each time a new spell level opens up.</p>
+<div class="origins">
+  <div class="origin"><p><span class="name">Abjurer</span> <span class="pg">p. 172</span>. A magic ward that takes hits for you. Casting protective spells tops it back up.</p></div>
+  <div class="origin"><p><span class="name">Diviner</span> <span class="pg">p. 173</span>. Every morning you roll two d20s and keep the results. Later you can swap one in for any roll you can see, yours or anyone else's.</p></div>
+  <div class="origin"><p><span class="name">Evoker</span> <span class="pg">p. 174</span>. Your damage cantrips still do half damage when they miss.</p></div>
+  <div class="origin"><p><span class="name">Illusionist</span> <span class="pg">p. 175</span>. Silent illusions with extra range, and a free <a href="https://www.dndbeyond.com/spells/2619039-minor-illusion" target="_blank" rel="noopener">Minor Illusion</a> you can cast as a bonus action.</p></div>
+</div>
+
+<div class="signoff">
+  <p>Can't decide? If you want to show off with a few spells, sorcerer. If you want toughness and a patron with a story, warlock. If you want every spell in the world, wizard. <em>And tell your DM everything.</em> The magician insists.</p>
+</div>
+
+<footer>
+  <p>All three pick their specialty at level 3 and a feat at level 4. Rules are summed up from the 2024 Player's Handbook, and page numbers match the printed book. Spell names link to D&amp;D Beyond. A small lock means you need the 2024 Player's Handbook there to read it.</p>
+</footer>
+
+</div>
+</body>
+</html>
