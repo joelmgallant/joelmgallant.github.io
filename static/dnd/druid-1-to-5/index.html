@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="description" content="What a 2024 druid gains jumping from level 1 to 5, with Player's Handbook page references.">
+<title>Druid Level 1 to 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: a riso-printed level-up sheet. Two inks (moss, marine) plus black on paper. Decisions first, then the numbers, the features by level, the spell lists, and one block per circle. */
+:root {
+  --paper: #f3f0e6;
+  --paper-2: #e8e4d6;
+  --ink: #1d211d;
+  --ink-soft: #4d544d;
+  --moss: #2f6b45;
+  --moss-wash: #d9e6d6;
+  --marine: #1f5f86;
+  --marine-wash: #d5e3ec;
+  --rule: #c9c4b2;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --body: "IBM Plex Sans", "Helvetica Neue", Arial, system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #161a17; --paper-2: #1f2520; --ink: #ece9df; --ink-soft: #b3b8ae;
+    --moss: #7cc495; --moss-wash: #213a2a; --marine: #7db8dc; --marine-wash: #1b3242;
+    --rule: #39413a; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #161a17; --paper-2: #1f2520; --ink: #ece9df; --ink-soft: #b3b8ae;
+  --moss: #7cc495; --moss-wash: #213a2a; --marine: #7db8dc; --marine-wash: #1b3242;
+  --rule: #39413a; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--paper); color: var(--ink); font: 400 1rem/1.55 var(--body); }
+.sheet {
+  max-width: 64rem; margin: 0 auto;
+  padding-block: 2.5rem 3rem;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 1.5rem;
+}
+.frame { border: 3px solid var(--ink); padding: clamp(1.25rem, 3vw, 2rem); display: grid; gap: 2.25rem; }
+
+header.top { display: grid; gap: .5rem; }
+.eyebrow { font: 500 .75rem/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--moss); }
+h1 { font: 800 clamp(2.3rem, 7vw, 4.1rem)/.95 var(--display); margin: 0; letter-spacing: -.02em; text-wrap: balance; }
+h1 .lvl { color: var(--moss); }
+.lede { margin: 0; max-width: 62ch; color: var(--ink-soft); }
+
+h2 { font: 700 1.35rem/1.15 var(--display); margin: 0; text-wrap: balance; }
+.section { display: grid; gap: 1rem; }
+.section-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .25rem 1rem; }
+.cite { font: 500 .75rem/1 var(--mono); color: var(--ink-soft); letter-spacing: .04em; }
+.note { margin: 0; font-size: .9rem; color: var(--ink-soft); max-width: 72ch; }
+
+/* decisions */
+.choices { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: .75rem; }
+.choice { background: var(--moss-wash); padding: .9rem 1rem; display: grid; grid-template-columns: auto 1fr; gap: .2rem .8rem; align-content: start; }
+.choice .box { grid-row: span 2; width: 1.05rem; height: 1.05rem; border: 2px solid var(--moss); margin-top: .2rem; }
+.choice b { font: 700 1rem/1.25 var(--display); }
+.choice span { font-size: .9rem; color: var(--ink-soft); }
+.choice.dm { background: var(--paper-2); }
+.choice.dm .box { border-color: var(--ink-soft); border-style: dashed; }
+
+/* stats */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); }
+.stat { padding: .9rem; display: grid; gap: .3rem; align-content: start; border-right: 1px solid var(--rule); }
+.stat:last-child { border-right: 0; }
+.stat .label { font: 500 .7rem/1.2 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
+.stat .value { font: 700 1.5rem/1.05 var(--display); font-variant-numeric: tabular-nums; color: var(--moss); }
+.stat .from { font-size: .82rem; color: var(--ink-soft); }
+
+/* timeline */
+.levels { display: grid; gap: 0; border-top: 1px solid var(--rule); }
+.lv { display: grid; grid-template-columns: 4.5rem 1fr; gap: 1rem; padding: .9rem 0; border-bottom: 1px solid var(--rule); }
+.lv .n { font: 800 1.9rem/1 var(--display); color: var(--moss); font-variant-numeric: tabular-nums; }
+.lv .n small { display: block; font: 500 .65rem/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
+.lv .body { display: grid; gap: .5rem; min-width: 0; }
+.feat h3 { font: 700 1.05rem/1.2 var(--display); margin: 0 0 .15rem; }
+.feat p { margin: 0; font-size: .95rem; max-width: 70ch; }
+.feat .page { font: 500 .7rem/1 var(--mono); color: var(--ink-soft); margin-left: .4rem; font-weight: 500; }
+
+/* spells */
+.spell-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr)); gap: 1.5rem; }
+.spell-col { display: grid; gap: .5rem; align-content: start; min-width: 0; }
+.spell-col h3 { font: 700 1.05rem/1.2 var(--display); margin: 0; }
+.spells { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); border-top: 1px solid var(--rule); }
+.spells li { padding: .4rem .25rem .4rem 0; border-bottom: 1px solid var(--rule); display: flex; justify-content: space-between; gap: .5rem; align-items: baseline; font-size: .93rem; }
+.spells .t { font: 500 .66rem/1 var(--mono); color: var(--ink-soft); letter-spacing: .05em; white-space: nowrap; }
+
+/* circles */
+.circles { display: grid; grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr)); gap: 1rem; }
+.circle { border: 2px solid var(--ink); padding: 1rem 1.1rem 1.1rem; display: grid; gap: .7rem; align-content: start; min-width: 0; }
+.circle header { display: grid; gap: .2rem; }
+.circle h3 { font: 700 1.2rem/1.15 var(--display); margin: 0; }
+.circle .fits { font: 500 .7rem/1.3 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--moss); }
+.circle.sea .fits, .circle.stars .fits { color: var(--marine); }
+.circle .page { font: 500 .7rem/1 var(--mono); color: var(--ink-soft); }
+.circle p { margin: 0; font-size: .93rem; }
+.circle .k { font-weight: 600; }
+.circle .quiet { color: var(--ink-soft); }
+.pill-row { display: flex; flex-wrap: wrap; gap: .35rem; }
+.pill { font: 500 .82rem/1 var(--body); padding: .38rem .5rem; border-radius: 2px; background: var(--moss-wash); }
+.pill b { font: 500 .66rem/1 var(--mono); color: var(--ink-soft); margin-right: .25rem; }
+.circle.sea .pill, .circle.stars .pill { background: var(--marine-wash); }
+.lands { width: 100%; border-collapse: collapse; font-size: .88rem; }
+.lands th { text-align: left; font: 500 .66rem/1.3 var(--mono); text-transform: uppercase; letter-spacing: .07em; color: var(--ink-soft); padding: .3rem .4rem .3rem 0; border-bottom: 1px solid var(--rule); }
+.lands td { padding: .35rem .4rem .35rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.lands td:first-child { font-weight: 600; white-space: nowrap; }
+.table-wrap { overflow-x: auto; }
+
+.next { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; padding-top: 1rem; border-top: 2px solid var(--ink); font-size: .95rem; }
+.next b { font-family: var(--display); }
+footer { font-size: .8rem; color: var(--ink-soft); max-width: 72ch; }
+</style>
+</head>
+<body>
+<main class="sheet">
+  <div class="frame">
+    <header class="top">
+      <span class="eyebrow">Player's Handbook (2024) · Druid</span>
+      <h1>Druid, <span class="lvl">level 1 to 5</span></h1>
+      <p class="lede">Everything a level 1 druid picks up when she jumps straight to level 5: the choices to make, the new numbers, each feature in the order the levels grant it, and what each circle offers.</p>
+    </header>
+
+    <section class="section" aria-labelledby="decide">
+      <div class="section-head"><h2 id="decide">Choices to make</h2><span class="cite">PHB pp. 42, 79–89</span></div>
+      <ul class="choices">
+        <li class="choice"><i class="box" aria-hidden="true"></i><b>Pick a circle</b><span>Land, Moon, Sea, or Stars (level 3). Compared below.</span></li>
+        <li class="choice"><i class="box" aria-hidden="true"></i><b>Pick a feat</b><span>Ability Score Improvement, or any feat she qualifies for (level 4).</span></li>
+        <li class="choice"><i class="box" aria-hidden="true"></i><b>Learn 1 cantrip</b><span>Takes her to 3 cantrips, or 4 with the Magician primal order (level 4).</span></li>
+        <li class="choice"><i class="box" aria-hidden="true"></i><b>Prepare 5 more spells</b><span>From 4 to 9 prepared, any mix of level 1 to 3 druid spells.</span></li>
+        <li class="choice"><i class="box" aria-hidden="true"></i><b>Learn 6 beast forms</b><span>Beasts of CR ½ or lower with no fly speed. Swap one per long rest.</span></li>
+        <li class="choice"><i class="box" aria-hidden="true"></i><b>Add hit points</b><span>For each of levels 2 to 5: 5 + Con modifier, or roll 1d8 + Con.</span></li>
+        <li class="choice dm"><i class="box" aria-hidden="true"></i><b>Ask the DM about gear</b><span>Starting fresh at level 5 suggests 500 GP + 1d10 × 25 GP, one common and one uncommon magic item (p. 43).</span></li>
+      </ul>
+    </section>
+
+    <section class="section" aria-labelledby="numbers">
+      <div class="section-head"><h2 id="numbers">The numbers at level 5</h2><span class="cite">Druid Features table · PHB p. 80</span></div>
+      <div class="stats">
+        <div class="stat"><span class="label">Proficiency</span><span class="value">+3</span><span class="from">was +2</span></div>
+        <div class="stat"><span class="label">Hit points</span><span class="value">+20 + 4×Con</span><span class="from">with the fixed 5 per level</span></div>
+        <div class="stat"><span class="label">Spell slots</span><span class="value">4 · 3 · 2</span><span class="from">was 2 level 1 slots</span></div>
+        <div class="stat"><span class="label">Prepared</span><span class="value">9</span><span class="from">was 4</span></div>
+        <div class="stat"><span class="label">Cantrips</span><span class="value">3</span><span class="from">was 2</span></div>
+        <div class="stat"><span class="label">Wild Shape</span><span class="value">2 uses</span><span class="from">new; 6 forms up to CR ½</span></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="gains">
+      <div class="section-head"><h2 id="gains">New features, level by level</h2><span class="cite">PHB pp. 80–81</span></div>
+      <div class="levels">
+        <div class="lv"><span class="n">2<small>Level</small></span><div class="body">
+          <div class="feat"><h3>Wild Shape<span class="page">p. 80</span></h3><p>Bonus action to turn into a known beast form. She keeps her mind, hit points and class features, gains temporary HP equal to her druid level (5 now), and can't cast spells while shifted. Lasts up to half her druid level in hours. One use back on a short rest, all back on a long rest.</p></div>
+          <div class="feat"><h3>Wild Companion<span class="page">p. 81</span></h3><p>Spend a spell slot or a Wild Shape use to cast Find Familiar with no material cost. The familiar is a fey spirit and leaves at her next long rest.</p></div>
+        </div></div>
+        <div class="lv"><span class="n">3<small>Level</small></span><div class="body">
+          <div class="feat"><h3>Druid circle<span class="page">p. 81</span></h3><p>Her subclass. She gets its level 3 features right away, plus its level 5 spells where it has them. See the circles below.</p></div>
+        </div></div>
+        <div class="lv"><span class="n">4<small>Level</small></span><div class="body">
+          <div class="feat"><h3>Feat<span class="page">p. 81</span></h3><p>Ability Score Improvement (two +1s or one +2), or another feat. Wisdom drives her spells and her circle features.</p></div>
+          <div class="feat"><h3>Third cantrip, sixth beast form<span class="page">pp. 79, 81</span></h3><p>Beast forms can now be CR ½ (up from ¼). Still no flying forms until level 8.</p></div>
+        </div></div>
+        <div class="lv"><span class="n">5<small>Level</small></span><div class="body">
+          <div class="feat"><h3>Wild Resurgence<span class="page">p. 81</span></h3><p>When she's out of Wild Shape uses, she can spend a spell slot to get one back (once per turn). She can also spend a Wild Shape use for a level 1 spell slot (once per long rest).</p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="spells">
+      <div class="section-head"><h2 id="spells">Spells that open up</h2><span class="cite">Druid spell list · PHB p. 83</span></div>
+      <div class="spell-cols">
+        <div class="spell-col">
+          <h3>Level 2 spells</h3>
+          <ul class="spells">
+            <li>Aid <span class="t"></span></li>
+            <li>Animal Messenger <span class="t">R</span></li>
+            <li>Augury <span class="t">R</span></li>
+            <li>Barkskin <span class="t"></span></li>
+            <li>Beast Sense <span class="t">C R</span></li>
+            <li>Continual Flame <span class="t"></span></li>
+            <li>Darkvision <span class="t"></span></li>
+            <li>Enhance Ability <span class="t">C</span></li>
+            <li>Enlarge/Reduce <span class="t">C</span></li>
+            <li>Find Traps <span class="t"></span></li>
+            <li>Flame Blade <span class="t">C</span></li>
+            <li>Flaming Sphere <span class="t">C</span></li>
+            <li>Gust of Wind <span class="t">C</span></li>
+            <li>Heat Metal <span class="t">C</span></li>
+            <li>Hold Person <span class="t">C</span></li>
+            <li>Lesser Restoration <span class="t"></span></li>
+            <li>Locate Animals or Plants <span class="t">R</span></li>
+            <li>Locate Object <span class="t">C</span></li>
+            <li>Moonbeam <span class="t">C</span></li>
+            <li>Pass without Trace <span class="t">C</span></li>
+            <li>Protection from Poison <span class="t"></span></li>
+            <li>Spike Growth <span class="t">C</span></li>
+            <li>Summon Beast <span class="t">C</span></li>
+          </ul>
+        </div>
+        <div class="spell-col">
+          <h3>Level 3 spells</h3>
+          <ul class="spells">
+            <li>Aura of Vitality <span class="t">C</span></li>
+            <li>Call Lightning <span class="t">C</span></li>
+            <li>Conjure Animals <span class="t">C</span></li>
+            <li>Daylight <span class="t"></span></li>
+            <li>Dispel Magic <span class="t"></span></li>
+            <li>Elemental Weapon <span class="t">C</span></li>
+            <li>Feign Death <span class="t">R</span></li>
+            <li>Meld into Stone <span class="t">R</span></li>
+            <li>Plant Growth <span class="t"></span></li>
+            <li>Protection from Energy <span class="t">C</span></li>
+            <li>Revivify <span class="t"></span></li>
+            <li>Sleet Storm <span class="t">C</span></li>
+            <li>Speak with Plants <span class="t"></span></li>
+            <li>Summon Fey <span class="t">C</span></li>
+            <li>Water Breathing <span class="t">R</span></li>
+            <li>Water Walk <span class="t">R</span></li>
+            <li>Wind Wall <span class="t">C</span></li>
+          </ul>
+        </div>
+      </div>
+      <p class="note">C = concentration, R = ritual. Revivify, Augury and Summon Beast/Fey also need a costly or specific material component; check the spell. Circle spells are always prepared and don't count toward her 9.</p>
+    </section>
+
+    <section class="section" aria-labelledby="circles">
+      <div class="section-head"><h2 id="circles">Pick a circle</h2><span class="cite">PHB pp. 84–89 · everything through level 5</span></div>
+      <div class="circles">
+        <article class="circle land">
+          <header><span class="fits">Flexible caster</span><h3>Circle of the Land</h3><span class="page">PHB pp. 84–85</span></header>
+          <p><span class="k">Land's Aid.</span> Spend a Wild Shape use as a magic action: a 10 ft sphere within 60 ft. Enemies make a Con save or take 2d6 necrotic (half on success), and one creature in it heals 2d6.</p>
+          <p><span class="k">Circle spells</span>, always prepared. She picks a land type at each long rest:</p>
+          <div class="table-wrap"><table class="lands">
+            <thead><tr><th>Land</th><th>Level 3</th><th>Level 5</th></tr></thead>
+            <tbody>
+              <tr><td>Arid</td><td>Blur, Burning Hands, Fire Bolt</td><td>Fireball</td></tr>
+              <tr><td>Polar</td><td>Fog Cloud, Hold Person, Ray of Frost</td><td>Sleet Storm</td></tr>
+              <tr><td>Temperate</td><td>Misty Step, Shocking Grasp, Sleep</td><td>Lightning Bolt</td></tr>
+              <tr><td>Tropical</td><td>Acid Splash, Ray of Sickness, Web</td><td>Stinking Cloud</td></tr>
+            </tbody>
+          </table></div>
+          <p class="quiet">Several of these, Fireball included, aren't on the druid list.</p>
+        </article>
+
+        <article class="circle moon">
+          <header><span class="fits">Front-line shapeshifter</span><h3>Circle of the Moon</h3><span class="page">PHB p. 86</span></header>
+          <p><span class="k">Circle Forms.</span> Her beast forms can be up to CR 1 (druid level ÷ 3), her AC becomes 13 + Wis modifier if that beats the beast's, and she gains 15 temporary HP (3 × druid level) instead of 5.</p>
+          <p><span class="k">Circle spells</span>, always prepared, and castable while in Wild Shape:</p>
+          <div class="pill-row"><span class="pill"><b>3</b>Cure Wounds</span><span class="pill"><b>3</b>Moonbeam</span><span class="pill"><b>3</b>Starry Wisp</span><span class="pill"><b>5</b>Conjure Animals</span></div>
+        </article>
+
+        <article class="circle sea">
+          <header><span class="fits">Storm and control</span><h3>Circle of the Sea</h3><span class="page">PHB p. 87</span></header>
+          <p><span class="k">Wrath of the Sea.</span> Spend a Wild Shape use as a bonus action for a 5 ft aura of ocean spray lasting 10 minutes. As a bonus action, one creature in it makes a Con save or takes cold damage (one d6 per point of Wis modifier) and is pushed 15 ft if Large or smaller.</p>
+          <p><span class="k">Circle spells</span>, always prepared:</p>
+          <div class="pill-row"><span class="pill"><b>3</b>Fog Cloud</span><span class="pill"><b>3</b>Gust of Wind</span><span class="pill"><b>3</b>Ray of Frost</span><span class="pill"><b>3</b>Shatter</span><span class="pill"><b>3</b>Thunderwave</span><span class="pill"><b>5</b>Lightning Bolt</span><span class="pill"><b>5</b>Water Breathing</span></div>
+        </article>
+
+        <article class="circle stars">
+          <header><span class="fits">Ranged and support</span><h3>Circle of the Stars</h3><span class="page">PHB pp. 88–89</span></header>
+          <p><span class="k">Star Map.</span> A Tiny star chart that works as her focus. While holding it she has Guidance and Guiding Bolt prepared, and can cast Guiding Bolt without a slot a number of times equal to her Wis modifier per long rest.</p>
+          <p><span class="k">Starry Form.</span> Spend a Wild Shape use as a bonus action to glow for 10 minutes instead of shifting, keeping her own stats. She picks a constellation each time:</p>
+          <div class="pill-row"><span class="pill"><b>Archer</b>bonus-action radiant arrow, 1d8 + Wis</span><span class="pill"><b>Chalice</b>slot healing adds 1d8 + Wis</span><span class="pill"><b>Dragon</b>Int/Wis checks and concentration saves can't roll below 10</span></div>
+          <p class="quiet">No circle spells by level, and nothing new at level 5.</p>
+        </article>
+      </div>
+    </section>
+
+    <div class="next" aria-label="Coming up">
+      <span><b>Level 6</b> · circle feature</span>
+      <span><b>Level 7</b> · Elemental Fury</span>
+      <span><b>Level 8</b> · feat, flying beast forms</span>
+    </div>
+  </div>
+
+  <footer>Rules are summarized from the 2024 Player's Handbook; page numbers match the printed book. Check the full text there before a ruling. The "fits" labels on each circle are a quick read, not book text.</footer>
+</main>
+</body>
+</html>
