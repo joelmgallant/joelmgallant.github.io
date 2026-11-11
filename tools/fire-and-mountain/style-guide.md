@@ -122,3 +122,33 @@ Vary stones, elements, emblems and moods across the month; no stone or element f
   "des": false
 }
 ```
+
+## Bonus Round games (`games/YYYY-MM.json`)
+
+Every day also gets one small two-player game, shown under the reading's Together activity. The page is styled as an original late-'90s quiz show with an irreverent host voice. **Never reference, quote or imitate You Don't Know Jack or any real game show**: no segment names, catchphrases or host names from real shows. Saturn is the show's judge; the planets are the studio crew.
+
+The file is a JSON array sorted by date: `[{ "date": "2026-11-16", "game": { ... } }, ...]`. The game **type for each date is fixed** by the weekly rhythm (`node validate-games.mjs` tells you if you used the wrong one):
+
+| Day | Type |
+|---|---|
+| Monday | `lightning` |
+| Tuesday | `mind` |
+| Wednesday | `closeup` |
+| Thursday | `wrong` |
+| Friday | `sound` |
+| Saturday | `tabloid` or `emoji` (alternating weeks) |
+| Sunday | `closest` or `tales` (alternating weeks) |
+
+Every game has `type` and `intro`: one host line, ≤ 140 characters, cheeky and warm, which may nod to that day's reading (its mood, moon, a DES day). Then, by type (character limits are strict):
+
+- **`mind` (Read My Mind):** `question` (≤ 160) plus `options` (2–4 strings, ≤ 40 each). Each player picks for themself *and* guesses the other's pick. Make it a real preference question with no right answer ("Which would you rather find in your coat pocket?").
+- **`wrong` (Wrong Answers Only):** `question` (≤ 160) and `secret.rule`, one of `shortest`, `longest`, `mostVowels`, `firstAlphabetically`, `lastAlphabetically`, `mostWords`, `fewestWords`. The question has a real answer, but players must give the most gloriously wrong one; Saturn's rule decides the winner. Vary the rules.
+- **`closest` (Closest Without Going Over):** `question` (≤ 160), `unit` (≤ 30, e.g. "keys"), `secret.value` (a number) and `source` (where the number comes from; never published). **The value must be exact and undisputed**: counts, years and defined quantities (keys on a piano: 88; the year the Bluenose schooner was launched: 1921). Avoid lengths, heights, populations or anything sources round differently. If you aren't certain of the exact value, pick another question. Local Nova Scotia/Cape Breton or reading-related facts are great when they're exact.
+- **`lightning` (Lightning Round):** `pairs`: exactly 3 pairs of this-or-that choices (≤ 24 each), e.g. `[["Tea", "Coffee"], ["Owl", "Lark"], ["Sea", "Hill"]]`. Ten seconds per pair, so keep them punchy.
+- **`tabloid` (Tabloid Front Page):** `headline` (≤ 90) in CAPS with exactly one blank `___` that the players fill in ("LOCAL MOUNTAIN ___ AT MIDNIGHT, NEIGHBOURS STUNNED").
+- **`closeup` (Extreme Close-Up):** `prompt` (≤ 140). Each sends an extreme close-up photo of something matching the prompt; the other guesses what it is.
+- **`sound` (Sound Off):** `prompt` (≤ 140). Each records a voice memo impression of a sound matching the prompt (kettle, moose, dial-up modem); the other guesses.
+- **`emoji` (Emoji Charades):** `prompt` (≤ 140) naming a category ("A movie you could watch on a rainy Sunday"). Each spells something in emoji only; the other decodes it.
+- **`tales` (Two Truths and a Tall Tale):** `prompt` (≤ 140) setting the theme of three short facts ("Three things you did before noon"), one invented.
+
+Only `wrong` and `closest` have `secret` (and `closest` alone has `source`). The never-list applies to every game field. No two days may repeat a question, prompt, headline or lightning pair across the whole year.

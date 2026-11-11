@@ -11,7 +11,7 @@ const LIMITS = {
 
 // Never-list topics. Tarot card tokens are removed before matching, so [[Death]] is allowed.
 // "Cancer" is deliberately absent: it is a zodiac sign.
-const BANNED = [
+export const BANNED = [
   /\b(diagnos\w*|doctor|hospital|illness|sick|disease|surgery|medication|meds|diet|calories|weight loss)\b/i,
   /\b(invest\w*|stocks?|crypto|lottery|gambl\w*|casino|loans?|mortgage)\b/i,
   /\b(die|dies|died|death|dead|funeral|accident|injur\w*|crash\w*)\b/i,
