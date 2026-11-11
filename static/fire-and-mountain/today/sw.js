@@ -1,8 +1,8 @@
 // Service worker for /fire-and-mountain/today/ only (its scope is this folder).
 // Code and data are network-first (revalidated, so a deploy shows up on the next load) with the cache as the
-// offline fallback; images are cache-first and refresh in the background.
+// offline fallback; images are cache-first and refresh in the background. Also shows push nudges.
 // Bump VERSION on every deploy that changes these files, so installed apps swap to the new worker and reload.
-const VERSION = 'today-v7';
+const VERSION = 'today-v8';
 const NETWORK_TIMEOUT_MS = 4000;
 
 const IMAGE_NAMES = [
@@ -18,6 +18,7 @@ const IMAGE_NAMES = [
 const SHELL = [
   './', 'today.css', 'today.js', 'today-core.mjs', 'update.js', 'manifest.webmanifest',
   'exchange.css', 'exchange.js', 'exchange-core.mjs', 'exchange-api.mjs', 'exchange-sounds.mjs', 'exchange-ui.mjs', 'exchange-composer.mjs', 'exchange-join.mjs', 'exchange-recorder.mjs',
+  'push-client.mjs', 'push-core.mjs',
   'game.css', 'game.js', 'game-core.mjs', 'game-answer.mjs', 'game-reveal.mjs',
   'icons/icon-192.png', 'icons/icon-512.png',
   '/fire-and-mountain/shared.css', '/fire-and-mountain/sky.js', '/fire-and-mountain/tarot-links.json',
@@ -72,4 +73,24 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
   if (event.request.method !== 'GET' || url.origin !== self.location.origin) return;
   event.respondWith(caches.open(VERSION).then((cache) => (isImage(url) ? cacheFirst(event, cache) : networkFirst(event, cache))));
+});
+
+// Push: the exchange Lambda sends { title, body, url, tag } when it's this person's move.
+self.addEventListener('push', (event) => {
+  let data = {};
+  try { data = event.data?.json() ?? {}; } catch { /* not JSON: show the generic nudge */ }
+  event.waitUntil(self.registration.showNotification(data.title ?? 'Fire & Mountain', {
+    body: data.body ?? "It's your move.", tag: data.tag, icon: 'icons/icon-192.png', data: { url: data.url ?? './' },
+  }));
+});
+
+// Tapping a nudge focuses the open app (it refreshes itself on focus) or opens the today page.
+self.addEventListener('notificationclick', (event) => {
+  event.notification.close();
+  const target = new URL(event.notification.data?.url ?? './', self.registration.scope).href;
+  event.waitUntil((async () => {
+    const windows = await self.clients.matchAll({ type: 'window', includeUncontrolled: true });
+    const open = windows.find((client) => client.url.startsWith(self.registration.scope));
+    return open ? open.focus() : self.clients.openWindow(target);
+  })());
 });

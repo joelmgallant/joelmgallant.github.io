@@ -26,6 +26,9 @@ export function createApi(key, baseUrl = API_URL) {
     putGame: (date, answer) => call('PUT', `/game?date=${date}`, answer),
     guess: (date, guess) => call('PUT', `/game/guess?date=${date}`, { guess }),
     rule: (date, ruling) => call('PUT', `/game/ruling?date=${date}`, { ruling }),
+    pushKey: () => call('GET', '/push'),
+    subscribe: (subscription) => call('PUT', '/push', { subscription }),
+    unsubscribe: (endpoint) => call('PUT', '/push/off', { endpoint }),
     /** Uploads a blob through a presigned POST and returns its storage key. round: 'game' for Bonus Round media. */
     async upload(date, kind, blob, contentType, round = null) {
       const form = await call('POST', `/upload?date=${date}&kind=${kind}${round ? `&round=${round}` : ''}`, { contentType });

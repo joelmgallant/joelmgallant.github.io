@@ -3,7 +3,9 @@
 import { randomUUID } from 'node:crypto';
 import { createGameRoutes, gameKey } from './game-routes.mjs';
 import { fail, parseBody, respond, signShape } from './http.mjs';
-import { AUDIO_TYPES, PEOPLE, addDays, answerFromBody, dayStatus, halifaxToday, isRevealed, personForKey,
+import { exchangeNudge } from './nudges.mjs';
+import { NO_PUSH, createPushRoutes } from './push.mjs';
+import { AUDIO_TYPES, PEOPLE, addDays, answerFromBody, dayStatus, halifaxToday, isRevealed, otherPerson, personForKey,
   shapeExchange, validateAnswer } from './core.mjs';
 
 const UPLOADS = {
@@ -11,8 +13,9 @@ const UPLOADS = {
   audio: { types: AUDIO_TYPES, maxBytes: 3 * 1024 * 1024 },
 };
 
-export function createHandler({ store, media, hashes, batch, games = {}, now = () => new Date() }) {
-  const game = createGameRoutes({ store, media, games, now });
+export function createHandler({ store, media, hashes, batch, games = {}, push = NO_PUSH, now = () => new Date() }) {
+  const game = createGameRoutes({ store, media, games, push, now });
+  const pushRoutes = createPushRoutes(push);
   async function getExchange(person, date, status) {
     const item = (await store.get(date)) ?? { date };
     return respond(200, await signShape(shapeExchange(item, person, status), media));
@@ -26,6 +29,7 @@ export function createHandler({ store, media, hashes, batch, games = {}, now = (
     const existing = (await store.get(date)) ?? { date };
     if (!status.open || isRevealed(existing, status)) return fail(409, 'this round is closed');
     const item = await store.putAnswer(date, person, answerFromBody(body, now()));
+    await push.notify(otherPerson(person), date, exchangeNudge(existing, item, person, date, halifaxToday(now())));
     return respond(200, await signShape(shapeExchange(item, person, status), media));
   }
 
@@ -72,6 +76,8 @@ export function createHandler({ store, media, hashes, batch, games = {}, now = (
     const today = halifaxToday(now());
     if (method === 'GET' && path === '/whoami') return respond(200, { person });
     if (method === 'GET' && path === '/history') return history(person, today, event);
+    const pushRoute = pushRoutes[`${method} ${path}`];
+    if (pushRoute) return pushRoute(person, event);
 
     const date = event.queryStringParameters?.date;
     const status = dayStatus(date, today, batch);

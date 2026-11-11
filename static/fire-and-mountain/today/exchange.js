@@ -6,6 +6,7 @@ import { NAMES, answerCard, element, plainPrompt } from './exchange-ui.mjs';
 import { playSting, soundEnabled, setSoundEnabled } from './exchange-sounds.mjs';
 import { dayFileName } from './today-core.mjs';
 import { BAD_LINK, joinBox } from './exchange-join.mjs';
+import { createBell } from './push-client.mjs';
 
 const IDENTITY_KEY = 'fm-exchange-identity';
 const SEEN_KEY = 'fm-exchange-seen-reveal';
@@ -55,6 +56,7 @@ export async function mountExchange({ container, date, prompt }, joined = null) 
   const me = identity.person;
   let pollTimer = null;
   let editing = false;
+  const bell = createBell(api);
   container.hidden = false;
 
   const header = () => {
@@ -62,7 +64,8 @@ export async function mountExchange({ container, date, prompt }, joined = null) 
       title: 'Sound effects', ariaLabel: soundEnabled() ? 'Turn sound effects off' : 'Turn sound effects on' });
     toggle.addEventListener('click', () => { setSoundEnabled(!soundEnabled()); playSting('lock'); render(); });
     return element('div', { className: 'exchange-header' },
-      element('h2', { className: 'exchange-title', textContent: '🎤 The Exchange' }), toggle);
+      element('h2', { className: 'exchange-title', textContent: '🎤 The Exchange' }),
+      element('div', { className: 'header-tools' }, bell, toggle));
   };
 
   const promptBlock = () => element('p', { className: 'exchange-prompt', textContent: plainPrompt(prompt) });

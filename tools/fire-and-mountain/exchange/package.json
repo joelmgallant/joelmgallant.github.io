@@ -2,12 +2,15 @@
   "name": "fm-exchange",
   "private": true,
   "type": "module",
-  "scripts": { "test": "node --test test/*.test.mjs" },
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "3.1165.0",
     "@aws-sdk/client-s3": "3.1165.0",
     "@aws-sdk/lib-dynamodb": "3.1165.0",
     "@aws-sdk/s3-presigned-post": "3.1165.0",
-    "@aws-sdk/s3-request-presigner": "3.1165.0"
+    "@aws-sdk/s3-request-presigner": "3.1165.0",
+    "web-push": "3.6.7"
   }
 }

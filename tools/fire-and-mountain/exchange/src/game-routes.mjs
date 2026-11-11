@@ -1,6 +1,8 @@
 // HTTP routes for the Bonus Round. Each route gets (person, date, status, event) after the handler checks the key and date.
 import { gameAnswerRecord, gameStage, shapeGame, validateGameAnswer, validateGuess, validateRuling } from './game.mjs';
 import { fail, parseBody, respond, signAnswer } from './http.mjs';
+import { halifaxToday, otherPerson } from './core.mjs';
+import { gameNudge } from './nudges.mjs';
 
 export const gameKey = (date) => `game#${date}`;
 
@@ -10,7 +12,7 @@ async function signGame(shape, media) {
   return signed;
 }
 
-export function createGameRoutes({ store, media, games, now }) {
+export function createGameRoutes({ store, media, games, push, now }) {
   const load = async (date) => (await store.get(gameKey(date))) ?? { date: gameKey(date) };
   const reply = async (meta, item, person, status, date) => respond(200, await signGame(shapeGame(meta, item, person, status, date), media));
 
@@ -25,6 +27,7 @@ export function createGameRoutes({ store, media, games, now }) {
     if (!status.open || gameStage(meta.type, item, status) !== stage) return fail(409, 'this step of the round is closed');
     const result = await write({ meta, item, person, body, date });
     if (result.error) return fail(result.status ?? 400, result.error);
+    await push.notify(otherPerson(person), date, gameNudge(meta.type, item, result.item, person, status, date, halifaxToday(now())));
     return reply(meta, result.item, person, status, date);
   };
 

@@ -6,6 +6,10 @@
 #   KEY_HASH_JOEL=<hex> KEY_HASH_NANCY=<hex> bash deploy.sh     # set key hashes
 #   bash deploy.sh                                              # keep the hashes already deployed
 #   EXTRA_ORIGIN=http://localhost:8811 bash deploy.sh           # also allow a dev origin (CORS)
+#
+# Push notifications: the VAPID key pair is read from ~/.secrets/tokens/fm-exchange-vapid-{public,private}
+# at deploy time (or kept from the deployed function when those files are missing) and handed to AWS
+# through a mode-600 temp file, never on a command line.
 set -euo pipefail
 
 PROFILE=personal
@@ -16,6 +20,8 @@ FUNCTION=fm-exchange
 FIRST_DAY=2026-11-10
 LAST_DAY=2027-11-09
 SITE_ORIGIN=https://joelmgallant.com
+VAPID_SUBJECT=https://joelmgallant.com/fire-and-mountain/
+VAPID_DIR="${HOME}/.secrets/tokens"
 HERE="$(cd "$(dirname "$0")" && pwd)"
 
 aws_() { aws --profile "$PROFILE" --region "$REGION" "$@"; }
@@ -71,13 +77,35 @@ cp -R "${HERE}/src" "${HERE}/package.json" "${HERE}/package-lock.json" "${HERE}/
 echo "packaged $(du -h "$DIST/function.zip" | cut -f1)"
 
 # --- Lambda -----------------------------------------------------------------
+deployed_var() {
+  aws_ lambda get-function-configuration --function-name "$FUNCTION" --query "Environment.Variables.$1" --output text
+}
+VAPID_PUBLIC="" VAPID_PRIVATE=""
+if [[ -f "${VAPID_DIR}/fm-exchange-vapid-public" && -f "${VAPID_DIR}/fm-exchange-vapid-private" ]]; then
+  VAPID_PUBLIC=$(tr -d '[:space:]' < "${VAPID_DIR}/fm-exchange-vapid-public")
+  VAPID_PRIVATE=$(tr -d '[:space:]' < "${VAPID_DIR}/fm-exchange-vapid-private")
+fi
 if aws_ lambda get-function --function-name "$FUNCTION" >/dev/null 2>&1; then
-  KEY_HASH_JOEL=${KEY_HASH_JOEL:-$(aws_ lambda get-function-configuration --function-name "$FUNCTION" --query Environment.Variables.KEY_HASH_JOEL --output text)}
-  KEY_HASH_NANCY=${KEY_HASH_NANCY:-$(aws_ lambda get-function-configuration --function-name "$FUNCTION" --query Environment.Variables.KEY_HASH_NANCY --output text)}
+  KEY_HASH_JOEL=${KEY_HASH_JOEL:-$(deployed_var KEY_HASH_JOEL)}
+  KEY_HASH_NANCY=${KEY_HASH_NANCY:-$(deployed_var KEY_HASH_NANCY)}
+  [[ -n "$VAPID_PUBLIC" ]] || VAPID_PUBLIC=$(deployed_var VAPID_PUBLIC)
+  [[ -n "$VAPID_PRIVATE" ]] || VAPID_PRIVATE=$(deployed_var VAPID_PRIVATE)
 fi
 : "${KEY_HASH_JOEL:?KEY_HASH_JOEL is required on first deploy}"
 : "${KEY_HASH_NANCY:?KEY_HASH_NANCY is required on first deploy}"
-ENVIRONMENT="Variables={TABLE=${TABLE},BUCKET=${BUCKET},FIRST_DAY=${FIRST_DAY},LAST_DAY=${LAST_DAY},KEY_HASH_JOEL=${KEY_HASH_JOEL},KEY_HASH_NANCY=${KEY_HASH_NANCY}}"
+[[ "$VAPID_PUBLIC" == "None" || "$VAPID_PRIVATE" == "None" ]] && { VAPID_PUBLIC=""; VAPID_PRIVATE=""; }
+[[ -n "$VAPID_PRIVATE" ]] || echo "warning: no VAPID keys; push notifications stay off" >&2
+
+ENV_FILE=$(mktemp)
+chmod 600 "$ENV_FILE"
+trap 'rm -f "$ENV_FILE"' EXIT
+TABLE="$TABLE" BUCKET="$BUCKET" FIRST_DAY="$FIRST_DAY" LAST_DAY="$LAST_DAY" KEY_HASH_JOEL="$KEY_HASH_JOEL" \
+  KEY_HASH_NANCY="$KEY_HASH_NANCY" VAPID_PUBLIC="$VAPID_PUBLIC" VAPID_PRIVATE="$VAPID_PRIVATE" VAPID_SUBJECT="$VAPID_SUBJECT" \
+  node -e '
+    const names = ["TABLE", "BUCKET", "FIRST_DAY", "LAST_DAY", "KEY_HASH_JOEL", "KEY_HASH_NANCY", "VAPID_PUBLIC", "VAPID_PRIVATE", "VAPID_SUBJECT"];
+    const Variables = Object.fromEntries(names.filter((name) => process.env[name]).map((name) => [name, process.env[name]]));
+    process.stdout.write(JSON.stringify({ Variables }));' > "$ENV_FILE"
+ENVIRONMENT="file://${ENV_FILE}"
 
 if aws_ lambda get-function --function-name "$FUNCTION" >/dev/null 2>&1; then
   aws_ lambda update-function-code --function-name "$FUNCTION" --zip-file "fileb://${DIST}/function.zip" >/dev/null

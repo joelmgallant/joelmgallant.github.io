@@ -8,7 +8,14 @@
   border: 3px solid var(--gold);
   box-shadow: 0 0 0 4px #2a1230, 0 0 0 7px rgba(255, 138, 76, 0.65), 0 18px 40px rgba(0, 0, 0, 0.45);
 }
-.exchange-header { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.exchange-header { display: flex; align-items: center; justify-content: space-between; gap: 10px; position: relative; }
+.header-tools { display: flex; gap: 8px; align-items: center; }
+.push-bell[hidden] { display: none; }
+.push-hint {
+  position: absolute; right: 0; top: calc(100% + 6px); z-index: 2; max-width: min(18rem, 100%); margin: 0;
+  padding: 8px 12px; border-radius: 12px; background: #1b0b26; border: 2px solid var(--veil-edge);
+  font-family: var(--sans); font-size: 0.85rem; color: var(--ink);
+}
 .exchange-title {
   margin: 0; font-family: var(--sans); font-weight: 600; font-size: 1.05rem; letter-spacing: 0.18em; text-transform: uppercase;
   color: #1b0b26; background: var(--gold); padding: 6px 12px; border-radius: 8px; transform: skew(-8deg);
@@ -94,6 +101,11 @@
 
 @media (max-width: 680px) {
   .reveal-cards { grid-template-columns: 1fr; }
+}
+@media (max-width: 440px) {
+  .exchange-title { font-size: 0.95rem; letter-spacing: 0.12em; white-space: nowrap; padding: 6px 10px; }
+  .header-tools { gap: 6px; }
+  .sound-toggle { width: 38px; height: 38px; font-size: 1.05rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   .stage.animate .spotlight, .stage.animate .answer-card, .stage.animate .des-stamp, .chunky.recording { animation: none; }
