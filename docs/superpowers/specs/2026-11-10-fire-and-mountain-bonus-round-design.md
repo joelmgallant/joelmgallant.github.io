@@ -254,5 +254,5 @@ start. A date missing from it returns 404 for the game routes.
 
 ## Out of scope
 
-Saturn's Ledger (season scoreboard), push notifications, server-enforced
+Saturn's Ledger (season scoreboard), push notifications (tracked in issue #3), server-enforced
 timers, more than one game per day.
