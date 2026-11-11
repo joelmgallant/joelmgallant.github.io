@@ -1,7 +1,9 @@
 // Service worker for /fire-and-mountain/today/ only (its scope is this folder).
-// Stale-while-revalidate: show the cached copy instantly, refresh it in the background.
-// Bump VERSION on every deploy that changes these files.
-const VERSION = 'today-v6';
+// Code and data are network-first (revalidated, so a deploy shows up on the next load) with the cache as the
+// offline fallback; images are cache-first and refresh in the background.
+// Bump VERSION on every deploy that changes these files, so installed apps swap to the new worker and reload.
+const VERSION = 'today-v7';
+const NETWORK_TIMEOUT_MS = 4000;
 
 const IMAGE_NAMES = [
   'moon-new', 'moon-waxing-crescent', 'moon-first-quarter', 'moon-waxing-gibbous', 'moon-full',
@@ -14,7 +16,7 @@ const IMAGE_NAMES = [
 ];
 
 const SHELL = [
-  './', 'today.css', 'today.js', 'today-core.mjs', 'manifest.webmanifest',
+  './', 'today.css', 'today.js', 'today-core.mjs', 'update.js', 'manifest.webmanifest',
   'exchange.css', 'exchange.js', 'exchange-core.mjs', 'exchange-api.mjs', 'exchange-sounds.mjs', 'exchange-ui.mjs', 'exchange-composer.mjs', 'exchange-join.mjs', 'exchange-recorder.mjs',
   'game.css', 'game.js', 'game-core.mjs', 'game-answer.mjs', 'game-reveal.mjs',
   'icons/icon-192.png', 'icons/icon-512.png',
@@ -25,7 +27,7 @@ const SHELL = [
 self.addEventListener('install', (event) => {
   event.waitUntil((async () => {
     const cache = await caches.open(VERSION);
-    await cache.addAll(SHELL);
+    await cache.addAll(SHELL.map((url) => new Request(url, { cache: 'reload' })));
     // Day files are cached only as the page fetches them, so future readings never land on the device.
     await self.skipWaiting();
   })());
@@ -39,20 +41,35 @@ self.addEventListener('activate', (event) => {
   })());
 });
 
+const isImage = (url) => /\/(img|icons)\//.test(url.pathname);
+
+async function networkFirst(event, cache) {
+  const network = fetch(event.request, { cache: 'no-cache' }).then((response) => {
+    if (response.ok) cache.put(event.request, response.clone());
+    return response;
+  });
+  event.waitUntil(network.catch(() => undefined));
+  const timeout = new Promise((resolve) => { setTimeout(resolve, NETWORK_TIMEOUT_MS, null); });
+  try {
+    const response = await Promise.race([network, timeout]);
+    if (response) return response;
+  } catch { /* offline: fall back to the cache */ }
+  return (await cache.match(event.request, { ignoreSearch: true })) ?? network;
+}
+
+async function cacheFirst(event, cache) {
+  const cached = await cache.match(event.request, { ignoreSearch: true });
+  const network = fetch(event.request).then((response) => {
+    if (response.ok) cache.put(event.request, response.clone());
+    return response;
+  });
+  if (!cached) return network;
+  event.waitUntil(network.catch(() => undefined));
+  return cached;
+}
+
 self.addEventListener('fetch', (event) => {
-  const { request } = event;
-  if (request.method !== 'GET' || new URL(request.url).origin !== self.location.origin) return;
-  event.respondWith((async () => {
-    const cache = await caches.open(VERSION);
-    const cached = await cache.match(request, { ignoreSearch: true });
-    const network = fetch(request).then((response) => {
-      if (response.ok) cache.put(request, response.clone());
-      return response;
-    });
-    if (cached) {
-      event.waitUntil(network.catch(() => undefined));
-      return cached;
-    }
-    return network;
-  })());
+  const url = new URL(event.request.url);
+  if (event.request.method !== 'GET' || url.origin !== self.location.origin) return;
+  event.respondWith(caches.open(VERSION).then((cache) => (isImage(url) ? cacheFirst(event, cache) : networkFirst(event, cache))));
 });

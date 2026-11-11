@@ -3,6 +3,7 @@ import { localIsoDate, resolveDay, dayFileName, tokenizeCards, isWaxing, moonPat
   from './today-core.mjs';
 import { mountExchange } from './exchange.js';
 import { mountGame } from './game.js';
+import { watchForUpdates } from './update.js';
 
 const STONE_NAMES = { ruby: 'Ruby', onyx: 'Black onyx', pearl: 'Mother of pearl',
   'diamonds-stacked': 'Stacked diamonds', diamond: 'Diamond' };
@@ -162,6 +163,4 @@ document.addEventListener('visibilitychange', () => {
 });
 render();
 
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js').catch((error) => console.warn('service worker not registered', error));
-}
+if ('serviceWorker' in navigator) watchForUpdates();
