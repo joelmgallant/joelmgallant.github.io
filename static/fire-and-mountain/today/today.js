@@ -2,6 +2,7 @@
 import { localIsoDate, resolveDay, dayFileName, tokenizeCards, isWaxing, moonPath, sigilPoints }
   from './today-core.mjs';
 import { mountExchange } from './exchange.js';
+import { mountGame } from './game.js';
 
 const STONE_NAMES = { ruby: 'Ruby', onyx: 'Black onyx', pearl: 'Mother of pearl',
   'diamonds-stacked': 'Stacked diamonds', diamond: 'Diamond' };
@@ -113,6 +114,7 @@ function renderEntry(entry) {
   fillText(byId('together-text'), entry.together.text);
   mountExchange({ container: byId('exchange'), date: entry.date, prompt: entry.together.text })
     .catch((error) => console.warn('exchange unavailable', error));
+  mountGame({ container: byId('bonus'), date: entry.date, game: entry.game });
 
   byId('status-box').hidden = true;
   byId('reading').hidden = false;

@@ -24,6 +24,7 @@ async function joinWithKey(key) {
     const { person } = await createApi(key).whoami();
     const identity = { key, person };
     writeStored(IDENTITY_KEY, identity);
+    window.dispatchEvent(new CustomEvent('fm-exchange-joined', { detail: identity }));
     return { identity, notice: `Welcome, ${nickname(person)}. You're on the show. 🎤` };
   } catch {
     return null;

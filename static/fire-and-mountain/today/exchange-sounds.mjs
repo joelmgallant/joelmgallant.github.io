@@ -30,6 +30,7 @@ const STINGS = {
     tone(1568, 0.32, 0.5, { type: 'sine', volume: 0.07 });
   },
   buzz: () => tone(110, 0, 0.25, { type: 'sawtooth', volume: 0.07 }),
+  tick: () => tone(880, 0, 0.04, { type: 'square', volume: 0.05 }),
 };
 
 export function playSting(name) {

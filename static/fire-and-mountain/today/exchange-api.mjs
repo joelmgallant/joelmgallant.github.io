@@ -22,9 +22,13 @@ export function createApi(key, baseUrl = API_URL) {
     get: (date) => call('GET', `/exchange?date=${date}`),
     put: (date, answer) => call('PUT', `/exchange?date=${date}`, answer),
     history: (before) => call('GET', `/history?before=${before}`),
-    /** Uploads a blob through a presigned POST and returns its storage key. */
-    async upload(date, kind, blob, contentType) {
-      const form = await call('POST', `/upload?date=${date}&kind=${kind}`, { contentType });
+    game: (date) => call('GET', `/game?date=${date}`),
+    putGame: (date, answer) => call('PUT', `/game?date=${date}`, answer),
+    guess: (date, guess) => call('PUT', `/game/guess?date=${date}`, { guess }),
+    rule: (date, ruling) => call('PUT', `/game/ruling?date=${date}`, { ruling }),
+    /** Uploads a blob through a presigned POST and returns its storage key. round: 'game' for Bonus Round media. */
+    async upload(date, kind, blob, contentType, round = null) {
+      const form = await call('POST', `/upload?date=${date}&kind=${kind}${round ? `&round=${round}` : ''}`, { contentType });
       const data = new FormData();
       for (const [name, value] of Object.entries(form.fields)) data.append(name, value);
       data.append('file', blob);

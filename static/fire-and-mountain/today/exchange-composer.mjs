@@ -1,12 +1,14 @@
 // The Exchange answer composer: text, a resized photo, and a voice memo of up to 60 seconds.
 import { ApiError } from './exchange-api.mjs';
-import { pickRecordingType, scaledSize } from './exchange-core.mjs';
+import { scaledSize } from './exchange-core.mjs';
+import { attachRecorder } from './exchange-recorder.mjs';
 import { playSting } from './exchange-sounds.mjs';
 import { element } from './exchange-ui.mjs';
 
 const MAX_SECONDS = 60;
 
-async function resizePhoto(file) {
+/** Shrinks a photo to at most 1600px on its longest side, as JPEG. */
+export async function resizePhoto(file) {
   const bitmap = await createImageBitmap(file, { imageOrientation: 'from-image' });
   const { width, height } = scaledSize(bitmap.width, bitmap.height, 1600);
   const canvas = Object.assign(document.createElement('canvas'), { width, height });
@@ -47,44 +49,23 @@ export function createComposer({ api, date, existing, onSaved, onCancel }) {
   });
   if (existing?.photoUrl) showPhoto(existing.photoUrl);
 
-  const recording = pickRecordingType((type) => typeof MediaRecorder !== 'undefined' && MediaRecorder.isTypeSupported(type));
-  const recordButton = element('button', { type: 'button', className: 'chunky', textContent: '🎙️ Record', hidden: !recording });
+  const recordButton = element('button', { type: 'button', className: 'chunky' });
   const showAudio = (src) => {
     const remove = element('button', { type: 'button', className: 'mini', textContent: 'Remove' });
     remove.addEventListener('click', () => { draft.audioBlob = null; draft.audioKey = null; audioPreview.replaceChildren(); refresh(); });
     audioPreview.replaceChildren(element('audio', { src, controls: true }), remove);
   };
   if (existing?.audioUrl) showAudio(existing.audioUrl);
-  let recorder = null;
-  let countdown = null;
-  recordButton.addEventListener('click', async () => {
-    if (recorder?.state === 'recording') { recorder.stop(); return; }
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      const chunks = [];
-      recorder = new MediaRecorder(stream, { mimeType: recording.recorderType });
-      recorder.addEventListener('dataavailable', (event) => chunks.push(event.data));
-      recorder.addEventListener('stop', () => {
-        clearInterval(countdown);
-        stream.getTracks().forEach((track) => track.stop());
-        draft.audioBlob = new Blob(chunks, { type: recording.uploadType });
-        draft.audioType = recording.uploadType;
-        draft.audioKey = null;
-        showAudio(URL.createObjectURL(draft.audioBlob));
-        recordButton.textContent = '🎙️ Record again';
-        recordButton.classList.remove('recording');
-        refresh();
-      });
-      recorder.start();
-      let remaining = MAX_SECONDS;
-      recordButton.classList.add('recording');
-      recordButton.textContent = `⏹ Stop (${remaining}s)`;
-      countdown = setInterval(() => {
-        remaining -= 1;
-        recordButton.textContent = `⏹ Stop (${remaining}s)`;
-        if (remaining <= 0) recorder.stop();
-      }, 1000);
-    } catch { status.textContent = 'No microphone access. You can still type or add a photo.'; }
+  attachRecorder(recordButton, {
+    maxSeconds: MAX_SECONDS,
+    onRecorded: (blob, type) => {
+      draft.audioBlob = blob;
+      draft.audioType = type;
+      draft.audioKey = null;
+      showAudio(URL.createObjectURL(blob));
+      refresh();
+    },
+    onError: () => { status.textContent = 'No microphone access. You can still type or add a photo.'; },
   });
 
   const hasContent = () => text.value.trim() || draft.photoBlob || draft.photoKey || draft.audioBlob || draft.audioKey;

@@ -70,13 +70,14 @@ export function validateRuling(body) {
 const has = (item, field) => item?.[field] !== undefined && item[field] !== null;
 const bothHave = (item, prefix = '') => PEOPLE.every((person) => has(item, `${prefix}${person}`));
 
-/** answer | guess | ruling | done, or closed when the window shut before the round finished. */
+/** answer | guess | ruling | done; closed when the window shut first; upcoming before it opens. */
 export function gameStage(type, item, status) {
   let stage = 'done';
   if (!bothHave(item)) stage = 'answer';
   else if (TWO_STAGE.has(type) && !bothHave(item, 'guess_')) stage = 'guess';
   else if (TWO_STAGE.has(type) && type !== 'tales' && !bothHave(item, 'ruling_')) stage = 'ruling';
-  return stage !== 'done' && !status.open ? 'closed' : stage;
+  if (stage === 'done' || status.open) return stage;
+  return status.closed ? 'closed' : 'upcoming';
 }
 
 function closestResult(item, value) {

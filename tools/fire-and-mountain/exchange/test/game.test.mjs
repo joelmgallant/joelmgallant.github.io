@@ -5,6 +5,7 @@ import { gameStage, validateGameAnswer, validateGuess, validateRuling, scoreGame
 const D = '2026-11-20';
 const OPEN = { valid: true, open: true, closed: false };
 const CLOSED = { valid: true, open: false, closed: true };
+const UPCOMING = { valid: true, open: false, closed: false };
 const at = '2026-11-20T15:00:00.000Z';
 const v = (value) => ({ value, at });
 
@@ -54,6 +55,7 @@ test('gameStage walks single- and two-stage games', () => {
   assert.equal(gameStage('wrong', a, OPEN), 'answer');
   assert.equal(gameStage('wrong', both, OPEN), 'done');
   assert.equal(gameStage('wrong', a, CLOSED), 'closed');
+  assert.equal(gameStage('wrong', {}, UPCOMING), 'upcoming');
   assert.equal(gameStage('closeup', both, OPEN), 'guess');
   assert.equal(gameStage('closeup', { ...both, guess_joel: v('a') }, OPEN), 'guess');
   const guessed = { ...both, guess_joel: v('a'), guess_nancy: v('b') };

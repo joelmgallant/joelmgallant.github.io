@@ -48,7 +48,7 @@ flow. Visitors without a key see no Bonus Round panel.
 |---|---|---|---|
 | `closeup` | Extreme Close-Up | `prompt` | `{ photo: <storage key>, caption }` |
 | `sound` | Sound Off | `prompt` | `{ audio: <storage key>, caption }` |
-| `emoji` | Emoji Charades | `prompt` (category, e.g. "a movie") | `{ emoji, caption }`; `emoji` is ≤ 24 chars and must contain no letters or digits |
+| `emoji` | Emoji Charades | `prompt` (category, e.g. "a movie") | `{ emoji, caption }`; `emoji` is 1–16 emoji (graphemes) with no letters or digits |
 | `tales` | Two Truths and a Tall Tale | `prompt` | `{ facts: [3 strings ≤ 100 chars], caption: <index of the tale, 0–2> }` |
 
 `caption` is ≤ 80 chars of text, except for `tales`, where it is the index of
@@ -89,21 +89,21 @@ Equal scores give `tie`. The writers pick one rule id per `wrong` day.
 
 ### Weekly rhythm
 
-Default slot by weekday, which the writers may override when a day's theme calls
-for it:
+Fixed slot by weekday (decided during implementation: no writer overrides, which
+keeps validation simple; `scheduleFor` in `lib/game-content.mjs`):
 
 | Mon | Tue | Wed | Thu | Fri | Sat | Sun |
 |---|---|---|---|---|---|---|
 | `lightning` | `mind` | `closeup` | `wrong` | `sound` | `tabloid` / `emoji` (alternating weeks) | `closest` / `tales` (alternating weeks) |
 
-`check-year` enforces that each type appears between 20 and 60 times in the
-year, and that no type appears on two consecutive days.
+`validate-games.mjs` enforces the scheduled type for every date.
 
 ## Content
 
 ### Source
 
-Each day in `tools/fire-and-mountain/months/*.json` gains a `game` object:
+Each day gets a `game` object in `tools/fire-and-mountain/games/YYYY-MM.json`
+(an array of `{ date, game }`, kept apart from the approved reading files):
 
 ```json
 "game": {
@@ -177,7 +177,7 @@ written only if absent).
 
 ### Pure logic: `src/game.mjs`
 
-- `gameStage(type, item, status)` returns `answer` | `guess` | `ruling` | `done` | `closed`
+- `gameStage(type, item, status)` returns `answer` | `guess` | `ruling` | `done` | `closed` | `upcoming` (before the window opens)
 - `validateGameAnswer(type, body, publicGame?)`, `validateGuess(type, body)`, `validateRuling(body)`
 - `SATURN_RULES`: the table above
 - `scoreGame(type, item, secret)` returns the type-specific result (points,
