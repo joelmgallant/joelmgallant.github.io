@@ -22,6 +22,7 @@
   --heal: #b2463a;
   --pencil: #6a6556;
   --rule: #d9cba9;
+  --tip-bg: var(--paper); --tip-ink: var(--ink); --tip-line: var(--rule);
   --display: "Bree Serif", Rockwell, Georgia, serif;
   --body: "Alegreya Sans", "Gill Sans", "Segoe UI", system-ui, sans-serif;
   --hand: "Caveat", "Bradley Hand", "Segoe Print", cursive;
@@ -119,8 +120,9 @@ p { margin: 0 0 .8rem; max-width: 66ch; }
 /* spell lists: reference, so small and plain */
 .lists { font-size: .9rem; }
 .lists h3 { font-size: .95rem; margin: 1.2rem 0 .25rem; color: var(--peat); }
-.lists ul { list-style: none; margin: 0; padding: 0; columns: 3 10.5rem; column-gap: 1.5rem; }
-.lists li { break-inside: avoid; padding: .12rem 0; }
+.lists ul { list-style: none; margin: 0; padding: 0; columns: 2 17rem; column-gap: 1.8rem; }
+.lists li { break-inside: avoid; padding: .3rem 0; }
+.lists .sd { display: block; font-size: .85rem; line-height: 1.38; color: var(--pencil); margin-top: .05rem; }
 .lists li i { font-style: normal; font-size: .75rem; color: var(--pencil); margin-left: .25rem; }
 .lists li i.mine { color: var(--heal); }
 .lock { display: inline-block; width: .7em; height: .7em; margin-left: .25em; vertical-align: .05em; background: currentColor; opacity: .55;
@@ -142,7 +144,7 @@ p { margin: 0 0 .8rem; max-width: 66ch; }
   .hp td::before { content: attr(data-label); display: block; font: 400 .8rem/1.3 var(--body); color: var(--pencil); }
   .hp td:first-child::before { display: inline; margin-right: .4rem; }
   .lists { font-size: 1rem; }
-  .lists ul { columns: 2 8rem; column-gap: 1rem; }
+  .lists ul { columns: 1; }
   .lists li { padding: .3rem 0; line-height: 1.3; }
   .slots input { width: 1.5rem; height: 1.5rem; }
   .slots input::after { width: .7rem; height: .7rem; }
@@ -152,6 +154,35 @@ p { margin: 0 0 .8rem; max-width: 66ch; }
 }
 footer { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+<style id="spell-desc-ui">
+/* Spell descriptions: a tooltip on hover/focus with a fine pointer, a tap-to-open "+" on touch screens. */
+li.has-sd { position: relative; }
+.sd-toggle { display: none; }
+.spells li.has-sd { grid-template-columns: auto auto 1fr; }
+.spells li.has-sd > .t { grid-column: 3; justify-self: end; }
+.spells li.has-sd > .sd { grid-column: 1 / -1; }
+@media (hover: hover) and (pointer: fine) {
+  li.has-sd > .sd {
+    display: none !important; position: absolute; z-index: 30; left: 0; top: calc(100% - .15rem);
+    width: min(23rem, 85vw); padding: .55rem .75rem; border-radius: 3px;
+    background: var(--tip-bg, #fffdf6); color: var(--tip-ink, #222); border: 1px solid var(--tip-line, #999);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, .22); font-size: .92rem; line-height: 1.42; pointer-events: none;
+  }
+  li.has-sd:hover > .sd, li.has-sd:focus-within > .sd { display: block !important; }
+}
+@media (hover: none), (pointer: coarse) {
+  .sd-toggle {
+    display: inline-grid; place-items: center; width: 1.75rem; height: 1.75rem; margin: -.2rem 0 -.2rem .4rem; padding: 0;
+    border: 1px solid currentColor; border-radius: 50%; background: none; color: inherit;
+    font: 600 1rem/1 system-ui, sans-serif; opacity: .65; vertical-align: middle; cursor: pointer;
+  }
+  .sd-toggle[aria-expanded="true"] { opacity: 1; }
+  .sd-toggle { -webkit-tap-highlight-color: transparent; }
+  .sd-toggle:focus { outline: none; }
+  .sd-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+  li.has-sd:not(.open) > .sd { display: none !important; }
+}
 </style>
 </head>
 <body>
@@ -254,80 +285,80 @@ footer { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--rule
 
 <h2>The cleric spell list, up to level 3</h2>
 <div class="lists">
-  <p class="small">From PHB pp. 71–72. <i class="mine">always</i> means it's one of your domain spells. <i>item</i> means it needs a particular material, sometimes one that costs money. A small lock means D&amp;D Beyond only shows that spell to people with the 2024 Player's Handbook there.</p>
+  <p class="small">From PHB pp. 71–72. Hover a spell for a short description, or tap its + on a phone. <i class="mine">always</i> means it's one of your domain spells. <i>item</i> means it needs a particular material, sometimes one that costs money. A small lock means D&amp;D Beyond only shows that spell to people with the 2024 Player's Handbook there.</p>
   <h3>Cantrips</h3>
   <ul>
-    <li><a href="https://www.dndbeyond.com/spells/2618971-guidance" target="_blank" rel="noopener">Guidance</a><i>conc</i></li>
-    <li><a href="https://www.dndbeyond.com/spells/2618996-light" target="_blank" rel="noopener">Light</a></li>
-    <li><a href="https://www.dndbeyond.com/spells/2619033-mending" target="_blank" rel="noopener">Mending</a></li>
-    <li><a href="https://www.dndbeyond.com/spells/2618947-resistance" target="_blank" rel="noopener">Resistance</a><i>conc</i></li>
-    <li><a href="https://www.dndbeyond.com/spells/2618967-sacred-flame" target="_blank" rel="noopener">Sacred Flame</a></li>
-    <li><a href="https://www.dndbeyond.com/spells/2619067-spare-the-dying" target="_blank" rel="noopener">Spare the Dying</a></li>
-    <li><a href="https://www.dndbeyond.com/spells/2619174-thaumaturgy" target="_blank" rel="noopener">Thaumaturgy</a></li>
-    <li><a href="https://www.dndbeyond.com/spells/2619188-toll-the-dead" target="_blank" rel="noopener">Toll the Dead</a><i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></li>
-    <li><a href="https://www.dndbeyond.com/spells/2619217-word-of-radiance" target="_blank" rel="noopener">Word of Radiance</a><i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618971-guidance" target="_blank" rel="noopener">Guidance</a><i>conc</i><span class="sd">Touch a willing creature and name a skill. For the next minute it adds 1d4 to ability checks that use that skill.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618996-light" target="_blank" rel="noopener">Light</a><span class="sd">Touch an object up to Large size to make it glow like a torch (bright light in 20 feet, dim for 20 more) for an hour. You can choose the color. Covering it hides the glow.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619033-mending" target="_blank" rel="noopener">Mending</a><span class="sd">Touch a single break or tear up to 1 foot across in an object, such as a snapped chain link or a torn cloak, and it's repaired. It can't restore a magic item's magic.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618947-resistance" target="_blank" rel="noopener">Resistance</a><i>conc</i><span class="sd">Touch a willing creature and pick a damage type. The next time it takes that type, it reduces the damage by 1d4. Works once per turn, for up to a minute.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618967-sacred-flame" target="_blank" rel="noopener">Sacred Flame</a><span class="sd">Radiance falls on a creature you can see within 60 feet. Dexterity save or take 1d8 Radiant damage, and cover doesn't help. Damage grows at levels 5, 11 and 17.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619067-spare-the-dying" target="_blank" rel="noopener">Spare the Dying</a><span class="sd">Choose a creature within 15 feet that is at 0 Hit Points and not dead. It becomes Stable. The range doubles at levels 5, 11 and 17.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619174-thaumaturgy" target="_blank" rel="noopener">Thaumaturgy</a><span class="sd">Make a minor wonder within 30 feet: booming voice (Advantage on Intimidation), flickering flames, a slamming door, an odd sound, strange eyes, or harmless tremors.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619188-toll-the-dead" target="_blank" rel="noopener">Toll the Dead<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a><span class="sd">A ghostly bell tolls for a creature within 60 feet. Wisdom save or take 1d8 Necrotic damage, or 1d12 if it's already hurt. Damage grows at levels 5, 11 and 17.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619217-word-of-radiance" target="_blank" rel="noopener">Word of Radiance<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a><span class="sd">Radiance bursts from you in a 5-foot Emanation. Each creature you choose in it makes a Constitution save or takes 1d6 Radiant damage. Grows at levels 5, 11 and 17.</span></li>
   </ul>
   <h3>Level 1</h3>
   <ul>
-    <li><a href="https://www.dndbeyond.com/spells/2618900-bane" target="_blank" rel="noopener">Bane</a><i>conc</i></li>
-    <li><a href="https://www.dndbeyond.com/spells/2618933-bless" target="_blank" rel="noopener">Bless</a><i>conc, item</i><i class="mine">always</i></li>
-    <li><a href="https://www.dndbeyond.com/spells/2618985-command" target="_blank" rel="noopener">Command</a></li>
-    <li><a href="https://www.dndbeyond.com/spells/2619074-create-or-destroy-water" target="_blank" rel="noopener">Create or Destroy Water</a></li>
-    <li><a href="https://www.dndbeyond.com/spells/2619079-cure-wounds" target="_blank" rel="noopener">Cure Wounds</a><i class="mine">always</i></li>
-    <li><a href="https://www.dndbeyond.com/spells/2619090-detect-evil-and-good" target="_blank" rel="noopener">Detect Evil and Good</a><i>conc</i></li>
-    <li><a href="https://www.dndbeyond.com/spells/2619097-detect-magic" target="_blank" rel="noopener">Detect Magic</a><i>conc, ritual</i></li>
-    <li><a href="https://www.dndbeyond.com/spells/2619093-detect-poison-and-disease" target="_blank" rel="noopener">Detect Poison and Disease</a><i>conc, ritual</i></li>
-    <li><a href="https://www.dndbeyond.com/spells/2619136-guiding-bolt" target="_blank" rel="noopener">Guiding Bolt</a></li>
-    <li><a href="https://www.dndbeyond.com/spells/2619143-healing-word" target="_blank" rel="noopener">Healing Word</a></li>
-    <li><a href="https://www.dndbeyond.com/spells/2619181-inflict-wounds" target="_blank" rel="noopener">Inflict Wounds</a></li>
-    <li><a href="https://www.dndbeyond.com/spells/2618912-protection-from-evil-and-good" target="_blank" rel="noopener">Protection from Evil and Good</a><i>conc, item</i></li>
-    <li><a href="https://www.dndbeyond.com/spells/2618917-purify-food-and-drink" target="_blank" rel="noopener">Purify Food and Drink</a><i>ritual</i></li>
-    <li><a href="https://www.dndbeyond.com/spells/2619003-sanctuary" target="_blank" rel="noopener">Sanctuary</a></li>
-    <li><a href="https://www.dndbeyond.com/spells/2619020-shield-of-faith" target="_blank" rel="noopener">Shield of Faith</a><i>conc</i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618900-bane" target="_blank" rel="noopener">Bane</a><i>conc</i><span class="sd">Up to three creatures within 30 feet make Charisma saves. Those who fail subtract 1d4 from their attack rolls and saving throws for the next minute.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618933-bless" target="_blank" rel="noopener">Bless</a><i>conc, item</i><i class="mine">always</i><span class="sd">Up to three creatures within 30 feet add 1d4 to their attack rolls and saving throws for a minute. Slots above 1st add a target each.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618985-command" target="_blank" rel="noopener">Command</a><span class="sd">Speak a one-word order (Approach, Drop, Flee, Grovel or Halt). On a failed Wisdom save, the creature follows it on its next turn. Slots above 1st add a target.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619074-create-or-destroy-water" target="_blank" rel="noopener">Create or Destroy Water</a><span class="sd">Create up to 10 gallons of clean water or make rain in a 30-foot Cube, or destroy 10 gallons of water or clear fog in a 30-foot Cube.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619079-cure-wounds" target="_blank" rel="noopener">Cure Wounds</a><i class="mine">always</i><span class="sd">Touch a creature to restore 2d8 plus your spellcasting modifier in Hit Points. Slots above 1st add 2d8.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619090-detect-evil-and-good" target="_blank" rel="noopener">Detect Evil and Good</a><i>conc</i><span class="sd">Sense Aberrations, Celestials, Elementals, Fey, Fiends and Undead within 30 feet, and whether Hallow is active nearby. Thick stone, metal or lead blocks it.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619097-detect-magic" target="_blank" rel="noopener">Detect Magic</a><i>conc, ritual</i><span class="sd">Sense magic within 30 feet. A Magic action shows a faint aura on anything carrying it and tells you the school if it came from a spell. Blocked by thick barriers.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619093-detect-poison-and-disease" target="_blank" rel="noopener">Detect Poison and Disease</a><i>conc, ritual</i><span class="sd">Sense poisons, venomous creatures and magical contagions within 30 feet, and learn which kind each is. Thick stone, metal or lead blocks it.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619136-guiding-bolt" target="_blank" rel="noopener">Guiding Bolt</a><span class="sd">Hurl a bolt of light at a creature within 120 feet: ranged spell attack for 4d6 Radiant damage. The next attack against the target before your next turn has Advantage. +1d6 per slot level above 1.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619143-healing-word" target="_blank" rel="noopener">Healing Word</a><span class="sd">As a Bonus Action, a creature you can see within 60 feet regains 2d4 Hit Points plus your spellcasting modifier. Adds 2d4 per slot level above 1.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619181-inflict-wounds" target="_blank" rel="noopener">Inflict Wounds</a><span class="sd">Touch a creature, which makes a Constitution save or takes 2d10 Necrotic damage, half on a success. Adds 1d10 per slot level above 1.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618912-protection-from-evil-and-good" target="_blank" rel="noopener">Protection from Evil and Good</a><i>conc, item</i><span class="sd">A touched ally is warded against Aberrations, Celestials, Elementals, Fey, Fiends and Undead. They attack at Disadvantage, and can't possess or Charm or Frighten the ward.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618917-purify-food-and-drink" target="_blank" rel="noopener">Purify Food and Drink</a><i>ritual</i><span class="sd">Cleans poison and rot out of all nonmagical food and drink in a 5-foot-radius area within 10 feet. Handy for spoiled rations or a tainted well bucket.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619003-sanctuary" target="_blank" rel="noopener">Sanctuary</a><span class="sd">Ward a creature within 30 feet as a Bonus Action. Anyone targeting it with an attack or damaging spell must pass a Wisdom save or pick another target. Ends if the ward attacks or casts.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619020-shield-of-faith" target="_blank" rel="noopener">Shield of Faith</a><i>conc</i><span class="sd">A shimmering field surrounds a creature within 60 feet, giving it +2 to AC for up to 10 minutes. Cast it as a Bonus Action.</span></li>
   </ul>
   <h3>Level 2</h3>
   <ul>
-    <li><a href="https://www.dndbeyond.com/spells/2618845-aid" target="_blank" rel="noopener">Aid</a><i class="mine">always</i></li>
-    <li><a href="https://www.dndbeyond.com/spells/2618882-augury" target="_blank" rel="noopener">Augury</a><i>ritual, item</i></li>
-    <li><a href="https://www.dndbeyond.com/spells/2618938-blindness-deafness" target="_blank" rel="noopener">Blindness/Deafness</a></li>
-    <li><a href="https://www.dndbeyond.com/spells/2618959-calm-emotions" target="_blank" rel="noopener">Calm Emotions</a><i>conc</i></li>
-    <li><a href="https://www.dndbeyond.com/spells/2619065-continual-flame" target="_blank" rel="noopener">Continual Flame</a><i>item</i></li>
-    <li><a href="https://www.dndbeyond.com/spells/2619165-enhance-ability" target="_blank" rel="noopener">Enhance Ability</a><i>conc</i></li>
-    <li><a href="https://www.dndbeyond.com/spells/2618883-find-traps" target="_blank" rel="noopener">Find Traps</a></li>
-    <li><a href="https://www.dndbeyond.com/spells/2618942-gentle-repose" target="_blank" rel="noopener">Gentle Repose</a><i>ritual, item</i></li>
-    <li><a href="https://www.dndbeyond.com/spells/2619153-hold-person" target="_blank" rel="noopener">Hold Person</a><i>conc</i></li>
-    <li><a href="https://www.dndbeyond.com/spells/2619016-lesser-restoration" target="_blank" rel="noopener">Lesser Restoration</a><i class="mine">always</i></li>
-    <li><a href="https://www.dndbeyond.com/spells/2619002-locate-object" target="_blank" rel="noopener">Locate Object</a><i>conc</i></li>
-    <li><a href="https://www.dndbeyond.com/spells/2618892-prayer-of-healing" target="_blank" rel="noopener">Prayer of Healing</a></li>
-    <li><a href="https://www.dndbeyond.com/spells/2618915-protection-from-poison" target="_blank" rel="noopener">Protection from Poison</a></li>
-    <li><a href="https://www.dndbeyond.com/spells/2619061-silence" target="_blank" rel="noopener">Silence</a><i>conc, ritual</i></li>
-    <li><a href="https://www.dndbeyond.com/spells/2619081-spiritual-weapon" target="_blank" rel="noopener">Spiritual Weapon</a><i>conc</i></li>
-    <li><a href="https://www.dndbeyond.com/spells/2619203-warding-bond" target="_blank" rel="noopener">Warding Bond</a><i>item</i></li>
-    <li><a href="https://www.dndbeyond.com/spells/2619221-zone-of-truth" target="_blank" rel="noopener">Zone of Truth</a></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618845-aid" target="_blank" rel="noopener">Aid</a><i class="mine">always</i><span class="sd">Up to three creatures within 30 feet gain 5 extra Hit Points, both current and maximum, for 8 hours. Slots above 2nd add 5 more per level.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618882-augury" target="_blank" rel="noopener">Augury</a><i>ritual, item</i><span class="sd">Ask about a plan for the next 30 minutes and get an omen: good, bad, both or neither. Casting it repeatedly before a Long Rest risks getting no answer.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618938-blindness-deafness" target="_blank" rel="noopener">Blindness/Deafness</a><span class="sd">A creature within 120 feet makes a Constitution save or is Blinded or Deafened, your pick. It repeats the save at the end of each of its turns.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618959-calm-emotions" target="_blank" rel="noopener">Calm Emotions</a><i>conc</i><span class="sd">Humanoids in a 20-foot radius make Charisma saves. Affected ones either become immune to Charmed and Frightened or turn Indifferent to chosen foes.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619065-continual-flame" target="_blank" rel="noopener">Continual Flame</a><i>item</i><span class="sd">Touch an object to give it a flame that gives bright light in 20 feet, no heat, and no fuel use. It can be covered but never snuffed out. Needs ruby dust.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619165-enhance-ability" target="_blank" rel="noopener">Enhance Ability</a><i>conc</i><span class="sd">Touch a creature and pick an ability. It has Advantage on checks with that ability. Higher slots add one more target per level above 2, each with its own ability.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618883-find-traps" target="_blank" rel="noopener">Find Traps</a><span class="sd">Sense whether traps are present within 120 feet and in line of sight. You learn the general kind of danger but not where the trap is. Natural hazards don't count.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618942-gentle-repose" target="_blank" rel="noopener">Gentle Repose</a><i>ritual, item</i><span class="sd">Touch a corpse to keep it from decaying or rising as Undead for 10 days. Those days don't count against the time limit for spells like Raise Dead.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619153-hold-person" target="_blank" rel="noopener">Hold Person</a><i>conc</i><span class="sd">Pick a Humanoid within 60 feet. It makes a Wisdom save or is Paralyzed, and can save again at the end of each of its turns. Higher slots add one target per level above 2.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619016-lesser-restoration" target="_blank" rel="noopener">Lesser Restoration</a><i class="mine">always</i><span class="sd">Touch a creature and, as a Bonus Action, end one condition on it: Blinded, Deafened, Paralyzed, or Poisoned.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619002-locate-object" target="_blank" rel="noopener">Locate Object</a><i>conc</i><span class="sd">Name an object you know or a kind of object. You sense its direction if it's within 1,000 feet. Even a thin layer of lead blocks the spell.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618892-prayer-of-healing" target="_blank" rel="noopener">Prayer of Healing</a><span class="sd">Up to five creatures who stay within 30 feet through the 10-minute casting gain the benefits of a Short Rest and regain 2d8 Hit Points. Once per Long Rest per creature.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618915-protection-from-poison" target="_blank" rel="noopener">Protection from Poison</a><span class="sd">Touch a creature to end the Poisoned condition on it. For 1 hour it has Advantage on saves against being Poisoned and Resistance to Poison damage.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619061-silence" target="_blank" rel="noopener">Silence</a><i>conc, ritual</i><span class="sd">A 20-foot-radius sphere within 120 feet becomes soundless. Creatures inside are Deafened and immune to Thunder damage, and nobody in it can cast spells with a Verbal component.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619081-spiritual-weapon" target="_blank" rel="noopener">Spiritual Weapon</a><i>conc</i><span class="sd">Conjure a floating spectral weapon within 60 feet and attack with it right away for 1d8 plus your spellcasting modifier Force damage. Move it 20 feet and attack again as a Bonus Action each turn.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619203-warding-bond" target="_blank" rel="noopener">Warding Bond</a><i>item</i><span class="sd">Link yourself to a willing touched ally for 1 hour. While within 60 feet it gets +1 AC and saves and Resistance to all damage, but you take the same damage it takes.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619221-zone-of-truth" target="_blank" rel="noopener">Zone of Truth</a><span class="sd">Create a 15-foot-radius zone within 60 feet. Creatures that fail a Charisma save can't speak a deliberate lie there, though they can stay silent or evasive. You know who failed.</span></li>
   </ul>
   <h3>Level 3</h3>
   <ul>
-    <li><a href="https://www.dndbeyond.com/spells/2618853-animate-dead" target="_blank" rel="noopener">Animate Dead</a></li>
-    <li><a href="https://www.dndbeyond.com/spells/2618891-aura-of-vitality" target="_blank" rel="noopener">Aura of Vitality</a><i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i><i>conc</i></li>
-    <li><a href="https://www.dndbeyond.com/spells/2618911-beacon-of-hope" target="_blank" rel="noopener">Beacon of Hope</a><i>conc</i></li>
-    <li><a href="https://www.dndbeyond.com/spells/2618923-bestow-curse" target="_blank" rel="noopener">Bestow Curse</a><i>conc</i></li>
-    <li><a href="https://www.dndbeyond.com/spells/2618972-clairvoyance" target="_blank" rel="noopener">Clairvoyance</a><i>conc, item</i></li>
-    <li><a href="https://www.dndbeyond.com/spells/2619073-create-food-and-water" target="_blank" rel="noopener">Create Food and Water</a></li>
-    <li><a href="https://www.dndbeyond.com/spells/2619083-daylight" target="_blank" rel="noopener">Daylight</a></li>
-    <li><a href="https://www.dndbeyond.com/spells/2619103-dispel-magic" target="_blank" rel="noopener">Dispel Magic</a></li>
-    <li><a href="https://www.dndbeyond.com/spells/2618873-feign-death" target="_blank" rel="noopener">Feign Death</a><i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i><i>ritual</i></li>
-    <li><a href="https://www.dndbeyond.com/spells/2618951-glyph-of-warding" target="_blank" rel="noopener">Glyph of Warding</a><i>item</i></li>
-    <li><a href="https://www.dndbeyond.com/spells/2619018-magic-circle" target="_blank" rel="noopener">Magic Circle</a><i>item</i></li>
-    <li><a href="https://www.dndbeyond.com/spells/2619028-mass-healing-word" target="_blank" rel="noopener">Mass Healing Word</a><i class="mine">always</i></li>
-    <li><a href="https://www.dndbeyond.com/spells/2619031-meld-into-stone" target="_blank" rel="noopener">Meld into Stone</a><i>ritual</i></li>
-    <li><a href="https://www.dndbeyond.com/spells/2618908-protection-from-energy" target="_blank" rel="noopener">Protection from Energy</a><i>conc</i></li>
-    <li><a href="https://www.dndbeyond.com/spells/2618943-remove-curse" target="_blank" rel="noopener">Remove Curse</a></li>
-    <li><a href="https://www.dndbeyond.com/spells/2618956-revivify" target="_blank" rel="noopener">Revivify</a><i>item</i><i class="mine">always</i></li>
-    <li><a href="https://www.dndbeyond.com/spells/2619015-sending" target="_blank" rel="noopener">Sending</a></li>
-    <li><a href="https://www.dndbeyond.com/spells/2619068-speak-with-dead" target="_blank" rel="noopener">Speak with Dead</a></li>
-    <li><a href="https://www.dndbeyond.com/spells/2619078-spirit-guardians" target="_blank" rel="noopener">Spirit Guardians</a><i>conc</i></li>
-    <li><a href="https://www.dndbeyond.com/spells/2619190-tongues" target="_blank" rel="noopener">Tongues</a></li>
-    <li><a href="https://www.dndbeyond.com/spells/2619207-water-walk" target="_blank" rel="noopener">Water Walk</a><i>ritual</i></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618853-animate-dead" target="_blank" rel="noopener">Animate Dead</a><span class="sd">Raise a Small or Medium corpse or bones as a Zombie or Skeleton under your command. Use a Bonus Action to order it; recast daily to keep control.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618891-aura-of-vitality" target="_blank" rel="noopener">Aura of Vitality<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a><i>conc</i><span class="sd">A 30-foot aura around you that heals. When you cast it and at the start of each of your turns, restore 2d6 Hit Points to one creature inside it.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618911-beacon-of-hope" target="_blank" rel="noopener">Beacon of Hope</a><i>conc</i><span class="sd">Chosen creatures in range get Advantage on Wisdom saves and Death Saving Throws, and any healing they receive gives the maximum possible Hit Points.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618923-bestow-curse" target="_blank" rel="noopener">Bestow Curse</a><i>conc</i><span class="sd">Touch a creature; on a failed Wisdom save it is cursed with a penalty of your choice, such as Disadvantage on one ability or extra 1d8 Necrotic damage from you.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618972-clairvoyance" target="_blank" rel="noopener">Clairvoyance</a><i>conc, item</i><span class="sd">Create an invisible sensor up to a mile away, in a place you know or an obvious spot. Choose seeing or hearing through it, and switch with a Bonus Action.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619073-create-food-and-water" target="_blank" rel="noopener">Create Food and Water</a><span class="sd">Conjure 45 pounds of bland but nourishing food and 30 gallons of fresh water. The food spoils after 24 hours.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619083-daylight" target="_blank" rel="noopener">Daylight</a><span class="sd">A 60-foot-radius Sphere of sunlight appears at a point in range, with Bright Light inside and Dim Light for 60 more feet. It dispels weaker magical Darkness.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619103-dispel-magic" target="_blank" rel="noopener">Dispel Magic</a><span class="sd">End a spell on a creature, object or effect in range. Level 3 or lower ends automatically; higher ones need a spellcasting check against DC 10 plus the spell level.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618873-feign-death" target="_blank" rel="noopener">Feign Death<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a><i>ritual</i><span class="sd">Touch a willing creature so it looks dead, even to magic. It is Blinded and Incapacitated with Speed 0, resists all damage but Psychic, and is immune to Poisoned. Lasts 1 hour.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618951-glyph-of-warding" target="_blank" rel="noopener">Glyph of Warding</a><i>item</i><span class="sd">Spend an hour inscribing a hidden glyph on a surface or object. When triggered, it either explodes in a 20-foot radius (5d8 damage of a type you choose) or releases a stored spell of level 3 or lower.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619018-magic-circle" target="_blank" rel="noopener">Magic Circle</a><i>item</i><span class="sd">Make a 10-foot-radius, 20-foot-tall cylinder that guards against Celestials, Elementals, Fey, Fiends or Undead (you pick). They can't walk in, attack at Disadvantage, and can't charm or frighten those inside. Lasts 1 hour.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619028-mass-healing-word" target="_blank" rel="noopener">Mass Healing Word</a><i class="mine">always</i><span class="sd">As a Bonus Action, up to six creatures you can see within 60 feet each regain 2d4 Hit Points plus your spellcasting modifier.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619031-meld-into-stone" target="_blank" rel="noopener">Meld into Stone</a><i>ritual</i><span class="sd">Step into a stone object or surface big enough to hold you and vanish from sight for 8 hours. You can't see out well, but you can leave at will. Damage to the stone hurts you.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618908-protection-from-energy" target="_blank" rel="noopener">Protection from Energy</a><i>conc</i><span class="sd">A willing creature you touch gets Resistance to one damage type you pick: Acid, Cold, Fire, Lightning, or Thunder. Lasts up to an hour.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618943-remove-curse" target="_blank" rel="noopener">Remove Curse</a><span class="sd">Touch a creature or object to end every curse on it. A cursed magic item stays cursed, but its owner is freed from Attunement so they can drop it.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618956-revivify" target="_blank" rel="noopener">Revivify</a><i>item</i><i class="mine">always</i><span class="sd">Touch a creature that died within the last minute and it returns to life with 1 Hit Point. Doesn't work on old age or regrow missing body parts. Costs a 300 GP diamond.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619015-sending" target="_blank" rel="noopener">Sending</a><span class="sd">Send a message of 25 words or fewer to a creature you know of, at any distance. They hear it in their mind and can reply right away, though the message may fail across planes.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619068-speak-with-dead" target="_blank" rel="noopener">Speak with Dead</a><span class="sd">Give a corpse a brief semblance of life and ask it up to five questions over 10 minutes. It only knows what it knew in life, and its answers can be cryptic or evasive.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619078-spirit-guardians" target="_blank" rel="noopener">Spirit Guardians</a><i>conc</i><span class="sd">Spirits swirl in a 15-foot Emanation around you. Enemies inside have halved Speed and take 3d8 Radiant or Necrotic damage on a failed Wisdom save, half on a success.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619190-tongues" target="_blank" rel="noopener">Tongues</a><span class="sd">A touched creature understands any spoken or signed language, and anyone who knows at least one language can understand it in return. Lasts 1 hour.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619207-water-walk" target="_blank" rel="noopener">Water Walk</a><i>ritual</i><span class="sd">Up to ten willing creatures within 30 feet can walk across water, mud, snow, lava and other liquids as if solid ground for 1 hour.</span></li>
   </ul>
 </div>
 <p class="note">Nobody reads the whole menu. Pick what keeps people standing.</p>
@@ -338,7 +369,11 @@ footer { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--rule
 
 <h2>Coming up</h2>
 <p>At <b>6</b> you get Blessed Healer, so healing someone else with a slot heals you too, 2 plus the slot level. Channel Divinity goes up to 3 uses and you get a third level 3 slot. <span class="pg">pp. 70, 74</span></p>
-<p>Level <b>7</b> brings Blessed Strikes (extra radiant or necrotic damage on a weapon hit, or Wisdom added to cantrip damage, your pick), a level 4 slot, Divine Spark goes to 2d8, and <a href="https://www.dndbeyond.com/spells/2618884-aura-of-life" target="_blank" rel="noopener">Aura of Life</a> and <a href="https://www.dndbeyond.com/spells/2619085-death-ward" target="_blank" rel="noopener">Death Ward</a> become domain spells. <span class="pg">pp. 70–71, 73</span></p>
+<p>Level <b>7</b> brings Blessed Strikes (extra radiant or necrotic damage on a weapon hit, or Wisdom added to cantrip damage, your pick), a level 4 slot, Divine Spark goes to 2d8, and Aura of Life and Death Ward become domain spells. <span class="pg">pp. 70–71, 73</span></p>
+<div class="lists"><ul>
+    <li><a href="https://www.dndbeyond.com/spells/2618884-aura-of-life" target="_blank" rel="noopener">Aura of Life</a><span class="sd">A 30-foot aura around you gives you and allies Necrotic resistance, protects Hit Point maximums from reduction, and gives allies at 0 HP 1 Hit Point on their turn.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619085-death-ward" target="_blank" rel="noopener">Death Ward</a><span class="sd">Touch a creature. The first time it would drop to 0 Hit Points it goes to 1 instead, or it escapes an instant-death effect, and the spell ends. Lasts 8 hours.</span></li>
+  </ul></div>
 <p>Then another feat at <b>8</b>. <span class="pg">p. 71</span></p>
 <p class="note right">Stew's on. Go save somebody.</p>
 
@@ -348,5 +383,25 @@ footer { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--rule
 
 </article>
 </div>
+<script id="spell-desc-js">
+document.querySelectorAll("li").forEach(function (item) {
+  var desc = item.querySelector(":scope > .sd");
+  var link = item.querySelector(":scope > a");
+  if (!desc || !link) return;
+  item.classList.add("has-sd");
+  var toggle = document.createElement("button");
+  toggle.type = "button";
+  toggle.className = "sd-toggle";
+  toggle.textContent = "+";
+  toggle.setAttribute("aria-expanded", "false");
+  toggle.setAttribute("aria-label", "What " + link.textContent.trim() + " does");
+  toggle.addEventListener("click", function () {
+    var open = item.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.textContent = open ? "−" : "+";
+  });
+  link.after(toggle);
+});
+</script>
 </body>
 </html>

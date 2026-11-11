@@ -19,6 +19,7 @@
   --gold: #d8b25a;
   --violet: #b9a4ff;
   --rule: #34406e;
+  --tip-bg: var(--night-2); --tip-ink: var(--cream); --tip-line: var(--gold);
   --display: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
   --type: "EB Garamond", "Iowan Old Style", Georgia, serif;
   color-scheme: dark;
@@ -78,8 +79,11 @@ ul.moves li::marker { color: var(--gold); }
 .origin::before { content: ""; position: absolute; left: -4px; top: .55rem; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
 .origin p { margin: 0 0 .25rem; }
 .origin .name { font-weight: 600; color: var(--cream); }
-.origin .spells { font-size: .98rem; color: var(--cream-soft); }
-.origin .spells a { color: var(--cream-soft); }
+.origin .free { font-size: .95rem; color: var(--cream-soft); margin: .3rem 0 0; }
+ul.spells { list-style: none; margin: .1rem 0 .3rem; padding: 0; }
+.spells li { padding: .3rem 0; border-bottom: 1px dotted var(--rule); display: grid; grid-template-columns: 1fr auto; column-gap: .6rem; }
+.spells .t { font: italic 400 .9rem/1.5 var(--type); color: var(--gold); white-space: nowrap; }
+.sd { grid-column: 1 / -1; font-size: .98rem; line-height: 1.4; color: var(--cream-soft); padding-top: .05rem; }
 
 .lock { display: inline-block; width: .65em; height: .65em; margin-left: .2em; background: currentColor; opacity: .6;
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 7V5a4 4 0 0 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 0 0-4 0v2z'/%3E%3C/svg%3E") center/contain no-repeat;
@@ -108,7 +112,35 @@ footer { margin-top: 2rem; font-size: .92rem; color: var(--cream-soft); max-widt
   .compare td br { display: none; }
   .compare td .small::before { content: " "; }
   ul.moves li { margin-bottom: .6rem; }
-  .origin .spells a { display: inline-block; padding: .1rem 0; }
+}
+</style>
+<style id="spell-desc-ui">
+/* Spell descriptions: a tooltip on hover/focus with a fine pointer, a tap-to-open "+" on touch screens. */
+li.has-sd { position: relative; }
+.sd-toggle { display: none; }
+.spells li.has-sd { grid-template-columns: auto auto 1fr; }
+.spells li.has-sd > .t { grid-column: 3; justify-self: end; }
+.spells li.has-sd > .sd { grid-column: 1 / -1; }
+@media (hover: hover) and (pointer: fine) {
+  li.has-sd > .sd {
+    display: none !important; position: absolute; z-index: 30; left: 0; top: calc(100% - .15rem);
+    width: min(23rem, 85vw); padding: .55rem .75rem; border-radius: 3px;
+    background: var(--tip-bg, #fffdf6); color: var(--tip-ink, #222); border: 1px solid var(--tip-line, #999);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, .22); font-size: .92rem; line-height: 1.42; pointer-events: none;
+  }
+  li.has-sd:hover > .sd, li.has-sd:focus-within > .sd { display: block !important; }
+}
+@media (hover: none), (pointer: coarse) {
+  .sd-toggle {
+    display: inline-grid; place-items: center; width: 1.75rem; height: 1.75rem; margin: -.2rem 0 -.2rem .4rem; padding: 0;
+    border: 1px solid currentColor; border-radius: 50%; background: none; color: inherit;
+    font: 600 1rem/1 system-ui, sans-serif; opacity: .65; vertical-align: middle; cursor: pointer;
+  }
+  .sd-toggle[aria-expanded="true"] { opacity: 1; }
+  .sd-toggle { -webkit-tap-highlight-color: transparent; }
+  .sd-toggle:focus { outline: none; }
+  .sd-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+  li.has-sd:not(.open) > .sd { display: none !important; }
 }
 </style>
 </head>
@@ -178,11 +210,36 @@ footer { margin-top: 2rem; font-size: .92rem; color: var(--cream-soft); max-widt
 <h3>Origins, chosen at level 3</h3>
 <div class="origins">
   <div class="origin"><p><span class="name">Aberrant</span> <span class="pg">p. 145</span>. Something alien got into your head. You can talk to someone mind to mind, even from miles away.</p>
-    <p class="spells">Free spells: <a href="https://www.dndbeyond.com/spells/2618871-arms-of-hadar" target="_blank" rel="noopener">Arms of Hadar<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a>, <a href="https://www.dndbeyond.com/spells/2618959-calm-emotions" target="_blank" rel="noopener">Calm Emotions</a>, <a href="https://www.dndbeyond.com/spells/2619099-detect-thoughts" target="_blank" rel="noopener">Detect Thoughts</a>, <a href="https://www.dndbeyond.com/spells/2619104-dissonant-whispers" target="_blank" rel="noopener">Dissonant Whispers</a>, <a href="https://www.dndbeyond.com/spells/2619037-mind-sliver" target="_blank" rel="noopener">Mind Sliver<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a>, and at 5, <a href="https://www.dndbeyond.com/spells/2619162-hunger-of-hadar" target="_blank" rel="noopener">Hunger of Hadar<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a> and <a href="https://www.dndbeyond.com/spells/2619015-sending" target="_blank" rel="noopener">Sending</a>.</p></div>
+    <p class="free">Free spells:</p>
+    <ul class="spells">
+    <li><a href="https://www.dndbeyond.com/spells/2618871-arms-of-hadar" target="_blank" rel="noopener">Arms of Hadar<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a><span class="t"></span><span class="sd">Tendrils burst out in a 10-foot Emanation. Creatures make a Strength save or take 2d6 Necrotic damage and can't take Reactions; half damage on a save.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618959-calm-emotions" target="_blank" rel="noopener">Calm Emotions</a><span class="t"></span><span class="sd">Humanoids in a 20-foot radius make Charisma saves. Affected ones either become immune to Charmed and Frightened or turn Indifferent to chosen foes.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619099-detect-thoughts" target="_blank" rel="noopener">Detect Thoughts</a><span class="t"></span><span class="sd">Sense nearby minds within 30 feet, or read the surface thoughts of a creature you can see. Deeper probing makes the target roll a Wisdom save.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619104-dissonant-whispers" target="_blank" rel="noopener">Dissonant Whispers</a><span class="t"></span><span class="sd">One creature within range hears a hideous melody: Wisdom save or take 3d6 Psychic damage and use its Reaction to run away from you. Half damage on a save.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619037-mind-sliver" target="_blank" rel="noopener">Mind Sliver<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a><span class="t"></span><span class="sd">A creature within 60 feet makes an Intelligence save or takes 1d6 Psychic damage and subtracts 1d4 from its next saving throw before your next turn ends. Grows at levels 5, 11 and 17.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619162-hunger-of-hadar" target="_blank" rel="noopener">Hunger of Hadar<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a><span class="t">at 5</span><span class="sd">Open a 20-foot-radius sphere of Darkness that's Difficult Terrain and blinds anyone inside. Creatures take 2d6 Cold damage starting their turn there, or 2d6 Acid (Dexterity save) ending it there.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619015-sending" target="_blank" rel="noopener">Sending</a><span class="t">at 5</span><span class="sd">Send a message of 25 words or fewer to a creature you know of, at any distance. They hear it in their mind and can reply right away, though the message may fail across planes.</span></li>
+  </ul></div>
   <div class="origin"><p><span class="name">Clockwork</span> <span class="pg">p. 146</span>. Your power comes from cosmic order. A few times a day you can cancel someone's advantage or disadvantage so they roll straight.</p>
-    <p class="spells">Free spells: <a href="https://www.dndbeyond.com/spells/2618845-aid" target="_blank" rel="noopener">Aid</a>, <a href="https://www.dndbeyond.com/spells/2619222-alarm" target="_blank" rel="noopener">Alarm</a>, <a href="https://www.dndbeyond.com/spells/2619016-lesser-restoration" target="_blank" rel="noopener">Lesser Restoration</a>, <a href="https://www.dndbeyond.com/spells/2618912-protection-from-evil-and-good" target="_blank" rel="noopener">Protection from Evil and Good</a>, and at 5, <a href="https://www.dndbeyond.com/spells/2619103-dispel-magic" target="_blank" rel="noopener">Dispel Magic</a> and <a href="https://www.dndbeyond.com/spells/2618908-protection-from-energy" target="_blank" rel="noopener">Protection from Energy</a>.</p></div>
+    <p class="free">Free spells:</p>
+    <ul class="spells">
+    <li><a href="https://www.dndbeyond.com/spells/2618845-aid" target="_blank" rel="noopener">Aid</a><span class="t"></span><span class="sd">Up to three creatures within 30 feet gain 5 extra Hit Points, both current and maximum, for 8 hours. Slots above 2nd add 5 more per level.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619222-alarm" target="_blank" rel="noopener">Alarm</a><span class="t"></span><span class="sd">Ward a door, window or 20-foot area for 8 hours. You get a loud bell sound nearby or a silent mental ping if anything touches or enters it.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619016-lesser-restoration" target="_blank" rel="noopener">Lesser Restoration</a><span class="t"></span><span class="sd">Touch a creature and, as a Bonus Action, end one condition on it: Blinded, Deafened, Paralyzed, or Poisoned.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618912-protection-from-evil-and-good" target="_blank" rel="noopener">Protection from Evil and Good</a><span class="t"></span><span class="sd">A touched ally is warded against Aberrations, Celestials, Elementals, Fey, Fiends and Undead. They attack at Disadvantage, and can't possess or Charm or Frighten the ward.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619103-dispel-magic" target="_blank" rel="noopener">Dispel Magic</a><span class="t">at 5</span><span class="sd">End a spell on a creature, object or effect in range. Level 3 or lower ends automatically; higher ones need a spellcasting check against DC 10 plus the spell level.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618908-protection-from-energy" target="_blank" rel="noopener">Protection from Energy</a><span class="t">at 5</span><span class="sd">A willing creature you touch gets Resistance to one damage type you pick: Acid, Cold, Fire, Lightning, or Thunder. Lasts up to an hour.</span></li>
+  </ul></div>
   <div class="origin"><p><span class="name">Draconic</span> <span class="pg">p. 148</span>. There's a dragon in the family. You get extra hit points (+5 at level 5) and decent natural armor.</p>
-    <p class="spells">Free spells: <a href="https://www.dndbeyond.com/spells/2618846-alter-self" target="_blank" rel="noopener">Alter Self</a>, <a href="https://www.dndbeyond.com/spells/2618966-chromatic-orb" target="_blank" rel="noopener">Chromatic Orb</a>, <a href="https://www.dndbeyond.com/spells/2618985-command" target="_blank" rel="noopener">Command</a>, <a href="https://www.dndbeyond.com/spells/2619150-dragons-breath" target="_blank" rel="noopener">Dragon's Breath</a>, and at 5, <a href="https://www.dndbeyond.com/spells/2618872-fear" target="_blank" rel="noopener">Fear</a> and <a href="https://www.dndbeyond.com/spells/2618909-fly" target="_blank" rel="noopener">Fly</a>.</p></div>
+    <p class="free">Free spells:</p>
+    <ul class="spells">
+    <li><a href="https://www.dndbeyond.com/spells/2618846-alter-self" target="_blank" rel="noopener">Alter Self</a><span class="t"></span><span class="sd">Reshape your body: grow gills and a Swim Speed, change your looks to anyone of your size and shape, or grow claws, fangs or horns for 1d6 unarmed strikes.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618966-chromatic-orb" target="_blank" rel="noopener">Chromatic Orb</a><span class="t"></span><span class="sd">Hurl an orb of Acid, Cold, Fire, Lightning, Poison or Thunder at a target within 90 feet: 3d8 damage on a hit. Matching d8s make it leap to another target.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618985-command" target="_blank" rel="noopener">Command</a><span class="t"></span><span class="sd">Speak a one-word order (Approach, Drop, Flee, Grovel or Halt). On a failed Wisdom save, the creature follows it on its next turn. Slots above 1st add a target.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619150-dragons-breath" target="_blank" rel="noopener">Dragon's Breath</a><span class="t"></span><span class="sd">Touch a willing creature and pick Acid, Cold, Fire, Lightning or Poison. It can exhale a 15-foot Cone for 3d6 damage (Dexterity save for half) as a Magic action.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618872-fear" target="_blank" rel="noopener">Fear</a><span class="t">at 5</span><span class="sd">Creatures in a 30-foot cone make a Wisdom save or drop what they hold and become Frightened. They run from you by the safest route, and can retry the save when they lose sight of you.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618909-fly" target="_blank" rel="noopener">Fly</a><span class="t">at 5</span><span class="sd">Touch a willing creature to give it a 60-foot Fly Speed and the ability to hover for up to 10 minutes. It falls when the spell ends. Higher slots add one target per level above 3.</span></li>
+  </ul></div>
   <div class="origin"><p><span class="name">Wild Magic</span> <span class="pg">p. 149</span>. Your spells sometimes set off random surges, and now and then you can give yourself advantage on a roll. There's no free spell list with this one.</p></div>
 </div>
 
@@ -197,13 +254,48 @@ footer { margin-top: 2rem; font-size: .92rem; color: var(--cream-soft); max-widt
 <h3>Patrons, chosen at level 3</h3>
 <div class="origins">
   <div class="origin"><p><span class="name">Archfey</span> <span class="pg">p. 159</span>. A fey noble. You can blink a short distance for free a few times a day, and each blink comes with a bonus, like a few temporary hit points.</p>
-    <p class="spells">Free spells: <a href="https://www.dndbeyond.com/spells/2618959-calm-emotions" target="_blank" rel="noopener">Calm Emotions</a>, <a href="https://www.dndbeyond.com/spells/2618858-faerie-fire" target="_blank" rel="noopener">Faerie Fire</a>, <a href="https://www.dndbeyond.com/spells/2619133-misty-step" target="_blank" rel="noopener">Misty Step</a>, <a href="https://www.dndbeyond.com/spells/2618854-phantasmal-force" target="_blank" rel="noopener">Phantasmal Force</a>, <a href="https://www.dndbeyond.com/spells/2619064-sleep" target="_blank" rel="noopener">Sleep</a>, and at 5, <a href="https://www.dndbeyond.com/spells/2618939-blink" target="_blank" rel="noopener">Blink</a> and <a href="https://www.dndbeyond.com/spells/2618869-plant-growth" target="_blank" rel="noopener">Plant Growth</a>.</p></div>
+    <p class="free">Free spells:</p>
+    <ul class="spells">
+    <li><a href="https://www.dndbeyond.com/spells/2618959-calm-emotions" target="_blank" rel="noopener">Calm Emotions</a><span class="t"></span><span class="sd">Humanoids in a 20-foot radius make Charisma saves. Affected ones either become immune to Charmed and Frightened or turn Indifferent to chosen foes.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618858-faerie-fire" target="_blank" rel="noopener">Faerie Fire</a><span class="t"></span><span class="sd">Light up objects and creatures in a 20-foot cube; a Dexterity save decides who gets outlined. Outlined targets can't turn Invisible, and attacks against them have Advantage.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619133-misty-step" target="_blank" rel="noopener">Misty Step</a><span class="t"></span><span class="sd">As a Bonus Action, teleport up to 30 feet to an open space you can see.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618854-phantasmal-force" target="_blank" rel="noopener">Phantasmal Force</a><span class="t"></span><span class="sd">Plant an illusion in one creature's mind (up to a 10-foot cube) if it fails an Intelligence save. It treats the illusion as real until it succeeds at an Investigation check against your save DC.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619064-sleep" target="_blank" rel="noopener">Sleep</a><span class="t"></span><span class="sd">Creatures in a 5-foot-radius area within 60 feet make a Wisdom save or become Incapacitated, then fall Unconscious if they fail a second save. Damage or a shake wakes them.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618939-blink" target="_blank" rel="noopener">Blink</a><span class="t">at 5</span><span class="sd">At the end of each of your turns, roll a d6. On a 4 to 6 you slip into the Ethereal Plane until the start of your next turn, then return nearby.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618869-plant-growth" target="_blank" rel="noopener">Plant Growth</a><span class="t">at 5</span><span class="sd">Cast quickly to make plants in a 100-foot radius so thick that moving through costs 4 feet per foot. Cast over 8 hours to enrich plants in a half-mile radius so they yield double.</span></li>
+  </ul></div>
   <div class="origin"><p><span class="name">Celestial</span> <span class="pg">p. 160</span>. A heavenly patron. You carry a pool of healing dice (6d6 at level 5) to hand out as a bonus action.</p>
-    <p class="spells">Free spells: <a href="https://www.dndbeyond.com/spells/2618845-aid" target="_blank" rel="noopener">Aid</a>, <a href="https://www.dndbeyond.com/spells/2619079-cure-wounds" target="_blank" rel="noopener">Cure Wounds</a>, <a href="https://www.dndbeyond.com/spells/2619136-guiding-bolt" target="_blank" rel="noopener">Guiding Bolt</a>, <a href="https://www.dndbeyond.com/spells/2619016-lesser-restoration" target="_blank" rel="noopener">Lesser Restoration</a>, <a href="https://www.dndbeyond.com/spells/2618996-light" target="_blank" rel="noopener">Light</a>, <a href="https://www.dndbeyond.com/spells/2618967-sacred-flame" target="_blank" rel="noopener">Sacred Flame</a>, and at 5, <a href="https://www.dndbeyond.com/spells/2619083-daylight" target="_blank" rel="noopener">Daylight</a> and <a href="https://www.dndbeyond.com/spells/2618956-revivify" target="_blank" rel="noopener">Revivify</a>.</p></div>
+    <p class="free">Free spells:</p>
+    <ul class="spells">
+    <li><a href="https://www.dndbeyond.com/spells/2618845-aid" target="_blank" rel="noopener">Aid</a><span class="t"></span><span class="sd">Up to three creatures within 30 feet gain 5 extra Hit Points, both current and maximum, for 8 hours. Slots above 2nd add 5 more per level.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619079-cure-wounds" target="_blank" rel="noopener">Cure Wounds</a><span class="t"></span><span class="sd">Touch a creature to restore 2d8 plus your spellcasting modifier in Hit Points. Slots above 1st add 2d8.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619136-guiding-bolt" target="_blank" rel="noopener">Guiding Bolt</a><span class="t"></span><span class="sd">Hurl a bolt of light at a creature within 120 feet: ranged spell attack for 4d6 Radiant damage. The next attack against the target before your next turn has Advantage. +1d6 per slot level above 1.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619016-lesser-restoration" target="_blank" rel="noopener">Lesser Restoration</a><span class="t"></span><span class="sd">Touch a creature and, as a Bonus Action, end one condition on it: Blinded, Deafened, Paralyzed, or Poisoned.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618996-light" target="_blank" rel="noopener">Light</a><span class="t"></span><span class="sd">Touch an object up to Large size to make it glow like a torch (bright light in 20 feet, dim for 20 more) for an hour. You can choose the color. Covering it hides the glow.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618967-sacred-flame" target="_blank" rel="noopener">Sacred Flame</a><span class="t"></span><span class="sd">Radiance falls on a creature you can see within 60 feet. Dexterity save or take 1d8 Radiant damage, and cover doesn't help. Damage grows at levels 5, 11 and 17.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619083-daylight" target="_blank" rel="noopener">Daylight</a><span class="t">at 5</span><span class="sd">A 60-foot-radius Sphere of sunlight appears at a point in range, with Bright Light inside and Dim Light for 60 more feet. It dispels weaker magical Darkness.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618956-revivify" target="_blank" rel="noopener">Revivify</a><span class="t">at 5</span><span class="sd">Touch a creature that died within the last minute and it returns to life with 1 Hit Point. Doesn't work on old age or regrow missing body parts. Costs a 300 GP diamond.</span></li>
+  </ul></div>
   <div class="origin"><p><span class="name">Fiend</span> <span class="pg">p. 161</span>. A demon or devil. Every time an enemy drops near you, you get temporary hit points. Lots of fire.</p>
-    <p class="spells">Free spells: <a href="https://www.dndbeyond.com/spells/2618946-burning-hands" target="_blank" rel="noopener">Burning Hands</a>, <a href="https://www.dndbeyond.com/spells/2618985-command" target="_blank" rel="noopener">Command</a>, <a href="https://www.dndbeyond.com/spells/2619005-scorching-ray" target="_blank" rel="noopener">Scorching Ray</a>, <a href="https://www.dndbeyond.com/spells/2619101-suggestion" target="_blank" rel="noopener">Suggestion</a>, and at 5, <a href="https://www.dndbeyond.com/spells/2618887-fireball" target="_blank" rel="noopener">Fireball</a> and <a href="https://www.dndbeyond.com/spells/2619091-stinking-cloud" target="_blank" rel="noopener">Stinking Cloud</a>.</p></div>
+    <p class="free">Free spells:</p>
+    <ul class="spells">
+    <li><a href="https://www.dndbeyond.com/spells/2618946-burning-hands" target="_blank" rel="noopener">Burning Hands</a><span class="t"></span><span class="sd">A sheet of flame fills a 15-foot Cone: Dexterity save or 3d6 Fire damage, half on a success. Ignites loose flammable objects. Slots above 1st add 1d6.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618985-command" target="_blank" rel="noopener">Command</a><span class="t"></span><span class="sd">Speak a one-word order (Approach, Drop, Flee, Grovel or Halt). On a failed Wisdom save, the creature follows it on its next turn. Slots above 1st add a target.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619005-scorching-ray" target="_blank" rel="noopener">Scorching Ray</a><span class="t"></span><span class="sd">Hurl three fire rays at one or more targets within 120 feet. Each needs its own ranged spell attack and deals 2d6 Fire damage. Higher slots add one ray per level.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619101-suggestion" target="_blank" rel="noopener">Suggestion</a><span class="t"></span><span class="sd">Suggest a short course of action (25 words or less) to a creature that understands you. On a failed Wisdom save it is Charmed and follows it, until you or your allies hurt it.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618887-fireball" target="_blank" rel="noopener">Fireball</a><span class="t">at 5</span><span class="sd">A fiery blast explodes at a point within 150 feet. Everything in a 20-foot radius makes a Dexterity save, taking 8d6 Fire damage or half on a success. Adds 1d6 per slot level above 3.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619091-stinking-cloud" target="_blank" rel="noopener">Stinking Cloud</a><span class="t">at 5</span><span class="sd">A 20-foot-radius cloud of foul gas Heavily Obscures the area within 90 feet. Creatures starting their turn inside must pass a Constitution save or lose their action and Bonus Action that turn.</span></li>
+  </ul></div>
   <div class="origin"><p><span class="name">Great Old One</span> <span class="pg">pp. 162–163</span>. Something huge and ancient. Mind-to-mind talking at long range, psychic damage on demand, and you can cast charms and illusions without a word or a gesture.</p>
-    <p class="spells">Free spells: <a href="https://www.dndbeyond.com/spells/2619099-detect-thoughts" target="_blank" rel="noopener">Detect Thoughts</a>, <a href="https://www.dndbeyond.com/spells/2619104-dissonant-whispers" target="_blank" rel="noopener">Dissonant Whispers</a>, <a href="https://www.dndbeyond.com/spells/2618854-phantasmal-force" target="_blank" rel="noopener">Phantasmal Force</a>, <a href="https://www.dndbeyond.com/spells/2619132-tashas-hideous-laughter" target="_blank" rel="noopener">Tasha's Hideous Laughter</a>, and at 5, <a href="https://www.dndbeyond.com/spells/2618972-clairvoyance" target="_blank" rel="noopener">Clairvoyance</a> and <a href="https://www.dndbeyond.com/spells/2619162-hunger-of-hadar" target="_blank" rel="noopener">Hunger of Hadar<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a>.</p></div>
+    <p class="free">Free spells:</p>
+    <ul class="spells">
+    <li><a href="https://www.dndbeyond.com/spells/2619099-detect-thoughts" target="_blank" rel="noopener">Detect Thoughts</a><span class="t"></span><span class="sd">Sense nearby minds within 30 feet, or read the surface thoughts of a creature you can see. Deeper probing makes the target roll a Wisdom save.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619104-dissonant-whispers" target="_blank" rel="noopener">Dissonant Whispers</a><span class="t"></span><span class="sd">One creature within range hears a hideous melody: Wisdom save or take 3d6 Psychic damage and use its Reaction to run away from you. Half damage on a save.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618854-phantasmal-force" target="_blank" rel="noopener">Phantasmal Force</a><span class="t"></span><span class="sd">Plant an illusion in one creature's mind (up to a 10-foot cube) if it fails an Intelligence save. It treats the illusion as real until it succeeds at an Investigation check against your save DC.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619132-tashas-hideous-laughter" target="_blank" rel="noopener">Tasha's Hideous Laughter</a><span class="t"></span><span class="sd">A creature within 30 feet makes a Wisdom save or falls Prone and Incapacitated, laughing helplessly. It saves again each turn and when hurt (with Advantage on damage). Higher slots add targets.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618972-clairvoyance" target="_blank" rel="noopener">Clairvoyance</a><span class="t">at 5</span><span class="sd">Create an invisible sensor up to a mile away, in a place you know or an obvious spot. Choose seeing or hearing through it, and switch with a Bonus Action.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619162-hunger-of-hadar" target="_blank" rel="noopener">Hunger of Hadar<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a><span class="t">at 5</span><span class="sd">Open a 20-foot-radius sphere of Darkness that's Difficult Terrain and blinds anyone inside. Creatures take 2d6 Cold damage starting their turn there, or 2d6 Acid (Dexterity save) ending it there.</span></li>
+  </ul></div>
 </div>
 
 <h2>Wizard <small>PHB p. 165</small></h2>
@@ -222,7 +314,10 @@ footer { margin-top: 2rem; font-size: .92rem; color: var(--cream-soft); max-widt
   <div class="origin"><p><span class="name">Abjurer</span> <span class="pg">p. 172</span>. A magic ward that takes hits for you. Casting protective spells tops it back up.</p></div>
   <div class="origin"><p><span class="name">Diviner</span> <span class="pg">p. 173</span>. Every morning you roll two d20s and keep the results. Later you can swap one in for any roll you can see, yours or anyone else's.</p></div>
   <div class="origin"><p><span class="name">Evoker</span> <span class="pg">p. 174</span>. Your damage cantrips still do half damage when they miss.</p></div>
-  <div class="origin"><p><span class="name">Illusionist</span> <span class="pg">p. 175</span>. Silent illusions with extra range, and a free <a href="https://www.dndbeyond.com/spells/2619039-minor-illusion" target="_blank" rel="noopener">Minor Illusion</a> you can cast as a bonus action.</p></div>
+  <div class="origin"><p><span class="name">Illusionist</span> <span class="pg">p. 175</span>. Silent illusions with extra range, and a free Minor Illusion you can cast as a bonus action.</p>
+    <ul class="spells">
+    <li><a href="https://www.dndbeyond.com/spells/2619039-minor-illusion" target="_blank" rel="noopener">Minor Illusion</a><span class="t"></span><span class="sd">Create a sound or an image of an object no bigger than a 5-foot cube for 1 minute. The image has no sound or light, and touching it shows it's fake.</span></li>
+  </ul></div>
 </div>
 
 <div class="signoff">
@@ -230,9 +325,29 @@ footer { margin-top: 2rem; font-size: .92rem; color: var(--cream-soft); max-widt
 </div>
 
 <footer>
-  <p>All three pick their specialty at level 3 and a feat at level 4. Rules are summed up from the 2024 Player's Handbook, and page numbers match the printed book. Spell names link to D&amp;D Beyond. A small lock means you need the 2024 Player's Handbook there to read it.</p>
+  <p>All three pick their specialty at level 3 and a feat at level 4. Rules are summed up from the 2024 Player's Handbook, and page numbers match the printed book. Spell names link to D&amp;D Beyond; hover one for a short description, or tap its + on a phone. "At 5" means the spell joins at character level 5. A small lock means you need the 2024 Player's Handbook there to read it.</p>
 </footer>
 
 </div>
+<script id="spell-desc-js">
+document.querySelectorAll("li").forEach(function (item) {
+  var desc = item.querySelector(":scope > .sd");
+  var link = item.querySelector(":scope > a");
+  if (!desc || !link) return;
+  item.classList.add("has-sd");
+  var toggle = document.createElement("button");
+  toggle.type = "button";
+  toggle.className = "sd-toggle";
+  toggle.textContent = "+";
+  toggle.setAttribute("aria-expanded", "false");
+  toggle.setAttribute("aria-label", "What " + link.textContent.trim() + " does");
+  toggle.addEventListener("click", function () {
+    var open = item.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.textContent = open ? "−" : "+";
+  });
+  link.after(toggle);
+});
+</script>
 </body>
 </html>

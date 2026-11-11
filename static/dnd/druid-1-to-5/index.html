@@ -19,6 +19,7 @@
   --green: #2f5d3a;
   --rust: #a2502a;
   --rule: #c7c0aa;
+  --tip-bg: #fbf9f1; --tip-ink: var(--ink); --tip-line: var(--rule);
   --old: "IM Fell English", "Iowan Old Style", Georgia, serif;
   --type: "Source Serif 4", "Iowan Old Style", Georgia, serif;
   color-scheme: light;
@@ -69,17 +70,18 @@ table.hp { border-collapse: collapse; font-variant-numeric: tabular-nums; margin
 .spell-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 0 2rem; }
 .spell-cols h3 { margin-top: .6rem; }
 ul.spells { list-style: none; margin: 0; padding: 0; }
-.spells li { padding: .22rem 0; border-bottom: 1px dotted var(--rule); display: flex; justify-content: space-between; gap: .6rem; }
+.spells li { padding: .35rem 0; border-bottom: 1px dotted var(--rule); display: grid; grid-template-columns: 1fr auto; column-gap: .6rem; }
 .spells .t { font: italic 400 .85rem/1.6 var(--old); color: var(--ink-soft); white-space: nowrap; }
+.sd { grid-column: 1 / -1; font-size: .9rem; line-height: 1.42; color: var(--ink-soft); padding-top: .1rem; }
+.circle ul.spells { margin: .1rem 0 .7rem; }
+.sheet > ul.spells { margin: -.2rem 0 1rem; }
+.lands { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: .2rem 1.6rem; margin: .3rem 0 .4rem; }
+.lands h4 { font: 600 1rem/1.3 var(--type); margin: .6rem 0 0; }
 
 .circle { border-left: 3px solid var(--green); padding-left: 1rem; margin: 1.6rem 0; }
 .circle h3 { margin-top: 0; font: 400 1.35rem/1.2 var(--old); color: var(--green); }
 .circle p { margin-bottom: .5rem; }
 .circle .free { font-size: .95rem; }
-table.lands { border-collapse: collapse; font-size: .95rem; margin: .2rem 0 .4rem; width: 100%; }
-.lands th, .lands td { text-align: left; vertical-align: top; padding: .3rem .8rem .3rem 0; border-bottom: 1px solid var(--rule); }
-.lands thead th { font: italic 400 .9rem/1.2 var(--old); color: var(--ink-soft); }
-.lands tbody th { font-weight: 600; white-space: nowrap; }
 
 .lock { display: inline-block; width: .65em; height: .65em; margin-left: .2em; background: currentColor; opacity: .55;
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 7V5a4 4 0 0 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 0 0-4 0v2z'/%3E%3C/svg%3E") center/contain no-repeat;
@@ -102,11 +104,35 @@ footer { margin-top: 1.6rem; font-size: .85rem; color: var(--ink-soft); }
   .levels tbody th::before { content: "Level "; }
   .levels td, .levels td.num { border: 0; padding: .12rem 0; text-align: left; display: grid; grid-template-columns: 7.4rem 1fr; gap: .5rem; align-items: baseline; }
   .levels td::before { content: attr(data-label); font: italic 400 .9rem/1.4 var(--old); color: var(--ink-soft); }
-  .lands thead { display: none; }
-  .lands, .lands tbody, .lands tr, .lands th, .lands td { display: block; }
-  .lands tr { border-bottom: 1px solid var(--rule); padding: .4rem 0; }
-  .lands th, .lands td { border: 0; padding: 0; }
-  .lands td.l5::before { content: "At level 5: "; font-style: italic; color: var(--ink-soft); }
+}
+</style>
+<style id="spell-desc-ui">
+/* Spell descriptions: a tooltip on hover/focus with a fine pointer, a tap-to-open "+" on touch screens. */
+li.has-sd { position: relative; }
+.sd-toggle { display: none; }
+.spells li.has-sd { grid-template-columns: auto auto 1fr; }
+.spells li.has-sd > .t { grid-column: 3; justify-self: end; }
+.spells li.has-sd > .sd { grid-column: 1 / -1; }
+@media (hover: hover) and (pointer: fine) {
+  li.has-sd > .sd {
+    display: none !important; position: absolute; z-index: 30; left: 0; top: calc(100% - .15rem);
+    width: min(23rem, 85vw); padding: .55rem .75rem; border-radius: 3px;
+    background: var(--tip-bg, #fffdf6); color: var(--tip-ink, #222); border: 1px solid var(--tip-line, #999);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, .22); font-size: .92rem; line-height: 1.42; pointer-events: none;
+  }
+  li.has-sd:hover > .sd, li.has-sd:focus-within > .sd { display: block !important; }
+}
+@media (hover: none), (pointer: coarse) {
+  .sd-toggle {
+    display: inline-grid; place-items: center; width: 1.75rem; height: 1.75rem; margin: -.2rem 0 -.2rem .4rem; padding: 0;
+    border: 1px solid currentColor; border-radius: 50%; background: none; color: inherit;
+    font: 600 1rem/1 system-ui, sans-serif; opacity: .65; vertical-align: middle; cursor: pointer;
+  }
+  .sd-toggle[aria-expanded="true"] { opacity: 1; }
+  .sd-toggle { -webkit-tap-highlight-color: transparent; }
+  .sd-toggle:focus { outline: none; }
+  .sd-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+  li.has-sd:not(.open) > .sd { display: none !important; }
 }
 </style>
 </head>
@@ -156,7 +182,10 @@ footer { margin-top: 1.6rem; font-size: .85rem; color: var(--ink-soft); }
 <p>Use a bonus action to turn into an animal you know. You keep your own mind and hit points, and you get temporary hit points equal to your druid level (5 now). You can't cast spells while you're an animal. It lasts up to 2 hours at level 5, or until you change back with another bonus action. You can swap one known animal for another after a long rest.</p>
 
 <h3>Level 2: Wild Companion <span class="pg">p. 81</span></h3>
-<p>Spend a spell slot or a Wild Shape use to call a fey spirit as a familiar, like <a href="https://www.dndbeyond.com/spells/2618877-find-familiar" target="_blank" rel="noopener">Find Familiar</a> without the materials. It leaves when you finish a long rest.</p>
+<p>Spend a spell slot or a Wild Shape use to call a fey spirit as a familiar, like the Find Familiar spell without the materials. It leaves when you finish a long rest.</p>
+<ul class="spells">
+    <li><a href="https://www.dndbeyond.com/spells/2618877-find-familiar" target="_blank" rel="noopener">Find Familiar</a><span class="t"></span><span class="sd">Gain a spirit companion in a small animal form that acts on its own and obeys you. You can speak with it telepathically from 100 feet and see through its eyes as a Bonus Action.</span></li>
+  </ul>
 
 <h3>Level 4: More animals <span class="pg">p. 81</span></h3>
 <p>Besides the feat and the third cantrip, you can now know 6 animals instead of 4, and they can be as tough as challenge rating ½, about a warhorse.</p>
@@ -179,56 +208,56 @@ footer { margin-top: 1.6rem; font-size: .85rem; color: var(--ink-soft); }
 <p class="small">If your table rolls for hit points, roll a d8 for each level instead of taking 5. If your feat raises Constitution, use the new modifier.</p>
 
 <h2>New spells</h2>
-<p>Level 2 and 3 spells open up at levels 3 and 5. Each name links to D&amp;D Beyond.</p>
+<p>Level 2 and 3 spells open up at levels 3 and 5. Each name links to D&amp;D Beyond. Hover a spell for a short description, or tap its + on a phone.</p>
 <div class="spell-cols">
   <div>
     <h3>Level 2</h3>
     <ul class="spells">
-      <li><a href="https://www.dndbeyond.com/spells/2618845-aid" target="_blank" rel="noopener">Aid</a><span class="t"></span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2618850-animal-messenger" target="_blank" rel="noopener">Animal Messenger</a><span class="t">ritual</span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2618882-augury" target="_blank" rel="noopener">Augury</a><span class="t">ritual</span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2618907-barkskin" target="_blank" rel="noopener">Barkskin</a><span class="t"></span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2618914-beast-sense" target="_blank" rel="noopener">Beast Sense<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a><span class="t">conc., ritual</span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2619065-continual-flame" target="_blank" rel="noopener">Continual Flame</a><span class="t"></span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2619082-darkvision" target="_blank" rel="noopener">Darkvision</a><span class="t"></span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2619165-enhance-ability" target="_blank" rel="noopener">Enhance Ability</a><span class="t">conc.</span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2619170-enlarge-reduce" target="_blank" rel="noopener">Enlarge/Reduce</a><span class="t">conc.</span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2618883-find-traps" target="_blank" rel="noopener">Find Traps</a><span class="t"></span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2618899-flame-blade" target="_blank" rel="noopener">Flame Blade</a><span class="t">conc.</span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2618919-flaming-sphere" target="_blank" rel="noopener">Flaming Sphere</a><span class="t">conc.</span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2619137-gust-of-wind" target="_blank" rel="noopener">Gust of Wind</a><span class="t">conc.</span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2619145-heat-metal" target="_blank" rel="noopener">Heat Metal</a><span class="t">conc.</span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2619153-hold-person" target="_blank" rel="noopener">Hold Person</a><span class="t">conc.</span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2619016-lesser-restoration" target="_blank" rel="noopener">Lesser Restoration</a><span class="t"></span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2619000-locate-animals-or-plants" target="_blank" rel="noopener">Locate Animals or Plants</a><span class="t">ritual</span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2619002-locate-object" target="_blank" rel="noopener">Locate Object</a><span class="t">conc.</span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2619134-moonbeam" target="_blank" rel="noopener">Moonbeam</a><span class="t">conc.</span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2618849-pass-without-trace" target="_blank" rel="noopener">Pass without Trace</a><span class="t">conc.</span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2618915-protection-from-poison" target="_blank" rel="noopener">Protection from Poison</a><span class="t"></span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2619075-spike-growth" target="_blank" rel="noopener">Spike Growth</a><span class="t">conc.</span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2619106-summon-beast" target="_blank" rel="noopener">Summon Beast<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a><span class="t">conc.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2618845-aid" target="_blank" rel="noopener">Aid</a><span class="t"></span><span class="sd">Up to three creatures within 30 feet gain 5 extra Hit Points, both current and maximum, for 8 hours. Slots above 2nd add 5 more per level.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2618850-animal-messenger" target="_blank" rel="noopener">Animal Messenger</a><span class="t">ritual</span><span class="sd">A Tiny Beast carries a message of up to 25 words to a place you've been and a person you describe. It travels about 25 miles a day, 50 if it flies.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2618882-augury" target="_blank" rel="noopener">Augury</a><span class="t">ritual</span><span class="sd">Ask about a plan for the next 30 minutes and get an omen: good, bad, both or neither. Casting it repeatedly before a Long Rest risks getting no answer.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2618907-barkskin" target="_blank" rel="noopener">Barkskin</a><span class="t"></span><span class="sd">Touch a willing creature: its skin turns bark-like and its Armor Class becomes at least 17 for 1 hour.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2618914-beast-sense" target="_blank" rel="noopener">Beast Sense<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a><span class="t">conc., ritual</span><span class="sd">Touch a willing Beast and perceive through its senses as well as your own, including any special senses it has, for up to an hour.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619065-continual-flame" target="_blank" rel="noopener">Continual Flame</a><span class="t"></span><span class="sd">Touch an object to give it a flame that gives bright light in 20 feet, no heat, and no fuel use. It can be covered but never snuffed out. Needs ruby dust.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619082-darkvision" target="_blank" rel="noopener">Darkvision</a><span class="t"></span><span class="sd">Touch a willing creature to give it Darkvision out to 150 feet for 8 hours, so it can see in the dark.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619165-enhance-ability" target="_blank" rel="noopener">Enhance Ability</a><span class="t">conc.</span><span class="sd">Touch a creature and pick an ability. It has Advantage on checks with that ability. Higher slots add one more target per level above 2, each with its own ability.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619170-enlarge-reduce" target="_blank" rel="noopener">Enlarge/Reduce</a><span class="t">conc.</span><span class="sd">Make a creature or loose object one size bigger or smaller. Bigger means Advantage on Strength checks and saves and +1d4 weapon damage; smaller means the opposite. Unwilling targets get a Constitution save.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2618883-find-traps" target="_blank" rel="noopener">Find Traps</a><span class="t"></span><span class="sd">Sense whether traps are present within 120 feet and in line of sight. You learn the general kind of danger but not where the trap is. Natural hazards don't count.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2618899-flame-blade" target="_blank" rel="noopener">Flame Blade</a><span class="t">conc.</span><span class="sd">Conjure a fiery blade in your free hand for 10 minutes. Use your action to make a melee spell attack with it for 3d6 Fire damage. It sheds light, and higher slots add 1d6 per level.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2618919-flaming-sphere" target="_blank" rel="noopener">Flaming Sphere</a><span class="t">conc.</span><span class="sd">Create a 5-foot ball of fire that you roll up to 30 feet as a Bonus Action. Creatures ending their turn next to it make a Dexterity save or take 2d6 Fire damage, half on a success.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619137-gust-of-wind" target="_blank" rel="noopener">Gust of Wind</a><span class="t">conc.</span><span class="sd">A 60-foot line of strong wind blasts from you. Creatures in it make a Strength save or get pushed 15 feet away, and moving toward you costs double. Clears gas and snuffs small flames.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619145-heat-metal" target="_blank" rel="noopener">Heat Metal</a><span class="t">conc.</span><span class="sd">Make a metal object you can see glow red-hot. Anyone touching it takes 2d8 Fire damage, and you can repeat it as a Bonus Action. A holder must make a Constitution save or drop it, or suffer Disadvantage.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619153-hold-person" target="_blank" rel="noopener">Hold Person</a><span class="t">conc.</span><span class="sd">Pick a Humanoid within 60 feet. It makes a Wisdom save or is Paralyzed, and can save again at the end of each of its turns. Higher slots add one target per level above 2.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619016-lesser-restoration" target="_blank" rel="noopener">Lesser Restoration</a><span class="t"></span><span class="sd">Touch a creature and, as a Bonus Action, end one condition on it: Blinded, Deafened, Paralyzed, or Poisoned.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619000-locate-animals-or-plants" target="_blank" rel="noopener">Locate Animals or Plants</a><span class="t">ritual</span><span class="sd">Name a kind of Beast, Plant creature, or nonmagical plant. You learn the direction and distance to the nearest one within 5 miles, if any exist.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619002-locate-object" target="_blank" rel="noopener">Locate Object</a><span class="t">conc.</span><span class="sd">Name an object you know or a kind of object. You sense its direction if it's within 1,000 feet. Even a thin layer of lead blocks the spell.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619134-moonbeam" target="_blank" rel="noopener">Moonbeam</a><span class="t">conc.</span><span class="sd">Drop a 5-foot-radius column of pale light within 120 feet. Creatures in it make a Constitution save or take 2d10 Radiant damage, half on a success. Shape-shifters revert. You can move it on later turns.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2618849-pass-without-trace" target="_blank" rel="noopener">Pass without Trace</a><span class="t">conc.</span><span class="sd">A 30-foot aura around you gives you and chosen allies a +10 bonus to Dexterity (Stealth) checks, and you leave no tracks. Lasts up to an hour.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2618915-protection-from-poison" target="_blank" rel="noopener">Protection from Poison</a><span class="t"></span><span class="sd">Touch a creature to end the Poisoned condition on it. For 1 hour it has Advantage on saves against being Poisoned and Resistance to Poison damage.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619075-spike-growth" target="_blank" rel="noopener">Spike Growth</a><span class="t">conc.</span><span class="sd">The ground in a 20-foot-radius area within 150 feet sprouts hidden spikes and becomes Difficult Terrain. Creatures take 2d4 Piercing damage for every 5 feet they move through it.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619106-summon-beast" target="_blank" rel="noopener">Summon Beast<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a><span class="t">conc.</span><span class="sd">Call a bestial spirit ally in the Air, Land or Water form. It acts right after you in combat, and its attacks and hit points scale with the slot level you use.</span></li>
     </ul>
   </div>
   <div>
     <h3>Level 3</h3>
     <ul class="spells">
-      <li><a href="https://www.dndbeyond.com/spells/2618891-aura-of-vitality" target="_blank" rel="noopener">Aura of Vitality<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a><span class="t">conc.</span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2618949-call-lightning" target="_blank" rel="noopener">Call Lightning</a><span class="t">conc.</span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2619044-conjure-animals" target="_blank" rel="noopener">Conjure Animals</a><span class="t">conc.</span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2619083-daylight" target="_blank" rel="noopener">Daylight</a><span class="t"></span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2619103-dispel-magic" target="_blank" rel="noopener">Dispel Magic</a><span class="t"></span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2619164-elemental-weapon" target="_blank" rel="noopener">Elemental Weapon<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a><span class="t">conc.</span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2618873-feign-death" target="_blank" rel="noopener">Feign Death<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a><span class="t">ritual</span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2619031-meld-into-stone" target="_blank" rel="noopener">Meld into Stone</a><span class="t">ritual</span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2618869-plant-growth" target="_blank" rel="noopener">Plant Growth</a><span class="t"></span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2618908-protection-from-energy" target="_blank" rel="noopener">Protection from Energy</a><span class="t">conc.</span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2618956-revivify" target="_blank" rel="noopener">Revivify</a><span class="t"></span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2618998-sleet-storm" target="_blank" rel="noopener">Sleet Storm</a><span class="t">conc.</span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2619069-speak-with-plants" target="_blank" rel="noopener">Speak with Plants</a><span class="t"></span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2619115-summon-fey" target="_blank" rel="noopener">Summon Fey<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a><span class="t">conc.</span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2619205-water-breathing" target="_blank" rel="noopener">Water Breathing</a><span class="t">ritual</span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2619207-water-walk" target="_blank" rel="noopener">Water Walk</a><span class="t">ritual</span></li>
-      <li><a href="https://www.dndbeyond.com/spells/2619212-wind-wall" target="_blank" rel="noopener">Wind Wall</a><span class="t">conc.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2618891-aura-of-vitality" target="_blank" rel="noopener">Aura of Vitality<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a><span class="t">conc.</span><span class="sd">A 30-foot aura around you that heals. When you cast it and at the start of each of your turns, restore 2d6 Hit Points to one creature inside it.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2618949-call-lightning" target="_blank" rel="noopener">Call Lightning</a><span class="t">conc.</span><span class="sd">A storm cloud forms overhead and a bolt strikes a point you pick: Dexterity save or 3d10 Lightning damage in 5 feet. Call down another bolt with a Magic action.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619044-conjure-animals" target="_blank" rel="noopener">Conjure Animals</a><span class="t">conc.</span><span class="sd">Summon a spectral Large pack of animals you can move 30 feet a turn. Creatures near it make Dexterity saves or take 3d10 Slashing damage.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619083-daylight" target="_blank" rel="noopener">Daylight</a><span class="t"></span><span class="sd">A 60-foot-radius Sphere of sunlight appears at a point in range, with Bright Light inside and Dim Light for 60 more feet. It dispels weaker magical Darkness.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619103-dispel-magic" target="_blank" rel="noopener">Dispel Magic</a><span class="t"></span><span class="sd">End a spell on a creature, object or effect in range. Level 3 or lower ends automatically; higher ones need a spellcasting check against DC 10 plus the spell level.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619164-elemental-weapon" target="_blank" rel="noopener">Elemental Weapon<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a><span class="t">conc.</span><span class="sd">A nonmagical weapon you touch becomes magic with a +1 bonus to attack rolls and an extra 1d4 Acid, Cold, Fire, Lightning or Thunder damage. Higher slots improve it.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2618873-feign-death" target="_blank" rel="noopener">Feign Death<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a><span class="t">ritual</span><span class="sd">Touch a willing creature so it looks dead, even to magic. It is Blinded and Incapacitated with Speed 0, resists all damage but Psychic, and is immune to Poisoned. Lasts 1 hour.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619031-meld-into-stone" target="_blank" rel="noopener">Meld into Stone</a><span class="t">ritual</span><span class="sd">Step into a stone object or surface big enough to hold you and vanish from sight for 8 hours. You can't see out well, but you can leave at will. Damage to the stone hurts you.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2618869-plant-growth" target="_blank" rel="noopener">Plant Growth</a><span class="t"></span><span class="sd">Cast quickly to make plants in a 100-foot radius so thick that moving through costs 4 feet per foot. Cast over 8 hours to enrich plants in a half-mile radius so they yield double.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2618908-protection-from-energy" target="_blank" rel="noopener">Protection from Energy</a><span class="t">conc.</span><span class="sd">A willing creature you touch gets Resistance to one damage type you pick: Acid, Cold, Fire, Lightning, or Thunder. Lasts up to an hour.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2618956-revivify" target="_blank" rel="noopener">Revivify</a><span class="t"></span><span class="sd">Touch a creature that died within the last minute and it returns to life with 1 Hit Point. Doesn't work on old age or regrow missing body parts. Costs a 300 GP diamond.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2618998-sleet-storm" target="_blank" rel="noopener">Sleet Storm</a><span class="t">conc.</span><span class="sd">Icy sleet fills a 20-foot-radius, 40-foot-tall cylinder within 150 feet. It's Heavily Obscured Difficult Terrain, and creatures may fall Prone and lose Concentration on a failed Dexterity save.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619069-speak-with-plants" target="_blank" rel="noopener">Speak with Plants</a><span class="t"></span><span class="sd">Plants in a 30-foot area around you can talk to you and follow simple commands for 10 minutes. You can ask what passed through and turn plant Difficult Terrain to normal, or the reverse.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619115-summon-fey" target="_blank" rel="noopener">Summon Fey<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a><span class="t">conc.</span><span class="sd">Call a Fey spirit ally in a Fuming, Mirthful or Tricksy mood. It acts right after you in combat, and its attacks and hit points scale with the slot level you use.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619205-water-breathing" target="_blank" rel="noopener">Water Breathing</a><span class="t">ritual</span><span class="sd">Up to ten willing creatures within 30 feet can breathe underwater for 24 hours. They can still breathe air as well.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619207-water-walk" target="_blank" rel="noopener">Water Walk</a><span class="t">ritual</span><span class="sd">Up to ten willing creatures within 30 feet can walk across water, mud, snow, lava and other liquids as if solid ground for 1 hour.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619212-wind-wall" target="_blank" rel="noopener">Wind Wall</a><span class="t">conc.</span><span class="sd">Raise a wall of strong wind up to 50 feet long and 15 feet high within 120 feet. It deals 4d8 Bludgeoning damage on a failed save, deflects arrows, and blocks gas and small fliers.</span></li>
     </ul>
   </div>
 </div>
@@ -239,33 +268,73 @@ footer { margin-top: 1.6rem; font-size: .85rem; color: var(--ink-soft); }
 <div class="circle">
   <h3>Circle of the Land <span class="pg">pp. 84–85</span></h3>
   <p><b>Land's Aid.</b> Spend a Wild Shape use to bloom flowers and thorns in a 10-foot radius, up to 60 feet away. Enemies there take 2d6 necrotic damage (half on a Constitution save), and one ally there heals 2d6.</p>
-  <p class="free">Each long rest, pick a type of land. Its spells are prepared for free:</p>
-  <table class="lands">
-    <thead><tr><th>Land</th><th>From level 3</th><th>From level 5</th></tr></thead>
-    <tbody>
-      <tr><th>Arid</th><td><a href="https://www.dndbeyond.com/spells/2618945-blur" target="_blank" rel="noopener">Blur</a>, <a href="https://www.dndbeyond.com/spells/2618946-burning-hands" target="_blank" rel="noopener">Burning Hands</a>, <a href="https://www.dndbeyond.com/spells/2618890-fire-bolt" target="_blank" rel="noopener">Fire Bolt</a></td><td class="l5"><a href="https://www.dndbeyond.com/spells/2618887-fireball" target="_blank" rel="noopener">Fireball</a></td></tr>
-      <tr><th>Polar</th><td><a href="https://www.dndbeyond.com/spells/2618910-fog-cloud" target="_blank" rel="noopener">Fog Cloud</a>, <a href="https://www.dndbeyond.com/spells/2619153-hold-person" target="_blank" rel="noopener">Hold Person</a>, <a href="https://www.dndbeyond.com/spells/2618930-ray-of-frost" target="_blank" rel="noopener">Ray of Frost</a></td><td class="l5"><a href="https://www.dndbeyond.com/spells/2618998-sleet-storm" target="_blank" rel="noopener">Sleet Storm</a></td></tr>
-      <tr><th>Temperate</th><td><a href="https://www.dndbeyond.com/spells/2619133-misty-step" target="_blank" rel="noopener">Misty Step</a>, <a href="https://www.dndbeyond.com/spells/2618986-shocking-grasp" target="_blank" rel="noopener">Shocking Grasp</a>, <a href="https://www.dndbeyond.com/spells/2619064-sleep" target="_blank" rel="noopener">Sleep</a></td><td class="l5"><a href="https://www.dndbeyond.com/spells/2618999-lightning-bolt" target="_blank" rel="noopener">Lightning Bolt</a></td></tr>
-      <tr><th>Tropical</th><td><a href="https://www.dndbeyond.com/spells/2618844-acid-splash" target="_blank" rel="noopener">Acid Splash</a>, <a href="https://www.dndbeyond.com/spells/2618935-ray-of-sickness" target="_blank" rel="noopener">Ray of Sickness</a>, <a href="https://www.dndbeyond.com/spells/2619208-web" target="_blank" rel="noopener">Web</a></td><td class="l5"><a href="https://www.dndbeyond.com/spells/2619091-stinking-cloud" target="_blank" rel="noopener">Stinking Cloud</a></td></tr>
-    </tbody>
-  </table>
+  <p class="free">Each long rest, pick a type of land. Its spells are prepared for free. The one marked "at 5" joins at druid level 5.</p>
+  <div class="lands">
+  <div><h4>Arid</h4>
+  <ul class="spells">
+    <li><a href="https://www.dndbeyond.com/spells/2618945-blur" target="_blank" rel="noopener">Blur</a><span class="t"></span><span class="sd">Your outline blurs, so attackers have Disadvantage on attack rolls against you. Attackers with Blindsight or Truesight ignore the effect.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618946-burning-hands" target="_blank" rel="noopener">Burning Hands</a><span class="t"></span><span class="sd">A sheet of flame fills a 15-foot Cone: Dexterity save or 3d6 Fire damage, half on a success. Ignites loose flammable objects. Slots above 1st add 1d6.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618890-fire-bolt" target="_blank" rel="noopener">Fire Bolt</a><span class="t"></span><span class="sd">Hurl a mote of fire at a creature or object within 120 feet: 1d10 Fire damage on a hit. Unattended flammable objects catch fire. Damage grows at levels 5, 11 and 17.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618887-fireball" target="_blank" rel="noopener">Fireball</a><span class="t">at 5</span><span class="sd">A fiery blast explodes at a point within 150 feet. Everything in a 20-foot radius makes a Dexterity save, taking 8d6 Fire damage or half on a success. Adds 1d6 per slot level above 3.</span></li>
+  </ul></div>
+  <div><h4>Polar</h4>
+  <ul class="spells">
+    <li><a href="https://www.dndbeyond.com/spells/2618910-fog-cloud" target="_blank" rel="noopener">Fog Cloud</a><span class="t"></span><span class="sd">Fill a 20-foot-radius sphere with fog that Heavily Obscures the area. Strong wind clears it. Higher slots add 20 feet to the radius per level above 1.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619153-hold-person" target="_blank" rel="noopener">Hold Person</a><span class="t"></span><span class="sd">Pick a Humanoid within 60 feet. It makes a Wisdom save or is Paralyzed, and can save again at the end of each of its turns. Higher slots add one target per level above 2.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618930-ray-of-frost" target="_blank" rel="noopener">Ray of Frost</a><span class="t"></span><span class="sd">A freezing beam hits a creature within 60 feet: 1d8 Cold damage and its Speed drops by 10 feet until your next turn. Damage grows at levels 5, 11 and 17.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618998-sleet-storm" target="_blank" rel="noopener">Sleet Storm</a><span class="t">at 5</span><span class="sd">Icy sleet fills a 20-foot-radius, 40-foot-tall cylinder within 150 feet. It's Heavily Obscured Difficult Terrain, and creatures may fall Prone and lose Concentration on a failed Dexterity save.</span></li>
+  </ul></div>
+  <div><h4>Temperate</h4>
+  <ul class="spells">
+    <li><a href="https://www.dndbeyond.com/spells/2619133-misty-step" target="_blank" rel="noopener">Misty Step</a><span class="t"></span><span class="sd">As a Bonus Action, teleport up to 30 feet to an open space you can see.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618986-shocking-grasp" target="_blank" rel="noopener">Shocking Grasp</a><span class="t"></span><span class="sd">Make a melee spell attack to zap a creature you touch: 1d8 Lightning damage and it can't make Opportunity Attacks until its next turn. Damage grows at levels 5, 11 and 17.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619064-sleep" target="_blank" rel="noopener">Sleep</a><span class="t"></span><span class="sd">Creatures in a 5-foot-radius area within 60 feet make a Wisdom save or become Incapacitated, then fall Unconscious if they fail a second save. Damage or a shake wakes them.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618999-lightning-bolt" target="_blank" rel="noopener">Lightning Bolt</a><span class="t">at 5</span><span class="sd">A 100-foot line, 5 feet wide, of lightning blasts out from you. Each creature in it makes a Dexterity save, taking 8d6 Lightning damage or half on a success. Adds 1d6 per slot level above 3.</span></li>
+  </ul></div>
+  <div><h4>Tropical</h4>
+  <ul class="spells">
+    <li><a href="https://www.dndbeyond.com/spells/2618844-acid-splash" target="_blank" rel="noopener">Acid Splash</a><span class="t"></span><span class="sd">Burst of acid at a point within 60 feet: creatures in a 5-foot radius make a Dexterity save or take 1d6 Acid damage. Grows at levels 5, 11 and 17.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618935-ray-of-sickness" target="_blank" rel="noopener">Ray of Sickness</a><span class="t"></span><span class="sd">Fire a sickly green ray at a creature within 60 feet. On a hit it takes 2d8 Poison damage and is Poisoned until the end of your next turn.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619208-web" target="_blank" rel="noopener">Web</a><span class="t"></span><span class="sd">Fill a 20-foot Cube within 60 feet with sticky webs that are Difficult Terrain. Creatures must pass a Dexterity save or be Restrained, and can break free with a Strength check. The webs burn.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619091-stinking-cloud" target="_blank" rel="noopener">Stinking Cloud</a><span class="t">at 5</span><span class="sd">A 20-foot-radius cloud of foul gas Heavily Obscures the area within 90 feet. Creatures starting their turn inside must pass a Constitution save or lose their action and Bonus Action that turn.</span></li>
+  </ul></div>
+  </div>
 </div>
 
 <div class="circle">
   <h3>Circle of the Moon <span class="pg">p. 86</span></h3>
   <p><b>Tougher animals.</b> Your forms can be as tough as challenge rating 1, about a brown bear. As an animal, your Armor Class is at least 13 plus your Wisdom modifier, and you get 15 temporary hit points instead of 5.</p>
-  <p class="free">Free spells, which you can cast even as an animal: <a href="https://www.dndbeyond.com/spells/2619079-cure-wounds" target="_blank" rel="noopener">Cure Wounds</a>, <a href="https://www.dndbeyond.com/spells/2619134-moonbeam" target="_blank" rel="noopener">Moonbeam</a> and <a href="https://www.dndbeyond.com/spells/2618840-starry-wisp" target="_blank" rel="noopener">Starry Wisp</a> from level 3, and <a href="https://www.dndbeyond.com/spells/2619044-conjure-animals" target="_blank" rel="noopener">Conjure Animals</a> from level 5.</p>
+  <p class="free">Free spells, which you can cast even as an animal:</p>
+  <ul class="spells">
+    <li><a href="https://www.dndbeyond.com/spells/2619079-cure-wounds" target="_blank" rel="noopener">Cure Wounds</a><span class="t"></span><span class="sd">Touch a creature to restore 2d8 plus your spellcasting modifier in Hit Points. Slots above 1st add 2d8.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619134-moonbeam" target="_blank" rel="noopener">Moonbeam</a><span class="t"></span><span class="sd">Drop a 5-foot-radius column of pale light within 120 feet. Creatures in it make a Constitution save or take 2d10 Radiant damage, half on a success. Shape-shifters revert. You can move it on later turns.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618840-starry-wisp" target="_blank" rel="noopener">Starry Wisp</a><span class="t"></span><span class="sd">Launch a mote of light at a creature or object within 60 feet: 1d8 Radiant damage on a hit. The target glows and can't benefit from Invisible until your next turn. Grows at levels 5, 11 and 17.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619044-conjure-animals" target="_blank" rel="noopener">Conjure Animals</a><span class="t">at 5</span><span class="sd">Summon a spectral Large pack of animals you can move 30 feet a turn. Creatures near it make Dexterity saves or take 3d10 Slashing damage.</span></li>
+  </ul>
 </div>
 
 <div class="circle">
   <h3>Circle of the Sea <span class="pg">p. 87</span></h3>
   <p><b>Wrath of the Sea.</b> Spend a Wild Shape use to wrap yourself in sea spray for 10 minutes. Each turn, as a bonus action, you can hit one creature next to you with cold damage and push it 15 feet away unless it makes a Constitution save. Roll a d6 for each point of your Wisdom modifier, so +3 Wisdom is 3d6.</p>
-  <p class="free">Free spells: <a href="https://www.dndbeyond.com/spells/2618910-fog-cloud" target="_blank" rel="noopener">Fog Cloud</a>, <a href="https://www.dndbeyond.com/spells/2619137-gust-of-wind" target="_blank" rel="noopener">Gust of Wind</a>, <a href="https://www.dndbeyond.com/spells/2618930-ray-of-frost" target="_blank" rel="noopener">Ray of Frost</a>, <a href="https://www.dndbeyond.com/spells/2619017-shatter" target="_blank" rel="noopener">Shatter</a> and <a href="https://www.dndbeyond.com/spells/2619184-thunderwave" target="_blank" rel="noopener">Thunderwave</a> from level 3, and <a href="https://www.dndbeyond.com/spells/2618999-lightning-bolt" target="_blank" rel="noopener">Lightning Bolt</a> and <a href="https://www.dndbeyond.com/spells/2619205-water-breathing" target="_blank" rel="noopener">Water Breathing</a> from level 5.</p>
+  <p class="free">Free spells:</p>
+  <ul class="spells">
+    <li><a href="https://www.dndbeyond.com/spells/2618910-fog-cloud" target="_blank" rel="noopener">Fog Cloud</a><span class="t"></span><span class="sd">Fill a 20-foot-radius sphere with fog that Heavily Obscures the area. Strong wind clears it. Higher slots add 20 feet to the radius per level above 1.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619137-gust-of-wind" target="_blank" rel="noopener">Gust of Wind</a><span class="t"></span><span class="sd">A 60-foot line of strong wind blasts from you. Creatures in it make a Strength save or get pushed 15 feet away, and moving toward you costs double. Clears gas and snuffs small flames.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618930-ray-of-frost" target="_blank" rel="noopener">Ray of Frost</a><span class="t"></span><span class="sd">A freezing beam hits a creature within 60 feet: 1d8 Cold damage and its Speed drops by 10 feet until your next turn. Damage grows at levels 5, 11 and 17.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619017-shatter" target="_blank" rel="noopener">Shatter</a><span class="t"></span><span class="sd">A sudden painful noise blasts a 10-foot-radius area within 60 feet. Constitution save: 3d8 Thunder damage, or half on a success. Constructs save with Disadvantage.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619184-thunderwave" target="_blank" rel="noopener">Thunderwave</a><span class="t"></span><span class="sd">A wave of thunder bursts from you in a 15-foot Cube. Constitution save: 2d8 Thunder damage and pushed 10 feet, or half damage and no push. The boom carries 300 feet.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2618999-lightning-bolt" target="_blank" rel="noopener">Lightning Bolt</a><span class="t">at 5</span><span class="sd">A 100-foot line, 5 feet wide, of lightning blasts out from you. Each creature in it makes a Dexterity save, taking 8d6 Lightning damage or half on a success. Adds 1d6 per slot level above 3.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619205-water-breathing" target="_blank" rel="noopener">Water Breathing</a><span class="t">at 5</span><span class="sd">Up to ten willing creatures within 30 feet can breathe underwater for 24 hours. They can still breathe air as well.</span></li>
+  </ul>
 </div>
 
 <div class="circle">
   <h3>Circle of the Stars <span class="pg">pp. 88–89</span></h3>
-  <p><b>Star Map.</b> You carry a star chart. While you hold it, you have <a href="https://www.dndbeyond.com/spells/2618971-guidance" target="_blank" rel="noopener">Guidance</a> and <a href="https://www.dndbeyond.com/spells/2619136-guiding-bolt" target="_blank" rel="noopener">Guiding Bolt</a> prepared, and you can cast Guiding Bolt without a slot a number of times per long rest equal to your Wisdom modifier (at least once).</p>
+  <p><b>Star Map.</b> You carry a star chart. While you hold it, you have Guidance and Guiding Bolt prepared, and you can cast Guiding Bolt without a slot a number of times per long rest equal to your Wisdom modifier (at least once).</p>
+  <ul class="spells">
+    <li><a href="https://www.dndbeyond.com/spells/2618971-guidance" target="_blank" rel="noopener">Guidance</a><span class="t"></span><span class="sd">Touch a willing creature and name a skill. For the next minute it adds 1d4 to ability checks that use that skill.</span></li>
+    <li><a href="https://www.dndbeyond.com/spells/2619136-guiding-bolt" target="_blank" rel="noopener">Guiding Bolt</a><span class="t"></span><span class="sd">Hurl a bolt of light at a creature within 120 feet: ranged spell attack for 4d6 Radiant damage. The next attack against the target before your next turn has Advantage. +1d6 per slot level above 1.</span></li>
+  </ul>
   <p><b>Starry Form.</b> Spend a Wild Shape use to glow with a constellation for 10 minutes instead of turning into an animal. Pick one each time: the <b>Archer</b> fires a starlight arrow each turn, the <b>Chalice</b> adds healing when you cast healing spells, and the <b>Dragon</b> treats low rolls as a 10 on Intelligence and Wisdom checks and concentration saves.</p>
 </div>
 
@@ -276,5 +345,25 @@ footer { margin-top: 1.6rem; font-size: .85rem; color: var(--ink-soft); }
 <footer>Rules summarized in my own words from the 2024 Player's Handbook. Page numbers match the printed book. Spell links go to the 2024 versions on D&amp;D Beyond.</footer>
 
 </div>
+<script id="spell-desc-js">
+document.querySelectorAll("li").forEach(function (item) {
+  var desc = item.querySelector(":scope > .sd");
+  var link = item.querySelector(":scope > a");
+  if (!desc || !link) return;
+  item.classList.add("has-sd");
+  var toggle = document.createElement("button");
+  toggle.type = "button";
+  toggle.className = "sd-toggle";
+  toggle.textContent = "+";
+  toggle.setAttribute("aria-expanded", "false");
+  toggle.setAttribute("aria-label", "What " + link.textContent.trim() + " does");
+  toggle.addEventListener("click", function () {
+    var open = item.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.textContent = open ? "−" : "+";
+  });
+  link.after(toggle);
+});
+</script>
 </body>
 </html>
