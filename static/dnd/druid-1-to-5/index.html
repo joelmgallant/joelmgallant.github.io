@@ -4,356 +4,277 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<meta name="description" content="A woodswoman's walk through what a 2024 druid gains from level 1 to 5.">
+<meta name="description" content="What a 2024 druid gains from level 1 to 5, in plain words.">
 <title>Druid Level 1 to 5</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..700,100;1,9..144,400..600,100&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
 <style>
-/* Layout: a slow walk through the woods. A dappled canopy header, then six stops (arrive, breathe, notice, wander, gather, choose a grove), each opened by a line in her voice. */
+/* A pressed-plant field notebook: one column on cream paper, green ink with a rust second ink, a herbarium label for the title. */
 :root {
-  --lichen: #eef1e7;
-  --lichen-2: #e1e7d6;
-  --spruce: #1e2b24;
-  --bark: #5b4a3a;
-  --moss: #3d6b3f;
-  --fern: #cfe0c3;
-  --sun: #c99a2e;
-  --sun-wash: #f3e6c4;
-  --mist: #5f6d64;
-  --line: #c3cdb9;
-  --voice: "Fraunces", "Iowan Old Style", Georgia, serif;
-  --body: "Atkinson Hyperlegible", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --paper: #f3efe2;
+  --paper-shade: #e7e1cf;
+  --ink: #1f2a22;
+  --ink-soft: #5a6156;
+  --green: #2f5d3a;
+  --rust: #a2502a;
+  --rule: #c7c0aa;
+  --old: "IM Fell English", "Iowan Old Style", Georgia, serif;
+  --type: "Source Serif 4", "Iowan Old Style", Georgia, serif;
+  color-scheme: light;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --lichen: #111a15; --lichen-2: #18241d; --spruce: #e6ecdf; --bark: #cdb79f;
-    --moss: #8fc28a; --fern: #22382a; --sun: #e5bd5c; --sun-wash: #33301f;
-    --mist: #a7b4a9; --line: #2c3a31; color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --lichen: #111a15; --lichen-2: #18241d; --spruce: #e6ecdf; --bark: #cdb79f;
-  --moss: #8fc28a; --fern: #22382a; --sun: #e5bd5c; --sun-wash: #33301f;
-  --mist: #a7b4a9; --line: #2c3a31; color-scheme: dark;
-}
-
 * { box-sizing: border-box; }
-html, body { margin: 0; }
-body { background: var(--lichen); color: var(--spruce); font: 400 1.03rem/1.6 var(--body); }
-a { color: inherit; text-decoration-color: color-mix(in srgb, var(--moss) 55%, transparent); text-underline-offset: .18em; text-decoration-thickness: 1.5px; }
-a:hover { color: var(--moss); text-decoration-color: var(--moss); }
-a:focus-visible { outline: 2px solid var(--sun); outline-offset: 2px; border-radius: 2px; }
+html, body { margin: 0; background: var(--paper); }
+body { color: var(--ink); font: 400 1.06rem/1.6 var(--type); }
+a { color: var(--ink); text-decoration-color: var(--green); text-underline-offset: .15em; }
+a:hover { color: var(--green); }
+a:focus-visible { outline: 2px solid var(--rust); outline-offset: 2px; }
 
-.canopy {
-  background:
-    radial-gradient(38rem 16rem at 12% 0%, color-mix(in srgb, var(--sun) 22%, transparent), transparent 70%),
-    radial-gradient(30rem 14rem at 88% 10%, color-mix(in srgb, var(--moss) 20%, transparent), transparent 70%),
-    var(--lichen-2);
-  border-bottom: 1px solid var(--line);
-}
-.wrap {
-  max-width: 60rem; margin: 0 auto;
-  padding-left: max(18px, env(safe-area-inset-left, 0px));
-  padding-right: max(18px, env(safe-area-inset-right, 0px));
-}
-.canopy .wrap { padding-block: 3rem 2.5rem; display: grid; gap: .9rem; }
-.kicker { font: 700 .74rem/1 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--moss); }
-h1 { font: 600 clamp(2.5rem, 8vw, 4.6rem)/.98 var(--voice); font-variation-settings: "SOFT" 100; margin: 0; letter-spacing: -.01em; text-wrap: balance; }
-h1 em { color: var(--moss); font-weight: 500; }
-.greeting { font: italic 400 1.2rem/1.5 var(--voice); max-width: 44ch; margin: 0; color: var(--bark); }
+.sheet { max-width: 46rem; margin: 0 auto; padding: 2.5rem max(18px, env(safe-area-inset-right, 0px)) 4rem max(18px, env(safe-area-inset-left, 0px)); }
 
-main.wrap { padding-block: 2.5rem 3.5rem; display: grid; gap: 3rem; }
-.stop { display: grid; gap: 1.1rem; }
-.stop-head { display: grid; gap: .3rem; }
-.stop-head .step { font: 700 .72rem/1 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--sun); }
-h2 { font: 600 1.7rem/1.15 var(--voice); font-variation-settings: "SOFT" 100; margin: 0; text-wrap: balance; }
-.whisper { font: italic 400 1.08rem/1.55 var(--voice); color: var(--bark); margin: 0; max-width: 58ch; }
-.fine { font-size: .85rem; color: var(--mist); margin: 0; max-width: 70ch; }
-.pg { font-size: .78rem; color: var(--mist); white-space: nowrap; }
+header { display: grid; gap: 1.2rem; }
+h1 { font: 400 clamp(2.4rem, 9vw, 4.2rem)/1 var(--old); margin: 0; color: var(--green); }
+h1 i { color: var(--rust); }
+.label { justify-self: start; border: 1.5px solid var(--ink); padding: .6rem .9rem; font-size: .9rem; line-height: 1.45; background: #fbf9f1; }
+.label div { display: grid; grid-template-columns: 4.6rem 1fr; gap: .6rem; border-bottom: 1px solid var(--rule); padding: .1rem 0; }
+.label div:last-child { border-bottom: 0; }
+.label span { font: italic 400 .85rem/1.6 var(--old); color: var(--ink-soft); }
+.voice { font: italic 400 1.2rem/1.5 var(--old); margin: 0; max-width: 36rem; }
 
-/* arrive: choices */
-.choices { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(16.5rem, 1fr)); gap: .7rem; }
-.choices li { background: var(--fern); border-radius: 14px 4px 14px 4px; padding: .9rem 1rem; display: grid; gap: .2rem; align-content: start; }
-.choices b { font: 600 1.08rem/1.25 var(--voice); font-variation-settings: "SOFT" 100; }
-.choices span { font-size: .93rem; }
-.choices li.ask { background: var(--sun-wash); }
+h2 { font: 400 1.75rem/1.15 var(--old); color: var(--green); margin: 3rem 0 .8rem; padding-bottom: .3rem; border-bottom: 1.5px solid var(--green); }
+h3 { font: 600 1.12rem/1.3 var(--type); margin: 1.6rem 0 .3rem; }
+p { margin: 0 0 .8rem; }
+.small { font-size: .9rem; color: var(--ink-soft); }
+.pg { font-size: .8rem; color: var(--ink-soft); white-space: nowrap; font-weight: 400; }
+b.r { color: var(--rust); font-weight: 600; }
 
-/* breathe: hit points */
-.hp { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1.25rem; align-items: start; }
-.hp-say { margin: 0; font-size: 1rem; max-width: 46ch; }
-.hp-say strong { font: 600 1.25rem/1 var(--voice); color: var(--moss); }
-.hp-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
-.hp-table th, .hp-table td { text-align: left; padding: .45rem .6rem; border-bottom: 1px solid var(--line); }
-.hp-table th { font: 700 .72rem/1.2 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--mist); }
-.hp-table td:last-child { font: 600 1.15rem/1 var(--voice); color: var(--moss); }
+ol.todo { margin: 0; padding-left: 1.4rem; }
+ol.todo li { margin-bottom: .5rem; padding-left: .2rem; }
+ol.todo li::marker { font-family: var(--old); color: var(--rust); }
 
-/* notice: numbers */
-.notice { display: grid; grid-template-columns: repeat(auto-fit, minmax(13.5rem, 1fr)); gap: .8rem; }
-.card { border: 1px solid var(--line); border-radius: 12px; padding: 1rem 1.05rem; display: grid; gap: .35rem; align-content: start; background: color-mix(in srgb, var(--lichen-2) 55%, transparent); }
-.card .what { font: 700 .74rem/1.2 var(--body); letter-spacing: .1em; text-transform: uppercase; color: var(--mist); }
-.card .big { font: 600 1.55rem/1.1 var(--voice); font-variation-settings: "SOFT" 100; color: var(--moss); }
-.card p { margin: 0; font-size: .92rem; }
-.pips { display: grid; gap: .35rem; }
-.pip-row { display: flex; align-items: center; gap: .5rem; font-size: .88rem; }
-.pip-row span:first-child { width: 4.6rem; color: var(--mist); }
-.pip { width: .8rem; height: .8rem; border-radius: 50% 50% 50% 0; background: var(--moss); transform: rotate(-45deg); display: inline-block; }
-.pip.new { background: var(--sun); }
+.scroll { overflow-x: auto; }
+table.levels { width: 100%; min-width: 34rem; border-collapse: collapse; font-variant-numeric: tabular-nums lining-nums; }
+.levels th, .levels td { text-align: left; vertical-align: top; padding: .5rem .6rem; border-bottom: 1px solid var(--rule); }
+.levels thead th { font: italic 400 .95rem/1.2 var(--old); color: var(--ink-soft); border-bottom: 1.5px solid var(--ink); }
+.levels tbody th { font: 400 1.25rem/1.2 var(--old); color: var(--green); width: 3.4rem; }
+.levels tr.now { background: var(--paper-shade); }
+.levels td.num { text-align: center; }
+.slots { letter-spacing: .1em; white-space: nowrap; }
 
-/* wander: levels */
-.trail { display: grid; gap: 0; border-left: 2px dashed var(--line); margin-left: .9rem; }
-.waypoint { position: relative; padding: .2rem 0 1.4rem 1.6rem; display: grid; gap: .5rem; }
-.waypoint::before { content: ""; position: absolute; left: -.62rem; top: .35rem; width: 1.05rem; height: 1.05rem; border-radius: 50%; background: var(--lichen); border: 3px solid var(--moss); }
-.waypoint .lvl { font: 700 .74rem/1 var(--body); letter-spacing: .12em; text-transform: uppercase; color: var(--moss); }
-.waypoint h3 { font: 600 1.18rem/1.2 var(--voice); font-variation-settings: "SOFT" 100; margin: 0; }
-.waypoint p { margin: 0; max-width: 64ch; }
+table.hp { border-collapse: collapse; font-variant-numeric: tabular-nums; margin: .3rem 0 1rem; }
+.hp th, .hp td { padding: .3rem 1.4rem .3rem 0; border-bottom: 1px solid var(--rule); text-align: left; }
+.hp th { font: italic 400 .95rem/1.2 var(--old); color: var(--ink-soft); }
+.hp td:last-child { font-weight: 600; color: var(--green); }
 
-/* gather: spells */
-.basket { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1.5rem; }
-.basket h3 { font: 600 1.15rem/1.2 var(--voice); margin: 0 0 .5rem; }
-.spells { list-style: none; margin: 0; padding: 0; columns: 2 11rem; column-gap: 1.25rem; }
-.spells li { break-inside: avoid; padding: .28rem 0; border-bottom: 1px dotted var(--line); display: flex; justify-content: space-between; gap: .5rem; font-size: .95rem; }
-.spells .t { font-size: .72rem; color: var(--mist); white-space: nowrap; letter-spacing: .04em; }
-.lock { display: inline-block; width: .7em; height: .7em; margin-left: .25em; vertical-align: .05em; background: currentColor; opacity: .55;
+.spell-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 0 2rem; }
+.spell-cols h3 { margin-top: .6rem; }
+ul.spells { list-style: none; margin: 0; padding: 0; }
+.spells li { padding: .22rem 0; border-bottom: 1px dotted var(--rule); display: flex; justify-content: space-between; gap: .6rem; }
+.spells .t { font: italic 400 .85rem/1.6 var(--old); color: var(--ink-soft); white-space: nowrap; }
+
+.circle { border-left: 3px solid var(--green); padding-left: 1rem; margin: 1.6rem 0; }
+.circle h3 { margin-top: 0; font: 400 1.35rem/1.2 var(--old); color: var(--green); }
+.circle p { margin-bottom: .5rem; }
+.circle .free { font-size: .95rem; }
+table.lands { border-collapse: collapse; font-size: .95rem; margin: .2rem 0 .4rem; width: 100%; }
+.lands th, .lands td { text-align: left; vertical-align: top; padding: .3rem .8rem .3rem 0; border-bottom: 1px solid var(--rule); }
+.lands thead th { font: italic 400 .9rem/1.2 var(--old); color: var(--ink-soft); }
+.lands tbody th { font-weight: 600; white-space: nowrap; }
+
+.lock { display: inline-block; width: .65em; height: .65em; margin-left: .2em; background: currentColor; opacity: .55;
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 7V5a4 4 0 0 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 0 0-4 0v2z'/%3E%3C/svg%3E") center/contain no-repeat;
           mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 7V5a4 4 0 0 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 0 0-4 0v2z'/%3E%3C/svg%3E") center/contain no-repeat; }
 
-/* choose a grove */
-.groves { display: grid; grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr)); gap: 1rem; }
-.grove { border: 1px solid var(--line); border-radius: 16px 4px 16px 4px; padding: 1.1rem 1.15rem 1.2rem; display: grid; gap: .65rem; align-content: start; min-width: 0; background: color-mix(in srgb, var(--lichen-2) 45%, transparent); }
-.grove .feel { font: italic 400 1rem/1.4 var(--voice); color: var(--bark); margin: 0; }
-.grove h3 { font: 600 1.3rem/1.15 var(--voice); font-variation-settings: "SOFT" 100; margin: 0; }
-.grove p { margin: 0; font-size: .95rem; }
-.grove .k { font-weight: 700; }
-.leaves { display: flex; flex-wrap: wrap; gap: .35rem; }
-.leaf { font-size: .88rem; padding: .3rem .6rem; border-radius: 999px; background: var(--fern); }
-.leaf small { color: var(--mist); margin-right: .3rem; font-size: .72rem; }
-.lands { width: 100%; border-collapse: collapse; font-size: .9rem; }
-.lands th { text-align: left; font: 700 .7rem/1.3 var(--body); text-transform: uppercase; letter-spacing: .08em; color: var(--mist); padding: .3rem .4rem .3rem 0; border-bottom: 1px solid var(--line); }
-.lands td { padding: .35rem .4rem .35rem 0; border-bottom: 1px solid var(--line); vertical-align: top; }
-.lands td:first-child { font-weight: 700; white-space: nowrap; }
-.table-wrap { overflow-x: auto; }
+.signoff { margin-top: 3rem; padding-top: 1.2rem; border-top: 1.5px solid var(--green); }
+footer { margin-top: 1.6rem; font-size: .85rem; color: var(--ink-soft); }
 
-.rest { border-top: 1px solid var(--line); padding-top: 1.5rem; display: grid; gap: .6rem; }
-.rest p { margin: 0; }
-footer.wrap { padding-block: 0 2.5rem; }
-@media (prefers-reduced-motion: no-preference) {
-  .canopy { animation: dapple 18s ease-in-out infinite alternate; background-size: 120% 120%, 120% 120%, auto; }
-  @keyframes dapple { from { background-position: 0% 0%, 100% 0%, 0 0; } to { background-position: 8% 6%, 92% 8%, 0 0; } }
+@media (max-width: 40rem) {
+  .sheet { padding-top: 1.4rem; }
+  .label { justify-self: stretch; }
+  h2 { margin-top: 2.4rem; }
+  .scroll { overflow-x: visible; }
+  table.levels { min-width: 0; }
+  .levels thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .levels, .levels tbody, .levels tr, .levels th, .levels td { display: block; width: auto; }
+  .levels tr { border-bottom: 1.5px solid var(--ink); padding: .6rem 0 .5rem; }
+  .levels tr.now { padding-left: .6rem; padding-right: .6rem; }
+  .levels tbody th { border: 0; padding: 0 0 .2rem; }
+  .levels tbody th::before { content: "Level "; }
+  .levels td, .levels td.num { border: 0; padding: .12rem 0; text-align: left; display: grid; grid-template-columns: 7.4rem 1fr; gap: .5rem; align-items: baseline; }
+  .levels td::before { content: attr(data-label); font: italic 400 .9rem/1.4 var(--old); color: var(--ink-soft); }
+  .lands thead { display: none; }
+  .lands, .lands tbody, .lands tr, .lands th, .lands td { display: block; }
+  .lands tr { border-bottom: 1px solid var(--rule); padding: .4rem 0; }
+  .lands th, .lands td { border: 0; padding: 0; }
+  .lands td.l5::before { content: "At level 5: "; font-style: italic; color: var(--ink-soft); }
 }
 </style>
 </head>
 <body>
-<header class="canopy">
-  <div class="wrap">
-    <span class="kicker">Druid · Player's Handbook (2024)</span>
-    <h1>From level 1 <em>to 5</em></h1>
-    <p class="greeting">Shoes off. Feel the moss. You've grown four seasons in a single breath, so let's walk through what the forest has given you, one step at a time.</p>
+<div class="sheet">
+
+<header>
+  <h1>Druid, <i>levels 1 to 5</i></h1>
+  <div class="label" aria-label="Specimen label">
+    <div><span>Class</span>Druid</div>
+    <div><span>Rules</span>Player's Handbook (2024)</div>
+    <div><span>Pages</span>79 to 89</div>
   </div>
+  <p class="voice">Shoes off. Feel the moss. You've grown four seasons in a single breath, so let's walk through what the forest gave you.</p>
 </header>
 
-<main class="wrap">
+<h2>Before you play</h2>
+<ol class="todo">
+  <li>Pick your <b>circle</b>: Land, Moon, Sea or Stars. They're compared at the bottom.</li>
+  <li>Pick a <b>feat</b> at level 4. Most druids take Ability Score Improvement and raise Wisdom.</li>
+  <li>Choose <b>3 cantrips</b> (4 if you took Magician at level 1).</li>
+  <li>Prepare <b>9 spells</b> from the lists below. You can swap them after any long rest.</li>
+  <li>Choose <b>6 animals</b> you can turn into, none tougher than challenge rating ½ and none that fly.</li>
+  <li>Raise your <b>hit points</b> with the little table further down.</li>
+  <li>Ask your DM whether a new level 5 character starts with extra gold or magic items.</li>
+</ol>
 
-  <section class="stop" aria-labelledby="arrive">
-    <div class="stop-head">
-      <span class="step">Arrive</span>
-      <h2 id="arrive">A few choices to make</h2>
-      <p class="whisper">No rush. Sit with each one. The rest of this page will help.</p>
-    </div>
-    <ul class="choices">
-      <li><b>Choose your grove</b><span>Your circle: Land, Moon, Sea, or Stars. They're compared at the bottom.</span></li>
-      <li><b>Choose a feat</b><span>At level 4: Ability Score Improvement (raise your scores) or another feat you qualify for.</span></li>
-      <li><b>Learn one cantrip</b><span>That makes 3. If you took Magician at level 1, it's 4.</span></li>
-      <li><b>Gather 5 more spells</b><span>You go from 4 prepared spells to 9. Pick from the lists below.</span></li>
-      <li><b>Befriend 6 animals</b><span>The beasts you can become. Up to about as tough as a warhorse, nothing with wings yet.</span></li>
-      <li><b>Grow your hit points</b><span>Look up your Constitution below; no math needed.</span></li>
-      <li class="ask"><b>Ask your DM about gear</b><span>New level 5 characters often get extra gold and a couple of magic items. Their call.</span></li>
+<h2>Level by level</h2>
+<div class="scroll">
+<table class="levels">
+  <thead><tr><th>Level</th><th>What you get</th><th>Proficiency</th><th>Wild Shape</th><th>Cantrips</th><th>Prepared</th><th>Spell slots</th></tr></thead>
+  <tbody>
+    <tr><th>1</th><td data-label="What you get">Spellcasting, Druidic, Primal Order</td><td class="num" data-label="Proficiency">+2</td><td class="num" data-label="Wild Shape">none</td><td class="num" data-label="Cantrips">2</td><td class="num" data-label="Prepared">4</td><td data-label="Spell slots"><span class="slots">2</span></td></tr>
+    <tr><th>2</th><td data-label="What you get">Wild Shape, Wild Companion</td><td class="num" data-label="Proficiency">+2</td><td class="num" data-label="Wild Shape">2</td><td class="num" data-label="Cantrips">2</td><td class="num" data-label="Prepared">5</td><td data-label="Spell slots"><span class="slots">3</span></td></tr>
+    <tr><th>3</th><td data-label="What you get">Your circle</td><td class="num" data-label="Proficiency">+2</td><td class="num" data-label="Wild Shape">2</td><td class="num" data-label="Cantrips">2</td><td class="num" data-label="Prepared">6</td><td data-label="Spell slots"><span class="slots">4 / 2</span></td></tr>
+    <tr><th>4</th><td data-label="What you get">A feat</td><td class="num" data-label="Proficiency">+2</td><td class="num" data-label="Wild Shape">2</td><td class="num" data-label="Cantrips">3</td><td class="num" data-label="Prepared">7</td><td data-label="Spell slots"><span class="slots">4 / 3</span></td></tr>
+    <tr class="now"><th>5</th><td data-label="What you get">Wild Resurgence</td><td class="num" data-label="Proficiency"><b class="r">+3</b></td><td class="num" data-label="Wild Shape">2</td><td class="num" data-label="Cantrips">3</td><td class="num" data-label="Prepared"><b class="r">9</b></td><td data-label="Spell slots"><span class="slots"><b class="r">4 / 3 / 2</b></span></td></tr>
+  </tbody>
+</table>
+</div>
+<p class="small">Spell slots read level 1 / level 2 / level 3. They all come back after a long rest. Wild Shape gets one use back on a short rest and both on a long rest. <span class="pg">PHB p. 80</span></p>
+
+<h3>Level 1: Druidic and Primal Order <span class="pg">p. 80</span></h3>
+<p>You speak Druidic, the secret language of druids, and you always have <i>Speak with Animals</i> prepared. You also picked a role. <b>Magician</b> gives you an extra cantrip and adds your Wisdom modifier (at least +1) to Arcana and Nature checks. <b>Warden</b> lets you use martial weapons and wear medium armor.</p>
+
+<h3>Level 2: Wild Shape <span class="pg">p. 80</span></h3>
+<p>Use a bonus action to turn into an animal you know. You keep your own mind and hit points, and you get temporary hit points equal to your druid level (5 now). You can't cast spells while you're an animal. It lasts up to 2 hours at level 5, or until you change back with another bonus action. You can swap one known animal for another after a long rest.</p>
+
+<h3>Level 2: Wild Companion <span class="pg">p. 81</span></h3>
+<p>Spend a spell slot or a Wild Shape use to call a fey spirit as a familiar, like <a href="https://www.dndbeyond.com/spells/2618877-find-familiar" target="_blank" rel="noopener">Find Familiar</a> without the materials. It leaves when you finish a long rest.</p>
+
+<h3>Level 4: More animals <span class="pg">p. 81</span></h3>
+<p>Besides the feat and the third cantrip, you can now know 6 animals instead of 4, and they can be as tough as challenge rating ½, about a warhorse.</p>
+
+<h3>Level 5: Wild Resurgence <span class="pg">p. 81</span></h3>
+<p>Out of Wild Shape uses? Spend a spell slot to get one back. Out of spell slots? Once per long rest, spend a Wild Shape use to get a level 1 slot back.</p>
+
+<h2>Hit points</h2>
+<p>Each level after the first gives you 5 hit points plus your Constitution modifier. For levels 2 through 5, add this to your maximum: <span class="pg">PHB p. 42</span></p>
+<table class="hp">
+  <thead><tr><th>Constitution modifier</th><th>Add</th></tr></thead>
+  <tbody>
+    <tr><td>−1</td><td>+16</td></tr>
+    <tr><td>+0</td><td>+20</td></tr>
+    <tr><td>+1</td><td>+24</td></tr>
+    <tr><td>+2</td><td>+28</td></tr>
+    <tr><td>+3</td><td>+32</td></tr>
+  </tbody>
+</table>
+<p class="small">If your table rolls for hit points, roll a d8 for each level instead of taking 5. If your feat raises Constitution, use the new modifier.</p>
+
+<h2>New spells</h2>
+<p>Level 2 and 3 spells open up at levels 3 and 5. Each name links to D&amp;D Beyond.</p>
+<div class="spell-cols">
+  <div>
+    <h3>Level 2</h3>
+    <ul class="spells">
+      <li><a href="https://www.dndbeyond.com/spells/2618845-aid" target="_blank" rel="noopener">Aid</a><span class="t"></span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2618850-animal-messenger" target="_blank" rel="noopener">Animal Messenger</a><span class="t">ritual</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2618882-augury" target="_blank" rel="noopener">Augury</a><span class="t">ritual</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2618907-barkskin" target="_blank" rel="noopener">Barkskin</a><span class="t"></span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2618914-beast-sense" target="_blank" rel="noopener">Beast Sense<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a><span class="t">conc., ritual</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619065-continual-flame" target="_blank" rel="noopener">Continual Flame</a><span class="t"></span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619082-darkvision" target="_blank" rel="noopener">Darkvision</a><span class="t"></span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619165-enhance-ability" target="_blank" rel="noopener">Enhance Ability</a><span class="t">conc.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619170-enlarge-reduce" target="_blank" rel="noopener">Enlarge/Reduce</a><span class="t">conc.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2618883-find-traps" target="_blank" rel="noopener">Find Traps</a><span class="t"></span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2618899-flame-blade" target="_blank" rel="noopener">Flame Blade</a><span class="t">conc.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2618919-flaming-sphere" target="_blank" rel="noopener">Flaming Sphere</a><span class="t">conc.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619137-gust-of-wind" target="_blank" rel="noopener">Gust of Wind</a><span class="t">conc.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619145-heat-metal" target="_blank" rel="noopener">Heat Metal</a><span class="t">conc.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619153-hold-person" target="_blank" rel="noopener">Hold Person</a><span class="t">conc.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619016-lesser-restoration" target="_blank" rel="noopener">Lesser Restoration</a><span class="t"></span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619000-locate-animals-or-plants" target="_blank" rel="noopener">Locate Animals or Plants</a><span class="t">ritual</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619002-locate-object" target="_blank" rel="noopener">Locate Object</a><span class="t">conc.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619134-moonbeam" target="_blank" rel="noopener">Moonbeam</a><span class="t">conc.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2618849-pass-without-trace" target="_blank" rel="noopener">Pass without Trace</a><span class="t">conc.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2618915-protection-from-poison" target="_blank" rel="noopener">Protection from Poison</a><span class="t"></span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619075-spike-growth" target="_blank" rel="noopener">Spike Growth</a><span class="t">conc.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619106-summon-beast" target="_blank" rel="noopener">Summon Beast<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a><span class="t">conc.</span></li>
     </ul>
-  </section>
+  </div>
+  <div>
+    <h3>Level 3</h3>
+    <ul class="spells">
+      <li><a href="https://www.dndbeyond.com/spells/2618891-aura-of-vitality" target="_blank" rel="noopener">Aura of Vitality<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a><span class="t">conc.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2618949-call-lightning" target="_blank" rel="noopener">Call Lightning</a><span class="t">conc.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619044-conjure-animals" target="_blank" rel="noopener">Conjure Animals</a><span class="t">conc.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619083-daylight" target="_blank" rel="noopener">Daylight</a><span class="t"></span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619103-dispel-magic" target="_blank" rel="noopener">Dispel Magic</a><span class="t"></span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619164-elemental-weapon" target="_blank" rel="noopener">Elemental Weapon<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a><span class="t">conc.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2618873-feign-death" target="_blank" rel="noopener">Feign Death<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a><span class="t">ritual</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619031-meld-into-stone" target="_blank" rel="noopener">Meld into Stone</a><span class="t">ritual</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2618869-plant-growth" target="_blank" rel="noopener">Plant Growth</a><span class="t"></span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2618908-protection-from-energy" target="_blank" rel="noopener">Protection from Energy</a><span class="t">conc.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2618956-revivify" target="_blank" rel="noopener">Revivify</a><span class="t"></span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2618998-sleet-storm" target="_blank" rel="noopener">Sleet Storm</a><span class="t">conc.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619069-speak-with-plants" target="_blank" rel="noopener">Speak with Plants</a><span class="t"></span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619115-summon-fey" target="_blank" rel="noopener">Summon Fey<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a><span class="t">conc.</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619205-water-breathing" target="_blank" rel="noopener">Water Breathing</a><span class="t">ritual</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619207-water-walk" target="_blank" rel="noopener">Water Walk</a><span class="t">ritual</span></li>
+      <li><a href="https://www.dndbeyond.com/spells/2619212-wind-wall" target="_blank" rel="noopener">Wind Wall</a><span class="t">conc.</span></li>
+    </ul>
+  </div>
+</div>
+<p class="small"><b>Conc.</b> means concentration: you can keep only one of those going at a time. A <b>ritual</b> can be cast over 10 extra minutes without using a slot. A small lock means D&amp;D Beyond only shows that spell to people who own the 2024 Player's Handbook there. Spells from your circle are free and don't count toward your 9.</p>
 
-  <section class="stop" aria-labelledby="breathe">
-    <div class="stop-head">
-      <span class="step">Breathe</span>
-      <h2 id="breathe">Your hit points</h2>
-      <p class="whisper">Breathe in. Four new levels settle into your bones.</p>
-    </div>
-    <div class="hp">
-      <p class="hp-say">Each new level gives you <strong>5</strong> hit points plus your Constitution modifier. Four levels, so find your modifier and add the number on the right to your maximum. <span class="pg">PHB p. 42</span></p>
-      <div class="table-wrap">
-        <table class="hp-table">
-          <thead><tr><th>Your Con modifier</th><th>Add to max HP</th></tr></thead>
-          <tbody>
-            <tr><td>−1</td><td>+16</td></tr>
-            <tr><td>+0</td><td>+20</td></tr>
-            <tr><td>+1</td><td>+24</td></tr>
-            <tr><td>+2</td><td>+28</td></tr>
-            <tr><td>+3</td><td>+32</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <p class="fine">If you'd rather roll, roll a d8 for each level instead of taking 5. If your feat raises your Constitution, recheck the table.</p>
-  </section>
+<h2>The four circles</h2>
 
-  <section class="stop" aria-labelledby="notice">
-    <div class="stop-head">
-      <span class="step">Notice</span>
-      <h2 id="notice">What's grown</h2>
-      <p class="whisper">Look closely. Everything you're good at, you're now a little better at.</p>
-    </div>
-    <div class="notice">
-      <div class="card"><span class="what">Proficiency bonus</span><span class="big">+3</span><p>Up from +2. Every roll that uses it gets 1 better.</p></div>
-      <div class="card"><span class="what">Spell slots</span>
-        <div class="pips" aria-label="Four level 1 slots, three level 2 slots, two level 3 slots">
-          <div class="pip-row"><span>Level 1</span><i class="pip"></i><i class="pip"></i><i class="pip"></i><i class="pip"></i></div>
-          <div class="pip-row"><span>Level 2</span><i class="pip new"></i><i class="pip new"></i><i class="pip new"></i></div>
-          <div class="pip-row"><span>Level 3</span><i class="pip new"></i><i class="pip new"></i></div>
-        </div>
-        <p>Golden leaves are new. All of them come back after a long rest.</p></div>
-      <div class="card"><span class="what">Prepared spells</span><span class="big">9</span><p>Up from 4. Swap any of them after a long rest.</p></div>
-      <div class="card"><span class="what">Cantrips</span><span class="big">3</span><p>Little magic you can cast all day.</p></div>
-      <div class="card"><span class="what">Wild Shape</span><span class="big">2 a day</span><p>A short rest gives one back; a long rest gives both.</p></div>
-    </div>
-    <p class="fine">From the Druid Features table, PHB p. 80.</p>
-  </section>
+<div class="circle">
+  <h3>Circle of the Land <span class="pg">pp. 84–85</span></h3>
+  <p><b>Land's Aid.</b> Spend a Wild Shape use to bloom flowers and thorns in a 10-foot radius, up to 60 feet away. Enemies there take 2d6 necrotic damage (half on a Constitution save), and one ally there heals 2d6.</p>
+  <p class="free">Each long rest, pick a type of land. Its spells are prepared for free:</p>
+  <table class="lands">
+    <thead><tr><th>Land</th><th>From level 3</th><th>From level 5</th></tr></thead>
+    <tbody>
+      <tr><th>Arid</th><td><a href="https://www.dndbeyond.com/spells/2618945-blur" target="_blank" rel="noopener">Blur</a>, <a href="https://www.dndbeyond.com/spells/2618946-burning-hands" target="_blank" rel="noopener">Burning Hands</a>, <a href="https://www.dndbeyond.com/spells/2618890-fire-bolt" target="_blank" rel="noopener">Fire Bolt</a></td><td class="l5"><a href="https://www.dndbeyond.com/spells/2618887-fireball" target="_blank" rel="noopener">Fireball</a></td></tr>
+      <tr><th>Polar</th><td><a href="https://www.dndbeyond.com/spells/2618910-fog-cloud" target="_blank" rel="noopener">Fog Cloud</a>, <a href="https://www.dndbeyond.com/spells/2619153-hold-person" target="_blank" rel="noopener">Hold Person</a>, <a href="https://www.dndbeyond.com/spells/2618930-ray-of-frost" target="_blank" rel="noopener">Ray of Frost</a></td><td class="l5"><a href="https://www.dndbeyond.com/spells/2618998-sleet-storm" target="_blank" rel="noopener">Sleet Storm</a></td></tr>
+      <tr><th>Temperate</th><td><a href="https://www.dndbeyond.com/spells/2619133-misty-step" target="_blank" rel="noopener">Misty Step</a>, <a href="https://www.dndbeyond.com/spells/2618986-shocking-grasp" target="_blank" rel="noopener">Shocking Grasp</a>, <a href="https://www.dndbeyond.com/spells/2619064-sleep" target="_blank" rel="noopener">Sleep</a></td><td class="l5"><a href="https://www.dndbeyond.com/spells/2618999-lightning-bolt" target="_blank" rel="noopener">Lightning Bolt</a></td></tr>
+      <tr><th>Tropical</th><td><a href="https://www.dndbeyond.com/spells/2618844-acid-splash" target="_blank" rel="noopener">Acid Splash</a>, <a href="https://www.dndbeyond.com/spells/2618935-ray-of-sickness" target="_blank" rel="noopener">Ray of Sickness</a>, <a href="https://www.dndbeyond.com/spells/2619208-web" target="_blank" rel="noopener">Web</a></td><td class="l5"><a href="https://www.dndbeyond.com/spells/2619091-stinking-cloud" target="_blank" rel="noopener">Stinking Cloud</a></td></tr>
+    </tbody>
+  </table>
+</div>
 
-  <section class="stop" aria-labelledby="wander">
-    <div class="stop-head">
-      <span class="step">Wander</span>
-      <h2 id="wander">What each step of the path gave you</h2>
-      <p class="whisper">Walk it slowly, one level at a time.</p>
-    </div>
-    <div class="trail">
-      <div class="waypoint"><span class="lvl">Level 2</span><h3>Wild Shape <span class="pg">p. 80</span></h3>
-        <p>Spend a bonus action to become one of the animals you know. You keep your mind and your own hit points, and get a cushion of extra temporary hit points equal to your level (5 now). You can't cast spells while shifted. It lasts up to 2 hours at your level, or until you choose to come back.</p></div>
-      <div class="waypoint"><span class="lvl">Level 2</span><h3>Wild Companion <span class="pg">p. 81</span></h3>
-        <p>Spend a spell slot or a Wild Shape use and a little fey spirit joins you as a familiar (<a href="https://www.dndbeyond.com/spells/2618877-find-familiar" target="_blank" rel="noopener">Find Familiar</a>, no materials needed). It slips away when you next take a long rest.</p></div>
-      <div class="waypoint"><span class="lvl">Level 3</span><h3>Your circle <span class="pg">p. 81</span></h3>
-        <p>You join a grove. You get its level 3 gifts now, and its level 5 spells too. See below.</p></div>
-      <div class="waypoint"><span class="lvl">Level 4</span><h3>A feat, a cantrip, more animals <span class="pg">pp. 79–81</span></h3>
-        <p>Pick your feat. Most druids raise Wisdom, since it powers your spells. You learn a third cantrip, and you can now know 6 animals, up to about as tough as a <b>warhorse</b> (challenge rating ½).</p></div>
-      <div class="waypoint"><span class="lvl">Level 5</span><h3>Wild Resurgence <span class="pg">p. 81</span></h3>
-        <p>Magic and wildness can trade places. Out of Wild Shape? Spend a spell slot to get a use back. Short on spells? Once a day, spend a Wild Shape use to get a level 1 slot.</p></div>
-    </div>
-  </section>
+<div class="circle">
+  <h3>Circle of the Moon <span class="pg">p. 86</span></h3>
+  <p><b>Tougher animals.</b> Your forms can be as tough as challenge rating 1, about a brown bear. As an animal, your Armor Class is at least 13 plus your Wisdom modifier, and you get 15 temporary hit points instead of 5.</p>
+  <p class="free">Free spells, which you can cast even as an animal: <a href="https://www.dndbeyond.com/spells/2619079-cure-wounds" target="_blank" rel="noopener">Cure Wounds</a>, <a href="https://www.dndbeyond.com/spells/2619134-moonbeam" target="_blank" rel="noopener">Moonbeam</a> and <a href="https://www.dndbeyond.com/spells/2618840-starry-wisp" target="_blank" rel="noopener">Starry Wisp</a> from level 3, and <a href="https://www.dndbeyond.com/spells/2619044-conjure-animals" target="_blank" rel="noopener">Conjure Animals</a> from level 5.</p>
+</div>
 
-  <section class="stop" aria-labelledby="gather">
-    <div class="stop-head">
-      <span class="step">Gather</span>
-      <h2 id="gather">Spells that have come into season</h2>
-      <p class="whisper">Pick what calls to you. Each name opens its page on D&amp;D Beyond.</p>
-    </div>
-    <div class="basket">
-      <div>
-        <h3>Level 2</h3>
-        <ul class="spells">
-          <li><a href="https://www.dndbeyond.com/spells/2618845-aid" target="_blank" rel="noopener">Aid</a><span class="t"></span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2618850-animal-messenger" target="_blank" rel="noopener">Animal Messenger</a><span class="t">ritual</span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2618882-augury" target="_blank" rel="noopener">Augury</a><span class="t">ritual</span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2618907-barkskin" target="_blank" rel="noopener">Barkskin</a><span class="t"></span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2618914-beast-sense" target="_blank" rel="noopener">Beast Sense<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a><span class="t">focus · ritual</span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2619065-continual-flame" target="_blank" rel="noopener">Continual Flame</a><span class="t"></span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2619082-darkvision" target="_blank" rel="noopener">Darkvision</a><span class="t"></span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2619165-enhance-ability" target="_blank" rel="noopener">Enhance Ability</a><span class="t">focus</span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2619170-enlarge-reduce" target="_blank" rel="noopener">Enlarge/Reduce</a><span class="t">focus</span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2618883-find-traps" target="_blank" rel="noopener">Find Traps</a><span class="t"></span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2618899-flame-blade" target="_blank" rel="noopener">Flame Blade</a><span class="t">focus</span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2618919-flaming-sphere" target="_blank" rel="noopener">Flaming Sphere</a><span class="t">focus</span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2619137-gust-of-wind" target="_blank" rel="noopener">Gust of Wind</a><span class="t">focus</span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2619145-heat-metal" target="_blank" rel="noopener">Heat Metal</a><span class="t">focus</span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2619153-hold-person" target="_blank" rel="noopener">Hold Person</a><span class="t">focus</span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2619016-lesser-restoration" target="_blank" rel="noopener">Lesser Restoration</a><span class="t"></span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2619000-locate-animals-or-plants" target="_blank" rel="noopener">Locate Animals or Plants</a><span class="t">ritual</span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2619002-locate-object" target="_blank" rel="noopener">Locate Object</a><span class="t">focus</span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2619134-moonbeam" target="_blank" rel="noopener">Moonbeam</a><span class="t">focus</span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2618849-pass-without-trace" target="_blank" rel="noopener">Pass without Trace</a><span class="t">focus</span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2618915-protection-from-poison" target="_blank" rel="noopener">Protection from Poison</a><span class="t"></span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2619075-spike-growth" target="_blank" rel="noopener">Spike Growth</a><span class="t">focus</span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2619106-summon-beast" target="_blank" rel="noopener">Summon Beast<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a><span class="t">focus</span></li>
-        </ul>
-      </div>
-      <div>
-        <h3>Level 3</h3>
-        <ul class="spells">
-          <li><a href="https://www.dndbeyond.com/spells/2618891-aura-of-vitality" target="_blank" rel="noopener">Aura of Vitality<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a><span class="t">focus</span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2618949-call-lightning" target="_blank" rel="noopener">Call Lightning</a><span class="t">focus</span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2619044-conjure-animals" target="_blank" rel="noopener">Conjure Animals</a><span class="t">focus</span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2619083-daylight" target="_blank" rel="noopener">Daylight</a><span class="t"></span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2619103-dispel-magic" target="_blank" rel="noopener">Dispel Magic</a><span class="t"></span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2619164-elemental-weapon" target="_blank" rel="noopener">Elemental Weapon<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a><span class="t">focus</span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2618873-feign-death" target="_blank" rel="noopener">Feign Death<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a><span class="t">ritual</span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2619031-meld-into-stone" target="_blank" rel="noopener">Meld into Stone</a><span class="t">ritual</span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2618869-plant-growth" target="_blank" rel="noopener">Plant Growth</a><span class="t"></span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2618908-protection-from-energy" target="_blank" rel="noopener">Protection from Energy</a><span class="t">focus</span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2618956-revivify" target="_blank" rel="noopener">Revivify</a><span class="t"></span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2618998-sleet-storm" target="_blank" rel="noopener">Sleet Storm</a><span class="t">focus</span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2619069-speak-with-plants" target="_blank" rel="noopener">Speak with Plants</a><span class="t"></span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2619115-summon-fey" target="_blank" rel="noopener">Summon Fey<i class="lock" aria-label="needs the 2024 Player's Handbook on D&amp;D Beyond"></i></a><span class="t">focus</span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2619205-water-breathing" target="_blank" rel="noopener">Water Breathing</a><span class="t">ritual</span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2619207-water-walk" target="_blank" rel="noopener">Water Walk</a><span class="t">ritual</span></li>
-          <li><a href="https://www.dndbeyond.com/spells/2619212-wind-wall" target="_blank" rel="noopener">Wind Wall</a><span class="t">focus</span></li>
-        </ul>
-      </div>
-    </div>
-    <p class="fine"><b>Focus</b> means the spell needs your concentration, so you can only keep one of those going at a time. <b>Ritual</b> means you can cast it slowly, over 10 extra minutes, without using a slot. A small lock means D&amp;D Beyond shows that spell only to people with access to the 2024 Player's Handbook. Your circle's spells are free extras and don't count toward your 9.</p>
-  </section>
+<div class="circle">
+  <h3>Circle of the Sea <span class="pg">p. 87</span></h3>
+  <p><b>Wrath of the Sea.</b> Spend a Wild Shape use to wrap yourself in sea spray for 10 minutes. Each turn, as a bonus action, you can hit one creature next to you with cold damage and push it 15 feet away unless it makes a Constitution save. Roll a d6 for each point of your Wisdom modifier, so +3 Wisdom is 3d6.</p>
+  <p class="free">Free spells: <a href="https://www.dndbeyond.com/spells/2618910-fog-cloud" target="_blank" rel="noopener">Fog Cloud</a>, <a href="https://www.dndbeyond.com/spells/2619137-gust-of-wind" target="_blank" rel="noopener">Gust of Wind</a>, <a href="https://www.dndbeyond.com/spells/2618930-ray-of-frost" target="_blank" rel="noopener">Ray of Frost</a>, <a href="https://www.dndbeyond.com/spells/2619017-shatter" target="_blank" rel="noopener">Shatter</a> and <a href="https://www.dndbeyond.com/spells/2619184-thunderwave" target="_blank" rel="noopener">Thunderwave</a> from level 3, and <a href="https://www.dndbeyond.com/spells/2618999-lightning-bolt" target="_blank" rel="noopener">Lightning Bolt</a> and <a href="https://www.dndbeyond.com/spells/2619205-water-breathing" target="_blank" rel="noopener">Water Breathing</a> from level 5.</p>
+</div>
 
-  <section class="stop" aria-labelledby="groves">
-    <div class="stop-head">
-      <span class="step">Choose a grove</span>
-      <h2 id="groves">Four circles, four ways to belong</h2>
-      <p class="whisper">Stand in each one for a moment. Which one feels like home?</p>
-    </div>
-    <div class="groves">
-      <article class="grove">
-        <p class="feel">"The land speaks differently everywhere I walk. I listen, and borrow its voice."</p>
-        <h3>Circle of the Land</h3>
-        <p><span class="k">Land's Aid.</span> Spend a Wild Shape use to make a burst of flowers and thorns somewhere nearby: enemies inside take 2d6 necrotic damage (half if they pass a Constitution save), and one friend inside heals 2d6. <span class="pg">pp. 84–85</span></p>
-        <p><span class="k">Borrowed spells.</span> Each morning, pick a kind of land. Its spells are prepared for free:</p>
-        <div class="table-wrap"><table class="lands">
-          <thead><tr><th>Land</th><th>From level 3</th><th>From level 5</th></tr></thead>
-          <tbody>
-            <tr><td>Arid</td><td><a href="https://www.dndbeyond.com/spells/2618945-blur" target="_blank" rel="noopener">Blur</a>, <a href="https://www.dndbeyond.com/spells/2618946-burning-hands" target="_blank" rel="noopener">Burning Hands</a>, <a href="https://www.dndbeyond.com/spells/2618890-fire-bolt" target="_blank" rel="noopener">Fire Bolt</a></td><td><a href="https://www.dndbeyond.com/spells/2618887-fireball" target="_blank" rel="noopener">Fireball</a></td></tr>
-            <tr><td>Polar</td><td><a href="https://www.dndbeyond.com/spells/2618910-fog-cloud" target="_blank" rel="noopener">Fog Cloud</a>, <a href="https://www.dndbeyond.com/spells/2619153-hold-person" target="_blank" rel="noopener">Hold Person</a>, <a href="https://www.dndbeyond.com/spells/2618930-ray-of-frost" target="_blank" rel="noopener">Ray of Frost</a></td><td><a href="https://www.dndbeyond.com/spells/2618998-sleet-storm" target="_blank" rel="noopener">Sleet Storm</a></td></tr>
-            <tr><td>Temperate</td><td><a href="https://www.dndbeyond.com/spells/2619133-misty-step" target="_blank" rel="noopener">Misty Step</a>, <a href="https://www.dndbeyond.com/spells/2618986-shocking-grasp" target="_blank" rel="noopener">Shocking Grasp</a>, <a href="https://www.dndbeyond.com/spells/2619064-sleep" target="_blank" rel="noopener">Sleep</a></td><td><a href="https://www.dndbeyond.com/spells/2618999-lightning-bolt" target="_blank" rel="noopener">Lightning Bolt</a></td></tr>
-            <tr><td>Tropical</td><td><a href="https://www.dndbeyond.com/spells/2618844-acid-splash" target="_blank" rel="noopener">Acid Splash</a>, <a href="https://www.dndbeyond.com/spells/2618935-ray-of-sickness" target="_blank" rel="noopener">Ray of Sickness</a>, <a href="https://www.dndbeyond.com/spells/2619208-web" target="_blank" rel="noopener">Web</a></td><td><a href="https://www.dndbeyond.com/spells/2619091-stinking-cloud" target="_blank" rel="noopener">Stinking Cloud</a></td></tr>
-          </tbody>
-        </table></div>
-      </article>
+<div class="circle">
+  <h3>Circle of the Stars <span class="pg">pp. 88–89</span></h3>
+  <p><b>Star Map.</b> You carry a star chart. While you hold it, you have <a href="https://www.dndbeyond.com/spells/2618971-guidance" target="_blank" rel="noopener">Guidance</a> and <a href="https://www.dndbeyond.com/spells/2619136-guiding-bolt" target="_blank" rel="noopener">Guiding Bolt</a> prepared, and you can cast Guiding Bolt without a slot a number of times per long rest equal to your Wisdom modifier (at least once).</p>
+  <p><b>Starry Form.</b> Spend a Wild Shape use to glow with a constellation for 10 minutes instead of turning into an animal. Pick one each time: the <b>Archer</b> fires a starlight arrow each turn, the <b>Chalice</b> adds healing when you cast healing spells, and the <b>Dragon</b> treats low rolls as a 10 on Intelligence and Wisdom checks and concentration saves.</p>
+</div>
 
-      <article class="grove">
-        <p class="feel">"Some nights I don't come home on two feet. The moon doesn't mind."</p>
-        <h3>Circle of the Moon</h3>
-        <p><span class="k">Stronger shapes.</span> Your animal forms can be as tough as a <b>brown bear</b> (challenge rating 1). In animal form your Armor Class is at least 13 plus your Wisdom modifier, and your cushion of temporary hit points is 15 instead of 5. <span class="pg">p. 86</span></p>
-        <p><span class="k">Moon spells</span>, prepared for free, and you can cast them even in animal form:</p>
-        <div class="leaves"><span class="leaf"><small>3</small><a href="https://www.dndbeyond.com/spells/2619079-cure-wounds" target="_blank" rel="noopener">Cure Wounds</a></span><span class="leaf"><small>3</small><a href="https://www.dndbeyond.com/spells/2619134-moonbeam" target="_blank" rel="noopener">Moonbeam</a></span><span class="leaf"><small>3</small><a href="https://www.dndbeyond.com/spells/2618840-starry-wisp" target="_blank" rel="noopener">Starry Wisp</a></span><span class="leaf"><small>5</small><a href="https://www.dndbeyond.com/spells/2619044-conjure-animals" target="_blank" rel="noopener">Conjure Animals</a></span></div>
-      </article>
+<div class="signoff">
+  <p class="voice">That's the walk. Next on the path: another gift from your circle at level 6, Elemental Fury at 7, and animal forms that fly at 8.</p>
+</div>
 
-      <article class="grove">
-        <p class="feel">"I keep a storm in my pocket and salt in my hair."</p>
-        <h3>Circle of the Sea</h3>
-        <p><span class="k">Wrath of the Sea.</span> Spend a Wild Shape use and sea spray swirls around you for 10 minutes. Each turn, as a bonus action, you can lash one creature beside you with cold and shove it back 15 feet, unless it shrugs it off with a Constitution save. Damage: roll one d6 for each point of your Wisdom modifier, so +3 Wisdom means 3d6. <span class="pg">p. 87</span></p>
-        <p><span class="k">Sea spells</span>, prepared for free:</p>
-        <div class="leaves"><span class="leaf"><small>3</small><a href="https://www.dndbeyond.com/spells/2618910-fog-cloud" target="_blank" rel="noopener">Fog Cloud</a></span><span class="leaf"><small>3</small><a href="https://www.dndbeyond.com/spells/2619137-gust-of-wind" target="_blank" rel="noopener">Gust of Wind</a></span><span class="leaf"><small>3</small><a href="https://www.dndbeyond.com/spells/2618930-ray-of-frost" target="_blank" rel="noopener">Ray of Frost</a></span><span class="leaf"><small>3</small><a href="https://www.dndbeyond.com/spells/2619017-shatter" target="_blank" rel="noopener">Shatter</a></span><span class="leaf"><small>3</small><a href="https://www.dndbeyond.com/spells/2619184-thunderwave" target="_blank" rel="noopener">Thunderwave</a></span><span class="leaf"><small>5</small><a href="https://www.dndbeyond.com/spells/2618999-lightning-bolt" target="_blank" rel="noopener">Lightning Bolt</a></span><span class="leaf"><small>5</small><a href="https://www.dndbeyond.com/spells/2619205-water-breathing" target="_blank" rel="noopener">Water Breathing</a></span></div>
-      </article>
+<footer>Rules summarized in my own words from the 2024 Player's Handbook. Page numbers match the printed book. Spell links go to the 2024 versions on D&amp;D Beyond.</footer>
 
-      <article class="grove">
-        <p class="feel">"When the canopy parts, I read the sky like a letter from an old friend."</p>
-        <h3>Circle of the Stars</h3>
-        <p><span class="k">Star Map.</span> A little star chart you carry. While you hold it you always have <a href="https://www.dndbeyond.com/spells/2618971-guidance" target="_blank" rel="noopener">Guidance</a> and <a href="https://www.dndbeyond.com/spells/2619136-guiding-bolt" target="_blank" rel="noopener">Guiding Bolt</a>, and you can cast Guiding Bolt for free a few times a day: as many times as your Wisdom modifier. <span class="pg">pp. 88–89</span></p>
-        <p><span class="k">Starry Form.</span> Spend a Wild Shape use to glow with constellations for 10 minutes instead of becoming an animal. Pick one each time:</p>
-        <div class="leaves"><span class="leaf"><small>Archer</small>shoot a starlight arrow each turn</span><span class="leaf"><small>Chalice</small>your healing spells heal a little extra</span><span class="leaf"><small>Dragon</small>low rolls count as 10 when thinking or holding focus</span></div>
-      </article>
-    </div>
-  </section>
-
-  <section class="rest" aria-label="What comes next">
-    <p class="whisper">Rest here a while. The path keeps going: a gift from your circle at level 6, Elemental Fury at 7, and wings for your animal forms at 8.</p>
-  </section>
-</main>
-
-<footer class="wrap">
-  <p class="fine">Rules summarized in plain words from the 2024 Player's Handbook; page numbers match the printed book. The quotes on each circle are flavor, not rules. Spell links go to the 2024 versions on D&amp;D Beyond.</p>
-</footer>
+</div>
 </body>
 </html>

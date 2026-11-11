@@ -8,98 +8,105 @@
 <title>Three Spellcasters</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap">
 <style>
-/* A two-colour letterpress handbill: black and vermilion ink on off-white stock. One poster headline, then a working comparison table, then plain notes. */
+/* An antique celestial atlas plate: night-blue paper, cream and gold ink, a hand-drawn constellation up top, a sparse field of stars behind everything. */
 :root {
-  --stock: #f1ede4;
-  --stock-shade: #e4dfd2;
-  --ink: #1b1918;
-  --ink-soft: #57524c;
-  --red: #b8321f;
-  --rule: #b9b2a5;
-  --poster: "Alfa Slab One", "Rockwell", "Courier New", serif;
-  --type: "Old Standard TT", "Iowan Old Style", "Times New Roman", serif;
-  color-scheme: light;
+  --night: #0e1430;
+  --night-2: #161e42;
+  --cream: #ece4cf;
+  --cream-soft: #a9a8b8;
+  --gold: #d8b25a;
+  --violet: #b9a4ff;
+  --rule: #34406e;
+  --display: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+  --type: "EB Garamond", "Iowan Old Style", Georgia, serif;
+  color-scheme: dark;
 }
 * { box-sizing: border-box; }
-html, body { margin: 0; background: var(--stock); }
-body { color: var(--ink); font: 400 1.08rem/1.55 var(--type); }
-a { color: var(--ink); text-decoration-color: var(--red); text-underline-offset: .15em; }
-a:hover { color: var(--red); }
-a:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+html, body { margin: 0; background: var(--night); }
+body {
+  color: var(--cream); font: 400 1.14rem/1.55 var(--type);
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cg fill='%23ece4cf'%3E%3Ccircle cx='12' cy='30' r='.8' opacity='.7'/%3E%3Ccircle cx='70' cy='12' r='.5' opacity='.5'/%3E%3Ccircle cx='140' cy='48' r='1.1' opacity='.8'/%3E%3Ccircle cx='210' cy='20' r='.6' opacity='.5'/%3E%3Ccircle cx='245' cy='90' r='.8' opacity='.6'/%3E%3Ccircle cx='40' cy='120' r='.5' opacity='.4'/%3E%3Ccircle cx='105' cy='150' r='.7' opacity='.6'/%3E%3Ccircle cx='180' cy='130' r='.5' opacity='.45'/%3E%3Ccircle cx='230' cy='190' r='1' opacity='.7'/%3E%3Ccircle cx='20' cy='215' r='.7' opacity='.55'/%3E%3Ccircle cx='90' cy='240' r='.5' opacity='.4'/%3E%3Ccircle cx='160' cy='205' r='.6' opacity='.5'/%3E%3C/g%3E%3C/svg%3E"),
+    var(--night);
+}
+a { color: var(--cream); text-decoration-color: var(--gold); text-underline-offset: .15em; }
+a:hover { color: var(--gold); }
+a:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 
 .sheet { max-width: 54rem; margin: 0 auto; padding: 2.5rem max(18px, env(safe-area-inset-right, 0px)) 4rem max(18px, env(safe-area-inset-left, 0px)); }
 
-.bill { border: 6px double var(--ink); padding: 1.6rem 1.4rem 1.4rem; text-align: center; display: grid; gap: .6rem; }
-.bill .top { font: italic 400 1rem/1.3 var(--type); color: var(--ink-soft); margin: 0; }
-.bill h1 { font: 400 clamp(1.9rem, 8.4vw, 5.2rem)/.92 var(--poster); overflow-wrap: anywhere; margin: 0; letter-spacing: .01em; text-transform: uppercase; }
-.bill h1 span { color: var(--red); display: block; font-size: .52em; letter-spacing: .12em; margin-bottom: .15em; }
-.bill .sub { margin: 0; font-size: 1.05rem; }
-.bill .sub b { color: var(--red); }
+.bill { border: 1px solid var(--gold); outline: 1px solid var(--gold); outline-offset: 5px; padding: 1.4rem 1.4rem 1.5rem; text-align: center; display: grid; gap: .5rem; background: color-mix(in srgb, var(--night-2) 80%, transparent); }
+.bill svg { width: min(22rem, 100%); height: auto; justify-self: center; }
+.bill .top { font: italic 400 1rem/1.3 var(--type); color: var(--cream-soft); margin: 0; letter-spacing: .04em; }
+.bill h1 { font: 500 clamp(2.3rem, 9vw, 4.8rem)/.95 var(--display); margin: 0; letter-spacing: .02em; overflow-wrap: anywhere; }
+.bill h1 span { color: var(--gold); display: block; font: italic 400 .38em/1.4 var(--display); letter-spacing: .08em; }
+.bill .sub { margin: 0; font-size: 1.05rem; color: var(--cream-soft); }
+.bill .sub b { color: var(--gold); font-weight: 600; }
 
-.intro { margin: 2rem auto 0; max-width: 40rem; font-size: 1.15rem; }
-.intro em { color: var(--red); font-style: italic; }
+.intro { margin: 2rem auto 0; max-width: 40rem; font-size: 1.2rem; }
+.intro em { color: var(--violet); }
 
-h2 { font: 400 1.65rem/1.1 var(--poster); text-transform: uppercase; margin: 3rem 0 .9rem; letter-spacing: .02em; }
-h2 small { font: italic 400 1rem/1 var(--type); text-transform: none; color: var(--ink-soft); letter-spacing: 0; margin-left: .4rem; }
-h3 { font: 700 1.3rem/1.2 var(--type); margin: 2rem 0 .4rem; }
+h2 { font: 600 1.9rem/1.1 var(--display); margin: 3rem 0 .9rem; letter-spacing: .02em; display: flex; align-items: baseline; gap: .5rem; flex-wrap: wrap; }
+h2::before { content: "✦"; color: var(--gold); font-size: .7em; }
+h2 small { font: italic 400 1rem/1 var(--type); color: var(--cream-soft); letter-spacing: 0; }
+h3 { font: 600 1.4rem/1.2 var(--display); margin: 2rem 0 .4rem; color: var(--gold); }
 p { margin: 0 0 .8rem; max-width: 40rem; }
-.small { font-size: .9rem; color: var(--ink-soft); }
-.pg { font-size: .82rem; color: var(--ink-soft); white-space: nowrap; }
+.small { font-size: .95rem; color: var(--cream-soft); }
+.pg { font-size: .85rem; color: var(--cream-soft); white-space: nowrap; }
 
 .scroll { overflow-x: auto; }
 table.compare { width: 100%; min-width: 36rem; border-collapse: collapse; font-variant-numeric: tabular-nums lining-nums; }
 .compare th, .compare td { text-align: left; vertical-align: top; padding: .6rem .7rem; border-bottom: 1px solid var(--rule); }
-.compare thead th { font: 400 1.15rem/1 var(--poster); text-transform: uppercase; border-bottom: 3px solid var(--ink); padding-bottom: .55rem; }
-.compare tbody th { font: 700 .95rem/1.3 var(--type); width: 10.5rem; }
-.compare td b { color: var(--red); font-weight: 700; }
-.compare tr.money td { background: var(--stock-shade); }
-.slots { font-family: var(--poster); letter-spacing: .14em; color: var(--red); white-space: nowrap; }
+.compare thead th { font: 600 1.35rem/1 var(--display); border-bottom: 1px solid var(--gold); padding-bottom: .55rem; color: var(--gold); }
+.compare tbody th { font: 600 1rem/1.3 var(--type); width: 10.5rem; color: var(--cream-soft); }
+.compare td b { color: var(--violet); font-weight: 600; }
+.compare tr.money td { background: color-mix(in srgb, var(--violet) 9%, transparent); }
+.slots { font: 600 1.15rem/1.2 var(--display); letter-spacing: .1em; color: var(--gold); white-space: nowrap; }
 
-table.hp { border-collapse: collapse; font-variant-numeric: tabular-nums; margin: .4rem 0 1rem; }
+table.hp { border-collapse: collapse; font-variant-numeric: tabular-nums lining-nums; margin: .4rem 0 1rem; }
 .hp th, .hp td { padding: .3rem 1rem .3rem 0; border-bottom: 1px solid var(--rule); text-align: left; }
-.hp th { font-weight: 700; font-size: .9rem; }
+.hp th { font-weight: 600; font-size: .95rem; color: var(--gold); }
 
-ul.moves { margin: .2rem 0 0; padding: 0 0 0 1.1rem; max-width: 40rem; }
+ul.moves { margin: .2rem 0 0; padding: 0 0 0 1.2rem; max-width: 40rem; list-style: "✧  "; }
 ul.moves li { margin-bottom: .45rem; }
-ul.moves li::marker { color: var(--red); }
+ul.moves li::marker { color: var(--gold); }
 
 .origins { display: grid; gap: .9rem; margin-top: .4rem; }
-.origin { border-left: 3px solid var(--red); padding-left: .9rem; max-width: 42rem; }
+.origin { border-left: 1px solid var(--gold); padding-left: .9rem; max-width: 42rem; position: relative; }
+.origin::before { content: ""; position: absolute; left: -4px; top: .55rem; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
 .origin p { margin: 0 0 .25rem; }
-.origin .name { font-weight: 700; }
-.origin .spells { font-size: .92rem; color: var(--ink-soft); }
-.origin .spells a { color: var(--ink-soft); }
+.origin .name { font-weight: 600; color: var(--cream); }
+.origin .spells { font-size: .98rem; color: var(--cream-soft); }
+.origin .spells a { color: var(--cream-soft); }
 
-.lock { display: inline-block; width: .65em; height: .65em; margin-left: .2em; background: currentColor; opacity: .55;
+.lock { display: inline-block; width: .65em; height: .65em; margin-left: .2em; background: currentColor; opacity: .6;
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 7V5a4 4 0 0 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 0 0-4 0v2z'/%3E%3C/svg%3E") center/contain no-repeat;
           mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 7V5a4 4 0 0 1 8 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 0 0-4 0v2z'/%3E%3C/svg%3E") center/contain no-repeat; }
 
-.signoff { margin-top: 3rem; padding-top: 1.2rem; border-top: 3px solid var(--ink); }
-.signoff p { font-size: 1.1rem; }
-.signoff em { color: var(--red); }
-footer { margin-top: 2rem; font-size: .85rem; color: var(--ink-soft); max-width: 40rem; }
+.signoff { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--gold); }
+.signoff p { font-size: 1.18rem; }
+.signoff em { color: var(--violet); }
+footer { margin-top: 2rem; font-size: .92rem; color: var(--cream-soft); max-width: 40rem; }
 @media (max-width: 40rem) {
-  body { font-size: 1.04rem; }
-  .sheet { padding-top: 1.2rem; }
-  .bill { padding: 1.2rem .9rem 1rem; border-width: 5px; }
-  .intro { margin-top: 1.4rem; font-size: 1.08rem; }
+  body { font-size: 1.08rem; }
+  .sheet { padding-top: 1.4rem; }
+  .bill { padding: 1.1rem .8rem 1.1rem; }
+  .intro { margin-top: 1.4rem; font-size: 1.12rem; }
   h2 { margin-top: 2.4rem; }
   .scroll { overflow-x: visible; }
   table.compare { min-width: 0; }
   .compare thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
   .compare, .compare tbody, .compare tr, .compare th, .compare td { display: block; width: auto; }
-  .compare tr { border-bottom: 2px solid var(--ink); padding: .7rem 0 .55rem; }
-  .compare tr.money { background: var(--stock-shade); padding-left: .6rem; padding-right: .6rem; }
+  .compare tr { border-bottom: 1px solid var(--gold); padding: .7rem 0 .55rem; }
+  .compare tr.money { background: color-mix(in srgb, var(--violet) 9%, transparent); padding-left: .6rem; padding-right: .6rem; }
   .compare tr.money td { background: none; }
-  .compare tbody th { border: 0; padding: 0 0 .35rem; font-size: 1.02rem; color: var(--red); }
+  .compare tbody th { border: 0; padding: 0 0 .35rem; font-size: 1.05rem; color: var(--gold); }
   .compare td { border: 0; padding: .2rem 0; display: grid; grid-template-columns: 5.6rem 1fr; gap: .5rem; align-items: baseline; }
-  .compare td::before { content: attr(data-label); font-family: var(--poster); text-transform: uppercase; font-size: .78rem; letter-spacing: .04em; padding-top: .18rem; }
+  .compare td::before { content: attr(data-label); font: italic 400 .95rem/1.3 var(--type); color: var(--cream-soft); }
   .compare td br { display: none; }
   .compare td .small::before { content: " "; }
-  .compare td .small { margin-left: 0; }
-  ul.moves { padding-left: 1rem; }
   ul.moves li { margin-bottom: .6rem; }
   .origin .spells a { display: inline-block; padding: .1rem 0; }
 }
@@ -109,12 +116,23 @@ footer { margin-top: 2rem; font-size: .85rem; color: var(--ink-soft); max-width:
 <div class="sheet">
 
 <header class="bill">
-  <p class="top">For one night only, at the table of your choosing</p>
-  <h1><span>The amazing</span>Three Spellcasters</h1>
+  <svg viewBox="0 0 320 70" aria-hidden="true">
+    <g stroke="#d8b25a" stroke-width=".8" fill="none" opacity=".7">
+      <path d="M14 48 L58 22 L104 40 L150 14 L196 36 L244 18 L300 46"/>
+      <path d="M104 40 L120 62 M196 36 L210 60"/>
+    </g>
+    <g fill="#ece4cf">
+      <circle cx="14" cy="48" r="2"/><circle cx="58" cy="22" r="2.6"/><circle cx="104" cy="40" r="2"/>
+      <circle cx="150" cy="14" r="3.4" fill="#d8b25a"/><circle cx="196" cy="36" r="2.2"/><circle cx="244" cy="18" r="2.6"/>
+      <circle cx="300" cy="46" r="2"/><circle cx="120" cy="62" r="1.5"/><circle cx="210" cy="60" r="1.5"/>
+    </g>
+  </svg>
+  <p class="top">Plate V of the arcane sky</p>
+  <h1><span>a star chart of</span>Three Spellcasters</h1>
   <p class="sub">Sorcerer, Warlock and Wizard, compared at <b>level 5</b> · 2024 Player's Handbook</p>
 </header>
 
-<p class="intro">Step right up. <em>Three ways to get magic,</em> and they play very differently once you're at level 5. The table below is the whole comparison. Everything after it is detail for when you've narrowed it down.</p>
+<p class="intro">Look up. <em>Three ways to pull magic out of the sky,</em> and by level 5 they shine very differently. The table below is the whole comparison. Everything after it is detail for when you've narrowed it down.</p>
 
 <h2>Side by side</h2>
 <div class="scroll">
@@ -208,7 +226,7 @@ footer { margin-top: 2rem; font-size: .85rem; color: var(--ink-soft); max-width:
 </div>
 
 <div class="signoff">
-  <p>Can't decide? If you want to show off with a few spells, sorcerer. If you want toughness and a patron with a story, warlock. If you want every spell in the world, wizard. <em>And tell your DM everything.</em> The magician insists.</p>
+  <p>Can't decide? If you want to show off with a few spells, sorcerer. If you want toughness and a patron with a story, warlock. If you want every spell in the world, wizard. <em>And tell your DM everything.</em> The stars already know.</p>
 </div>
 
 <footer>

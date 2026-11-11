@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="description" content="Character reference pages for our D&D table, under the 2024 rules.">
+<title>Character Pages</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cormorant+Garamond:ital,wght@0,500;1,400&family=Bree+Serif&family=Caveat:wght@500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400&display=swap">
+<style>
+/* A shelf of three: each page shows up as a strip in its own paper, ink and type, so you can spot yours before reading a word. */
+:root {
+  --bg: #e9e6df;
+  --ink: #222;
+  --soft: #5d5a54;
+  --type: "Source Serif 4", "Iowan Old Style", Georgia, serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); }
+body { color: var(--ink); font: 400 1.06rem/1.55 var(--type); }
+.shelf { max-width: 44rem; margin: 0 auto; padding: 3rem max(18px, env(safe-area-inset-right, 0px)) 4rem max(18px, env(safe-area-inset-left, 0px)); }
+header { margin-bottom: 1.8rem; }
+header h1 { font: italic 400 2rem/1.1 var(--type); margin: 0 0 .4rem; }
+header p { margin: 0; color: var(--soft); }
+
+.page { display: block; text-decoration: none; padding: 1.5rem 1.4rem 1.4rem; margin-bottom: 1rem; transition: transform .15s ease; }
+.page:hover { transform: translateX(4px); }
+.page:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+.page h2 { margin: 0 0 .35rem; font-weight: 400; }
+.page p { margin: 0; }
+.page .go { display: inline-block; margin-top: .7rem; font-size: .92rem; text-decoration: underline; text-underline-offset: .15em; }
+
+.druid { background: #f3efe2; color: #1f2a22; border-left: 6px solid #2f5d3a; }
+.druid h2 { font: 400 2.1rem/1 "IM Fell English", Georgia, serif; color: #2f5d3a; }
+.druid h2 i { color: #a2502a; }
+.druid .go { text-decoration-color: #2f5d3a; }
+
+.arcane { color: #ece4cf; border: 1px solid #d8b25a; outline: 1px solid #d8b25a; outline-offset: -6px;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='120'%3E%3Cg fill='%23ece4cf'%3E%3Ccircle cx='14' cy='22' r='.8' opacity='.7'/%3E%3Ccircle cx='70' cy='10' r='.5' opacity='.5'/%3E%3Ccircle cx='128' cy='40' r='1' opacity='.8'/%3E%3Ccircle cx='40' cy='90' r='.6' opacity='.5'/%3E%3Ccircle cx='110' cy='100' r='.7' opacity='.6'/%3E%3C/g%3E%3C/svg%3E"),
+    #0e1430; }
+.arcane small { display: block; font: italic 400 1rem/1.3 "Cormorant Garamond", Georgia, serif; color: #d8b25a; letter-spacing: .06em; }
+.arcane h2 { font: 500 2.3rem/1 "Cormorant Garamond", Georgia, serif; }
+.arcane p { color: #c9c6d2; }
+.arcane .go { color: #ece4cf; text-decoration-color: #d8b25a; }
+
+.agatha { background: #f5eedb; color: #29271d; border-left: 6px solid #5c3f2b; }
+.agatha h2 { font: 400 2.1rem/1 "Bree Serif", Rockwell, Georgia, serif; color: #5c3f2b; }
+.agatha .note { font: 500 1.35rem/1.2 "Caveat", "Bradley Hand", cursive; color: #b2463a; margin-top: .3rem; }
+.agatha .go { text-decoration-color: #3e5b37; }
+
+footer { margin-top: 2rem; font-size: .88rem; color: var(--soft); }
+@media (max-width: 40rem) {
+  .shelf { padding-top: 2rem; }
+  .page { padding: 1.2rem 1rem 1.1rem; }
+  .page:hover { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) { .page { transition: none; } }
+</style>
+</head>
+<body>
+<div class="shelf">
+
+<header>
+  <h1>Character pages</h1>
+  <p>Reference pages for our table, all under the 2024 rules. Pick yours.</p>
+</header>
+
+<a class="page druid" href="druid-1-to-5/">
+  <h2>Druid, <i>levels 1 to 5</i></h2>
+  <p>Wild Shape, the four circles, and every new spell up to level 3, one level at a time.</p>
+  <span class="go">Open the field notes</span>
+</a>
+
+<a class="page arcane" href="arcane-trio/">
+  <small>a star chart of</small>
+  <h2>Three Spellcasters</h2>
+  <p>Sorcerer, Warlock or Wizard? All three side by side at level 5.</p>
+  <span class="go">Open the star chart</span>
+</a>
+
+<a class="page agatha" href="agatha/">
+  <h2>Agatha</h2>
+  <p>Dwarf, Life Domain cleric, level 5. Her turn, her numbers, her spells.</p>
+  <p class="note">Pull up a stool.</p>
+  <span class="go">Open her cookbook</span>
+</a>
+
+<footer>Rules are summarized from the 2024 Player's Handbook. Spell links go to D&amp;D Beyond.</footer>
+
+</div>
+</body>
+</html>
