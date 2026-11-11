@@ -1,4 +1,5 @@
 // Writes review.html: every day of the batch on one page, for proofreading. Not published.
+// Games are left out by default because Joel plays them; pass --games to include them (spoilers).
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 
 const here = (path) => new URL(path, import.meta.url);
@@ -13,7 +14,8 @@ function person(name, card) {
     <p><b>Mission:</b> ${prose(card.mission)}</p><p><b>Watch for:</b> ${prose(card.omen)}</p></div>`;
 }
 
-const games = new Map(months.flatMap((month) => {
+const showGames = process.argv.includes('--games');
+const games = new Map(!showGames ? [] : months.flatMap((month) => {
   const path = here(`./games/${month}.json`);
   return existsSync(path) ? JSON.parse(readFileSync(path, 'utf8')).map(({ date, game }) => [date, game]) : [];
 }));
@@ -37,7 +39,7 @@ const body = days.map((entry) => `<section id="d${entry.date}" class="${entry.de
   <p class="story">${prose(entry.skyStory)}</p>
   <div class="people">${person('🔥 Joel', entry.joel)}${person('🏔️ Nancy', entry.nancy)}</div>
   <p class="together"><b>Together:</b> ${prose(entry.together.text)}</p>
-  ${gameBlock(games.get(entry.date))}
+  ${showGames ? gameBlock(games.get(entry.date)) : ''}
 </section>`).join('\n');
 
 const index = days.map((entry) => `<a href="#d${entry.date}">${entry.date.slice(5)}</a>`).join(' ');
