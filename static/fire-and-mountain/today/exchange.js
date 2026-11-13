@@ -5,7 +5,7 @@ import { parseJoinKey, panelState, hostLine, nickname, otherName } from './excha
 import { NAMES, answerCard, element, plainPrompt } from './exchange-ui.mjs';
 import { playSting, soundEnabled, setSoundEnabled } from './exchange-sounds.mjs';
 import { dayFileName } from './today-core.mjs';
-import { BAD_LINK, joinBox } from './exchange-join.mjs';
+import { BAD_LINK, RESET_LINK, joinBox } from './exchange-join.mjs';
 import { createBell } from './push-client.mjs';
 
 const IDENTITY_KEY = 'fm-exchange-identity';
@@ -147,7 +147,12 @@ export async function mountExchange({ container, date, prompt }, joined = null) 
     if (editing) return;
     try { show(await api.get(date)); } catch (error) {
       if (error instanceof ApiError && error.status === 401) {
-        container.replaceChildren(element('p', { className: 'exchange-notice', textContent: "This device's link stopped working. Ask Joel for a fresh one." }));
+        // The key was reissued: forget it and offer the join box so a new link can be tapped or pasted.
+        try { localStorage.removeItem(IDENTITY_KEY); } catch { /* private mode */ }
+        teardown();
+        container.classList.add('exchange-guest');
+        container.replaceChildren(joinBox({ notice: RESET_LINK, join: joinWithKey,
+          onJoin: (joinedNow) => mountExchange({ container, date, prompt }, joinedNow) }));
         return;
       }
       show(null, true);

@@ -4,6 +4,7 @@ import { parsePastedLink } from './exchange-core.mjs';
 import { element } from './exchange-ui.mjs';
 
 export const BAD_LINK = "That link didn't work. Ask Joel for a fresh one.";
+export const RESET_LINK = "This device's link was reset. Tap the new link Joel sent you, or paste it here.";
 const NO_LINK_COPIED = 'No Exchange link on the clipboard. Copy your link first, then tap again.';
 
 /** `join(key)` resolves to the joined identity or null; `onJoin` receives it. */

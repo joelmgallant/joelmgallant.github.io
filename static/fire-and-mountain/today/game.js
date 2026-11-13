@@ -38,14 +38,16 @@ let teardown = () => {};
 export function mountGame({ container, date, game }, identity = readStored(IDENTITY_KEY)) {
   teardown();
   const onJoined = (event) => mountGame({ container, date, game }, event.detail);
+  // Remount whenever someone joins, including with a new link after the old one was reset.
   window.addEventListener('fm-exchange-joined', onJoined, { once: true });
-  if (!game || !identity) { container.hidden = true; teardown = () => window.removeEventListener('fm-exchange-joined', onJoined); return; }
-  window.removeEventListener('fm-exchange-joined', onJoined);
+  const stopListening = () => window.removeEventListener('fm-exchange-joined', onJoined);
+  if (!game || !identity) { container.hidden = true; teardown = stopListening; return; }
   const api = createApi(identity.key);
   const me = identity.person;
   const them = otherName(me);
   let pollTimer = null;
   let editing = false;
+  let live = true; // false once this mount is replaced, so late replies for the old key are ignored
   container.hidden = false;
 
   const header = (stage) => {
@@ -106,8 +108,13 @@ export function mountGame({ container, date, game }, identity = readStored(IDENT
 
   async function render() {
     if (editing) return;
-    try { show(await api.game(date)); } catch (error) {
+    try {
+      const response = await api.game(date);
+      if (live) show(response);
+    } catch (error) {
+      if (!live) return;
       if (error instanceof ApiError && error.status === 404) { container.hidden = true; return; }
+      if (error instanceof ApiError && error.status === 401) { container.hidden = true; return; } // the Exchange panel offers the rejoin
       const retry = element('button', { type: 'button', className: 'chunky', textContent: 'Retry' });
       retry.addEventListener('click', render);
       container.replaceChildren(...header('answer'), element('p', { className: 'host-line', textContent: 'Connect to play 📡' }), retry);
@@ -116,6 +123,6 @@ export function mountGame({ container, date, game }, identity = readStored(IDENT
 
   const onVisible = () => { if (document.visibilityState === 'visible' && !container.querySelector('.game-composer, .guess-form, .choice-group')) render(); };
   document.addEventListener('visibilitychange', onVisible);
-  teardown = () => { clearInterval(pollTimer); document.removeEventListener('visibilitychange', onVisible); };
+  teardown = () => { live = false; clearInterval(pollTimer); document.removeEventListener('visibilitychange', onVisible); stopListening(); };
   render();
 }

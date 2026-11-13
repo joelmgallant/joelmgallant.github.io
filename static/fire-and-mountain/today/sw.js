@@ -2,7 +2,7 @@
 // Code and data are network-first (revalidated, so a deploy shows up on the next load) with the cache as the
 // offline fallback; images are cache-first and refresh in the background. Also shows push nudges.
 // Bump VERSION on every deploy that changes these files, so installed apps swap to the new worker and reload.
-const VERSION = 'today-v8';
+const VERSION = 'today-v9';
 const NETWORK_TIMEOUT_MS = 4000;
 
 const IMAGE_NAMES = [
