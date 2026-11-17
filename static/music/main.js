@@ -68,9 +68,16 @@ async function start() {
 
   // Genre highlight and stories are exclusive; the highlight never goes in the URL (cluster ids renumber).
   let highlight = new Set();
+  // Free area = the viewport minus the header card and the open panel, in CSS pixels.
+  function chromeInsets() {
+    const header = document.querySelector("header.card").getBoundingClientRect();
+    const box = panel.hidden ? null : panel.getBoundingClientRect();
+    if (window.matchMedia("(max-width: 700px)").matches) return { left: 0, right: 0, top: header.bottom + 16, bottom: box ? box.height : 0 };
+    return { left: header.right + 16, right: box ? box.width + 32 : 0, top: 0, bottom: 0 };
+  }
   function applyHighlight(next) {
     highlight = next;
-    map.setHighlight(highlight);
+    map.setHighlight(highlight, { insets: chromeInsets() });
     for (const row of legend.querySelectorAll(".legend-row")) row.setAttribute("aria-pressed", String(highlight.has(row.dataset.cluster)));
     clearButton.hidden = highlight.size === 0;
   }
@@ -81,7 +88,10 @@ async function start() {
     const { story, artist } = parseHash(location.hash);
     if (story && highlight.size) location.hash = formatHash({ artist });
   });
-  clearButton.addEventListener("click", () => applyHighlight(new Set()));
+  clearButton.addEventListener("click", () => {
+    applyHighlight(new Set());
+    legend.querySelector(".legend-row")?.focus();
+  });
 
   // Closing the panel keeps an open story; Escape with no panel closes the story.
   const closeHash = () => { const { story, step } = parseHash(location.hash); return formatHash({ story, step }); };
@@ -107,8 +117,10 @@ async function start() {
       closePanel(panel);
       return;
     }
-    map.select(artist.id);
-    if (!inStory) map.flyTo(artist.id, { screenOffset: panelOffset() });
+    if (map.selectedId !== artist.id) {
+      map.select(artist.id);
+      if (!inStory) map.flyTo(artist.id, { screenOffset: panelOffset() });
+    }
     renderPanel(panel, artist, { clusterName: clusterName.get(artist.cluster) || "" });
   }
   window.addEventListener("hashchange", route);

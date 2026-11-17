@@ -8,7 +8,8 @@ export function toggleCluster(set, clusterId) {
 
 const isActive = (highlight) => Boolean(highlight && highlight.size > 0);
 
-export function isDimmed(node, { storyIds, highlight }) {
+export function isDimmed(node, { storyIds, highlight, exempt }) {
+  if (exempt && (exempt.has ? exempt.has(node.id) : exempt.includes(node.id))) return false;
   if (storyIds && !storyIds.has(node.id)) return true;
   return isActive(highlight) && !highlight.has(node.cluster);
 }

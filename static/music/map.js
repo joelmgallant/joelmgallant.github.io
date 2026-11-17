@@ -1,4 +1,4 @@
-import { createCamera, worldToScreen, screenToWorld, fitBounds, nodeRadius, hitTest, labelVisible, centreOn } from "./camera.js";
+import { createCamera, worldToScreen, screenToWorld, fitBounds, fitInto, nodeRadius, hitTest, labelVisible, centreOn } from "./camera.js";
 import { lerpCamera } from "./juice.js";
 import { attachInput } from "./map-input.js";
 import { drawLabels } from "./map-labels.js";
@@ -60,6 +60,7 @@ export function createMap({ canvas, data, juice, onSelect }) {
     const { width, height } = camera;
     const focusId = hoveredId || selectedId;
     const storyIds = story ? new Set(story.ids) : null;
+    const exempt = [selectedId, hoveredId];
     context.fillStyle = theme.bg;
     context.fillRect(0, 0, width, height);
     const focus = byId.get(focusId);
@@ -69,7 +70,7 @@ export function createMap({ canvas, data, juice, onSelect }) {
       const [x, y] = screenOf(node);
       const radius = Math.max(1.5, node.r * camera.scale * juice.scale(node.id));
       if (x < -radius || y < -radius || x > width + radius || y > height + radius) continue;
-      context.globalAlpha = isDimmed(node, { storyIds, highlight }) ? 0.15 : 1;
+      context.globalAlpha = isDimmed(node, { storyIds, highlight, exempt }) ? 0.15 : 1;
       context.fillStyle = clusterColor.get(node.cluster) || theme.muted;
       context.beginPath();
       context.arc(x, y, radius, 0, Math.PI * 2);
@@ -91,13 +92,13 @@ export function createMap({ canvas, data, juice, onSelect }) {
       context.stroke();
     }
     context.globalAlpha = 1;
-    drawNodeLabels(focusId, storyIds);
+    drawNodeLabels(focusId, storyIds, exempt);
   }
 
-  function drawNodeLabels(focusId, storyIds) {
+  function drawNodeLabels(focusId, storyIds, exempt) {
     const candidates = [];
     for (const node of nodes) {
-      if (isDimmed(node, { storyIds, highlight })) continue;
+      if (isDimmed(node, { storyIds, highlight, exempt })) continue;
       const lit = Boolean(highlight?.size) || Boolean(storyIds);
       const emphasised = node.id === focusId || Boolean(storyIds?.has(node.id));
       if (!emphasised && !lit && !topLoved.has(node.id) && !labelVisible(node.r, camera.scale, false)) continue;
@@ -118,11 +119,11 @@ export function createMap({ canvas, data, juice, onSelect }) {
     if (node) glideTo(centreOn(camera, node.x, node.y, Math.max(camera.scale, 1.6), screenOffset));
   }
 
-  function setHighlight(clusterIds) {
+  function setHighlight(clusterIds, { insets } = {}) {
     highlight = clusterIds?.size ? clusterIds : null;
     const members = highlightedNodes(nodes, highlight);
-    if (members.length) glideTo(fitBounds(camera, members, { padding: 60 }));
-    else requestFrame();
+    if (members.length) glideTo(fitInto(camera, members, insets));
+    else { tween = null; requestFrame(); }
   }
 
   function select(id) {
@@ -174,5 +175,5 @@ export function createMap({ canvas, data, juice, onSelect }) {
   camera = fitBounds(camera, nodes, { trim: 0.03 });
   document.fonts?.ready.then(requestFrame);
   requestFrame();
-  return { flyTo, select, setStory, setHighlight, byId };
+  return { flyTo, select, setStory, setHighlight, byId, get selectedId() { return selectedId; } };
 }

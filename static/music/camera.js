@@ -50,6 +50,16 @@ export function centreOn(camera, worldX, worldY, scale, [offsetX, offsetY] = [0,
   return { ...camera, x: worldX - offsetX / scale, y: worldY - offsetY / scale, scale };
 }
 
+// Fit points into the part of the viewport the UI leaves free; insets are CSS pixels { left, right, top, bottom }.
+export function fitInto(camera, points, { left = 0, right = 0, top = 0, bottom = 0 } = {}, { padding = 60 } = {}) {
+  const freeWidth = camera.width - left - right;
+  const freeHeight = camera.height - top - bottom;
+  if (freeWidth < 100 || freeHeight < 100) return fitBounds(camera, points, { padding });
+  const fit = fitBounds({ ...camera, width: freeWidth, height: freeHeight }, points, { padding });
+  if (points.length === 0) return camera;
+  return centreOn(camera, fit.x, fit.y, clampScale(fit.scale), [(left - right) / 2, (top - bottom) / 2]);
+}
+
 export function nodeRadius(love) {
   return 2 + 1.6 * Math.sqrt(Math.max(0, love));
 }

@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { createCamera, worldToScreen, screenToWorld, zoomAt, panBy, fitBounds, nodeRadius, hitTest, labelVisible, MAX_SCALE, pickLabels, trimmedBounds, centreOn } from "../../../static/music/camera.js";
+import { createCamera, worldToScreen, screenToWorld, zoomAt, panBy, fitBounds, nodeRadius, hitTest, labelVisible, MAX_SCALE, pickLabels, trimmedBounds, centreOn, fitInto } from "../../../static/music/camera.js";
 import { stepSpring, isSettled, easeInOutCubic, lerpCamera, createJuice } from "../../../static/music/juice.js";
 import { parseHash, formatHash, findArtists } from "../../../static/music/search.js";
 
@@ -191,4 +191,50 @@ test("highlightedNodes returns exactly the members of the highlighted clusters",
   const nodes = [{ id: "a", cluster: 1 }, { id: "b", cluster: 2 }, { id: "c", cluster: 3 }, { id: "d", cluster: 1 }];
   assert.deepEqual(highlightedNodes(nodes, new Set([1, 3])).map((node) => node.id), ["a", "c", "d"]);
   assert.deepEqual(highlightedNodes(nodes, new Set()), []);
+});
+
+test("isDimmed never dims an exempt node", async () => {
+  const { isDimmed } = await import("../../../static/music/highlight.js");
+  const node = { id: "a", cluster: "c3" };
+  assert.equal(isDimmed(node, { storyIds: null, highlight: new Set(["c4"]) }), true);
+  assert.equal(isDimmed(node, { storyIds: null, highlight: new Set(["c4"]), exempt: new Set(["a"]) }), false);
+  assert.equal(isDimmed(node, { storyIds: null, highlight: new Set(["c4"]), exempt: ["a"] }), false);
+  assert.equal(isDimmed(node, { storyIds: null, highlight: new Set(["c4"]), exempt: [null, "z"] }), true);
+});
+
+test("highlight helpers work with string cluster ids", async () => {
+  const { isDimmed, highlightedNodes } = await import("../../../static/music/highlight.js");
+  const nodes = [{ id: "a", cluster: "c3" }, { id: "b", cluster: "c4" }];
+  assert.deepEqual(highlightedNodes(nodes, new Set(["c3"])).map((node) => node.id), ["a"]);
+  assert.equal(isDimmed(nodes[0], { storyIds: null, highlight: new Set(["c3"]) }), false);
+  assert.equal(isDimmed(nodes[1], { storyIds: null, highlight: new Set(["c3"]) }), true);
+});
+
+test("fitInto keeps points clear of the insets", () => {
+  const camera = createCamera(800, 600);
+  const points = [{ x: -300, y: -100 }, { x: 250, y: 120 }, { x: 0, y: 0 }];
+  const fit = fitInto(camera, points, { left: 400, right: 0, top: 0, bottom: 0 });
+  for (const point of points) assert.ok(worldToScreen(fit, point.x, point.y)[0] >= 400 - 1e-6);
+  const tall = fitInto(camera, points, { left: 0, right: 0, top: 200, bottom: 100 });
+  for (const point of points) {
+    const [, y] = worldToScreen(tall, point.x, point.y);
+    assert.ok(y >= 200 - 1e-6 && y <= 500 + 1e-6);
+  }
+});
+
+test("fitInto with zero insets equals fitBounds", () => {
+  const camera = createCamera(800, 600);
+  const points = [{ x: -300, y: -100 }, { x: 250, y: 120 }];
+  const zero = { left: 0, right: 0, top: 0, bottom: 0 };
+  const expected = fitBounds(camera, points, { padding: 60 });
+  const actual = fitInto(camera, points, zero);
+  for (const key of ["x", "y", "scale"]) assert.ok(Math.abs(actual[key] - expected[key]) < 1e-9);
+});
+
+test("fitInto on one point gives a finite scale within MAX_SCALE and ignores tiny free areas", () => {
+  const camera = createCamera(800, 600);
+  const fit = fitInto(camera, [{ x: 5, y: 5 }], { left: 400, right: 0, top: 0, bottom: 0 });
+  assert.ok(Number.isFinite(fit.scale) && fit.scale <= MAX_SCALE);
+  const squeezed = fitInto(camera, [{ x: -300, y: 0 }, { x: 300, y: 0 }], { left: 750, right: 0, top: 0, bottom: 0 });
+  assert.deepEqual(squeezed, fitBounds(camera, [{ x: -300, y: 0 }, { x: 300, y: 0 }], { padding: 60 }));
 });
