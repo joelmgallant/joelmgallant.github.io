@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What I Listen To</title>
+<meta name="description" content="A map of the artists I actually listen to, grouped by how they sound.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Space+Mono:wght@400;700&family=Fraunces:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root { --bg: #f4ecd8; --paper: #fffaf0; --ink: #1d1a16; --muted: #6b6255; --line: #1d1a16; --stamp: #c8361f; --spotify: #1db954; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --bg: #17150f; --paper: #221f18; --ink: #f1e9d6; --muted: #a89f8c; --line: #f1e9d6; --stamp: #ff5a3d; }
+  }
+  :root[data-theme="dark"] { --bg: #17150f; --paper: #221f18; --ink: #f1e9d6; --muted: #a89f8c; --line: #f1e9d6; --stamp: #ff5a3d; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body { background: var(--bg); color: var(--ink); font: 14px/1.5 "Space Mono", ui-monospace, monospace; overflow: hidden; }
+  #map { position: fixed; inset: 0; width: 100%; height: 100%; display: block; cursor: grab; touch-action: none; }
+  #map:focus-visible { outline: 3px solid var(--stamp); outline-offset: -3px; }
+  .card { background: var(--paper); border: 2px solid var(--line); box-shadow: 4px 4px 0 var(--line); }
+  header.card { position: fixed; top: 16px; left: 16px; padding: 12px 14px; max-width: min(360px, calc(100vw - 32px)); z-index: 2; }
+  h1 { font-family: "Rubik Mono One", sans-serif; font-size: 20px; margin: 0; }
+  .sub { font-family: "Fraunces", serif; font-style: italic; color: var(--muted); margin: 4px 0 10px; }
+  input[type="search"] { width: 100%; font: inherit; padding: 6px 8px; border: 2px solid var(--line); background: var(--bg); color: var(--ink); }
+  details { margin-top: 8px; }
+  summary { cursor: pointer; font-weight: 700; }
+  #legend { list-style: none; padding: 0; margin: 6px 0 0; max-height: 30vh; overflow: auto; font-size: 12px; }
+  #legend li { margin: 2px 0; }
+  #legend i { display: inline-block; width: 10px; height: 10px; border: 2px solid var(--line); margin-right: 6px; vertical-align: -1px; }
+  #panel { position: fixed; top: 16px; right: 16px; bottom: 16px; width: min(380px, calc(100vw - 32px)); overflow: auto; padding: 16px; z-index: 3; }
+  #panel h2 { font-family: "Fraunces", serif; font-size: 26px; line-height: 1.1; margin: 0 0 6px; }
+  #panel h3 { font-family: "Rubik Mono One", sans-serif; font-size: 13px; margin: 18px 0 6px; }
+  .kicker { text-transform: uppercase; letter-spacing: .12em; font-size: 11px; color: var(--muted); margin: 0 0 4px; }
+  .stats, .filed, .note { margin: 0 0 8px; color: var(--muted); }
+  .filed s { color: var(--stamp); text-decoration-thickness: 2px; }
+  .close { position: absolute; top: 8px; right: 10px; font: 700 22px/1 "Space Mono", monospace; background: none; border: 0; color: var(--ink); cursor: pointer; }
+  .btn { display: inline-block; font-weight: 700; text-decoration: none; padding: 8px 14px; border: 2px solid var(--line); box-shadow: 3px 3px 0 var(--line); color: #0b0b0b; }
+  .spot { background: var(--spotify); }
+  .tracks { padding-left: 20px; margin: 0; }
+  .tracks li { display: flex; justify-content: space-between; gap: 8px; }
+  .tracks .plays { color: var(--muted); white-space: nowrap; }
+  .lineage svg { width: 100%; height: auto; overflow: visible; }
+  .lineage .edge { stroke: var(--muted); stroke-width: 2; stroke-dasharray: 120; stroke-dashoffset: 120; animation: draw .5s ease-out forwards; animation-delay: calc(var(--i) * 50ms); }
+  .lineage .centre { fill: var(--stamp); }
+  .lineage .spot { background: none; opacity: 0; animation: appear .35s ease-out forwards; animation-delay: calc(120ms + var(--i) * 50ms); }
+  .lineage .spot circle { fill: var(--ink); }
+  .lineage .spot.outside circle { fill: var(--muted); opacity: .5; }
+  .lineage .spot text { font: 10px "Space Mono", monospace; fill: var(--ink); }
+  .lineage .spot.outside text { fill: var(--muted); }
+  .lineage-list { padding-left: 18px; margin: 8px 0 0; }
+  .relation, .outside { color: var(--muted); }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  @keyframes appear { to { opacity: 1; } }
+  #status { position: fixed; inset: auto 16px 16px 16px; padding: 12px; z-index: 4; }
+  @media (max-width: 700px) {
+    #panel { top: auto; left: 0; right: 0; bottom: 0; width: 100%; max-height: 60vh; box-shadow: 0 -4px 0 var(--line); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .lineage .edge, .lineage .spot { animation: none; stroke-dashoffset: 0; opacity: 1; }
+  }
+</style>
+</head>
+<body>
+  <canvas id="map" tabindex="0" aria-label="Map of artists. Drag or use arrow keys to pan, scroll or plus and minus to zoom."></canvas>
+  <header class="card">
+    <h1>What I listen to</h1>
+    <p class="sub">Every dot is an artist I actually listen to. Bigger dots get played more. Click one. <span id="count"></span></p>
+    <label for="search" class="kicker">Find an artist</label>
+    <input id="search" type="search" list="artist-names" autocomplete="off" placeholder="e.g. The Menzingers">
+    <datalist id="artist-names"></datalist>
+    <details>
+      <summary>What the colours mean</summary>
+      <ul id="legend"></ul>
+    </details>
+  </header>
+  <aside id="panel" class="card" hidden aria-live="polite"></aside>
+  <p id="status" class="card" role="alert" hidden></p>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
