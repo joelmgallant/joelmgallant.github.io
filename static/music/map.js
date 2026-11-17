@@ -2,6 +2,8 @@ import { createCamera, worldToScreen, screenToWorld, fitBounds, nodeRadius, hitT
 import { lerpCamera } from "./juice.js";
 import { attachInput } from "./map-input.js";
 import { drawLabels } from "./map-labels.js";
+import { drawLinks, drawStoryPath } from "./map-lines.js";
+import { isDimmed, highlightedNodes } from "./highlight.js";
 
 const GLIDE_MS = 650;
 const TOP_LABELLED = 15;
@@ -24,6 +26,7 @@ export function createMap({ canvas, data, juice, onSelect }) {
   let hoveredId = null;
   let selectedId = null;
   let story = null;
+  let highlight = null;
   let frameRequested = false;
   let lastFrame = 0;
 
@@ -53,48 +56,20 @@ export function createMap({ canvas, data, juice, onSelect }) {
     else lastFrame = 0;
   }
 
-  function drawLines(focusId) {
-    const focus = byId.get(focusId);
-    if (!focus) return;
-    const [fx, fy] = screenOf(focus);
-    context.strokeStyle = theme.muted;
-    for (const { node, weight } of neighboursOf(focus)) {
-      const [nx, ny] = screenOf(node);
-      context.globalAlpha = 0.25 + weight * 0.6;
-      context.lineWidth = 1 + weight * 2;
-      context.beginPath();
-      context.moveTo(fx, fy);
-      context.lineTo(nx, ny);
-      context.stroke();
-    }
-    context.globalAlpha = 1;
-  }
-
-  function drawStoryPath() {
-    const points = story.ids.slice(0, story.current + 1).map((id) => byId.get(id)).filter(Boolean).map(screenOf);
-    if (points.length < 2) return;
-    context.strokeStyle = theme.accent;
-    context.lineWidth = 3;
-    context.setLineDash([8, 6]);
-    context.beginPath();
-    points.forEach(([x, y], index) => (index === 0 ? context.moveTo(x, y) : context.lineTo(x, y)));
-    context.stroke();
-    context.setLineDash([]);
-  }
-
   function draw(now) {
     const { width, height } = camera;
     const focusId = hoveredId || selectedId;
     const storyIds = story ? new Set(story.ids) : null;
     context.fillStyle = theme.bg;
     context.fillRect(0, 0, width, height);
-    if (focusId) drawLines(focusId);
-    if (story) drawStoryPath();
+    const focus = byId.get(focusId);
+    if (focus) drawLinks(context, theme, { focus, neighbours: neighboursOf(focus), screenOf });
+    if (story) drawStoryPath(context, theme, story.ids.slice(0, story.current + 1).map((id) => byId.get(id)).filter(Boolean).map(screenOf));
     for (const node of nodes) {
       const [x, y] = screenOf(node);
       const radius = Math.max(1.5, node.r * camera.scale * juice.scale(node.id));
       if (x < -radius || y < -radius || x > width + radius || y > height + radius) continue;
-      context.globalAlpha = storyIds && !storyIds.has(node.id) ? 0.15 : 1;
+      context.globalAlpha = isDimmed(node, { storyIds, highlight }) ? 0.15 : 1;
       context.fillStyle = clusterColor.get(node.cluster) || theme.muted;
       context.beginPath();
       context.arc(x, y, radius, 0, Math.PI * 2);
@@ -122,23 +97,32 @@ export function createMap({ canvas, data, juice, onSelect }) {
   function drawNodeLabels(focusId, storyIds) {
     const candidates = [];
     for (const node of nodes) {
-      const inStory = storyIds?.has(node.id);
-      if (storyIds && !inStory) continue;
-      const emphasised = node.id === focusId || Boolean(inStory);
-      if (!emphasised && !topLoved.has(node.id) && !labelVisible(node.r, camera.scale, false)) continue;
+      if (isDimmed(node, { storyIds, highlight })) continue;
+      const lit = Boolean(highlight?.size) || Boolean(storyIds);
+      const emphasised = node.id === focusId || Boolean(storyIds?.has(node.id));
+      if (!emphasised && !lit && !topLoved.has(node.id) && !labelVisible(node.r, camera.scale, false)) continue;
       const [x, y] = screenOf(node);
       candidates.push({ id: node.id, name: node.name, x, y: y + node.r * camera.scale * juice.scale(node.id) + 3, emphasised, love: node.love });
     }
     drawLabels(context, theme, candidates);
   }
 
-  function flyTo(id, { screenOffset = [0, 0] } = {}) {
-    const node = byId.get(id);
-    if (!node) return;
-    const target = centreOn(camera, node.x, node.y, Math.max(camera.scale, 1.6), screenOffset);
+  function glideTo(target) {
     if (juice.reducedMotion) camera = target;
     else tween = { from: { ...camera }, to: target, start: performance.now() };
     requestFrame();
+  }
+
+  function flyTo(id, { screenOffset = [0, 0] } = {}) {
+    const node = byId.get(id);
+    if (node) glideTo(centreOn(camera, node.x, node.y, Math.max(camera.scale, 1.6), screenOffset));
+  }
+
+  function setHighlight(clusterIds) {
+    highlight = clusterIds?.size ? clusterIds : null;
+    const members = highlightedNodes(nodes, highlight);
+    if (members.length) glideTo(fitBounds(camera, members, { padding: 60 }));
+    else requestFrame();
   }
 
   function select(id) {
@@ -190,5 +174,5 @@ export function createMap({ canvas, data, juice, onSelect }) {
   camera = fitBounds(camera, nodes, { trim: 0.03 });
   document.fonts?.ready.then(requestFrame);
   requestFrame();
-  return { flyTo, select, setStory, byId };
+  return { flyTo, select, setStory, setHighlight, byId };
 }

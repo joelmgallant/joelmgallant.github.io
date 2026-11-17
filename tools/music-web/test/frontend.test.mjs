@@ -166,3 +166,29 @@ test("wheelPixels converts line and page deltas to pixels", async () => {
   assert.equal(wheelPixels({ deltaY: 3, deltaMode: 1 }, 800), 48);
   assert.equal(wheelPixels({ deltaY: 2, deltaMode: 2 }, 800), 1600);
 });
+
+test("toggleCluster adds, removes and never mutates its input", async () => {
+  const { toggleCluster } = await import("../../../static/music/highlight.js");
+  const start = new Set([1]);
+  const added = toggleCluster(start, 2);
+  assert.deepEqual([...added].sort(), [1, 2]);
+  assert.deepEqual([...toggleCluster(added, 1)], [2]);
+  assert.deepEqual([...start], [1]);
+  assert.notEqual(added, start);
+});
+
+test("isDimmed covers story and highlight modes", async () => {
+  const { isDimmed } = await import("../../../static/music/highlight.js");
+  const node = { id: "a", cluster: 3 };
+  assert.equal(isDimmed(node, { storyIds: null, highlight: null }), false);
+  assert.equal(isDimmed(node, { storyIds: null, highlight: new Set([3]) }), false);
+  assert.equal(isDimmed(node, { storyIds: null, highlight: new Set([4]) }), true);
+  assert.equal(isDimmed(node, { storyIds: new Set(["b"]), highlight: null }), true);
+});
+
+test("highlightedNodes returns exactly the members of the highlighted clusters", async () => {
+  const { highlightedNodes } = await import("../../../static/music/highlight.js");
+  const nodes = [{ id: "a", cluster: 1 }, { id: "b", cluster: 2 }, { id: "c", cluster: 3 }, { id: "d", cluster: 1 }];
+  assert.deepEqual(highlightedNodes(nodes, new Set([1, 3])).map((node) => node.id), ["a", "c", "d"]);
+  assert.deepEqual(highlightedNodes(nodes, new Set()), []);
+});
