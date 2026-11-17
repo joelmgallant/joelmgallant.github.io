@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { createCamera, worldToScreen, screenToWorld, zoomAt, panBy, fitBounds, nodeRadius, hitTest, labelVisible, MAX_SCALE } from "../../../static/music/camera.js";
+import { createCamera, worldToScreen, screenToWorld, zoomAt, panBy, fitBounds, nodeRadius, hitTest, labelVisible, MAX_SCALE, pickLabels, trimmedBounds, centreOn } from "../../../static/music/camera.js";
 import { stepSpring, isSettled, easeInOutCubic, lerpCamera, createJuice } from "../../../static/music/juice.js";
 import { parseHash, formatHash, findArtists } from "../../../static/music/search.js";
 
@@ -28,7 +28,7 @@ test("panBy moves the camera opposite to the drag, scaled", () => {
 });
 
 test("fitBounds centres on the points", () => {
-  const fitted = fitBounds(createCamera(400, 400), [{ x: -100, y: 0 }, { x: 100, y: 50 }], 0);
+  const fitted = fitBounds(createCamera(400, 400), [{ x: -100, y: 0 }, { x: 100, y: 50 }], { padding: 0 });
   assert.deepEqual([fitted.x, fitted.y, fitted.scale], [0, 25, 2]);
 });
 
@@ -114,4 +114,55 @@ test("findArtists ranks prefix matches, then love", () => {
 test("findArtists puts an exact name match first", () => {
   const artists = [{ id: "idina", name: "Idina Menzel", love: 100 }, { id: "id", name: "ID", love: 2 }];
   assert.deepEqual(findArtists("ID", artists).map((artist) => artist.id), ["id", "idina"]);
+});
+
+const label = (id, x, extra = {}) => ({ id, x, y: 0, width: 40, height: 14, emphasised: false, love: 1, ...extra });
+
+test("pickLabels keeps the higher-love label in an overlap", () => {
+  const kept = pickLabels([label("small", 10, { love: 2 }), label("big", 20, { love: 90 })]);
+  assert.deepEqual(kept, ["big"]);
+});
+
+test("pickLabels lets emphasised beat love, and always draws emphasised", () => {
+  assert.deepEqual(pickLabels([label("loved", 10, { love: 99 }), label("picked", 20, { emphasised: true })]), ["picked"]);
+  const both = pickLabels([label("a", 10, { emphasised: true }), label("b", 20, { emphasised: true })]);
+  assert.deepEqual(both, ["a", "b"]);
+});
+
+test("pickLabels keeps labels that do not overlap and uses the measure callback", () => {
+  assert.deepEqual(pickLabels([label("a", 0), label("b", 100), label("c", 0, { y: 30 })]), ["a", "b", "c"]);
+  const measured = pickLabels([{ id: "a", x: 0, y: 0, love: 2 }, { id: "b", x: 50, y: 0, love: 1 }], () => ({ width: 100, height: 14 }));
+  assert.deepEqual(measured, ["a"]);
+});
+
+test("trimmedBounds drops outliers per axis", () => {
+  const cluster = Array.from({ length: 98 }, (_, index) => ({ x: index % 10, y: Math.floor(index / 10) }));
+  const points = [...cluster, { x: 5000, y: -5000 }, { x: -5000, y: 5000 }];
+  const bounds = trimmedBounds(points, 0.03);
+  assert.ok(bounds.maxX <= 9 && bounds.minX >= 0 && bounds.maxY <= 9 && bounds.minY >= 0);
+  assert.equal(trimmedBounds(points, 0).maxX, 5000);
+});
+
+test("fitBounds with trim ignores outliers and zooms in much further", () => {
+  const cluster = Array.from({ length: 98 }, (_, index) => ({ x: index % 10, y: Math.floor(index / 10) }));
+  const points = [...cluster, { x: 5000, y: -5000 }, { x: -5000, y: 5000 }];
+  const camera = createCamera(800, 600);
+  const plain = fitBounds(camera, points, { padding: 0 });
+  const trimmed = fitBounds(camera, points, { padding: 0, trim: 0.03 });
+  assert.ok(trimmed.scale > plain.scale * 10, `${trimmed.scale} vs ${plain.scale}`);
+});
+
+test("centreOn places the point at the screen offset from centre", () => {
+  const target = centreOn(createCamera(800, 600), 100, 50, 2, [-100, -30]);
+  assert.deepEqual([target.x, target.y, target.scale], [150, 65, 2]);
+  const [screenX, screenY] = worldToScreen(target, 100, 50);
+  assert.deepEqual([screenX, screenY], [400 - 100, 300 - 30]);
+  assert.equal(centreOn(createCamera(10, 10), 3, 4, 1).x, 3);
+});
+
+test("wheelPixels converts line and page deltas to pixels", async () => {
+  const { wheelPixels } = await import("../../../static/music/map-input.js");
+  assert.equal(wheelPixels({ deltaY: 3, deltaMode: 0 }, 800), 3);
+  assert.equal(wheelPixels({ deltaY: 3, deltaMode: 1 }, 800), 48);
+  assert.equal(wheelPixels({ deltaY: 2, deltaMode: 2 }, 800), 1600);
 });

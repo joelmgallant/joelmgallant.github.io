@@ -28,13 +28,26 @@ export function panBy(camera, deltaX, deltaY) {
   return { ...camera, x: camera.x - deltaX / camera.scale, y: camera.y - deltaY / camera.scale };
 }
 
-export function fitBounds(camera, points, padding = 40) {
+export function trimmedBounds(points, trim = 0.03) {
+  const sortedRange = (values) => {
+    const sorted = [...values].sort((left, right) => left - right);
+    const drop = Math.min(Math.floor(sorted.length * trim), Math.floor((sorted.length - 1) / 2));
+    return [sorted[drop], sorted[sorted.length - 1 - drop]];
+  };
+  const [minX, maxX] = sortedRange(points.map((point) => point.x));
+  const [minY, maxY] = sortedRange(points.map((point) => point.y));
+  return { minX, maxX, minY, maxY };
+}
+
+export function fitBounds(camera, points, { padding = 40, trim = 0 } = {}) {
   if (points.length === 0) return camera;
-  const xs = points.map((point) => point.x);
-  const ys = points.map((point) => point.y);
-  const [minX, maxX, minY, maxY] = [Math.min(...xs), Math.max(...xs), Math.min(...ys), Math.max(...ys)];
+  const { minX, maxX, minY, maxY } = trimmedBounds(points, trim);
   const scale = clampScale(Math.min((camera.width - padding * 2) / (maxX - minX || 1), (camera.height - padding * 2) / (maxY - minY || 1)));
   return { ...camera, x: (minX + maxX) / 2, y: (minY + maxY) / 2, scale };
+}
+
+export function centreOn(camera, worldX, worldY, scale, [offsetX, offsetY] = [0, 0]) {
+  return { ...camera, x: worldX - offsetX / scale, y: worldY - offsetY / scale, scale };
 }
 
 export function nodeRadius(love) {
@@ -56,4 +69,23 @@ export function hitTest(nodes, worldX, worldY, slop) {
 
 export function labelVisible(radius, scale, emphasised) {
   return emphasised || radius * scale >= 9;
+}
+
+function overlaps(first, second) {
+  return first.left < second.right && second.left < first.right && first.top < second.bottom && second.top < first.bottom;
+}
+
+// Items carry the top-centre of their label; measure(item) gives { width, height } when the item has none.
+export function pickLabels(candidates, measure = (item) => item) {
+  const ordered = [...candidates].sort((left, right) => Number(right.emphasised) - Number(left.emphasised) || right.love - left.love);
+  const placed = [];
+  const kept = [];
+  for (const item of ordered) {
+    const { width, height } = measure(item);
+    const box = { left: item.x - width / 2, right: item.x + width / 2, top: item.y, bottom: item.y + height };
+    if (!item.emphasised && placed.some((other) => overlaps(box, other))) continue;
+    placed.push(box);
+    kept.push(item.id);
+  }
+  return kept;
 }

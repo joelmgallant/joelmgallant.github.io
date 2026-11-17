@@ -1,8 +1,10 @@
-import { createCamera, worldToScreen, screenToWorld, zoomAt, panBy, fitBounds, nodeRadius, hitTest, labelVisible } from "./camera.js";
+import { createCamera, worldToScreen, screenToWorld, fitBounds, nodeRadius, hitTest, labelVisible, centreOn } from "./camera.js";
 import { lerpCamera } from "./juice.js";
+import { attachInput } from "./map-input.js";
+import { drawLabels } from "./map-labels.js";
 
-const CLICK_SLOP_PX = 5;
 const GLIDE_MS = 650;
+const TOP_LABELLED = 15;
 
 function readTheme() {
   const style = getComputedStyle(document.documentElement);
@@ -15,6 +17,7 @@ export function createMap({ canvas, data, juice, onSelect }) {
   const clusterColor = new Map(data.clusters.map((cluster) => [cluster.id, cluster.color]));
   const nodes = data.artists.map((artist) => ({ ...artist, r: nodeRadius(artist.love) }));
   const byId = new Map(nodes.map((node) => [node.id, node]));
+  const topLoved = new Set([...nodes].sort((left, right) => right.love - left.love).slice(0, TOP_LABELLED).map((node) => node.id));
   let camera = createCamera(1, 1);
   let theme = readTheme();
   let tween = null;
@@ -113,27 +116,26 @@ export function createMap({ canvas, data, juice, onSelect }) {
       context.stroke();
     }
     context.globalAlpha = 1;
-    context.font = "12px 'Space Mono', monospace";
-    context.textAlign = "center";
-    context.textBaseline = "top";
+    drawNodeLabels(focusId, storyIds);
+  }
+
+  function drawNodeLabels(focusId, storyIds) {
+    const candidates = [];
     for (const node of nodes) {
       const inStory = storyIds?.has(node.id);
       if (storyIds && !inStory) continue;
-      if (!labelVisible(node.r, camera.scale, node.id === focusId || inStory)) continue;
+      const emphasised = node.id === focusId || Boolean(inStory);
+      if (!emphasised && !topLoved.has(node.id) && !labelVisible(node.r, camera.scale, false)) continue;
       const [x, y] = screenOf(node);
-      const labelY = y + node.r * camera.scale * juice.scale(node.id) + 3;
-      context.lineWidth = 3;
-      context.strokeStyle = theme.bg;
-      context.strokeText(node.name, x, labelY);
-      context.fillStyle = theme.ink;
-      context.fillText(node.name, x, labelY);
+      candidates.push({ id: node.id, name: node.name, x, y: y + node.r * camera.scale * juice.scale(node.id) + 3, emphasised, love: node.love });
     }
+    drawLabels(context, theme, candidates);
   }
 
-  function flyTo(id) {
+  function flyTo(id, { screenOffset = [0, 0] } = {}) {
     const node = byId.get(id);
     if (!node) return;
-    const target = { ...camera, x: node.x, y: node.y, scale: Math.max(camera.scale, 1.6) };
+    const target = centreOn(camera, node.x, node.y, Math.max(camera.scale, 1.6), screenOffset);
     if (juice.reducedMotion) camera = target;
     else tween = { from: { ...camera }, to: target, start: performance.now() };
     requestFrame();
@@ -164,78 +166,29 @@ export function createMap({ canvas, data, juice, onSelect }) {
     requestFrame();
   }
 
-  const pointers = new Map();
-  let drag = null;
-  let pinchDistance = null;
-  const local = (event) => { const rect = canvas.getBoundingClientRect(); return [event.clientX - rect.left, event.clientY - rect.top]; };
-  const nodeAt = (event) => hitTest(nodes, ...screenToWorld(camera, ...local(event)), 4 / camera.scale);
-
-  canvas.addEventListener("pointerdown", (event) => {
-    canvas.setPointerCapture(event.pointerId);
-    pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
-    drag = { x: event.clientX, y: event.clientY, moved: false };
-    tween = null;
-  });
-  canvas.addEventListener("pointermove", (event) => {
-    const previous = pointers.get(event.pointerId);
-    if (!previous) {
-      const hit = nodeAt(event);
-      if ((hit?.id ?? null) === hoveredId) return;
-      hoveredId = hit?.id ?? null;
-      juice.hover(hoveredId);
-      if (hit) juice.poke(hit, neighboursOf(hit));
-      canvas.style.cursor = hit ? "pointer" : "grab";
-      requestFrame();
-      return;
-    }
-    pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
-    if (pointers.size === 2) {
-      const [first, second] = [...pointers.values()];
-      const distance = Math.hypot(first.x - second.x, first.y - second.y);
-      const rect = canvas.getBoundingClientRect();
-      if (pinchDistance) camera = zoomAt(camera, (first.x + second.x) / 2 - rect.left, (first.y + second.y) / 2 - rect.top, distance / pinchDistance);
-      pinchDistance = distance;
-      drag.moved = true;
-    } else {
-      camera = panBy(camera, event.clientX - previous.x, event.clientY - previous.y);
-      if (Math.hypot(event.clientX - drag.x, event.clientY - drag.y) > CLICK_SLOP_PX) drag.moved = true;
-    }
+  function onHover(hit) {
+    if ((hit?.id ?? null) === hoveredId) return;
+    hoveredId = hit?.id ?? null;
+    juice.hover(hoveredId);
+    if (hit) juice.poke(hit, neighboursOf(hit));
     requestFrame();
-  });
-  function endPointer(event) {
-    pointers.delete(event.pointerId);
-    if (pointers.size < 2) pinchDistance = null;
-    if (pointers.size === 0 && drag && !drag.moved && event.type === "pointerup") onSelect(nodeAt(event)?.id ?? null);
-    if (pointers.size === 0) drag = null;
   }
-  canvas.addEventListener("pointerup", endPointer);
-  canvas.addEventListener("pointercancel", endPointer);
-  canvas.addEventListener("pointerleave", () => {
-    if (!hoveredId || pointers.size) return;
-    hoveredId = null;
-    juice.hover(null);
-    requestFrame();
-  });
-  canvas.addEventListener("wheel", (event) => {
-    event.preventDefault();
-    camera = zoomAt(camera, ...local(event), Math.exp(-event.deltaY * 0.0015));
-    tween = null;
-    requestFrame();
-  }, { passive: false });
-  canvas.addEventListener("keydown", (event) => {
-    const pans = { ArrowLeft: [60, 0], ArrowRight: [-60, 0], ArrowUp: [0, 60], ArrowDown: [0, -60] };
-    const zooms = { "+": 1.25, "=": 1.25, "-": 0.8 };
-    if (pans[event.key]) camera = panBy(camera, ...pans[event.key]);
-    else if (zooms[event.key]) camera = zoomAt(camera, camera.width / 2, camera.height / 2, zooms[event.key]);
-    else return;
-    event.preventDefault();
-    requestFrame();
+
+  attachInput(canvas, {
+    getCamera: () => camera,
+    setCamera: (next) => { camera = next; },
+    nodeAt: (x, y) => hitTest(nodes, ...screenToWorld(camera, x, y), 4 / camera.scale),
+    onHover,
+    onSelect,
+    cancelTween: () => { tween = null; },
+    requestFrame,
   });
   window.addEventListener("resize", resize);
   window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => { theme = readTheme(); requestFrame(); });
 
   resize();
-  camera = fitBounds(camera, nodes);
+  camera = fitBounds(camera, nodes, { trim: 0.03 });
+  document.fonts?.ready.then(requestFrame);
   requestFrame();
   return { flyTo, select, setStory, byId };
 }

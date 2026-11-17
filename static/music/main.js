@@ -48,6 +48,10 @@ async function start() {
   panel.addEventListener("click", (event) => { if (event.target.closest("[data-close]")) location.hash = ""; });
   document.addEventListener("keydown", (event) => { if (event.key === "Escape" && !panel.hidden) location.hash = ""; });
 
+  const narrow = window.matchMedia("(max-width: 700px)");
+  // Keep the artist clear of the panel: above the bottom sheet on phones, left of the right-hand card on wide screens.
+  const panelOffset = () => (narrow.matches ? [0, -0.3 * window.innerHeight] : [-(Math.min(380, window.innerWidth - 32) + 16) / 2, 0]);
+
   function route() {
     const { artist: artistId } = parseHash(location.hash);
     const artist = artistId ? map.byId.get(artistId) : null;
@@ -57,7 +61,7 @@ async function start() {
       return;
     }
     map.select(artist.id);
-    map.flyTo(artist.id);
+    map.flyTo(artist.id, { screenOffset: panelOffset() });
     renderPanel(panel, artist, { clusterName: clusterName.get(artist.cluster) || "" });
   }
   window.addEventListener("hashchange", route);
