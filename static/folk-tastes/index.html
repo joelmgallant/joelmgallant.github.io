@@ -173,7 +173,8 @@
   <h1>Folk tracks:<br><span class="zero">0</span>
     <span class="stamp">seems... inaccurate</span>
   </h1>
-  <p class="sub">Apple Music says I don't have a single folk song. I have 62 Noah Kahan songs. So I went through it myself.</p>
+  <p class="sub" style="margin-bottom:0"><a href="/music/#story=punk-to-folk">It's also a story on my music map now.</a></p>
+  <p class="sub" id="folk-intro">Apple Music says I don't have a single folk song. I have 62 Noah Kahan songs. So I went through it myself.</p>
 </header>
 
 <main class="wrap">
@@ -382,7 +383,7 @@
   });
 
   var folkTrackTotal = ARTISTS.reduce(function (sum, artist) { return sum + artist.tracks; }, 0);
-  document.querySelector(".sub").insertAdjacentHTML("beforeend",
+  document.getElementById("folk-intro").insertAdjacentHTML("beforeend",
     " Turns out it's <strong>" + ARTISTS.length + " artists and " + folkTrackTotal + " songs</strong> (not counting the Noah Kahan duets).");
 
   /* ---- filters ---- */

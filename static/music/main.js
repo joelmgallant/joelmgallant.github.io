@@ -2,6 +2,7 @@ import { createMap } from "./map.js";
 import { createJuice } from "./juice.js";
 import { renderPanel, closePanel } from "./panel.js";
 import { parseHash, formatHash, wireSearch } from "./search.js";
+import { createStories } from "./stories.js";
 
 const status = document.getElementById("status");
 
@@ -44,6 +45,7 @@ async function start() {
     onSelect: (id) => { location.hash = id ? formatHash({ artist: id }) : ""; },
   });
   wireSearch(document.getElementById("search"), document.getElementById("artist-names"), data.artists);
+  const stories = createStories({ select: document.getElementById("stories"), box: document.getElementById("story"), data, map });
 
   panel.addEventListener("click", (event) => { if (event.target.closest("[data-close]")) location.hash = ""; });
   document.addEventListener("keydown", (event) => { if (event.key === "Escape" && !panel.hidden) location.hash = ""; });
@@ -53,7 +55,9 @@ async function start() {
   const panelOffset = () => (narrow.matches ? [0, -0.3 * window.innerHeight] : [-(Math.min(380, window.innerWidth - 32) + 16) / 2, 0]);
 
   function route() {
-    const { artist: artistId } = parseHash(location.hash);
+    const { artist: artistId, story: storyId, step } = parseHash(location.hash);
+    const inStory = storyId ? stories.open(storyId, step) : false;
+    if (!inStory) stories.close();
     const artist = artistId ? map.byId.get(artistId) : null;
     if (!artist) {
       map.select(null);
@@ -61,7 +65,7 @@ async function start() {
       return;
     }
     map.select(artist.id);
-    map.flyTo(artist.id, { screenOffset: panelOffset() });
+    if (!inStory) map.flyTo(artist.id, { screenOffset: panelOffset() });
     renderPanel(panel, artist, { clusterName: clusterName.get(artist.cluster) || "" });
   }
   window.addEventListener("hashchange", route);

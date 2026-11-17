@@ -1,0 +1,15 @@
+{
+  "id": "punk-to-folk",
+  "title": "The punk-to-folk pipeline",
+  "link": { "href": "/folk-tastes/", "label": "The whole folk thing" },
+  "steps": [
+    { "artist": "the-menzingers", "caption": "Start here. The Menzingers are the artist I have the most songs from." },
+    { "artist": "frank-turner", "caption": "Frank Turner used to be in a hardcore band." },
+    { "artist": "chuck-ragan", "caption": "Chuck Ragan, from Hot Water Music. Same idea, plus a fiddle." },
+    { "artist": "brian-fallon", "caption": "Brian Fallon, from The Gaslight Anthem." },
+    { "artist": "dave-hause", "caption": "Dave Hause, from The Loved Ones. Apple tags him three different ways." },
+    { "artist": "jared-hart", "caption": "Jared Hart, from The Scandals." },
+    { "artist": "aaron-west-and-the-roaring-twenties", "caption": "Dan Campbell from The Wonder Years, singing as a fictional guy." },
+    { "artist": "noah-kahan", "caption": "Every one of these songs is tagged Alternative." }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "selection": { "minSongs": 3, "minPlays": 10, "anyFavourite": false },
   "loveWeights": { "songs": 1, "plays": 0.2, "favourites": 3 },
-  "forceIn": [],
+  "forceIn": ["The Menzingers", "Frank Turner", "Chuck Ragan", "Brian Fallon", "Dave Hause", "Jared Hart", "Aaron West and The Roaring Twenties", "Noah Kahan"],
   "forceOut": [],
   "mbids": {
     "joe-hisaishi": "44c64a30-1d58-49c5-b314-6e02fba49526",

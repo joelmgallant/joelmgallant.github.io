@@ -54,6 +54,14 @@
   @keyframes draw { to { stroke-dashoffset: 0; } }
   @keyframes appear { to { opacity: 1; } }
   #status { position: fixed; inset: auto 16px 16px 16px; padding: 12px; z-index: 4; }
+  select { width: 100%; font: inherit; padding: 6px 8px; border: 2px solid var(--line); background: var(--bg); color: var(--ink); }
+  #story { position: fixed; left: 16px; bottom: 16px; width: min(380px, calc(100vw - 32px)); padding: 14px 16px; z-index: 2; }
+  #story h2 { font-family: "Fraunces", serif; font-size: 22px; margin: 0 0 4px; }
+  #story p { margin: 0 0 10px; }
+  .story-controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .btn-plain { font: 700 13px "Space Mono", monospace; padding: 6px 12px; border: 2px solid var(--line); background: var(--paper); color: var(--ink); box-shadow: 3px 3px 0 var(--line); cursor: pointer; }
+  .btn-plain:disabled { opacity: .4; cursor: default; }
+  .story-link { margin-left: auto; color: var(--ink); }
   @media (max-width: 700px) {
     #panel { top: auto; left: 0; right: 0; bottom: 0; width: 100%; max-height: 60vh; box-shadow: 0 -4px 0 var(--line); }
   }
@@ -70,12 +78,15 @@
     <label for="search" class="kicker">Find an artist</label>
     <input id="search" type="search" list="artist-names" autocomplete="off" placeholder="e.g. The Menzingers">
     <datalist id="artist-names"></datalist>
+    <label for="stories" class="kicker" style="display:block;margin-top:8px">Stories</label>
+    <select id="stories"><option value="">Pick one</option></select>
     <details>
       <summary>What the colours mean</summary>
       <ul id="legend"></ul>
     </details>
   </header>
   <aside id="panel" class="card" hidden aria-live="polite"></aside>
+  <section id="story" class="card" hidden aria-live="polite"></section>
   <p id="status" class="card" role="alert" hidden></p>
   <script type="module" src="main.js"></script>
 </body>
