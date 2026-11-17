@@ -19,9 +19,11 @@ export function readApiKey(path = join(homedir(), ".secrets/tokens/lastfm-api-ke
 
 export function methodUrl(method, artistName, apiKey) {
   const params = new URLSearchParams({ method, artist: artistName, autocorrect: "1", limit: "100", format: "json" });
-  const cacheKey = `${LASTFM_BASE}?${params}`;
+  // Last.fm decodes the query twice, so a literal "+" must travel as %252B.
+  const doubleEncodePlus = (query) => query.replace(/%2B/g, "%252B");
+  const cacheKey = `${LASTFM_BASE}?${doubleEncodePlus(params.toString())}`;
   params.set("api_key", apiKey);
-  return { url: `${LASTFM_BASE}?${params}`, cacheKey };
+  return { url: `${LASTFM_BASE}?${doubleEncodePlus(params.toString())}`, cacheKey };
 }
 
 export function parseSimilar(json) {

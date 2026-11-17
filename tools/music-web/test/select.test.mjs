@@ -79,3 +79,15 @@ test("duplicate titles sum plays: 19 + 15 = 34 with one track", () => {
   assert.equal(group.tracks[0].plays, 34);
   assert.equal(group.songs, 1);
 });
+
+test("favourites count once per unique title", () => {
+  const [group] = groupByArtist([track("Noah Kahan", "Dial Drunk", 3, true), track("Noah Kahan", "Dial Drunk", 2)]);
+  assert.equal(group.songs, 1);
+  assert.equal(group.favourites, 1);
+});
+
+test("favourites count once per title even when every duplicate is favourited", () => {
+  const [group] = groupByArtist([track("A", "Same", 1, true), track("A", "Same", 1, true), track("A", "Other", 1)]);
+  assert.equal(group.favourites, 1);
+  assert.equal(group.songs, 2);
+});

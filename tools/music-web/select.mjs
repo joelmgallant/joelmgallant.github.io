@@ -22,18 +22,18 @@ export function groupByArtist(tracks) {
       const key = normalizeName(part);
       if (!key) continue;
       if (!groups.has(key)) {
-        groups.set(key, { key, spellings: new Map(), genres: new Map(), plays: 0, favourites: 0, titles: new Map() });
+        groups.set(key, { key, spellings: new Map(), genres: new Map(), plays: 0, titles: new Map() });
       }
       const group = groups.get(key);
       increment(group.spellings, part);
       if (track.genre) increment(group.genres, track.genre);
       group.plays += track.plays;
-      if (track.favourite) group.favourites += 1;
       const titleKey = track.title.trim().toLowerCase();
-      if (!group.titles.has(titleKey)) group.titles.set(titleKey, { spellings: new Map(), plays: 0 });
+      if (!group.titles.has(titleKey)) group.titles.set(titleKey, { spellings: new Map(), plays: 0, favourite: false });
       const entry = group.titles.get(titleKey);
       increment(entry.spellings, track.title.trim());
       entry.plays += track.plays;
+      if (track.favourite) entry.favourite = true;
     }
   }
   return [...groups.values()].map((group) => ({
@@ -41,7 +41,7 @@ export function groupByArtist(tracks) {
     name: byFrequency(group.spellings)[0],
     songs: group.titles.size,
     plays: group.plays,
-    favourites: group.favourites,
+    favourites: [...group.titles.values()].filter((entry) => entry.favourite).length,
     appleGenres: byFrequency(group.genres),
     tracks: [...group.titles.values()]
       .map((entry) => ({ title: byFrequency(entry.spellings)[0], plays: entry.plays }))

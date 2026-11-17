@@ -75,3 +75,9 @@ test("enrichMusicBrainz uses pins, records unmatched artists and never guesses",
   assert.deepEqual(result.artists[2].mbGenres, ["indie pop"]);
   assert.deepEqual(result.unmatched.map((item) => item.id), ["valley"]);
 });
+
+test("pickMatch refuses when several same-named candidates clear the score floor, even untied", () => {
+  const result = pickMatch({ artists: [{ id: "1", name: "Valley", score: 100 }, { id: "2", name: "Valley", score: 97 }] }, "Valley");
+  assert.equal(result.mbid, null);
+  assert.match(result.reason, /ambiguous/);
+});

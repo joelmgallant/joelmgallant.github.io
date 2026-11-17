@@ -52,3 +52,12 @@ test("enrichLastfm attaches similar artists and tags and lists empties", async (
   assert.deepEqual(result.artists[0].lfmTags, [{ name: "folk", count: 100 }]);
   assert.deepEqual(result.missing, [{ id: "nobody", name: "Nobody" }]);
 });
+
+test("methodUrl double-encodes plus signs in the artist so Last.fm decodes them once", () => {
+  const plus = methodUrl("artist.getSimilar", "Florence + the Machine", KEY);
+  assert.ok(plus.url.includes("artist=Florence+%252B+the+Machine"), plus.url);
+  assert.ok(plus.cacheKey.includes("artist=Florence+%252B+the+Machine"), plus.cacheKey);
+  const plain = methodUrl("artist.getSimilar", "Noah Kahan", KEY);
+  assert.equal(plain.cacheKey, "https://ws.audioscrobbler.com/2.0/?method=artist.getSimilar&artist=Noah+Kahan&autocorrect=1&limit=100&format=json");
+  assert.equal(plain.url, `${plain.cacheKey}&api_key=${KEY}`);
+});

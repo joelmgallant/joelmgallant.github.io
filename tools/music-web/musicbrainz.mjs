@@ -25,9 +25,8 @@ export function pickMatch(searchJson, name, minScore = 95) {
     .filter((candidate) => candidate.score >= minScore && normalizeName(candidate.name) === wanted)
     .sort((left, right) => right.score - left.score);
   if (candidates.length === 0) return { mbid: null, reason: "no confident match" };
-  const best = candidates.filter((candidate) => candidate.score === candidates[0].score);
-  if (best.length > 1) return { mbid: null, reason: `ambiguous: ${best.length} artists named "${name}"` };
-  return { mbid: best[0].id, reason: null };
+  if (candidates.length > 1) return { mbid: null, reason: `ambiguous: ${candidates.length} artists named "${name}"` };
+  return { mbid: candidates[0].id, reason: null };
 }
 
 export function parseLineage(artistJson) {
