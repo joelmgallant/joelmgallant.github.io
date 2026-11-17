@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zero Folk Detected</title>
+<meta name="description" content="Apple Music says I own zero folk music. A forensic recount of 4,790 tracks.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Space+Mono:wght@400;700&family=Fraunces:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f4ecd8;
+    --paper: #fffaf0;
+    --ink: #1d1a16;
+    --muted: #6b6255;
+    --line: #1d1a16;
+    --stamp: #c8361f;
+    --folk: #3f6b3a;
+    --adj: #a8661c;
+    --spotify: #1db954;
+    --shadow: 4px 4px 0 var(--ink);
+    --g1: #c8361f; --g2: #e0a526; --g3: #3f6b3a; --g4: #2f5d8a; --g5: #7a3f8f;
+    --g6: #d36b9e; --g7: #4a9a9a; --g8: #8a8a7a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #17150f; --paper: #221f18; --ink: #f1e9d6; --muted: #a89f8c; --line: #f1e9d6;
+      --stamp: #ff5a3d; --folk: #8cc77f; --adj: #f0a24a; --shadow: 4px 4px 0 #000;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #17150f; --paper: #221f18; --ink: #f1e9d6; --muted: #a89f8c; --line: #f1e9d6;
+    --stamp: #ff5a3d; --folk: #8cc77f; --adj: #f0a24a; --shadow: 4px 4px 0 #000;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Space Mono", ui-monospace, monospace;
+    font-size: 15px;
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+
+  /* ---------- hero ---------- */
+  header.hero { padding: 56px 0 32px; text-align: center; position: relative; }
+  .kicker { letter-spacing: .2em; text-transform: uppercase; font-size: 12px; color: var(--muted); }
+  h1 {
+    font-family: "Rubik Mono One", sans-serif;
+    font-size: clamp(34px, 8vw, 84px);
+    line-height: .95;
+    margin: 12px 0 8px;
+    position: relative;
+    display: inline-block;
+  }
+  h1 .zero { color: var(--stamp); }
+  .stamp {
+    position: absolute;
+    right: -6%;
+    top: 58%;
+    transform: rotate(-14deg);
+    border: 4px solid var(--stamp);
+    color: var(--stamp);
+    font-family: "Rubik Mono One", sans-serif;
+    font-size: clamp(14px, 2.6vw, 24px);
+    padding: 4px 12px;
+    border-radius: 6px;
+    opacity: .9;
+    white-space: nowrap;
+    animation: thunk .5s cubic-bezier(.2,1.6,.4,1) .6s both;
+    background: color-mix(in srgb, var(--bg) 70%, transparent);
+  }
+  @keyframes thunk { from { transform: rotate(-14deg) scale(3); opacity: 0; } }
+  .sub { font-family: "Fraunces", serif; font-style: italic; font-size: clamp(17px, 2.4vw, 22px); color: var(--muted); max-width: 640px; margin: 18px auto 0; }
+
+  /* ---------- evidence: genre bar ---------- */
+  .panel {
+    background: var(--paper);
+    border: 2px solid var(--line);
+    box-shadow: var(--shadow);
+    padding: 20px;
+    margin: 28px 0;
+  }
+  .panel h2 { font-family: "Rubik Mono One", sans-serif; font-size: 18px; margin: 0 0 4px; }
+  .panel .note { color: var(--muted); font-size: 13px; margin: 0 0 16px; }
+  .bar { display: flex; height: 44px; border: 2px solid var(--line); overflow: hidden; }
+  .bar span { display: block; height: 100%; border-right: 2px solid var(--line); position: relative; }
+  .bar span:last-child { border-right: 0; }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 12px; font-size: 13px; }
+  .legend i { display: inline-block; width: 12px; height: 12px; border: 2px solid var(--line); margin-right: 6px; vertical-align: -1px; }
+  .legend .folk-zero { color: var(--stamp); font-weight: 700; }
+  .legend .folk-zero i { background: transparent; border-style: dashed; border-color: var(--stamp); }
+
+  /* ---------- theory ---------- */
+  .theory { display: grid; grid-template-columns: 1fr; gap: 20px; }
+  @media (min-width: 760px) { .theory { grid-template-columns: 1.2fr 1fr; } }
+  .pipeline { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; font-family: "Rubik Mono One", sans-serif; font-size: 13px; text-align: center; }
+  .pipeline .node { border: 2px solid var(--line); padding: 10px 12px; background: var(--bg); }
+  .pipeline .arrow { font-size: 20px; }
+
+  /* ---------- controls ---------- */
+  .controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 8px 0 18px; }
+  button, .btn {
+    font: inherit; font-weight: 700; cursor: pointer;
+    background: var(--paper); color: var(--ink);
+    border: 2px solid var(--line); box-shadow: 3px 3px 0 var(--line);
+    padding: 8px 14px; text-decoration: none; display: inline-block;
+    transition: transform .08s, box-shadow .08s;
+  }
+  button:hover, .btn:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--line); }
+  button:active, .btn:active { transform: translate(3px,3px); box-shadow: 0 0 0 var(--line); }
+  button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  #verdict { font-family: "Fraunces", serif; font-style: italic; font-size: 17px; min-height: 1.5em; flex-basis: 100%; }
+
+  /* ---------- cards ---------- */
+  h3.section {
+    font-family: "Rubik Mono One", sans-serif; font-size: clamp(18px, 3vw, 26px);
+    margin: 40px 0 6px; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+  }
+  h3.section small { font-family: "Space Mono", monospace; font-size: 13px; color: var(--muted); font-weight: 400; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 290px), 1fr)); gap: 18px; margin-top: 14px; }
+  .card {
+    background: var(--paper); border: 2px solid var(--line); box-shadow: var(--shadow);
+    padding: 16px; display: flex; flex-direction: column; gap: 8px; position: relative;
+    transition: transform .15s;
+  }
+  .card:nth-child(3n+1) { transform: rotate(-.6deg); }
+  .card:nth-child(3n+2) { transform: rotate(.5deg); }
+  .card.spotlight { outline: 4px solid var(--stamp); outline-offset: 4px; transform: rotate(0) scale(1.03); z-index: 2; }
+  .card .tag {
+    align-self: flex-start; font-size: 11px; text-transform: uppercase; letter-spacing: .12em;
+    padding: 2px 8px; border: 2px solid currentColor; font-weight: 700;
+  }
+  .card.folk .tag { color: var(--folk); }
+  .card.adj .tag { color: var(--adj); }
+  .card h4 { font-family: "Fraunces", serif; font-size: 22px; line-height: 1.15; margin: 2px 0 0; }
+  .card .feat { font-size: 12px; color: var(--muted); }
+  .card .meta { font-size: 13px; display: flex; justify-content: space-between; gap: 8px; border-top: 2px dashed var(--line); padding-top: 8px; margin-top: auto; }
+  .card .filed s { color: var(--stamp); text-decoration-thickness: 2px; }
+  .card .quip { font-size: 13px; color: var(--muted); margin: 0; }
+  .card .spot {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    background: var(--spotify); color: #0b0b0b; border-color: var(--line);
+  }
+  .card .spot svg { width: 18px; height: 18px; }
+  .meter { height: 10px; border: 2px solid var(--line); background: var(--bg); }
+  .meter > div { height: 100%; background: repeating-linear-gradient(45deg, var(--folk) 0 6px, transparent 6px 10px); }
+  .card.adj .meter > div { background: repeating-linear-gradient(45deg, var(--adj) 0 6px, transparent 6px 10px); }
+  .meter-label { font-size: 11px; color: var(--muted); display: flex; justify-content: space-between; }
+
+  /* ---------- footer ---------- */
+  .instead ul { columns: 2 220px; padding-left: 18px; margin: 0; }
+  .instead li { break-inside: avoid; margin-bottom: 6px; }
+  footer { text-align: center; padding: 40px 0 60px; color: var(--muted); font-size: 13px; }
+  footer .theme-toggle { margin-top: 12px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .stamp { animation: none; }
+    .card, button, .btn { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero wrap">
+  <div class="kicker">Apple Music Library Audit · 4,790 tracks · 54 genres</div>
+  <h1>Folk tracks:<br><span class="zero">0</span>
+    <span class="stamp">CLAIM DISPUTED</span>
+  </h1>
+  <p class="sub">My music app swears I own no folk music. I have 62 Noah Kahan songs. This is a forensic recount.</p>
+</header>
+
+<main class="wrap">
+
+  <section class="panel" aria-labelledby="ev-a">
+    <h2 id="ev-a">Exhibit A: the official genre breakdown</h2>
+    <p class="note">These are the real genre tags from my library. Notice what's missing. Notice what's <em>there</em>.</p>
+    <div class="bar" id="genreBar" role="img" aria-label="Genre share of 4,790 tracks: Alternative 2,109, Pop 651, Rock 617, Dance 210, Electronic 187, Indie Pop 148, Soundtrack 111, everything else 757, Folk 0."></div>
+    <div class="legend" id="genreLegend"></div>
+  </section>
+
+  <section class="theory">
+    <div class="panel" style="margin:0">
+      <h2>The working theory</h2>
+      <p class="note">My #1 artist by track count is The Menzingers (112). Rancid, NOFX and Rise Against are in the top 30. So how did folk get in?</p>
+      <p style="margin:0">Mostly through punk singers who picked up an acoustic guitar. Frank Turner (Million Dead), Brian Fallon (The Gaslight Anthem), Dave Hause (The Loved Ones), Chuck Ragan (Hot Water Music), Brendan Kelly (The Lawrence Arms), Jared Hart (The Scandals), Aaron West (Dan Campbell of The Wonder Years). It's the same guys with fewer distortion pedals. The music app filed all of them under "Alternative" and moved on.</p>
+    </div>
+    <div class="panel" style="margin:0; display:flex; flex-direction:column; justify-content:center; gap:14px">
+      <div class="pipeline" aria-label="Punk band, to sad acoustic solo record, to filed under Alternative">
+        <div class="node">Punk band</div><div class="arrow">↓</div>
+        <div class="node">Sad acoustic solo record</div><div class="arrow">↓</div>
+        <div class="node" style="border-color:var(--stamp);color:var(--stamp)">"Alternative"</div>
+      </div>
+      <p class="note" style="text-align:center;margin:0">The punk-to-folk pipeline. Peer reviewed by no one.</p>
+    </div>
+  </section>
+
+  <div class="controls" style="margin-top:36px">
+    <button type="button" data-filter="all" aria-pressed="true">Show all</button>
+    <button type="button" data-filter="folk" aria-pressed="false">Certified folk</button>
+    <button type="button" data-filter="adj" aria-pressed="false">Folk-adjacent</button>
+    <button type="button" id="isItFolk">🪕 Is it folk?</button>
+    <div id="verdict" aria-live="polite"></div>
+  </div>
+
+  <h3 class="section" id="h-folk">Certified Folk <small>tagged everything except folk</small></h3>
+  <div class="grid" id="grid-folk"></div>
+
+  <h3 class="section" id="h-adj">Folk-Adjacent <small>Americana, alt-country, and people who own one banjo</small></h3>
+  <div class="grid" id="grid-adj"></div>
+
+  <section class="panel instead" style="margin-top:48px">
+    <h2>Things the library <em>did</em> manage to tag correctly</h2>
+    <p class="note">The library has no idea what folk is, but it was very sure about all of these:</p>
+    <ul>
+      <li>1 <strong>Science Fiction Fantasy Audiobook</strong>, filed in my music library like it's a genre</li>
+      <li>8 tracks of a <strong>Garth Brooks tribute</strong> (the real Garth: 0)</li>
+      <li>33 <strong>Vitamin String Quartet</strong> covers, for when the songs need more cello</li>
+      <li>21 tracks of <strong>Comedy</strong></li>
+      <li>12 tracks of <strong>Classical Crossover</strong>, whatever that is</li>
+      <li>A collection of <strong>Idina Menzel</strong> duets that's clearly been kept up on purpose</li>
+      <li>6 <strong>K-Pop</strong>, 1 <strong>J-Pop</strong>, 3 <strong>French Pop</strong>, 2 <strong>Worldwide</strong></li>
+      <li>1 track of <strong>Jungle/Drum'n'bass</strong>, alone and afraid</li>
+      <li>18 tracks with <strong>no genre at all</strong>, true free spirits</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <div>Track counts and genre tags come straight from my Apple Music library. Calling something "folk" was my own judgment and you're welcome to fight me on it.</div>
+  <div>Spotify buttons open an artist search because I didn't hardcode any IDs.</div>
+  <div class="theme-toggle"><button type="button" id="themeBtn">◐ Toggle theme</button></div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---- genre evidence ---- */
+  var GENRES = [
+    { name: "Alternative", count: 2109, color: "var(--g1)" },
+    { name: "Pop", count: 651, color: "var(--g2)" },
+    { name: "Rock", count: 617, color: "var(--g4)" },
+    { name: "Dance", count: 210, color: "var(--g6)" },
+    { name: "Electronic", count: 187, color: "var(--g5)" },
+    { name: "Indie Pop", count: 148, color: "var(--g7)" },
+    { name: "Soundtrack", count: 111, color: "var(--g3)" },
+    { name: "47 other genres", count: 757, color: "var(--g8)" }
+  ];
+  var TOTAL = 4790;
+  var bar = document.getElementById("genreBar");
+  var legend = document.getElementById("genreLegend");
+  GENRES.forEach(function (genre) {
+    var segment = document.createElement("span");
+    segment.style.width = (genre.count / TOTAL * 100) + "%";
+    segment.style.background = genre.color;
+    segment.title = genre.name + ": " + genre.count;
+    bar.appendChild(segment);
+
+    var item = document.createElement("span");
+    item.innerHTML = '<i style="background:' + genre.color + '"></i>' + genre.name + " " + genre.count.toLocaleString();
+    legend.appendChild(item);
+  });
+  var folkItem = document.createElement("span");
+  folkItem.className = "folk-zero";
+  folkItem.innerHTML = "<i></i>Folk 0 (allegedly)";
+  legend.appendChild(folkItem);
+
+  /* ---- the actual folk ---- */
+  // folk: 0-100, my own completely unscientific folk-o-meter
+  var ARTISTS = [
+    { name: "Noah Kahan", tracks: 62, filed: "Alternative", kind: "folk", folk: 97,
+      feat: "+ 9 duets with Hozier, Brandi Carlile, Gregory Alan Isakov, Gracie Abrams, Kacey Musgraves…",
+      quip: "Most of the case rests on him. He has a banjo AND a sad Vermont backstory, and the app still went with Alternative." },
+    { name: "Frank Turner", tracks: 33, filed: "Alternative", kind: "folk", folk: 85,
+      quip: "Ex-hardcore singer, now a folk-punk lifer. Proof the pipeline exists." },
+    { name: "Aaron West and The Roaring Twenties", tracks: 31, filed: "Alternative", kind: "folk", folk: 80,
+      quip: "A whole fictional guy's divorce, set to acoustic guitar and horns." },
+    { name: "Mumford & Sons", tracks: 25, filed: "Alternative", kind: "folk", folk: 90,
+      feat: "+ 1 with Madison Cunningham",
+      quip: "Waistcoats, a kick drum, and a lot of stomping. If this isn't folk the word means nothing." },
+    { name: "Dermot Kennedy", tracks: 16, filed: "Alternative", kind: "folk", folk: 65,
+      quip: "Irish busker roots with a hip-hop drum machine. Folk wearing a hoodie." },
+    { name: "The Decemberists", tracks: 13, filed: "Alternative", kind: "folk", folk: 92,
+      quip: "Accordions, sea shanties, and murder ballads. They really did the reading." },
+    { name: "The Tom Fun Orchestra", tracks: 12, filed: "Alternative", kind: "folk", folk: 82,
+      quip: "Cape Breton folk-punk. Cape Breton does not mess around with this stuff." },
+    { name: "Brendan Kelly and the Wandering Birds", tracks: 12, filed: "Alternative", kind: "folk", folk: 70,
+      quip: "The Lawrence Arms guy, but with fewer amps." },
+    { name: "Jack Johnson", tracks: 10, filed: "Alternative", kind: "folk", folk: 68,
+      quip: "Beach folk. The acoustic guitar has never once worn shoes." },
+    { name: "Tim Vantol", tracks: 10, filed: "Alternative", kind: "folk", folk: 80,
+      quip: "Dutch folk-punk. Very sincere, sung very loudly." },
+    { name: "Dylan Menzie", tracks: 7, filed: "Alternative", kind: "folk", folk: 78,
+      quip: "PEI singer-songwriter. The Maritimes make up a big chunk of this list." },
+    { name: "Vance Joy", tracks: 4, filed: "Alternative", kind: "folk", folk: 60,
+      quip: "Ukulele detected. The folk-o-meter is legally required to go up." },
+    { name: "Chuck Ragan", tracks: 2, filed: "Alternative", kind: "folk", folk: 85,
+      quip: "Hot Water Music frontman, now with a gravel voice and a fiddle." },
+    { name: "Bright Eyes", tracks: 2, filed: "Alternative", kind: "folk", folk: 75,
+      quip: "Quavering voice, Omaha, lots of feelings." },
+    { name: "Band of Horses", tracks: 2, filed: "Alternative", kind: "folk", folk: 55,
+      quip: "Lots of reverb and beards, and every song sounds like a long drive." },
+    { name: "Of Monsters and Men", tracks: 1, filed: "Alternative", kind: "folk", folk: 70,
+      quip: "Icelandic group shouting 'HEY!', a key folk-pop requirement." },
+    { name: "Hozier", tracks: 1, filed: "Alternative", kind: "folk", folk: 62,
+      quip: "One solo track, plus a Noah Kahan duet. The collusion is out in the open." },
+    { name: "Judah & The Lion", tracks: 1, filed: "Alternative", kind: "folk", folk: 58,
+      quip: "Banjo and mandolin playing at full arena volume." },
+    { name: "Woodpigeon", tracks: 1, filed: "Alternative", kind: "folk", folk: 80,
+      quip: "Calgary chamber-folk. Very gentle, possibly knitted." },
+    { name: "Nahko And Medicine For The People", tracks: 1, filed: "Alternative", kind: "folk", folk: 66,
+      quip: "Campfire guitar with a message." },
+    { name: "James Taylor", tracks: 1, filed: "Singer/Songwriter", kind: "folk", folk: 88,
+      quip: "He's been doing this since before 'Alternative' was a tag." },
+    { name: "Passenger", tracks: 1, filed: "Singer/Songwriter", kind: "folk", folk: 72,
+      quip: "One busker song that has been stuck in everyone's head since 2012." },
+
+    { name: "Dave Hause", tracks: 43, filed: "Singer/Songwriter / Americana / Alternative", kind: "adj", folk: 55,
+      quip: "Filed under three different genres. Even the app couldn't decide." },
+    { name: "Brian Fallon", tracks: 19, filed: "Singer/Songwriter / Alternative", kind: "adj", folk: 50,
+      quip: "The Gaslight Anthem guy, pointed more toward Springsteen than folk." },
+    { name: "Jared Hart", tracks: 16, filed: "Singer/Songwriter / Americana / Alternative", kind: "adj", folk: 52,
+      quip: "From The Scandals. A Jersey heartland guy, same school as the last two." },
+    { name: "Joe Hertler & The Rainbow Seekers", tracks: 15, filed: "Alternative", kind: "adj", folk: 40,
+      quip: "Michigan feel-good soul-folk. Groovy enough to leave the main list." },
+    { name: "Wilco", tracks: 12, filed: "Alternative", kind: "adj", folk: 48,
+      quip: "Alt-country royalty. Too weird to count as straight folk, too twangy to count as rock." },
+    { name: "Blue Rodeo", tracks: 3, filed: "Alternative", kind: "adj", folk: 58,
+      quip: "Canadian country-rock institution. Probably gets played around a cottage fire." },
+    { name: "Highwaymen", tracks: 1, filed: "Country", kind: "adj", folk: 60,
+      quip: "Four country legends in one band. The app got this one right, so give it credit." },
+    { name: "Robbie Fulks", tracks: 1, filed: "Country", kind: "adj", folk: 62,
+      quip: "Bluegrass-leaning alt-country. Not far from folk." },
+    { name: "Rosie Flores", tracks: 1, filed: "Country", kind: "adj", folk: 45,
+      quip: "Rockabilly country. Folk's cousin who showed up in a leather jacket." },
+    { name: "Dangermuffin", tracks: 1, filed: "Roots Rock", kind: "adj", folk: 50,
+      quip: "With a name like that, nobody was going to file it as folk." }
+  ];
+
+  var SPOTIFY_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24Zm5.5 17.3a.75.75 0 0 1-1 .25c-2.8-1.7-6.4-2.1-10.5-1.2a.75.75 0 1 1-.33-1.46c4.5-1 8.4-.6 11.6 1.4.35.2.46.66.24 1Zm1.47-3.27a.94.94 0 0 1-1.29.3c-3.2-2-8.1-2.55-11.9-1.4a.94.94 0 1 1-.54-1.8c4.3-1.3 9.7-.67 13.4 1.6.44.27.58.85.31 1.3Zm.13-3.4C15.2 8.3 8.9 8.1 5.2 9.2a1.13 1.13 0 1 1-.65-2.16c4.2-1.28 11.2-1.03 15.6 1.6a1.13 1.13 0 0 1-1.15 1.95Z"/></svg>';
+
+  function escapeHtml(text) {
+    return String(text).replace(/[&<>"']/g, function (character) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[character];
+    });
+  }
+
+  function spotifySearchUrl(artistName) {
+    return "https://open.spotify.com/search/" + encodeURIComponent(artistName) + "/artists";
+  }
+
+  function renderCard(artist) {
+    var card = document.createElement("article");
+    card.className = "card " + artist.kind;
+    card.dataset.kind = artist.kind;
+    card.dataset.name = artist.name;
+    card.innerHTML =
+      '<span class="tag">' + (artist.kind === "folk" ? "Certified folk" : "Folk-adjacent") + "</span>" +
+      "<h4>" + escapeHtml(artist.name) + "</h4>" +
+      (artist.feat ? '<div class="feat">' + escapeHtml(artist.feat) + "</div>" : "") +
+      '<p class="quip">' + escapeHtml(artist.quip) + "</p>" +
+      '<div><div class="meter-label"><span>folk-o-meter</span><span>' + artist.folk + '%</span></div>' +
+      '<div class="meter"><div style="width:' + artist.folk + '%"></div></div></div>' +
+      '<div class="meta"><span class="filed">filed as: <s>' + escapeHtml(artist.filed) + "</s></span>" +
+      "<span>" + artist.tracks + (artist.tracks === 1 ? " track" : " tracks") + "</span></div>" +
+      '<a class="btn spot" target="_blank" rel="noopener" href="' + spotifySearchUrl(artist.name) + '">' +
+      SPOTIFY_ICON + "Find on Spotify</a>";
+    return card;
+  }
+
+  var folkGrid = document.getElementById("grid-folk");
+  var adjacentGrid = document.getElementById("grid-adj");
+  ARTISTS.forEach(function (artist) {
+    (artist.kind === "folk" ? folkGrid : adjacentGrid).appendChild(renderCard(artist));
+  });
+
+  var folkTrackTotal = ARTISTS.reduce(function (sum, artist) { return sum + artist.tracks; }, 0);
+  document.querySelector(".sub").insertAdjacentHTML("beforeend",
+    " Recount result: <strong>" + ARTISTS.length + " artists, " + folkTrackTotal + " tracks</strong>, plus the Noah Kahan duets.");
+
+  /* ---- filters ---- */
+  var filterButtons = document.querySelectorAll("[data-filter]");
+  filterButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      var filter = button.dataset.filter;
+      filterButtons.forEach(function (other) { other.setAttribute("aria-pressed", String(other === button)); });
+      var showFolk = filter !== "adj";
+      var showAdjacent = filter !== "folk";
+      document.getElementById("h-folk").hidden = !showFolk;
+      folkGrid.hidden = !showFolk;
+      document.getElementById("h-adj").hidden = !showAdjacent;
+      adjacentGrid.hidden = !showAdjacent;
+    });
+  });
+
+  /* ---- is it folk? ---- */
+  var VERDICTS_HIGH = [
+    "Yes. Obviously. The app is lying to you.",
+    "Folk. There's a mandolin in here somewhere, I can feel it.",
+    "Folk. Holding a coffee mug is strongly advised.",
+    "Certified. File it under Alternative anyway, like Apple would."
+  ];
+  var VERDICTS_MID = [
+    "Kind of folk. Folk with a cover charge.",
+    "It's folk if you're sad enough.",
+    "Too twangy for rock, not enough banjo for folk. Limbo."
+  ];
+  var VERDICTS_LOW = [
+    "Not really folk, but it's welcome at the campfire.",
+    "Wandered in from a punk show and decided to stay."
+  ];
+  function pick(list) { return list[Math.floor(Math.random() * list.length)]; }
+
+  var verdictBox = document.getElementById("verdict");
+  document.getElementById("isItFolk").addEventListener("click", function () {
+    var visibleCards = Array.prototype.filter.call(document.querySelectorAll(".card"), function (card) {
+      return !card.parentElement.hidden;
+    });
+    if (!visibleCards.length) return;
+    document.querySelectorAll(".card.spotlight").forEach(function (card) { card.classList.remove("spotlight"); });
+    var chosen = visibleCards[Math.floor(Math.random() * visibleCards.length)];
+    var artist = ARTISTS.find(function (candidate) { return candidate.name === chosen.dataset.name; });
+    chosen.classList.add("spotlight");
+    chosen.scrollIntoView({ behavior: "smooth", block: "center" });
+    var verdictPool = artist.folk >= 75 ? VERDICTS_HIGH : artist.folk >= 50 ? VERDICTS_MID : VERDICTS_LOW;
+    verdictBox.textContent = artist.name + ": " + pick(verdictPool);
+  });
+
+  /* ---- theme toggle ---- */
+  var root = document.documentElement;
+  try {
+    var savedTheme = localStorage.getItem("folk-theme");
+    if (savedTheme) root.dataset.theme = savedTheme;
+  } catch (storageError) { /* private mode: ignore */ }
+  document.getElementById("themeBtn").addEventListener("click", function () {
+    var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    var current = root.dataset.theme || (prefersDark ? "dark" : "light");
+    var next = current === "dark" ? "light" : "dark";
+    root.dataset.theme = next;
+    try { localStorage.setItem("folk-theme", next); } catch (storageError) { /* ignore */ }
+  });
+})();
+</script>
+</body>
+</html>
