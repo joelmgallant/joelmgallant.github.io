@@ -1,9 +1,20 @@
 {
-  "selection": { "minSongs": 3, "minPlays": 10, "anyFavourite": true },
+  "selection": { "minSongs": 3, "minPlays": 10, "anyFavourite": false },
   "loveWeights": { "songs": 1, "plays": 0.2, "favourites": 3 },
   "forceIn": [],
   "forceOut": [],
-  "mbids": {},
-  "clusterNames": {},
+  "mbids": {
+    "joe-hisaishi": "44c64a30-1d58-49c5-b314-6e02fba49526",
+    "milburn": "29a2e85c-1b08-4fe9-91a5-662d6e70dfe7",
+    "talk": "b8b3d675-a685-4709-8219-4052435f770b"
+  },
+  "clusterNames": {
+    "dave-hause": "Folk Punk Songwriters",
+    "noah-kahan": "Folk (filed under anything but)",
+    "the-strokes": "Electronic and Alt-Dance",
+    "daniele-zandara": "Video Game Music",
+    "tom-cardy": "Comedy and Musical Theatre",
+    "vitamin-string-quartet": "Film Scores and Instrumentals"
+  },
   "clusterResolution": 1
 }
