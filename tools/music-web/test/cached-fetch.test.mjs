@@ -1,6 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { mkdtemp, readdir } from "node:fs/promises";
+import { mkdtemp, readdir, writeFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { createFetcher, redact } from "../lib/cached-fetch.mjs";
@@ -45,9 +46,63 @@ test("throttles consecutive network requests to minIntervalMs", async () => {
 });
 
 test("retries 503 with backoff, then succeeds", async () => {
-  const { fetcher, sleeps } = await setup([{ status: 503, body: null }, { status: 200, body: { ok: true } }]);
+  const { fetcher, sleeps } = await setup(
+    [{ status: 503, body: null }, { status: 200, body: { ok: true } }], { minIntervalMs: 0 });
   assert.deepEqual(await fetcher.getJson("https://example.test/x"), { ok: true });
-  assert.ok(sleeps.includes(1000), `expected a 1000ms backoff, got ${sleeps}`);
+  assert.deepEqual(sleeps, [1000]);
+});
+
+test("retries 429, then succeeds", async () => {
+  const { fetcher, fake } = await setup(
+    [{ status: 429, body: null }, { status: 200, body: { ok: true } }], { minIntervalMs: 0 });
+  assert.deepEqual(await fetcher.getJson("https://example.test/x"), { ok: true });
+  assert.equal(fake.calls.length, 2);
+});
+
+test("gives up after maxRetries with the HTTP status", async () => {
+  const { fetcher, fake } = await setup(
+    [{ status: 503, body: null }, { status: 503, body: null }, { status: 503, body: null }],
+    { minIntervalMs: 0, maxRetries: 2 });
+  await assert.rejects(
+    fetcher.getJson("https://example.test/x"),
+    (error) => error.message === "HTTP 503 for https://example.test/x",
+  );
+  assert.equal(fake.calls.length, 3);
+});
+
+test("backoff doubles on each retry", async () => {
+  const { fetcher, sleeps } = await setup(
+    [{ status: 503, body: null }, { status: 503, body: null }, { status: 200, body: 1 }], { minIntervalMs: 0 });
+  await fetcher.getJson("https://example.test/x");
+  assert.deepEqual(sleeps, [1000, 2000]);
+});
+
+test("leaves exactly one .json file and no temp files after a fetch", async () => {
+  const { fetcher, cacheDir } = await setup([{ status: 200, body: { a: 1 } }]);
+  await fetcher.getJson("https://example.test/a");
+  const names = await readdir(cacheDir);
+  assert.equal(names.length, 1);
+  assert.match(names[0], /\.json$/);
+  assert.equal(names.some((name) => name.endsWith(".tmp")), false);
+});
+
+test("a corrupt cache file fails loudly with its path and does not refetch", async () => {
+  const { fetcher, fake, cacheDir } = await setup([{ status: 200, body: { a: 1 } }]);
+  const url = "https://example.test/corrupt";
+  const file = join(cacheDir, `${createHash("sha256").update(url).digest("hex")}.json`);
+  await writeFile(file, '{"truncated": ');
+  await assert.rejects(
+    fetcher.getJson(url),
+    (error) => error.message.includes(file) && /corrupt/i.test(error.message),
+  );
+  assert.equal(fake.calls.length, 0);
+});
+
+test("cacheKey defaults to the redacted URL", async () => {
+  const { fetcher, fake } = await setup([{ status: 200, body: "first" }]);
+  await fetcher.getJson("https://example.test/?q=1&api_key=one");
+  assert.equal(await fetcher.getJson("https://example.test/?q=1&api_key=two"), "first");
+  assert.equal(fake.calls.length, 1);
 });
 
 test("throws on other errors with the API key redacted", async () => {

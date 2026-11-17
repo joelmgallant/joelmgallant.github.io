@@ -1,5 +1,5 @@
 import { createHash } from "node:crypto";
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
 export function redact(url) {
@@ -16,15 +16,21 @@ export function createFetcher({
   const stats = { network: 0, cached: 0 };
 
   async function readCache(file) {
+    let text;
     try {
-      return { hit: true, data: JSON.parse(await readFile(file, "utf8")) };
+      text = await readFile(file, "utf8");
     } catch (error) {
       if (error.code === "ENOENT") return { hit: false };
       throw error;
     }
+    try {
+      return { hit: true, data: JSON.parse(text) };
+    } catch (error) {
+      throw new Error(`Cache file ${file} is corrupt (${error.message}); delete it to refetch`);
+    }
   }
 
-  async function getJson(url, { cacheKey = url } = {}) {
+  async function getJson(url, { cacheKey = redact(url) } = {}) {
     const file = join(cacheDir, `${createHash("sha256").update(cacheKey).digest("hex")}.json`);
     const cached = await readCache(file);
     if (cached.hit) {
@@ -45,7 +51,9 @@ export function createFetcher({
       if (!response.ok) throw new Error(`HTTP ${response.status} for ${redact(url)}`);
       const data = await response.json();
       await mkdir(cacheDir, { recursive: true });
-      await writeFile(file, JSON.stringify(data));
+      const tempFile = `${file}.${process.pid}.tmp`;
+      await writeFile(tempFile, JSON.stringify(data));
+      await rename(tempFile, file);
       return data;
     }
   }
