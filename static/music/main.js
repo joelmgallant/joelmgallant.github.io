@@ -42,13 +42,23 @@ async function start() {
     canvas: document.getElementById("map"),
     data,
     juice,
-    onSelect: (id) => { location.hash = id ? formatHash({ artist: id }) : ""; },
+    onSelect: (id) => {
+      const { story, step } = parseHash(location.hash);
+      if (story) { if (id) location.hash = formatHash({ story, step, artist: id }); return; }
+      location.hash = id ? formatHash({ artist: id }) : "";
+    },
   });
   wireSearch(document.getElementById("search"), document.getElementById("artist-names"), data.artists);
   const stories = createStories({ select: document.getElementById("stories"), box: document.getElementById("story"), data, map });
 
-  panel.addEventListener("click", (event) => { if (event.target.closest("[data-close]")) location.hash = ""; });
-  document.addEventListener("keydown", (event) => { if (event.key === "Escape" && !panel.hidden) location.hash = ""; });
+  // Closing the panel keeps an open story; Escape with no panel closes the story.
+  const closeHash = () => { const { story, step } = parseHash(location.hash); return formatHash({ story, step }); };
+  panel.addEventListener("click", (event) => { if (event.target.closest("[data-close]")) location.hash = closeHash(); });
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    if (!panel.hidden) location.hash = closeHash();
+    else if (parseHash(location.hash).story) location.hash = "";
+  });
 
   const narrow = window.matchMedia("(max-width: 700px)");
   // Keep the artist clear of the panel: above the bottom sheet on phones, left of the right-hand card on wide screens.

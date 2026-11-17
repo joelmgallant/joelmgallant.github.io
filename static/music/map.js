@@ -43,7 +43,7 @@ export function createMap({ canvas, data, juice, onSelect }) {
     lastFrame = now;
     let animating = juice.step(dt, now);
     if (tween) {
-      const progress = Math.min(1, (now - tween.start) / GLIDE_MS);
+      const progress = Math.max(0, Math.min(1, (now - tween.start) / GLIDE_MS));
       camera = { ...lerpCamera(tween.from, tween.to, progress), width: camera.width, height: camera.height };
       if (progress < 1) animating = true;
       else tween = null;

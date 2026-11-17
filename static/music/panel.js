@@ -66,7 +66,7 @@ function renderLineage(artist) {
   for (const item of artist.lineage) {
     const target = item.id
       ? element("a", { href: `#artist=${item.id}`, text: item.name })
-      : element("span", { class: "outside", text: `${item.name} (not in my library)` });
+      : element("span", { class: "outside", text: `${item.name} (not on the map)` });
     list.append(element("li", {}, element("span", { class: "relation", text: `${item.relation} ` }), target));
   }
   section.append(renderLineageGraph(artist, artist.lineage.slice(0, 12)), list);
