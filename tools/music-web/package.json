@@ -1,0 +1,14 @@
+{
+  "name": "music-web-tools",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "refresh": "node refresh.mjs"
+  },
+  "dependencies": {
+    "d3-force": "3.0.0",
+    "graphology": "0.26.0",
+    "graphology-communities-louvain": "2.0.2"
+  }
+}

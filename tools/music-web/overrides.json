@@ -1,0 +1,9 @@
+{
+  "selection": { "minSongs": 3, "minPlays": 10, "anyFavourite": true },
+  "loveWeights": { "songs": 1, "plays": 0.2, "favourites": 3 },
+  "forceIn": [],
+  "forceOut": [],
+  "mbids": {},
+  "clusterNames": {},
+  "clusterResolution": 1
+}
