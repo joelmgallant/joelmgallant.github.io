@@ -22,25 +22,30 @@ export function groupByArtist(tracks) {
       const key = normalizeName(part);
       if (!key) continue;
       if (!groups.has(key)) {
-        groups.set(key, { key, spellings: new Map(), genres: new Map(), songs: 0, plays: 0, favourites: 0, tracks: [] });
+        groups.set(key, { key, spellings: new Map(), genres: new Map(), plays: 0, favourites: 0, titles: new Map() });
       }
       const group = groups.get(key);
       increment(group.spellings, part);
       if (track.genre) increment(group.genres, track.genre);
-      group.songs += 1;
       group.plays += track.plays;
       if (track.favourite) group.favourites += 1;
-      group.tracks.push({ title: track.title, plays: track.plays });
+      const titleKey = track.title.trim().toLowerCase();
+      if (!group.titles.has(titleKey)) group.titles.set(titleKey, { spellings: new Map(), plays: 0 });
+      const entry = group.titles.get(titleKey);
+      increment(entry.spellings, track.title.trim());
+      entry.plays += track.plays;
     }
   }
   return [...groups.values()].map((group) => ({
     key: group.key,
     name: byFrequency(group.spellings)[0],
-    songs: group.songs,
+    songs: group.titles.size,
     plays: group.plays,
     favourites: group.favourites,
     appleGenres: byFrequency(group.genres),
-    tracks: group.tracks.sort((left, right) => right.plays - left.plays || left.title.localeCompare(right.title)),
+    tracks: [...group.titles.values()]
+      .map((entry) => ({ title: byFrequency(entry.spellings)[0], plays: entry.plays }))
+      .sort((left, right) => right.plays - left.plays || left.title.localeCompare(right.title)),
   }));
 }
 

@@ -56,3 +56,26 @@ test("selectArtists de-duplicates colliding ids", () => {
 test("missingForcedIn lists override names that are not in the library", () => {
   assert.deepEqual(missingForcedIn(groupByArtist(tracks), ["Noah Kahan", "Nobody"]), ["Nobody"]);
 });
+
+test("groupByArtist merges duplicate titles across releases and counts unique songs", () => {
+  const groups = groupByArtist([
+    track("Noah Kahan", "Dial Drunk", 19),
+    track("Noah Kahan", "  dial drunk ", 15),
+    track("Noah Kahan", "Dial Drunk", 1),
+    track("Noah Kahan", "Stick Season", 3),
+  ]);
+  const noah = groups[0];
+  assert.equal(noah.songs, 2);
+  assert.equal(noah.plays, 38);
+  const dial = noah.tracks.filter((entry) => entry.title.trim().toLowerCase() === "dial drunk");
+  assert.equal(dial.length, 1);
+  assert.equal(dial[0].plays, 35);
+  assert.equal(dial[0].title, "Dial Drunk");
+});
+
+test("duplicate titles sum plays: 19 + 15 = 34 with one track", () => {
+  const [group] = groupByArtist([track("Solo", "Dial Drunk", 19), track("Solo", "Dial Drunk", 15)]);
+  assert.equal(group.tracks.length, 1);
+  assert.equal(group.tracks[0].plays, 34);
+  assert.equal(group.songs, 1);
+});
