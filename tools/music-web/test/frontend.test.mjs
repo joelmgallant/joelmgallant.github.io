@@ -110,3 +110,8 @@ test("findArtists ranks prefix matches, then love", () => {
   assert.deepEqual(findArtists("maneskin", artists).map((artist) => artist.id), ["c"]);
   assert.deepEqual(findArtists("  ", artists), []);
 });
+
+test("findArtists puts an exact name match first", () => {
+  const artists = [{ id: "idina", name: "Idina Menzel", love: 100 }, { id: "id", name: "ID", love: 2 }];
+  assert.deepEqual(findArtists("ID", artists).map((artist) => artist.id), ["id", "idina"]);
+});

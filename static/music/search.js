@@ -27,6 +27,7 @@ export function findArtists(query, artists, limit = 8) {
     .map((artist) => ({ artist, name: normalise(artist.name) }))
     .filter((entry) => entry.name.includes(wanted))
     .sort((left, right) =>
+      Number(right.name === wanted) - Number(left.name === wanted) ||
       Number(right.name.startsWith(wanted)) - Number(left.name.startsWith(wanted)) ||
       right.artist.love - left.artist.love ||
       left.artist.name.localeCompare(right.artist.name))
