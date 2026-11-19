@@ -5,16 +5,22 @@ const NICKNAMES = { joel: 'Tiger', nancy: 'Mountain' };
 export const nickname = (person) => NICKNAMES[person];
 export const otherName = (person) => NAMES[person === 'joel' ? 'nancy' : 'joel'];
 
-/** The personal key from a `#join=<key>` link, or null. Keys are 32 bytes in base64url. */
+// Keys are 32 bytes in base64url (43 characters). Messaging apps decorate links: trailing punctuation,
+// tracking tags like &fbclid=…, or a whole l.facebook.com redirect with the link percent-encoded inside.
+const JOIN = /#join=([A-Za-z0-9_-]{43})(?![A-Za-z0-9_-])/;
+const BARE_KEY = /^([A-Za-z0-9_-]{43})$/;
+const decoded = (text) => { try { return decodeURIComponent(text); } catch { return text; } };
+
+/** The personal key from a `#join=<key>` location hash (extra tracking tags allowed), or null. */
 export function parseJoinKey(hash) {
-  const match = /^#join=([A-Za-z0-9_-]{43})$/.exec(hash ?? '');
-  return match ? match[1] : null;
+  const match = JOIN.exec(decoded(hash ?? ''));
+  return match && match.index === 0 ? match[1] : null;
 }
 
-/** Key from a pasted invite link (or a bare key), for installed apps that can't open a #join link. */
+/** Key from a pasted invite link, a whole pasted message holding one, or a bare key. */
 export function parsePastedLink(text) {
   const trimmed = (text ?? '').trim();
-  return parseJoinKey(trimmed.slice(trimmed.indexOf('#'))) ?? parseJoinKey(`#join=${trimmed}`);
+  return JOIN.exec(decoded(trimmed))?.[1] ?? BARE_KEY.exec(trimmed)?.[1] ?? null;
 }
 
 /** Which panel to show: none, offline, unanswered, waiting, revealed or closed. */

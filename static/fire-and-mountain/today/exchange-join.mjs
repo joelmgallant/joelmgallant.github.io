@@ -23,10 +23,11 @@ export function joinBox({ notice, join, onJoin }) {
     if (joined) onJoin(joined); else status.textContent = BAD_LINK;
   }
 
-  const input = element('input', { type: 'url', className: 'answer-input', placeholder: 'Paste your Exchange link',
+  // Plain text, not type=url: a pasted message with words around the link must reach our parser, not the browser's validator.
+  const input = element('input', { type: 'text', inputMode: 'url', className: 'answer-input', placeholder: 'Paste your Exchange link',
     ariaLabel: 'Your Exchange link', autocomplete: 'off' });
   const submit = element('button', { type: 'submit', className: 'chunky', textContent: 'Join' });
-  const form = element('form', { className: 'join-form' }, input, submit);
+  const form = element('form', { className: 'join-form', noValidate: true }, input, submit);
   form.addEventListener('submit', (event) => { event.preventDefault(); tryJoin(input.value, BAD_LINK); });
   buttons.push(submit);
 

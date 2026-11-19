@@ -22,6 +22,19 @@ test('parsePastedLink pulls the key out of a pasted invite link or a bare key', 
   assert.equal(parsePastedLink(''), null);
 });
 
+test('the link survives what messaging apps do to it', () => {
+  const link = `https://joelmgallant.com/fire-and-mountain/today/#join=${KEY}`;
+  assert.equal(parsePastedLink(`${link}.`), KEY, 'trailing period');
+  assert.equal(parsePastedLink(`${link} 🙂`), KEY, 'trailing emoji');
+  assert.equal(parsePastedLink(`Here is your new link: ${link} (only yours!)`), KEY, 'whole message copied');
+  assert.equal(parsePastedLink(`${link}&fbclid=IwAR0abc`), KEY, 'tracking tag after the key');
+  assert.equal(parsePastedLink(`https://l.facebook.com/l.php?u=${encodeURIComponent(link)}&h=AT0x`), KEY, 'facebook redirect');
+  assert.equal(parsePastedLink('https://l.facebook.com/l.php?u=%ZZ'), null, 'malformed encoding');
+  assert.equal(parseJoinKey(`#join=${KEY}&fbclid=IwAR0abc`), KEY, 'tapped link with a tracking tag');
+  assert.equal(parseJoinKey(`#join%3D${KEY}`), KEY, 'tapped link with an encoded =');
+  assert.equal(parseJoinKey(`#join=${KEY}x`), null, 'a longer key is still wrong');
+});
+
 const response = (overrides) => ({ open: true, revealed: false, match: false, me: null, them: { answered: false }, ...overrides });
 
 test('panelState covers every state of the panel', () => {
