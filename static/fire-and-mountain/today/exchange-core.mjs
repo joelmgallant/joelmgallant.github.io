@@ -23,6 +23,20 @@ export function parsePastedLink(text) {
   return JOIN.exec(decoded(trimmed))?.[1] ?? BARE_KEY.exec(trimmed)?.[1] ?? null;
 }
 
+/** True inside an Android app's built-in browser (Messenger, Facebook, Instagram, any webview): it keeps
+ * its own storage, so joining there would not reach Chrome or the installed app. */
+export const isAndroidInAppBrowser = (userAgent) => /Android/.test(userAgent) && /FB_IAB|FBAN|FBAV|Instagram|; wv\)/.test(userAgent);
+
+/** An Android intent link that reopens `href` (hash included) in Chrome, falling back to `href` itself. */
+export function chromeIntentUrl(href) {
+  const url = new URL(href);
+  return `intent://${url.host}${url.pathname}${url.search}${url.hash}#Intent;scheme=${url.protocol.slice(0, -1)};package=com.android.chrome;`
+    + `S.browser_fallback_url=${encodeURIComponent(href)};end`;
+}
+
+/** Only Apple home-screen apps need a pasted link: they have their own storage and links never open in them. */
+export const needsPaste = (userAgent, standalone) => standalone && /iPhone|iPad|iPod|Macintosh/.test(userAgent);
+
 /** Which panel to show: none, offline, unanswered, waiting, revealed or closed. */
 export function panelState({ hasKey, error, response }) {
   if (!hasKey) return 'none';

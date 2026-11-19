@@ -18,7 +18,7 @@ export function watchForUpdates() {
   navigator.serviceWorker.register('sw.js').then((registration) => {
     document.addEventListener('visibilitychange', () => {
       reloadIfSafe();
-      if (document.visibilityState === 'visible') registration.update().catch(() => undefined);
+      if (document.visibilityState === 'visible') registration?.update().catch(() => undefined);
     });
   }).catch((error) => console.warn('service worker not registered', error));
 }

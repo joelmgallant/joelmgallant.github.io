@@ -1,15 +1,20 @@
-// Guest join box. Installed home-screen apps keep their own storage and can't open #join links,
-// so a copied link is joined with one tap (clipboard), or pasted by hand as a fallback.
+// Guest join box. Most devices join by tapping the link. Apple home-screen apps keep their own storage and
+// can't open #join links, so there (canPaste) a copied link is joined with one tap, or pasted by hand.
 import { parsePastedLink } from './exchange-core.mjs';
 import { element } from './exchange-ui.mjs';
 
 export const BAD_LINK = "That link didn't work. Ask Joel for a fresh one.";
-export const RESET_LINK = "This device's link was reset. Tap the new link Joel sent you, or paste it here.";
+export const RESET_LINK = "This device's link was reset. Tap the new link Joel sent you.";
+const TAP_LINK = 'Tap the link Joel sent you on this phone and it brings you right in.';
 const NO_LINK_COPIED = 'No Exchange link on the clipboard. Copy your link first, then tap again.';
 
 /** `join(key)` resolves to the joined identity or null; `onJoin` receives it. */
-export function joinBox({ notice, join, onJoin }) {
+export function joinBox({ notice, join, onJoin, canPaste = false }) {
   const status = element('p', { className: 'composer-status', textContent: notice ?? '', role: 'status' });
+  if (!canPaste) {
+    return element('div', {}, element('div', { className: 'join-row' }, element('p', { className: 'join-label', textContent: '🎤 Got an Exchange link?' })),
+      element('p', { className: 'composer-status', textContent: notice ? `${notice}` : TAP_LINK, role: 'status' }));
+  }
   const buttons = [];
   const busy = (isBusy) => buttons.forEach((button) => { button.disabled = isBusy; });
 

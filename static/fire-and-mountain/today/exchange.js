@@ -1,7 +1,7 @@
 // The Exchange: sealed daily answers between Joel and Nancy, revealed together quiz-show style.
 import { createApi, ApiError } from './exchange-api.mjs';
 import { createComposer } from './exchange-composer.mjs';
-import { parseJoinKey, panelState, hostLine, nickname, otherName } from './exchange-core.mjs';
+import { chromeIntentUrl, isAndroidInAppBrowser, needsPaste, parseJoinKey, panelState, hostLine, nickname, otherName } from './exchange-core.mjs';
 import { NAMES, answerCard, element, plainPrompt } from './exchange-ui.mjs';
 import { playSting, soundEnabled, setSoundEnabled } from './exchange-sounds.mjs';
 import { dayFileName } from './today-core.mjs';
@@ -20,12 +20,15 @@ function writeStored(key, value) {
   try { localStorage.setItem(key, JSON.stringify(value)); } catch { /* private mode */ }
 }
 
+/** Tells the other panels (the Bonus Round) to remount with this identity. */
+const announceJoin = (identity) => window.dispatchEvent(new CustomEvent('fm-exchange-joined', { detail: identity }));
+
 async function joinWithKey(key) {
   try {
     const { person } = await createApi(key).whoami();
     const identity = { key, person };
     writeStored(IDENTITY_KEY, identity);
-    window.dispatchEvent(new CustomEvent('fm-exchange-joined', { detail: identity }));
+    announceJoin(identity);
     return { identity, notice: `Welcome, ${nickname(person)}. You're on the show. 🎤` };
   } catch {
     return null;
@@ -41,16 +44,42 @@ async function joinFromHash() {
 
 let teardown = () => {};
 
+const standalone = () => window.matchMedia?.('(display-mode: standalone)').matches || navigator.standalone === true;
+
+/** Inside Messenger's (or another app's) browser on Android: send the link to Chrome, where the app's storage lives. */
+function openInChrome(container) {
+  const intent = chromeIntentUrl(location.href);
+  container.hidden = false;
+  container.classList.add('exchange-guest');
+  container.replaceChildren(
+    element('p', { className: 'join-label', textContent: '🎤 Almost there!' }),
+    element('p', { className: 'composer-status', textContent: 'This link opened inside another app. Tap below to open it in Chrome, where your Fire & Mountain app lives.' }),
+    element('a', { className: 'chunky', href: intent, textContent: 'Open in Chrome' }));
+  location.href = intent; // most in-app browsers allow this; the button covers the rest
+}
+
+/** No usable key on this device: offer the join box, and pick up a key joined elsewhere (e.g. in Chrome) on return. */
+function showGuest(args, notice) {
+  const { container } = args;
+  container.hidden = false;
+  container.classList.add('exchange-guest');
+  container.replaceChildren(joinBox({ notice, join: joinWithKey, canPaste: needsPaste(navigator.userAgent, standalone()),
+    onJoin: (joinedNow) => mountExchange(args, joinedNow) }));
+  const onReturn = () => {
+    const identity = document.visibilityState === 'visible' && readStored(IDENTITY_KEY);
+    if (!identity) return;
+    mountExchange(args, { identity, notice: null });
+    announceJoin(identity);
+  };
+  document.addEventListener('visibilitychange', onReturn);
+  teardown = () => document.removeEventListener('visibilitychange', onReturn);
+}
+
 export async function mountExchange({ container, date, prompt }, joined = null) {
   teardown();
+  if (!joined && parseJoinKey(location.hash) && isAndroidInAppBrowser(navigator.userAgent)) { openInChrome(container); return; }
   const { identity, notice } = joined ?? await joinFromHash();
-  if (!identity) {
-    container.hidden = false;
-    container.classList.add('exchange-guest');
-    container.replaceChildren(joinBox({ notice, join: joinWithKey,
-      onJoin: (joinedNow) => mountExchange({ container, date, prompt }, joinedNow) }));
-    return;
-  }
+  if (!identity) { showGuest({ container, date, prompt }, notice); return; }
   container.classList.remove('exchange-guest');
   const api = createApi(identity.key);
   const me = identity.person;
@@ -150,9 +179,7 @@ export async function mountExchange({ container, date, prompt }, joined = null) 
         // The key was reissued: forget it and offer the join box so a new link can be tapped or pasted.
         try { localStorage.removeItem(IDENTITY_KEY); } catch { /* private mode */ }
         teardown();
-        container.classList.add('exchange-guest');
-        container.replaceChildren(joinBox({ notice: RESET_LINK, join: joinWithKey,
-          onJoin: (joinedNow) => mountExchange({ container, date, prompt }, joinedNow) }));
+        showGuest({ container, date, prompt }, RESET_LINK);
         return;
       }
       show(null, true);
